@@ -4,34 +4,27 @@
 
 ## 지금 상태
 
-- **설계 1~6번 결정됨**(영신 26.11.06 "전부 추천대로 가자"). 결정과 이유는 [PRINCIPLES 8](PRINCIPLES.md#8-설계-결정-2026-11-06).
+- **설계 1~6번 결정됨**(영신 26.11.06 "전부 추천대로 가자"). 결정과 이유는 [PRINCIPLES 8](PRINCIPLES.md#8-설계-결정-2026-11-06). 입력은 보카고양 틀을 가져오며 바뀌었다(8-3 '바뀜').
+- **화면은 보카고양 틀 그대로다**(26.11.06 영신 "그냥 보카고양에서 틀을 가져오면 돼", [PRINCIPLES 1-1](PRINCIPLES.md#1-1-화면은-보카고양-틀을-그대로-가져온다)).
+  - `pipeline/derive_template.py`가 보카고양 `vocagoyangksat2027.html`(vocagoyang `d7e077d`)에서 `pipeline/frame.html`을 뽑았다. 고친 곳은 그 스크립트에 이유와 함께 적혀 있다.
+  - 발음고양 덧붙임은 `pipeline/ipa_extra.js`·`ipa_extra.css`에 있다: IPA 입력 변환, 기호 칸, 녹음 재생 단추, 배우기 그림, 처음 화면 IPA 지도·도감.
+  - 앞서 흉내 내어 짰던 `pipeline/template.html`은 지웠다.
+- **시제품(묶음 1, [p] [b] [pʰ] [p͈] × 한국어·영어·스페인어·일본어·프랑스어):** 01강 하나에 연습 넷(배우기 5 · 한국어와 견주기 3 · 듣고 고르기 2 · 전사 빈칸 15, 카드 25). 생성물은 `index.html`. 공개 배포는 안 했다.
+  - 녹음 5개만 들어 있다(영어 pin·spin·bin, 기호 소리 [p]·[b]). 외국어 8개는 Wikimedia 429로 받는 중이고, 한국어 불·풀·뿔·부부는 영신초이 녹음을 기다린다(공개 조건·화자 설명 확인 대기). 없는 소리는 '녹음 준비 중'으로 보인다.
+- **미리보기(비공개 Artifact):** https://claude.ai/artifact/3QPEUivENNJjCLp4vcTcJo (`python3 pipeline/build.py --artifact <파일>`).
+- **영신 직검수 페이지:** https://claude.ai/artifact/11cSUJ2Paoo2hgvctNgtH8 (줄 댓글, `python3 pipeline/review_page.py b01 --out <파일>`).
 - **영신 결정 대기:**
   - [설계안 7번 언어 풀](proposals/design-20261106.md#7-언어-풀-영신-결정-대기)
-  - [설계안 8번 눈으로 배우기와 발음고양만의 요소](proposals/design-20261106.md#8-눈으로-배우기와-발음고양만의-요소-영신-결정-대기). 추천: CC0 단면도로 바꾸기, 여러 화자 듣기, 언어로 보기 등
-  - 한국어 녹음(불·풀·뿔·부부, 영신초이가 하기로 함)의 공개 조건(CC0 / CC BY-SA 4.0)과 화자 설명. 파일은 구글 드라이브나 저장소 `incoming/`으로 받는다
-- **시제품(묶음 1, [p] [b] [pʰ] [p͈] × 한국어·영어·스페인어·일본어·프랑스어)을 만들었다. 커밋·푸시만 했고 공개 배포는 안 했다.**
-  - 처음 화면: 입 옆모습 → IPA 자음표 지도.
-  - 배우기 5장: [p] [pʰ] [p͈] [b] [β]. 입 옆모습·목청 창·소리 시작 띠·파형·체감 연습이 들어 있다.
-  - 문제: 한국어와 견주기 3 → 듣고 고르기 → 전사 빈칸 15(묶음 자판). 틀리면 따라 한다.
-  - 결과 화면에서 표에 불이 들어온다. 출처·라이선스 화면이 있다.
-  - 생성물은 `index.html`이다. 원본과 조립 방법은 [pipeline/README](pipeline/README.md).
-  - **받은 녹음은 5개다**(영어 pin·spin·bin, IPA [p]·[b] 기호 소리). 기호 소리는 배우기 카드의 '기호 소리' 단추에 들어갔다. 한국어는 영신초이 녹음을 쓰기로 해서 Commons 한국어 4개는 받을 목록에서 뺐다. 남은 것은 스페인어·일본어·프랑스어 8개다. Wikimedia 파일 서버가 계속 HTTP 429(요청 제한)를 돌려준다. 못 받은 낱말은 재생 단추가 꺼지고 듣고 고르기에서 빠진다. 그래서 지금 듣고 고르기는 영어 2문제뿐이다.
-- **화면을 고양 시리즈 틀로 다시 짰다**(26.11.06 영신 "디자인왜이래 보카고양분석해옵시다", "색상은 바뀌어도 돼 다만 고양이만큼은 이런놈이 아니라구").
-  - 밤하늘 바탕, 진보라 판, 2열 타일, 금빛 단추를 쓴다. 소리는 청록이다.
-  - 고양고양이는 보카고양과 같은 픽셀 그림이다(표정 7종 가운데 normal·evil·win·rage를 쓴다).
-  - 콤보 하트를 넣었다.
-  - 분석은 [proposals/vocagoyang-design-analysis-20261106.md](proposals/vocagoyang-design-analysis-20261106.md), 원칙은 [PRINCIPLES 1·1-1](PRINCIPLES.md#1-1-화면은-고양-시리즈-틀).
-  - 영신이 정할 것 둘: 문제 시간 막대를 둘지(지금 없음), 시리즈 연출(퍼펙트 포효·장미 복습 등)을 어디까지 가져올지.
-- **미리보기(비공개 Artifact):** https://claude.ai/artifact/3QPEUivENNJjCLp4vcTcJo — `python3 pipeline/build.py --artifact <파일>`로 만든 한 파일 판(글꼴·녹음을 data: 주소로 넣음)이다. 공개 배포가 아니다.
-- **한국어 낱말을 불·풀·뿔·부부로 바꿨다**(26.11.06 영신 "일단 빈칸은 비워두고 한번 제작해보자"). 소리 칸은 영신초이 녹음이 올 때까지 비워 두고 '녹음 준비 중'으로 보인다. 처음 받은 Commons 한국어 녹음 후보(바다·풀·빵: 호로조, 아버지: HappyMidnight)는 sources/audio.json에 확인 기록만 남아 있고 쓰지 않는다.
-- **영신 직검수 페이지:** https://claude.ai/artifact/11cSUJ2Paoo2hgvctNgtH8 (줄 댓글, `python3 pipeline/review_page.py b01 --out <파일>`로 다시 만든다). 맨 위 '정할 것'에 위 결정 대기가 있다.
+  - [8번 눈으로 배우기](proposals/design-20261106.md#8-눈으로-배우기와-발음고양만의-요소-영신-결정-대기)
+  - [9번 주기율표 게임에서 가져올 것](proposals/design-20261106.md#9-ipa-입-지도-주기율표-게임에서-가져올-것-영신-결정-대기)
+  - 영신초이 녹음의 공개 조건과 화자 설명
 
 ## 검사 (26.11.06 이 세션에서 돌림)
 
-- `node pipeline/tests/prototype.test.cjs`: 처음 화면부터 출처 화면까지 390px로 지나가며 확인했다. 결과는 통과(콘솔 오류 없음, 가로 넘침 없음, IPA 글꼴 읽힘, 기록 저장). Chromium만 봤고 실제 iPhone·Android에서는 보지 않았다.
+- `node pipeline/tests/prototype.test.cjs`(보카고양 틀용으로 다시 씀): 처음 화면 → 01강 → 연습 넷을 끝까지 풀고(일부러 한 번 틀려 따라 치기) → 처음 화면 IPA 지도에 칸이 켜지는지 390px로 본다. 통과(콘솔 오류 0, 가로 넘침 0, 저장 키는 전부 `ipagoyang-`). Chromium만 봤고 실제 폰은 못 봤다.
 - `python3 pipeline/phoible_check.py <phoible.csv> <InventoryID-Bibtex.csv>`: 낱말 15개(한국어 불·풀·뿔·부부로 바꾼 뒤 다시 돌림), 없어야 할 소리 10개 모두 맞음.
 - `python3 pipeline/wikt_compare.py <받은 전사.json>`: 대상 소리 15개 모두 Wiktionary와 맞음. 대상 밖 차이 둘은 기록해 두었다(끝 ㄹ [l]/[ɭ]: PHOIBLE 2197은 /l/의 변이음으로 l·ɾ·ɭ·ʎ를 다 적어 [l]로 둠, r/l 묶음에서 다시 본다. バス 모음 [ɯ]/[ɨ]: 고모음 묶음에서 다시 본다).
-- `python3 pipeline/build.py --check`: index.html이 원본과 맞는지 본다.
+- `python3 pipeline/build.py --check`: index.html이 원본(frame.html + 덧붙임 + 데이터)과 맞는지 본다.
 
 ## 확인한 것과 못 한 것
 

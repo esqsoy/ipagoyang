@@ -8,7 +8,7 @@
 3. 아직 정하지 않은 설계는 [proposals/](proposals/)에 있다. 정해진 것은 PRINCIPLES에 있다. [WORK_LOG.md](WORK_LOG.md)는 결정과 작업 경위 확인용이다.
 4. 고양 시리즈 공통 원칙은 [palagoyang goyang-common](https://github.com/esqsoy/palagoyang/blob/main/goyang-common/README.md)과 [탄고고양 PRINCIPLES](https://github.com/esqsoy/tangogoyang/blob/main/PRINCIPLES.md)(0 목적·고양공유, 1 고양이, 2-9 사람 이름, 10 기록), 공통 기능은 [보카고양 SHARED.md](https://github.com/esqsoy/vocagoyang/blob/main/SHARED.md)에 있다. **다른 저장소는 읽기만 하고 고치지 않는다.** 고칠 것이 있으면 영신에게 말해 그 세션으로 넘긴다.
 
-5. 화면을 고치면 먼저 [보카고양 화면 분석](proposals/vocagoyang-design-analysis-20261106.md)과 보카고양 [UI_STANDARD](https://github.com/esqsoy/vocagoyang/blob/main/UI_STANDARD.md)를 본다. 고양고양이는 새로 그리지 않는다([PRINCIPLES 1](PRINCIPLES.md#1-고양고양이)).
+5. 화면은 보카고양 틀을 그대로 가져온 것이다(`pipeline/frame.html`, [PRINCIPLES 1-1](PRINCIPLES.md#1-1-화면은-보카고양-틀을-그대로-가져온다)). 고칠 때는 보카고양 [UI_STANDARD](https://github.com/esqsoy/vocagoyang/blob/main/UI_STANDARD.md)를 먼저 보고, 틀을 새로 짜거나 고양고양이를 새로 그리지 않는다.
 
 최신 사용자 지시를 우선한다. 현재 기준 문서와 날짜가 붙은 과거 보고서가 충돌하면 현재 기준을 적용한다.
 
