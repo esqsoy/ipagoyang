@@ -10,7 +10,7 @@
   - 발음고양 덧붙임은 `pipeline/ipa_extra.js`·`ipa_extra.css`에 있다: IPA 입력 변환, 기호 칸, 녹음 재생 단추, 배우기 그림, 처음 화면 IPA 지도·도감.
   - 앞서 흉내 내어 짰던 `pipeline/template.html`은 지웠다.
 - **시제품(묶음 1, [p] [b] [pʰ] [p͈] × 한국어·영어·스페인어·일본어·프랑스어):** 01강 하나에 연습 넷(배우기 5 · 한국어와 견주기 3 · 듣고 고르기 2 · 전사 빈칸 15, 카드 25). 생성물은 `index.html`. 공개 배포는 안 했다.
-  - 녹음 5개만 들어 있다(영어 pin·spin·bin, 기호 소리 [p]·[b]). 외국어 8개는 Wikimedia 429로 받는 중이고, 한국어 불·풀·뿔·부부는 영신초이 녹음을 기다린다(공개 조건·화자 설명 확인 대기). 없는 소리는 '녹음 준비 중'으로 보인다.
+  - 녹음 5개만 들어 있다(영어 pin·spin·bin, 기호 소리 [p]·[b]). 외국어 8개(스페인어 pan·vaca·lobo, 일본어 パン·バス, 프랑스어 pain·bain·Paris)는 못 받았다. 26.11.06 몇 시간 동안 47번 시도가 모두 upload.wikimedia.org의 429였고(이 작업 환경의 나가는 주소가 막힌 것으로 보인다), 받기 작업은 시간 한도로 멈췄다. 파일과 라이선스는 `sources/audio.json`에 적혀 있으니 다른 환경에서 받아 `pipeline/audio_import.py`로 넣으면 된다. 그리고 한국어 불·풀·뿔·부부는 영신초이 녹음을 기다린다(공개 조건·화자 설명 확인 대기). 없는 소리는 '녹음 준비 중'으로 보인다.
 - **미리보기(비공개 Artifact):** https://claude.ai/artifact/3QPEUivENNJjCLp4vcTcJo (`python3 pipeline/build.py --artifact <파일>`).
 - **영신 직검수 페이지:** https://claude.ai/artifact/11cSUJ2Paoo2hgvctNgtH8 (줄 댓글, `python3 pipeline/review_page.py b01 --out <파일>`).
 - **영신 결정 대기:**
