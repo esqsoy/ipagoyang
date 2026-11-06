@@ -1,0 +1,451 @@
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>발음고양</title>
+<!-- 생성물이다. 고칠 때는 pipeline/template.html과 data/·sources/를 고치고 python3 pipeline/build.py를 돌린다. -->
+<style>
+@font-face{font-family:"Balum IPA";src:url("assets/fonts/BalumIPA-Regular.woff2") format("woff2");font-weight:400;font-display:swap}
+@font-face{font-family:"Balum IPA";src:url("assets/fonts/BalumIPA-Bold.woff2") format("woff2");font-weight:700;font-display:swap}
+:root{
+  --bg:#fbf8f3;--card:#ffffff;--ink:#22201c;--sub:#6b665d;--line:#e4ddd1;
+  --tis:#efe6da;--cav:#f7f2ea;--tongue:#f2b8b0;--tooth:#ffffff;--hot:#e0541e;--hot-soft:#fde3d6;
+  --ok:#2f8f4e;--ok-soft:#dff2e5;--ng:#c43d3d;--ng-soft:#f8e0e0;--key:#f4efe6;--accent:#3b5bdb;
+  --ipa:"Balum IPA","Charis SIL","Doulos SIL","Gentium Plus","Noto Sans","Segoe UI",sans-serif;
+  --ko:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;
+}
+@media (prefers-color-scheme:dark){:root{
+  --bg:#181715;--card:#222120;--ink:#ece8e1;--sub:#a59f95;--line:#3a3733;
+  --tis:#3a332c;--cav:#2a2622;--tongue:#8e4f49;--tooth:#e9e4dc;--hot:#ff7a45;--hot-soft:#4a2a1d;
+  --ok:#5cc47f;--ok-soft:#1f3a28;--ng:#ff7b7b;--ng-soft:#432424;--key:#2d2b28;--accent:#8ea4ff;}}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ko);word-break:keep-all;-webkit-text-size-adjust:100%}
+body{min-height:100vh}
+.wrap{max-width:560px;margin:0 auto;padding:12px 16px 40px}
+.ipa{font-family:var(--ipa);font-weight:400}
+h1{font-size:26px;margin:6px 0 2px}
+h2{font-size:19px;margin:16px 0 8px}
+p{line-height:1.6;margin:6px 0}
+.sub{color:var(--sub);font-size:14px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin:12px 0}
+button{font:inherit;color:inherit;cursor:pointer}
+.btn{display:block;width:100%;padding:13px 16px;border-radius:12px;border:0;background:var(--accent);color:#fff;font-size:17px;font-weight:700;margin-top:12px}
+.btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--line);font-weight:600}
+.row{display:flex;gap:8px;align-items:center}
+.top{display:flex;align-items:flex-start;gap:10px;min-height:64px}
+.bubble{flex:1;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:9px 12px;font-size:15px;line-height:1.45;position:relative;min-height:46px}
+.bubble:before{content:"";position:absolute;left:-8px;top:16px;border:8px solid transparent;border-right-color:var(--line);border-left:0}
+.bubble:after{content:"";position:absolute;left:-6px;top:17px;border:7px solid transparent;border-right-color:var(--card);border-left:0}
+.cat{width:54px;height:54px;flex:none}
+.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin:6px 0 10px}
+.bar i{display:block;height:100%;background:var(--accent);width:0;transition:width .3s}
+.big{font-size:64px;line-height:1;text-align:center;margin:6px 0}
+.name{text-align:center;font-weight:700;font-size:17px}
+.svgbox svg{width:100%;height:auto;display:block}
+.cap{font-size:12px;color:var(--sub);text-align:center;margin-top:2px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:start}
+.ex{display:grid;grid-template-columns:auto 1fr auto;gap:4px 10px;align-items:center;padding:8px 0;border-top:1px solid var(--line)}
+.ex:first-child{border-top:0}
+.lang{font-size:12px;color:var(--sub);white-space:nowrap}
+.word{font-size:17px;font-weight:600}
+.word small{font-weight:400;color:var(--sub);font-size:13px;margin-left:6px}
+.tr{font-family:var(--ipa);font-size:18px}
+.tr b{color:var(--hot);font-weight:700}
+.play{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--key);font-size:15px;display:flex;align-items:center;justify-content:center}
+.play[disabled]{opacity:.35;cursor:default}
+canvas.wave{width:100%;height:40px;display:block;grid-column:1/-1}
+.feel{background:var(--hot-soft);border-radius:12px;padding:10px 12px;font-size:14px;line-height:1.55}
+.dots{display:flex;gap:6px;justify-content:center;margin:8px 0}
+.dots i{width:8px;height:8px;border-radius:50%;background:var(--line)}
+.dots i.on{background:var(--accent)}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(64px,1fr));gap:10px;margin-top:12px}
+.opt{padding:14px 6px;border-radius:12px;border:1px solid var(--line);background:var(--card);font-size:26px}
+.opt.ipa{font-size:30px}
+.opt.right{background:var(--ok-soft);border-color:var(--ok)}
+.opt.wrong{background:var(--ng-soft);border-color:var(--ng)}
+.opt.need{outline:3px solid var(--hot);outline-offset:2px}
+.qword{font-size:30px;text-align:center;font-weight:700;margin:8px 0 0}
+.qmeta{text-align:center;color:var(--sub);font-size:14px}
+.qtr{font-family:var(--ipa);font-size:34px;text-align:center;margin:10px 0}
+.slot{display:inline-block;min-width:1.3em;border-bottom:3px solid var(--hot);color:var(--hot);text-align:center}
+.kb{margin-top:12px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.kb table{width:100%;border-collapse:collapse}
+.kb th{font-size:11px;color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;background:var(--key);width:64px;border-top:1px solid var(--line)}
+.kb td{padding:6px;border-top:1px solid var(--line)}
+.kb .keys{display:flex;gap:6px;flex-wrap:wrap}
+.key{min-width:54px;padding:6px 6px 4px;border-radius:10px;border:1px solid var(--line);background:var(--card);font-family:var(--ipa);font-size:26px;line-height:1;text-align:center}
+.key .ks{display:block;line-height:1.5;padding-bottom:3px}
+.key small{display:block;font-family:var(--ko);font-size:10px;color:var(--sub);line-height:1.2}
+.key.right{background:var(--ok-soft);border-color:var(--ok)}
+.key.wrong{background:var(--ng-soft);border-color:var(--ng)}
+.key.need{outline:3px solid var(--hot);outline-offset:1px}
+.kbhead{font-size:11px;color:var(--sub);padding:6px 8px;background:var(--key)}
+.reveal{margin-top:12px;border-radius:12px;padding:12px;font-size:15px;line-height:1.55}
+.reveal.ok{background:var(--ok-soft)}
+.reveal.ng{background:var(--ng-soft)}
+.reveal .tr{font-size:22px}
+.tap{font-size:12px;color:var(--sub);text-align:center;margin-top:8px}
+table.cr{width:100%;border-collapse:collapse;font-size:13px}
+table.cr td,table.cr th{border-top:1px solid var(--line);padding:6px 4px;text-align:left;vertical-align:top}
+a{color:var(--accent)}
+.vib{animation:vib .12s linear infinite alternate}
+@keyframes vib{from{transform:translateX(-.6px)}to{transform:translateX(.6px)}}
+.puff{animation:puff 1.4s ease-out infinite}
+@keyframes puff{0%{opacity:0;transform:translateX(0)}30%{opacity:1}100%{opacity:0;transform:translateX(-8px)}}
+@media (prefers-reduced-motion:reduce){.vib,.puff{animation:none}}
+</style>
+</head>
+<body>
+<div class="wrap" id="app"></div>
+<script>
+const D = {"bundle":{"id":"b01","title":"입술 파열음","symbols_title":"[p] [b] [pʰ] [p͈]","about":"묶음 1 원본(PRINCIPLES 8-1·8-5: 첫 묶음). 낱말 전사는 출처 관례대로 직접 적었다(8-6). ipa는 [앞, 대상, 뒤]로 나눠 빈칸 자리를 정한다. phoible은 대상 소리를 대조할 PHOIBLE 목록과 분절음(seg: 음소, allo: 그 음소의 변이음). status는 PRINCIPLES 2-3.","place":"bilabial","learn":["p","pʰ","p͈","b","β"],"keyboard":[["p","pʰ","p͈","b"],["m"],["ɸ","β"]],"shortcuts":{"p":"p","ph":"pʰ","p*":"p͈","b":"b","m":"m","F":"ɸ","B":"β"},"words":[{"id":"ko-bada","lang":"kor","text":"바다","roman":"bada","ko":"바다","ipa":["","p","ada"],"target":"p","audio":"ko-bada","phoible":{"inv":2197,"seg":"p͉"},"note":"낱말 첫 ㅂ. 좁게 적으면 [p͉]로 적는 문헌도 있다.","status":"확인","status_why":"PHOIBLE 2197(Lee 1993) /p͉/. 이 게임은 [p]로 적는다(symbols p)"},{"id":"ko-pul","lang":"kor","text":"풀","roman":"pul","ko":"풀","ipa":["","pʰ","ul"],"target":"pʰ","audio":"ko-pul","phoible":{"inv":2197,"seg":"pʰ"},"status":"확인","status_why":"PHOIBLE 2197 /pʰ/"},{"id":"ko-ppang","lang":"kor","text":"빵","roman":"ppang","ko":"빵","ipa":["","p͈","aŋ"],"target":"p͈","audio":"ko-ppang","phoible":{"inv":2197,"seg":"p"},"note":"PHOIBLE 2197은 ㅃ을 그냥 [p]로 적는다. 이 게임은 [p͈].","status":"확인","status_why":"PHOIBLE 2197 /p/(된소리 줄). 표기 관례 차이는 symbols p͈"},{"id":"ko-abeoji","lang":"kor","text":"아버지","roman":"abeoji","ko":"아버지","ipa":["a","b","ʌdʑi"],"target":"b","audio":"ko-abeoji","phoible":{"inv":2197,"seg":"p͉","allo":"b"},"note":"모음 사이 ㅂ은 울린다.","status":"확인","status_why":"PHOIBLE 2197 /p͉/의 변이음 b"},{"id":"en-pin","lang":"eng","text":"pin","roman":"pin","ko":"핀","ipa":["","pʰ","ɪn"],"target":"pʰ","audio":"en-pin","phoible":{"inv":2176,"seg":"pʰ","allo":"pʰ"},"status":"확인","status_why":"PHOIBLE 2176(Hillenbrand 2003) /pʰ/"},{"id":"en-spin","lang":"eng","text":"spin","roman":"spin","ko":"돌다·돌리다","ipa":["s","p","ɪn"],"target":"p","audio":"en-spin","phoible":{"inv":2176,"seg":"pʰ","allo":"p"},"note":"s 뒤 p는 기식이 없다.","status":"확인 필요","status_why":"PHOIBLE은 /pʰ/의 변이음 p만 적고 조건(s 뒤)은 없다. 조건은 Hillenbrand 2003 본문 미열람"},{"id":"en-bin","lang":"eng","text":"bin","roman":"bin","ko":"통","ipa":["","b","ɪn"],"target":"b","audio":"en-bin","phoible":{"inv":2176,"seg":"b"},"note":"낱말 첫 b는 흔히 덜 울린다([b̥]). 그래서 듣고 고르기에는 내지 않는다(PRINCIPLES 2-4).","listen":false,"status":"확인","status_why":"PHOIBLE 2176 /b/(변이음 b·b̥)"},{"id":"es-pan","lang":"spa","text":"pan","roman":"pan","ko":"빵","ipa":["","p","an"],"target":"p","audio":"es-pan","phoible":{"inv":2210,"seg":"p"},"status":"확인","status_why":"PHOIBLE 2210 /p/"},{"id":"es-vaca","lang":"spa","text":"vaca","roman":"vaca","ko":"소(암소)","ipa":["ˈ","b","aka"],"target":"b","audio":"es-vaca","phoible":{"inv":2210,"seg":"b","allo":"b"},"note":"v도 b와 같은 소리다. 쉰 다음 첫머리에서는 [b].","status":"확인","status_why":"PHOIBLE 2210 /b/(변이음 b·β̞). 철자 v = /b/는 같은 목록의 음소 목록에 /v/가 없는 것으로 대조"},{"id":"es-lobo","lang":"spa","text":"lobo","roman":"lobo","ko":"늑대","ipa":["ˈlo","β̞","o"],"target":"β","accept":["β","β̞"],"audio":"es-lobo","phoible":{"inv":2210,"seg":"b","allo":"β̞"},"note":"모음 사이 b는 입술을 다 닫지 않는다.","status":"확인","status_why":"PHOIBLE 2210 /b/의 변이음 β̞"},{"id":"ja-pan","lang":"jpn","text":"パン","roman":"pan","ko":"빵","ipa":["","p","aɴ"],"target":"p","audio":"ja-pan","phoible":{"inv":2196,"seg":"p"},"status":"확인","status_why":"PHOIBLE 2196(Okada 1991) /p/"},{"id":"ja-basu","lang":"jpn","text":"バス","roman":"basu","ko":"버스","ipa":["","b","asɯ"],"target":"b","audio":"ja-basu","phoible":{"inv":2196,"seg":"b"},"note":"끝 ス의 모음은 흔히 소리가 약해진다.","status":"확인","status_why":"PHOIBLE 2196 /b/"},{"id":"fr-pain","lang":"fra","text":"pain","roman":"pain","ko":"빵","ipa":["","p","ɛ̃"],"target":"p","audio":"fr-pain","phoible":{"inv":2182,"seg":"p"},"status":"확인","status_why":"PHOIBLE 2182(Fougeron·Smith 1993) /p/"},{"id":"fr-bain","lang":"fra","text":"bain","roman":"bain","ko":"목욕","ipa":["","b","ɛ̃"],"target":"b","audio":"fr-bain","phoible":{"inv":2182,"seg":"b"},"status":"확인","status_why":"PHOIBLE 2182 /b/"},{"id":"fr-paris","lang":"fra","text":"Paris","roman":"Paris","ko":"파리","ipa":["","p","aʁi"],"target":"p","audio":"fr-paris","phoible":{"inv":2182,"seg":"p"},"status":"확인","status_why":"PHOIBLE 2182 /p/"}],"compare":[{"word":"ja-pan","q":"한국어는 이 말을 무엇으로 받아들였나?","options":["ㅂ","ㅍ","ㅃ"],"answer":"ㅃ","why":"빵. 포르투갈어 pão가 일본어 パン을 거쳐 들어왔다. 그 [p]를 한국어는 ㅃ으로 적었다.","evidence":[{"src":"wikt-bbang"}],"status":"확인","status_why":"Wiktionary 어원(출처 각주 있음)"},{"word":"en-pin","q":"한국어로는 무엇으로 적나?","options":["ㅂ","ㅍ","ㅃ"],"answer":"ㅍ","why":"핀. 기식 있는 [pʰ]는 한국어 ㅍ과 같은 기호다.","evidence":[{"src":"wikt-pin","note":"핀 ← English pin, [pʰin]"},{"src":"phoible","note":"한국어 2197 /pʰ/, 영어 2176 /pʰ/"}],"status":"확인","status_why":"Wiktionary 차용 기록(핀 ← pin)과 PHOIBLE"},{"word":"fr-paris","q":"한국어 귀에는 첫소리가 무엇에 가깝게 들리나?","options":["ㅂ","ㅍ","ㅃ"],"answer":"ㅃ","why":"말로는 '빠리'라고들 한다. 표기는 '파리'다. 외래어 표기법이 파열음에 된소리를 쓰지 않기로 정했기 때문이다(제1장 제4항).","evidence":[{"src":"loanword-rule"}],"status":"확인 필요","status_why":"제4항 조문은 확인. 사람들이 '빠리'라고 한다는 것과 지각 연구는 원문 미대조"}],"lines":{"start":"입술 하나로 소리가 넷이라고양. 귀 씻고 오라고양.","learn_done":"다 봤냐고양? 이제 귀로 증명하라고양.","correct":["맞았다고양. 우연이겠지만.","오, 귀가 좀 트였냐고양?","그 정도는 고양이도 한다고양."],"wrong":["틀렸다고양. 휴지 대고 다시 들어 보라고양.","한국 귀가 또 속았다고양. ㅎㅎ","목에 손 대 보라고양. 떨리냐고양?"],"by_word":{"ja-pan":"빵은 pão가 パン 거쳐 온 말이라고양. 한국어는 그 [p]를 ㅃ으로 적었다고양.","fr-paris":"표기법은 파리, 입은 빠리라고양. 둘 다 [p] 하나라고양.","en-spin":"s 뒤 p는 바람이 빠진다고양. 영어도 다 ㅍ은 아니라고양.","ko-abeoji":"아버지의 ㅂ은 [b]라고양. 이미 쓰고 있었다고양. 모르는 척했을 뿐.","es-lobo":"모음 사이 b는 입술을 덜 닫는다고양. 늑대도 입은 덜 다문다고양."},"end":"입술 칸 하나 채웠다고양. 표는 아직 한참 남았다고양. ㅎㅎ"},"feel":[{"for":["pʰ","p","p͈"],"text":"입 앞에 휴지 한 장을 대고 '풀', '바다', '빵'을 말해 본다. 휴지가 가장 크게 펄럭이는 것이 [pʰ]다."},{"for":["b","p"],"text":"목울대에 손가락을 대고 입술을 다문 채 목을 울려 본다(입 다물고 '음'). 그 떨림을 유지한 채 터뜨리면 [b], 떨림 없이 터뜨리면 [p]다."}],"absent":{"2197":["β","β̞","v"],"1":["β","β̞","v"],"2287":["β","β̞","v"],"2210":["v"]},"absent_about":"한국어 목록 셋에 β·v가 없어야 symbols β의 '한국어에 없다'가 맞다. 스페인어 2210에 /v/가 없어야 철자 v = /b/가 맞다."},"symbols":{"about":"기호 설명 원본. 형식은 탄고고양 五十音 gojuon_sound.py를 씨앗으로 했다: [기호] + 조음 이름 + 내는 법 + 한국어와 같은 점·다른 점. 그림 값(place·lips·glottis·vot)은 입 옆모습 지도와 목청 창·소리 시작 띠가 쓴다(모식도). status는 PRINCIPLES 2-3. sound는 기호 하나의 소리 녹음(sources/audio.json id). 원어민 낱말이 아니라 기호 시범 소리다.","symbols":{"p":{"name":"무성 양순 파열음","how":"두 입술을 닫았다가 터뜨린다. 목청은 울리지 않고, 터뜨리자마자 모음이 나온다. 바람이 거의 새지 않는다.","ko":"이 게임은 한국어 ㅂ도 [p]로 적는다(흔한 간략 표기). 하지만 낱말 첫 ㅂ은 바람이 조금 새서 프랑스어·스페인어 [p]와 똑같지 않다. 바람이 안 새는 [p]를 한국어는 ㅃ으로 적은 적이 있다(빵 ← 일본어 パン ← 포르투갈어 pão).","other":"한국어 ㅂ을 [p͉]·[b̥]로 적는 문헌도 있다(PHOIBLE 2197은 Lee 1993을 옮기며 [p͉]).","place":"bilabial","lips":"closed","glottis":"open","vot":"short","evidence":[{"src":"phoible","note":"프랑스어 2182 /p/ [p], 스페인어 2210 /p/ [p], 일본어 2196 /p/ [p]"},{"src":"phoible","note":"한국어 ㅂ: 2197은 /p͉/(변이음 b), 1은 /p/(변이음 b), 2287은 /b̥/로 적는다"},{"src":"wikt-bbang","note":"빵 ← パン ← pão"}],"status":"확인 필요","status_why":"'낱말 첫 ㅂ은 바람이 조금 샌다'는 1차 출처 본문(Lee 1993 등)을 이 세션에서 읽지 못함","sound":"ipa-p"},"pʰ":{"name":"기식 있는 무성 양순 파열음","how":"[p]처럼 터뜨린 다음, 모음 전에 '흐' 하는 바람이 샌다. 오른쪽 위 작은 ʰ가 그 바람(기식) 표시다.","ko":"한국어 ㅍ. 영어 낱말 첫 p도 이 소리라서 pin을 '핀'으로 적는다. 다만 영어도 s 뒤의 p(spin)는 바람이 없다.","place":"bilabial","lips":"closed","glottis":"wide","vot":"long","evidence":[{"src":"phoible","note":"한국어 2197 /pʰ/, 영어 2176 /pʰ/(변이음 pʰ·p)"}],"status":"확인 필요","status_why":"영어 p가 s 뒤에서 기식이 없다는 조건은 PHOIBLE에 없고(변이음 p만 있음), Hillenbrand 2003 본문을 읽지 못함"},"b":{"name":"유성 양순 파열음","how":"입술을 닫고, 터뜨리기 전부터 목청을 울린다. 목에 손가락을 대면 떨린다.","ko":"한국어 ㅂ은 모음 사이에서만 이 소리가 난다(아버지 [abʌdʑi]). 낱말 첫머리 [b]는 한국어에 없어서 [p]와 헷갈리기 쉽다.","other":"영어 낱말 첫 b는 흔히 덜 울려 [b̥]로 적기도 한다(PHOIBLE 2176 변이음 b̥).","place":"bilabial","lips":"closed","glottis":"voiced","vot":"lead","evidence":[{"src":"phoible","note":"한국어 2197 /p͉/의 변이음 b, 1 /p/의 변이음 b"},{"src":"phoible","note":"프랑스어 2182 /b/, 스페인어 2210 /b/(변이음 b·β̞), 일본어 2196 /b/(변이음 b·v̠·β), 영어 2176 /b/(변이음 b·b̥)"}],"status":"확인 필요","status_why":"'낱말 첫 [b]를 [p]와 헷갈리기 쉽다'는 지각 연구 본문을 읽지 못함","sound":"ipa-b"},"p͈":{"name":"된소리 무성 양순 파열음","how":"목청을 조이고 입술을 꽉 닫았다가, 바람 없이 터뜨린다.","ko":"한국어 ㅃ. 밑의 ͈ 표시는 IPA 본표에 없어서, 다른 표시를 빌려 쓴다. 표기가 문헌마다 다르다.","other":"[p*]·[pˀ]·[pʼ]로 적는 문헌도 있다. PHOIBLE 1은 [pˀ], 2197(Lee 1993)과 2287은 그냥 [p]로 적는다.","place":"bilabial","lips":"closed","glottis":"tight","vot":"short","evidence":[{"src":"phoible","note":"한국어 1 /pˀ/, 2197 /p/, 2287 /p/"}],"status":"확인 필요","status_why":"͈가 IPA 확장 기호(extIPA)의 '강한 조음' 표시라는 것은 extIPA 표를 이 세션에서 열어 보지 못함"},"β":{"name":"유성 양순 마찰음 [β] · 접근음 [β̞]","how":"입술을 다 닫지 않고 살짝 띄운 채 목청을 울린다. 밑의 ˕ 표시(β̞)는 더 벌려서 마찰이 거의 없다는 뜻이다.","ko":"한국어에 없다. 스페인어 b·v는 모음 사이에서 이 소리다(lobo). 일본어 ば행도 모음 사이에서 이렇게 나기도 한다.","place":"bilabial","lips":"near","glottis":"voiced","vot":null,"evidence":[{"src":"phoible","note":"스페인어 2210 /b/ 변이음 β̞, 일본어 2196 /b/ 변이음 β"}],"status":"확인","status_why":"PHOIBLE(Martínez-Celdrán 외 2003·Okada 1991을 옮긴 목록)과 대조"},"m":{"name":"양순 비음","how":"입술을 닫고 코로 소리를 낸다.","ko":"한국어 ㅁ.","place":"bilabial","lips":"closed","glottis":"voiced","keyonly":true},"ɸ":{"name":"무성 양순 마찰음","how":"두 입술 틈으로 바람을 낸다.","ko":"한국어에 없다. 일본어 ふ의 첫소리(다음 묶음에서).","place":"bilabial","lips":"near","glottis":"open","keyonly":true}},"glottis":{"open":"목청이 살짝 열려 있다가 터뜨리자마자 울린다","wide":"목청이 크게 열려 있어 터뜨린 뒤 바람이 먼저 나온다","voiced":"목청이 붙어 떨린다(울림)","tight":"목청을 꽉 조인다"},"vot":{"lead":"터뜨리기 전부터 울림","short":"터뜨리자 바로 울림","long":"바람이 샌 뒤 울림"}},"langs":[{"id":"kor","ko":"한국어","variety":"서울 표준어","phoible":2197,"ref":"lee1993","tts":"ko-KR"},{"id":"eng","ko":"영어","variety":"미국","phoible":2176,"ref":"hillenbrand2003","tts":"en-US"},{"id":"spa","ko":"스페인어","variety":"중남미 공통","phoible":2210,"ref":"martinez2003","tts":"es-MX","note":"PHOIBLE 2210은 에스파냐(카스티야) 목록이다. 이 묶음의 b → [β̞]는 중남미에서도 같은 것으로 알려져 있으나, 중남미 1차 출처(Coloma 2018 등) 대조는 확인 필요"},{"id":"jpn","ko":"일본어","variety":"도쿄","phoible":2196,"ref":"okada1991","tts":"ja-JP"},{"id":"fra","ko":"프랑스어","variety":"파리 표준","phoible":2182,"ref":"fougeron1993","tts":"fr-FR"},{"id":"por","ko":"포르투갈어","variety":"브라질","phoible":null},{"id":"cmn","ko":"중국어","variety":"普通话","phoible":null},{"id":"rus","ko":"러시아어","variety":"모스크바 표준","phoible":null},{"id":"deu","ko":"독일어","variety":"독일 표준","phoible":null},{"id":"ita","ko":"이탈리아어","variety":"표준","phoible":null},{"id":"arb","ko":"아랍어","variety":"현대 표준 아랍어","phoible":null}],"audio":{"en-pin":{"src":"assets/audio/en-pin.mp3","peaks":[0.0,0.0,0.0,0.0,0.007,0.018,0.02,0.019,0.012,0.006,0.005,0.001,0.001,0.001,0.001,0.001,0.0,0.0,0.0,0.001,0.012,0.02,0.021,0.019,0.011,0.008,0.005,0.002,0.001,0.0,0.0,0.0,0.0,0.0,0.0,0.005,0.02,0.03,0.056,0.051,0.04,0.039,0.077,0.085,0.108,0.202,0.365,0.688,0.662,0.743,0.867,0.863,0.793,0.851,0.944,1.0,0.965,0.845,0.887,0.701,0.642,0.515,0.532,0.39,0.357,0.451,0.452,0.344,0.381,0.365,0.354,0.334,0.345,0.32,0.336,0.297,0.315,0.353,0.325,0.335,0.262,0.272,0.255,0.201,0.23,0.221,0.171,0.169,0.147,0.076,0.056,0.04,0.015,0.008,0.007,0.003,0.003,0.002,0.002,0.001,0.001,0.001,0.001,0.001,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0],"duration":1.068},"en-spin":{"src":"assets/audio/en-spin.mp3","peaks":[0.005,0.005,0.006,0.015,0.015,0.011,0.013,0.019,0.021,0.009,0.014,0.018,0.01,0.01,0.013,0.014,0.018,0.016,0.016,0.015,0.013,0.014,0.018,0.017,0.013,0.018,0.021,0.021,0.02,0.017,0.022,0.014,0.021,0.021,0.022,0.024,0.032,0.067,0.033,0.028,0.023,0.028,0.022,0.017,0.021,0.019,0.021,0.024,0.016,0.022,0.212,0.092,0.125,0.543,0.669,0.694,0.878,0.944,1.0,0.911,0.777,0.665,0.675,0.591,0.546,0.523,0.535,0.473,0.349,0.306,0.268,0.273,0.25,0.215,0.217,0.221,0.218,0.204,0.209,0.193,0.186,0.169,0.162,0.153,0.173,0.161,0.152,0.15,0.135,0.132,0.121,0.099,0.096,0.08,0.072,0.073,0.06,0.048,0.041,0.029,0.025,0.024,0.022,0.012,0.013,0.013,0.015,0.007,0.008,0.008,0.012,0.009,0.007,0.014,0.004,0.008,0.007,0.007,0.01,0.009],"duration":0.766},"en-bin":{"src":"assets/audio/en-bin.mp3","peaks":[0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.0,0.008,0.029,0.036,0.027,0.03,0.03,0.045,0.048,0.032,0.033,0.028,0.021,0.025,0.037,0.043,0.037,0.029,0.035,0.041,0.047,0.037,0.038,0.038,0.022,0.012,0.011,0.017,0.017,0.015,0.028,0.166,0.25,0.436,0.65,0.649,0.764,0.834,0.939,1.0,0.916,0.966,0.922,0.862,0.824,0.746,0.723,0.643,0.591,0.563,0.515,0.569,0.542,0.503,0.377,0.325,0.374,0.474,0.499,0.471,0.453,0.464,0.472,0.467,0.436,0.391,0.439,0.434,0.418,0.429,0.36,0.29,0.267,0.242,0.211,0.162,0.197,0.078,0.094,0.07,0.058,0.028,0.02,0.025,0.026,0.017,0.008,0.023,0.042,0.04,0.018,0.023,0.021,0.018,0.015,0.022,0.024,0.018,0.005,0.009,0.025,0.026,0.016,0.002,0.019,0.042,0.044,0.023,0.025,0.025],"duration":1.149},"ipa-p":{"src":"assets/audio/ipa-p.mp3","peaks":[0.519,1.0,0.728,0.847,0.924,0.711,0.586,0.503,0.498,0.499,0.468,0.521,0.499,0.48,0.49,0.453,0.507,0.412,0.443,0.426,0.4,0.369,0.317,0.365,0.348,0.267,0.254,0.192,0.174,0.163,0.148,0.123,0.077,0.055,0.02,0.009,0.028,0.006,0.005,0.009,0.002,0.007,0.003,0.006,0.006,0.005,0.004,0.134,0.101,0.282,0.52,0.555,0.54,0.668,0.699,0.604,0.494,0.313,0.05,0.011,0.006,0.008,0.007,0.005,0.005,0.005,0.003,0.01,0.006,0.004,0.006,0.004,0.008,0.007,0.005,0.006,0.007,0.007,0.004,0.009,0.005,0.197,0.785,0.886,0.897,0.837,0.829,0.506,0.592,0.555,0.526,0.59,0.622,0.539,0.498,0.468,0.502,0.487,0.424,0.37,0.35,0.321,0.313,0.27,0.235,0.256,0.178,0.215,0.146,0.174,0.142,0.087,0.108,0.037,0.026,0.07,0.045,0.024,0.011,0.012],"duration":1.52}},"audioCredits":[{"id":"ko-bada","commons_file":"LL-Q9176 (kor)-호로조-바다.wav","page":"https://commons.wikimedia.org/wiki/File:LL-Q9176_(kor)-호로조-바다.wav","author":"호로조","license":"CC0 1.0","mp3":null},{"id":"ko-pul","commons_file":"LL-Q9176 (kor)-호로조-풀.wav","page":"https://commons.wikimedia.org/wiki/File:LL-Q9176_(kor)-호로조-풀.wav","author":"호로조","license":"CC0 1.0","mp3":null},{"id":"ko-ppang","commons_file":"LL-Q9176 (kor)-호로조-빵.wav","page":"https://commons.wikimedia.org/wiki/File:LL-Q9176_(kor)-호로조-빵.wav","author":"호로조","license":"CC0 1.0","mp3":null},{"id":"ko-abeoji","commons_file":"Ko-아버지.ogg","page":"https://commons.wikimedia.org/wiki/File:Ko-아버지.ogg","author":"HappyMidnight","license":"CC BY-SA 4.0","mp3":null},{"id":"en-pin","commons_file":"En-us-pin.ogg","page":"https://commons.wikimedia.org/wiki/File:En-us-pin.ogg","author":"Muke","license":"퍼블릭 도메인(저작권자 공개)","mp3":"assets/audio/en-pin.mp3"},{"id":"en-spin","commons_file":"en-us-spin.ogg","page":"https://commons.wikimedia.org/wiki/File:en-us-spin.ogg","author":"Dvortygirl","license":"CC BY-SA 3.0 Unported / GFDL 1.2+","mp3":"assets/audio/en-spin.mp3"},{"id":"en-bin","commons_file":"en-us-bin.ogg","page":"https://commons.wikimedia.org/wiki/File:en-us-bin.ogg","author":"Muke","license":"퍼블릭 도메인(저작권자 공개)","mp3":"assets/audio/en-bin.mp3"},{"id":"es-pan","commons_file":"LL-Q1321 (spa)-Eavqwiki-pan.wav","page":"https://commons.wikimedia.org/wiki/File:LL-Q1321_(spa)-Eavqwiki-pan.wav","author":"Eavqwiki","license":"CC BY-SA 4.0","mp3":null},{"id":"es-vaca","commons_file":"LL-Q1321 (spa)-Millars-vaca.wav","page":"https://commons.wikimedia.org/wiki/File:LL-Q1321_(spa)-Millars-vaca.wav","author":"Millars","license":"CC BY-SA 4.0","mp3":null},{"id":"es-lobo","commons_file":"LL-Q1321 (spa)-Millars-lobo.wav","page":"https://commons.wikimedia.org/wiki/File:LL-Q1321_(spa)-Millars-lobo.wav","author":"Millars","license":"CC BY-SA 4.0","mp3":null},{"id":"ja-pan","commons_file":"LL-Q5287 (jpn)-葵心-パン.wav","page":"https://commons.wikimedia.org/wiki/File:LL-Q5287_(jpn)-葵心-パン.wav","author":"葵心","license":"CC0 1.0","mp3":null},{"id":"ja-basu","commons_file":"LL-Q5287 (jpn)-Fukujinzuke-バス.wav","page":"https://commons.wikimedia.org/wiki/File:LL-Q5287_(jpn)-Fukujinzuke-バス.wav","author":"Fukujinzuke","license":"CC BY 4.0","mp3":null},{"id":"fr-pain","commons_file":"LL-Q150 (fra)-Poslovitch-pain.wav","page":"https://commons.wikimedia.org/wiki/File:LL-Q150_(fra)-Poslovitch-pain.wav","author":"Poslovitch","license":"CC0 1.0","mp3":null},{"id":"fr-bain","commons_file":"LL-Q150 (fra)-Poslovitch-bain.wav","page":"https://commons.wikimedia.org/wiki/File:LL-Q150_(fra)-Poslovitch-bain.wav","author":"Poslovitch","license":"CC0 1.0","mp3":null},{"id":"fr-paris","commons_file":"LL-Q150 (fra)-Poslovitch-Paris.wav","page":"https://commons.wikimedia.org/wiki/File:LL-Q150_(fra)-Poslovitch-Paris.wav","author":"Poslovitch","license":"CC0 1.0","mp3":null},{"id":"ipa-p","commons_file":"Voiceless_bilabial_plosive.ogg","page":"https://commons.wikimedia.org/wiki/File:Voiceless_bilabial_plosive.ogg","author":"Karmosin","license":"CC BY-SA 3.0 Unported / GFDL 1.2+","mp3":"assets/audio/ipa-p.mp3"},{"id":"ipa-b","commons_file":"Voiced_bilabial_plosive.ogg","page":"https://commons.wikimedia.org/wiki/File:Voiced_bilabial_plosive.ogg","author":"Peter Isotalo","license":"CC BY-SA 3.0 Unported / GFDL 1.2+","mp3":null}],"refs":[{"cite":"Lee, Hyun Bok. 1993. Korean. Journal of the International Phonetic Association 23(1): 28–31.","doi":"10.1017/S0025100300004758"},{"cite":"Okada, Hideo. 1991. Japanese. Journal of the International Phonetic Association 21(2): 94–96.","doi":"10.1017/S002510030000445X"},{"cite":"Fougeron, Cécile & Caroline L. Smith. 1993. French. Journal of the International Phonetic Association 23(2): 73–76.","doi":"10.1017/S0025100300004874"},{"cite":"Martínez-Celdrán, Eugenio, Ana Ma. Fernández-Planas & Josefina Carrera-Sabaté. 2003. Castilian Spanish. Journal of the International Phonetic Association 33(2): 255–259.","doi":"10.1017/S0025100303001373"},{"cite":"Hillenbrand, James M. 2003. American English: Southern Michigan. Journal of the International Phonetic Association 33(1): 121–126.","doi":"10.1017/S0025100303001221"},{"cite":"Coloma, Germán. 2018. Argentine Spanish. Journal of the International Phonetic Association 48(2): 243–250.","doi":"10.1017/S0025100317000275"},{"cite":"Moran, Steven & Daniel McCloy (eds.). PHOIBLE 2.0. https://phoible.org (CC BY-SA 3.0).","doi":null},{"cite":"International Phonetic Association. IPA Chart (IPA Kiel). www.internationalphoneticassociation.org/content/ipa-chart (CC BY-SA 4.0).","doi":null},{"cite":"외래어 표기법 제1장 제4항: 파열음 표기에는 된소리를 쓰지 않는 것을 원칙으로 한다.","doi":null},{"cite":"Wiktionary, '빵' (Korean, Etymology 1): Borrowed from Japanese パン, from Portuguese pão.","doi":null},{"cite":"Abramson, Arthur S. & D. H. Whalen. 2017. Voice Onset Time (VOT) at 50: Theoretical and practical issues in measuring voicing distinctions. Journal of Phonetics 63: 75–86.","doi":null},{"cite":"Silva, David J. 2006. Acoustic evidence for the emergence of tonal contrast in contemporary Korean. Phonology 23(2): 287–308.","doi":"10.1017/S0952675706000911"},{"cite":"Kang, Yoonjung. 2014. Voice Onset Time merger and development of tonal contrast in Seoul Korean stops: A corpus study. Journal of Phonetics 45: 76–90.","doi":"10.1016/j.wocn.2014.03.005"},{"cite":"Lively, Scott E., John S. Logan & David B. Pisoni. 1993. Training Japanese listeners to identify English /r/ and /l/. II. Journal of the Acoustical Society of America 94(3): 1242–1255.","doi":"10.1121/1.408177"},{"cite":"Uchihara, Takumi, Michael Karas & Ron I. Thomson. 2025. Studies in Second Language Acquisition 47(3): 794–827 (HVPT 메타분석, CC BY).","doi":"10.1017/S0272263125100879"},{"cite":"Wright, Richard & Dan McCloy. Phonetics teaching assets (입 단면도·목청 그림). github.com/drammock/phonetics-teaching-assets, Commons 'IPA … Sagittal Section.svg' (CC0 1.0).","doi":null},{"cite":"Wiktionary, '핀' (Korean, Etymology 1): Borrowed from English pin. 전사 [pʰin].","doi":null}]};
+const KEY = 'ipagoyang-v1';
+const app = document.getElementById('app');
+const B = D.bundle, SYM = D.symbols.symbols;
+const LANG = Object.fromEntries(D.langs.map(l => [l.id, l]));
+const WORD = Object.fromEntries(B.words.map(w => [w.id, w]));
+const esc = s => String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));
+const pick = a => a[Math.floor(Math.random() * a.length)];
+const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
+function load() { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; } }
+function save(s) { try { localStorage.setItem(KEY, JSON.stringify(s)); } catch (e) {} }
+
+/* ---------- 소리 ---------- */
+let cur = null, raf = 0;
+function hasAudio(id) { return !!(id && D.audio[id] && D.audio[id].src); }
+function play(id, canvas) {
+  if (!hasAudio(id)) return;
+  if (cur) { cur.pause(); cancelAnimationFrame(raf); }
+  const a = new Audio(D.audio[id].src);
+  cur = a;
+  const draw = () => { if (canvas) wave(canvas, id, a.duration ? a.currentTime / a.duration : 0); if (!a.paused && !a.ended) raf = requestAnimationFrame(draw); else if (canvas) wave(canvas, id, a.ended ? 1 : 0); };
+  a.addEventListener('playing', draw);
+  a.play().catch(() => {});
+  if (canvas) wave(canvas, id, 0);
+}
+function stopAudio() { if (cur) { cur.pause(); cur = null; } cancelAnimationFrame(raf); }
+function wave(c, id, t) {
+  const pk = (D.audio[id] || {}).peaks; if (!pk) return;
+  const dpr = window.devicePixelRatio || 1, w = c.clientWidth, h = c.clientHeight;
+  if (!w) return;
+  c.width = w * dpr; c.height = h * dpr;
+  const g = c.getContext('2d'); g.scale(dpr, dpr);
+  const css = getComputedStyle(document.documentElement);
+  const bw = w / pk.length;
+  pk.forEach((v, i) => {
+    const bh = Math.max(1, v * (h - 4));
+    g.fillStyle = (i / pk.length) <= t ? css.getPropertyValue('--hot') : css.getPropertyValue('--sub');
+    g.globalAlpha = (i / pk.length) <= t ? 1 : .45;
+    g.fillRect(i * bw, (h - bh) / 2, Math.max(1, bw - 1), bh);
+  });
+}
+
+/* ---------- 그림: 입 옆모습(모식도) ---------- */
+const PLACES = [
+  {n:1, ko:'양순', x:29, y:97}, {n:2, ko:'순치', x:45, y:98}, {n:3, ko:'치', x:47, y:89}, {n:4, ko:'치경', x:55, y:80},
+  {n:5, ko:'후치경', x:64, y:76}, {n:6, ko:'권설', x:76, y:72}, {n:7, ko:'경구개', x:96, y:67}, {n:8, ko:'연구개', x:126, y:72},
+  {n:9, ko:'구개수', x:149, y:99}, {n:10, ko:'인두', x:171, y:140}, {n:11, ko:'성문', x:161, y:206}];
+const PLACE_OF = {bilabial: 1};
+function sagittal(o = {}) {
+  const low = o.lips === 'near' ? 4 : o.lips === 'open' ? 12 : -1;
+  const hot = o.highlight ? PLACE_OF[o.highlight] : 0;
+  const lipStroke = hot === 1 ? 'stroke="var(--hot)" stroke-width="2.2"' : 'stroke="var(--sub)" stroke-width=".8"';
+  let s = `
+  <path d="M122,2 C94,4 74,14 67,28 C63,37 55,46 45,54 C38,59 31,61 32,66 C33,70 39,71 42,71" fill="none" stroke="var(--sub)" stroke-width="1" opacity=".7"/>
+  <path d="M29,${120 + low} C24,129 27,140 36,146 C54,158 82,167 106,177 C124,185 138,194 145,206 L147,236" fill="none" stroke="var(--sub)" stroke-width="1" opacity=".7"/>
+  <path d="M58,56 C70,36 112,28 158,34 L164,58 C150,56 120,56 58,56 Z" fill="var(--cav)" stroke="var(--line)"/>
+  <path d="M172,40 L184,40 L184,236 L172,236 Z" fill="var(--tis)"/>
+  <path d="M44,118 C34,121 26,124 28,134 C32,152 52,166 82,174 C104,180 122,184 136,186 L140,176 L60,124 L50,113 Z" fill="var(--tis)"/>
+  <path d="M50,113 C52,104 58,99 68,95 C88,86 116,82 134,92 C146,100 150,116 150,136 C150,154 148,166 142,176 L136,186 C118,170 88,150 60,124 Z" fill="var(--tongue)"/>
+  <path d="M58,56 L164,58 C166,66 160,76 156,84 C152,92 154,99 150,101 C146,98 146,90 142,84 C134,74 122,70 108,68 C88,66 72,70 62,78 C58,81 54,83 50,82 L44,80 L40,72 C42,64 48,58 58,56 Z" fill="var(--tis)"/>
+  <path d="M146,172 C150,162 156,160 160,166" fill="none" stroke="var(--sub)" stroke-width="1.4"/>
+  <path d="M150,186 L150,236 M170,186 L170,236" stroke="var(--sub)" stroke-width="1" />
+  <path d="M151,206 L159,206 M169,206 L163,206" stroke="var(--sub)" stroke-width="2.4"/>
+  <path d="M44,80 L40,72 C30,72 20,78 19,86 C18,93 26,97 40,96 L44,95 Z" fill="var(--tongue)" ${lipStroke}/>
+  <path d="M44,82 L50,82 L49,96 L45,97 Z" fill="var(--tooth)" stroke="var(--sub)" stroke-width=".7"/>
+  <g transform="translate(0,${low})">
+    <path d="M45,100 L49,100 L50,112 L45,113 Z" fill="var(--tooth)" stroke="var(--sub)" stroke-width=".7"/>
+    <path d="M44,99 L40,98 C26,98 19,103 20,110 C21,118 32,121 44,118 Z" fill="var(--tongue)" ${lipStroke}/>
+  </g>`;
+  if (o.puff) s += `<g class="puff" stroke="var(--hot)" fill="none" stroke-width="1.6" stroke-linecap="round"><path d="M14,92 q-4,3 0,6"/><path d="M9,90 q-5,5 0,10"/><path d="M4,88 q-6,7 0,14"/></g>`;
+  if (o.places) PLACES.forEach(p => {
+    const on = p.n === hot;
+    s += `<circle cx="${p.x}" cy="${p.y}" r="${on ? 5.5 : 4.2}" fill="${on ? 'var(--hot)' : 'var(--card)'}" stroke="${on ? 'var(--hot)' : 'var(--sub)'}" stroke-width="1"/>
+          <text x="${p.x}" y="${p.y + 2.6}" font-size="6.5" text-anchor="middle" fill="${on ? '#fff' : 'var(--ink)'}" font-family="var(--ko)">${p.n}</text>`;
+  });
+  else if (hot) { const p = PLACES[hot - 1]; s += `<circle cx="${p.x}" cy="${p.y}" r="5" fill="none" stroke="var(--hot)" stroke-width="1.6"/>`; }
+  return s;
+}
+/* 입 옆모습을 펼치면 IPA 자음표의 가로줄(조음 위치)이 된다 */
+const CHART = [
+  {n:1, plo:['p','b']}, {n:2}, {n:3, span:3, plo:['t','d']}, {n:4, skip:true}, {n:5, skip:true}, {n:6, plo:['ʈ','ɖ']},
+  {n:7, plo:['c','ɟ']}, {n:8, plo:['k','ɡ']}, {n:9, plo:['q','ɢ']}, {n:10, imp:true}, {n:11, plo:['ʔ']}];
+function mapSvg(lit = []) {
+  const cw = 31, x0 = 4, top = 330, K = 1.3, OX = 28, OY = 2, colX = i => x0 + i * cw + cw / 2;
+  let s = `<svg viewBox="0 0 349 422" role="img" aria-label="입 옆모습과 IPA 자음표의 조음 위치"><g transform="translate(${OX},${OY}) scale(${K})">${sagittal({places: true, highlight: lit.length ? 'bilabial' : null})}</g>`;
+  PLACES.forEach((p, i) => {
+    const px = OX + p.x * K, py = OY + p.y * K;
+    s += `<path d="M${px},${py + 4} C${px},${(py + top) / 2 + 20} ${colX(i)},${top - 30} ${colX(i)},${top - 6}" fill="none" stroke="${lit.length && p.n === 1 ? 'var(--hot)' : 'var(--line)'}" stroke-width="${lit.length && p.n === 1 ? 1.6 : 1}"/>`;
+    s += `<circle cx="${colX(i)}" cy="${top}" r="7" fill="var(--card)" stroke="var(--sub)"/><text x="${colX(i)}" y="${top + 3}" font-size="8" text-anchor="middle" fill="var(--ink)">${p.n}</text>`;
+    s += `<text x="${colX(i)}" y="${top + 20}" font-size="8.2" text-anchor="middle" fill="var(--sub)">${p.ko}</text>`;
+  });
+  s += `<text x="4" y="${top + 38}" font-size="8.5" fill="var(--sub)">파열음 줄</text>`;
+  CHART.forEach((c, i) => {
+    if (c.skip) return;
+    const x = x0 + i * cw + 1, w = cw * (c.span || 1) - 2, y = top + 44;
+    const on = c.plo && c.plo.some(v => lit.includes(v));
+    s += `<rect x="${x}" y="${y}" width="${w}" height="34" rx="5" fill="${c.imp ? 'var(--line)' : on ? 'var(--hot-soft)' : 'var(--card)'}" stroke="${on ? 'var(--hot)' : 'var(--line)'}"/>`;
+    if (c.plo) s += `<text x="${x + w / 2}" y="${y + 21}" font-size="14" text-anchor="middle" font-family="var(--ipa)" fill="${on ? 'var(--ink)' : 'var(--sub)'}" opacity="${on ? 1 : .55}">${c.plo.join(' ')}</text>`;
+    if (on && c.n === 1) s += `<text x="${x + w / 2}" y="${y + 31}" font-size="8" text-anchor="middle" font-family="var(--ipa)" fill="var(--hot)">pʰ p͈</text>`;
+  });
+  return s + '</svg>';
+}
+function glottisSvg(st) {
+  const g = {open: [24, 46], wide: [12, 58], voiced: [33, 37], tight: [34, 36]}[st] || [24, 46];
+  const w = st === 'tight' ? 3.2 : 2;
+  const cls = st === 'voiced' ? ' class="vib"' : '';
+  let s = `<svg viewBox="0 0 70 50" role="img" aria-label="목청 모양"><rect x="1" y="1" width="68" height="48" rx="8" fill="var(--cav)" stroke="var(--line)"/>
+    <g${cls}><path d="M35,7 L${g[0]},40" stroke="var(--tongue)" stroke-width="${w + 3}" stroke-linecap="round"/><path d="M35,7 L${g[1]},40" stroke="var(--tongue)" stroke-width="${w + 3}" stroke-linecap="round"/></g>`;
+  if (st === 'tight') s += `<path d="M14,26 l7,0 m-3,-3 l3,3 l-3,3 M56,26 l-7,0 m3,-3 l-3,3 l3,3" stroke="var(--hot)" stroke-width="1.4" fill="none"/>`;
+  return s + '</svg>';
+}
+function votSvg(k) {
+  const y = 30, rel = 120;
+  let s = `<svg viewBox="0 0 300 66" role="img" aria-label="소리 시작 띠"><line x1="10" y1="${y}" x2="290" y2="${y}" stroke="var(--line)" stroke-width="2"/>
+    <line x1="${rel}" y1="10" x2="${rel}" y2="48" stroke="var(--ink)" stroke-width="1.6"/><text x="${rel}" y="60" font-size="10" text-anchor="middle" fill="var(--ink)">터뜨림</text>`;
+  const wavy = (a, b) => { let d = `M${a},${y}`; for (let x = a; x < b; x += 6) d += ` q1.5,-7 3,0 q1.5,7 3,0`; return `<path d="${d}" fill="none" stroke="var(--accent)" stroke-width="1.6"/>`; };
+  const noise = (a, b) => { let d = ''; for (let x = a; x < b; x += 4) d += `M${x},${y - 6} L${x + 2},${y + 6} `; return `<path d="${d}" stroke="var(--hot)" stroke-width="1.2"/>`; };
+  if (k === 'lead') { s += wavy(30, 290); s += `<text x="70" y="14" font-size="10" text-anchor="middle" fill="var(--accent)">울림이 먼저</text>`; }
+  if (k === 'short') { s += wavy(rel + 8, 290); s += `<text x="205" y="14" font-size="10" text-anchor="middle" fill="var(--accent)">바로 울림</text>`; }
+  if (k === 'long') { s += noise(rel + 2, 196) + wavy(198, 290); s += `<text x="158" y="14" font-size="10" text-anchor="middle" fill="var(--hot)">바람(흐)</text><text x="244" y="14" font-size="10" text-anchor="middle" fill="var(--accent)">울림</text>`; }
+  return s + '</svg>';
+}
+function catSvg() {
+  return `<svg class="cat" viewBox="0 0 60 60" aria-hidden="true"><path d="M12,24 L14,6 L26,17 Z M48,24 L46,6 L34,17 Z" fill="#f0a35e"/><circle cx="30" cy="34" r="20" fill="#f0a35e"/>
+    <path d="M18,31 q4,-4 8,0 M34,31 q4,-4 8,0" stroke="#2b2b2b" stroke-width="2.2" fill="none" stroke-linecap="round"/><path d="M27,40 l3,2 l3,-2" stroke="#2b2b2b" stroke-width="1.6" fill="none"/>
+    <path d="M8,38 l10,1 M8,43 l10,-1 M52,38 l-10,1 M52,43 l-10,-1" stroke="#2b2b2b" stroke-width="1"/></svg>`;
+}
+function trHtml(w, blank) {
+  const [a, t, b] = w.ipa;
+  return `[${esc(a)}${blank ? `<span class="slot">${blank === true ? '&nbsp;' : esc(blank)}</span>` : `<b>${esc(t)}</b>`}${esc(b)}]`;
+}
+
+/* ---------- 화면 ---------- */
+function home() {
+  stopAudio();
+  const st = load();
+  const done = st.b01 && st.b01.done;
+  app.innerHTML = `
+    <div class="top">${catSvg()}<div class="bubble">발음기호는 입 지도라고양. 오늘은 맨 앞, 입술부터라고양.</div></div>
+    <h1>발음고양</h1>
+    <p class="sub">같은 기호로 여러 언어의 소리를 견주며 IPA를 익힌다. 시제품: 묶음 1.</p>
+    <div class="card"><div class="svgbox">${mapSvg(done ? ['p', 'b'] : [])}</div>
+      <p class="sub">입을 옆에서 본 그림의 1(입술)~11(목청)이 IPA 자음표의 가로 칸 순서다. 표의 왼쪽일수록 입 앞쪽, 오른쪽일수록 목 안쪽에서 나는 소리다. 칸을 다 익히면 표에 불이 들어온다.</p></div>
+    <div class="card"><b>묶음 1 · ${esc(B.title)}</b> <span class="ipa">${esc(B.symbols_title)}</span>
+      <p class="sub">한국어·영어·스페인어·일본어·프랑스어. 배우기 ${B.learn.length}장 → 한국어와 견주기 → 듣고 고르기 → 전사 빈칸.${done ? ` 최고 ${st.b01.best}/${st.b01.total}` : ''}</p>
+      <button class="btn" id="go">시작</button></div>
+    <button class="btn ghost" id="cr">출처·라이선스</button>`;
+  document.getElementById('go').onclick = () => learn(0);
+  document.getElementById('cr').onclick = credits;
+}
+
+function learn(i) {
+  stopAudio();
+  const k = B.learn[i], s = SYM[k];
+  const ex = B.words.filter(w => w.target === k);
+  const feel = (B.feel || []).filter(f => f.for.includes(k));
+  app.innerHTML = `
+    <div class="top">${catSvg()}<div class="bubble">${i === 0 ? esc(B.lines.start) : '눌러서 들어 보라고양. 눈으로도 보라고양.'}</div></div>
+    <div class="dots">${B.learn.map((_, j) => `<i class="${j === i ? 'on' : ''}"></i>`).join('')}</div>
+    <div class="card">
+      <div class="big ipa">${esc(k === 'β' ? 'β β̞' : k)}</div>
+      <div class="name">${esc(s.name)}</div>
+      ${hasAudio(s.sound) ? `<div class="row" style="justify-content:center;gap:8px;margin-top:6px"><button class="play" id="symplay" aria-label="기호 소리 듣기">▶</button><span class="sub">기호 소리(시범 녹음, 낱말 아님)</span></div>` : ''}
+      <div class="pair" style="margin-top:10px">
+        <div><div class="svgbox"><svg viewBox="0 0 196 240">${sagittal({lips: s.lips, highlight: s.place, puff: s.glottis === 'wide'})}</svg></div><div class="cap">입 옆모습(모식도)</div></div>
+        <div><div class="svgbox">${glottisSvg(s.glottis)}</div><div class="cap">목청(위에서 본 모식도)</div><p class="sub" style="font-size:13px">${esc(D.symbols.glottis[s.glottis] || '')}</p></div>
+      </div>
+      ${s.vot ? `<div class="svgbox" style="margin-top:6px">${votSvg(s.vot)}</div><div class="cap">소리 시작 띠(모식도): ${esc(D.symbols.vot[s.vot])}</div>` : ''}
+      <p style="margin-top:10px">${esc(s.how)}</p>
+      <p><b>한국어와:</b> ${esc(s.ko)}</p>
+      ${s.other ? `<p class="sub">다른 표기: ${esc(s.other)}</p>` : ''}
+    </div>
+    <div class="card"><b>언어별로 들어 보기</b>
+      ${ex.map(w => `<div class="ex" data-w="${w.id}">
+          <span class="lang">${esc(LANG[w.lang].ko)}</span>
+          <span><span class="word">${esc(w.text)}<small>${esc(w.ko)}</small></span><br><span class="tr">${trHtml(w)}</span></span>
+          <button class="play" ${hasAudio(w.audio) ? '' : 'disabled title="녹음 없음"'} aria-label="${esc(w.text)} 듣기">▶</button>
+          ${hasAudio(w.audio) ? '<canvas class="wave"></canvas>' : ''}
+        </div>`).join('') || '<p class="sub">예 낱말 없음</p>'}
+    </div>
+    ${feel.map(f => `<div class="feel">${esc(f.text)}</div>`).join('')}
+    <button class="btn" id="next">${i < B.learn.length - 1 ? '다음 기호' : '문제로'}</button>
+    ${i > 0 ? '<button class="btn ghost" id="prev">앞으로</button>' : '<button class="btn ghost" id="prev">처음으로</button>'}`;
+  app.querySelectorAll('.ex').forEach(el => {
+    const w = WORD[el.dataset.w], c = el.querySelector('canvas'), b = el.querySelector('.play');
+    if (c) requestAnimationFrame(() => wave(c, w.audio, 0));
+    if (b) b.onclick = () => play(w.audio, c);
+  });
+  const sp = document.getElementById('symplay'); if (sp) sp.onclick = () => play(s.sound, null);
+  document.getElementById('next').onclick = () => i < B.learn.length - 1 ? learn(i + 1) : startQuiz();
+  document.getElementById('prev').onclick = () => i > 0 ? learn(i - 1) : home();
+  window.scrollTo(0, 0);
+}
+
+let Q = [], qi = 0, res = [], lock = false, timer = 0;
+function startQuiz() {
+  const cmp = B.compare.map(c => ({type: 'compare', c, w: WORD[c.word]}));
+  const lis = shuffle(B.words.filter(w => w.listen !== false && hasAudio(w.audio) && w.lang !== 'kor')).map(w => ({type: 'listen', w}));
+  const bl = shuffle(B.words).map(w => ({type: 'blank', w}));
+  Q = [...cmp, ...lis, ...bl]; qi = 0; res = [];
+  question();
+}
+function header(msg) {
+  return `<div class="top">${catSvg()}<div class="bubble" id="say">${esc(msg)}</div></div><div class="bar"><i style="width:${Math.round(qi / Q.length * 100)}%"></i></div>`;
+}
+function say(t) { const b = document.getElementById('say'); if (b) b.textContent = t; }
+function keyboard() {
+  const rows = ['파열음', '비음', '마찰음'];
+  const short = Object.fromEntries(Object.entries(B.shortcuts).map(([k, v]) => [v, k]));
+  return `<div class="kb"><div class="kbhead">양순(입술) 칸 · IPA 표 그대로</div><table>${B.keyboard.map((r, i) => `<tr><th>${rows[i]}</th><td><div class="keys">${r.map(k => `<button class="key" data-k="${esc(k)}" title="${esc(SYM[k].name)}"><span class="ks">${esc(k)}</span><small>${esc(short[k] || '')}</small></button>`).join('')}</div></td></tr>`).join('')}</table></div>`;
+}
+function question() {
+  stopAudio(); clearTimeout(timer); lock = false; copyNeed = null; typed = '';
+  if (qi >= Q.length) return result();
+  const q = Q[qi], w = q.w, L = LANG[w.lang].ko;
+  let body = '';
+  if (q.type === 'compare') {
+    body = `${header('한국어 귀로 들어 보라고양.')}
+      <div class="card"><div class="qmeta">${esc(L)} · 한국어와 견주기</div><div class="qword">${esc(w.text)}</div><div class="qmeta">${esc(w.roman !== w.text ? w.roman : '\u00a0')}</div>
+      <div class="row" style="justify-content:center;margin-top:8px"><button class="play" id="pl" ${hasAudio(w.audio) ? '' : 'disabled'}>▶</button></div>
+      ${hasAudio(w.audio) ? '<canvas class="wave" id="wv"></canvas>' : ''}
+      <p style="text-align:center;margin-top:10px">${esc(q.c.q)}</p>
+      <div class="opts">${q.c.options.map(o => `<button class="opt" data-o="${esc(o)}">${esc(o)}</button>`).join('')}</div></div>`;
+  } else if (q.type === 'listen') {
+    body = `${header('첫소리 기호를 고르라고양. 철자는 안 보여 준다고양.')}
+      <div class="card"><div class="qmeta">${esc(L)} · 듣고 고르기</div>
+      <div class="row" style="justify-content:center;margin-top:10px"><button class="play" id="pl" style="width:64px;height:64px;font-size:22px">▶</button></div>
+      <canvas class="wave" id="wv" style="margin-top:8px"></canvas>
+      <div class="opts">${['p', 'b', 'pʰ', 'p͈'].map(o => `<button class="opt ipa" data-o="${esc(o)}">${esc(o)}</button>`).join('')}</div></div>`;
+  } else {
+    body = `${header('빈칸에 들어갈 기호를 치라고양.')}
+      <div class="card"><div class="qmeta">${esc(L)} · 전사 빈칸</div><div class="qword">${esc(w.text)}</div><div class="qmeta">${esc(w.roman !== w.text ? w.roman + ' · ' : '')}${esc(w.ko)}</div>
+      <div class="qtr" id="qtr">${trHtml(w, true)}</div>
+      <div class="row" style="justify-content:center"><button class="play" id="pl" ${hasAudio(w.audio) ? '' : 'disabled title="녹음 없음"'}>▶</button></div>
+      ${hasAudio(w.audio) ? '<canvas class="wave" id="wv"></canvas>' : ''}
+      ${keyboard()}<div class="tap">컴퓨터 자판: 키 아래 글자를 치고 Enter</div></div>`;
+  }
+  app.innerHTML = body + '<div id="rv"></div>';
+  const wv = document.getElementById('wv'), pl = document.getElementById('pl');
+  if (pl) pl.onclick = () => play(w.audio, wv);
+  if (wv) requestAnimationFrame(() => wave(wv, w.audio, 0));
+  if (q.type !== 'blank' && hasAudio(w.audio)) setTimeout(() => play(w.audio, wv), 250);
+  app.querySelectorAll('.opt').forEach(b => b.onclick = () => answer(b.dataset.o, b));
+  app.querySelectorAll('.key').forEach(b => b.onclick = () => answer(b.dataset.k, b));
+  typed = '';
+}
+let typed = '';
+document.addEventListener('keydown', e => {
+  if (e.metaKey || e.ctrlKey || e.altKey) return;
+  const q = Q[qi];
+  if (copyNeed) {
+    if (e.key === 'Enter' || e.key.length === 1) { e.preventDefault(); typedCopy(e); }
+    return;
+  }
+  if (lock) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); next(); } return; }
+  if (!q || !document.getElementById('rv')) return;
+  if (q.type === 'blank') {
+    if (e.key === 'Enter') { e.preventDefault(); const k = B.shortcuts[typed]; if (k) answer(k, app.querySelector(`.key[data-k="${CSS.escape(k)}"]`)); typed = ''; return; }
+    if (e.key === 'Backspace') { typed = typed.slice(0, -1); }
+    else if (e.key.length === 1) typed += e.key;
+    const slot = app.querySelector('.slot'); if (slot) slot.textContent = typed ? (B.shortcuts[typed] || typed) : ' ';
+  } else if (/^[1-9]$/.test(e.key)) {
+    const b = app.querySelectorAll('.opt')[+e.key - 1]; if (b) b.click();
+  }
+});
+function correctOf(q) { return q.type === 'compare' ? [q.c.answer] : q.type === 'listen' ? [q.w.target] : (q.w.accept || [q.w.target]); }
+let copyNeed = null;
+function answer(v, btn) {
+  if (lock || copyNeed) return;
+  const q = Q[qi], ok = correctOf(q).includes(v);
+  typed = '';
+  res.push({q, ok, v});
+  const sel = q.type === 'blank' ? '.key' : '.opt';
+  const right = correctOf(q)[0];
+  if (btn) btn.classList.add(ok ? 'right' : 'wrong');
+  const slot = app.querySelector('.slot'); if (slot) { slot.textContent = right; slot.style.color = ok ? 'var(--ok)' : 'var(--ng)'; }
+  const w = q.w;
+  const why = q.type === 'compare' ? q.c.why : (w.note || '');
+  const line = (B.lines.by_word || {})[w.id] || pick(ok ? B.lines.correct : B.lines.wrong);
+  say(line);
+  document.getElementById('rv').innerHTML = `<div class="reveal ${ok ? 'ok' : 'ng'}">
+      <b>${ok ? '맞음' : '틀림'}</b> · ${esc(LANG[w.lang].ko)} <b>${esc(w.text)}</b> <span class="tr">${trHtml(w)}</span>
+      ${why ? `<div style="margin-top:4px">${esc(why)}</div>` : ''}
+      ${q.type !== 'compare' ? `<div class="sub" style="margin-top:4px"><span class="ipa">[${esc(w.target === 'β' ? 'β̞' : w.target)}]</span> ${esc(SYM[w.target].name)}</div>` : ''}
+      ${ok ? '' : `<div style="margin-top:6px"><b>따라 하기:</b> 정답 칸(<span class="ipa">${esc(right)}</span>)을 눌러야 넘어간다고양.</div>`}
+    </div><div class="tap" id="tp">${ok ? '화면을 누르거나 Enter로 다음' : ''}</div>`;
+  if (hasAudio(w.audio)) play(w.audio, document.getElementById('wv'));
+  if (!ok) {
+    copyNeed = right;
+    const tgt = [...app.querySelectorAll(sel)].find(b => (b.dataset.k || b.dataset.o) === right);
+    if (tgt) { tgt.classList.add('need'); }
+    app.querySelectorAll(sel).forEach(b => b.onclick = () => { if ((b.dataset.k || b.dataset.o) === copyNeed) copied(b); });
+    return;
+  }
+  settle(why + line);
+}
+function typedCopy(e) {
+  const q = Q[qi];
+  if (q.type !== 'blank') { if (/^[1-9]$/.test(e.key)) { const b = app.querySelectorAll('.opt')[+e.key - 1]; if (b && b.dataset.o === copyNeed) copied(b); } return; }
+  if (e.key === 'Enter') { if (B.shortcuts[typed] === copyNeed) copied(app.querySelector(`.key[data-k="${CSS.escape(copyNeed)}"]`)); typed = ''; return; }
+  typed += e.key;
+}
+function copied(b) {
+  copyNeed = null; if (b) { b.classList.remove('need'); b.classList.add('right'); }
+  document.getElementById('tp').textContent = '화면을 누르거나 Enter로 다음';
+  settle('');
+}
+function settle(text) {
+  lock = true;
+  const ms = Math.min(15000, 2000 + 110 * [...String(text)].length);
+  timer = setTimeout(next, ms);
+  setTimeout(() => { document.addEventListener('click', tapNext, {once: true}); }, 300);
+}
+function tapNext(e) { if (e.target.closest('.play')) { document.addEventListener('click', tapNext, {once: true}); return; } next(); }
+function next() { if (!lock) return; lock = false; clearTimeout(timer); document.removeEventListener('click', tapNext); qi++; question(); }
+
+function result() {
+  stopAudio();
+  const ok = res.filter(r => r.ok).length, tot = res.length;
+  const st = load(); const prev = st.b01 || {};
+  st.b01 = {done: true, best: Math.max(prev.best || 0, ok), total: tot, at: new Date().toISOString().slice(0, 10)};
+  save(st);
+  const wrong = res.filter(r => !r.ok);
+  app.innerHTML = `<div class="top">${catSvg()}<div class="bubble">${esc(B.lines.end)}</div></div>
+    <h2>묶음 1 끝: ${ok}/${tot}</h2>
+    <div class="card"><div class="svgbox">${mapSvg(['p', 'b'])}</div><p class="sub">입술(1) 칸의 파열음에 불이 들어왔다. [pʰ]·[p͈]는 표에 따로 칸이 없고, [p]에 부호를 붙여 적는다.</p></div>
+    ${wrong.length ? `<div class="card"><b>틀린 것</b>${wrong.map(r => `<div class="ex"><span class="lang">${esc(LANG[r.q.w.lang].ko)}</span><span><span class="word">${esc(r.q.w.text)}</span> <span class="tr">${trHtml(r.q.w)}</span></span><span class="sub">${esc(r.v)}</span></div>`).join('')}</div>` : ''}
+    <button class="btn" id="again">다시</button><button class="btn ghost" id="hm">처음으로</button>`;
+  document.getElementById('again').onclick = startQuiz;
+  document.getElementById('hm').onclick = home;
+}
+
+function credits() {
+  stopAudio();
+  const files = D.audioCredits;
+  app.innerHTML = `<h2>출처·라이선스</h2>
+    <div class="card"><b>녹음</b> (Wikimedia Commons, 파일마다 라이선스 확인)
+    <table class="cr">${files.map(f => `<tr><td>${esc(f.id)}</td><td><a href="${esc(f.page)}" target="_blank" rel="noopener">${esc(f.commons_file)}</a><br>${esc(f.author)} · ${esc(f.license)}${f.mp3 ? '' : ' · <b>아직 못 받음</b>'}</td></tr>`).join('')}</table>
+    <p class="sub">게임에는 형식만 mp3로 바꿔 넣었다(자르거나 다듬지 않음).</p></div>
+    <div class="card"><b>자료</b><table class="cr">${D.refs.map(r => `<tr><td>${esc(r.cite)}${r.doi ? ` <a href="https://doi.org/${esc(r.doi)}" target="_blank" rel="noopener">doi</a>` : ''}</td></tr>`).join('')}</table>
+    <p class="sub">PHOIBLE 대조 결과(sources/phoible-b01.json)는 CC BY-SA 3.0을 따른다.</p></div>
+    <div class="card"><b>글꼴</b><p class="sub">Balum IPA: Charis SIL 7.000(SIL Global)에서 글자를 줄이고 이름을 바꾼 것. SIL Open Font License 1.1(assets/fonts/OFL.txt).</p></div>
+    <div class="card"><b>그림</b><p class="sub">입 옆모습·목청·소리 시작 띠는 이 게임이 그린 모식도다. 실제 비율이 아니다.</p></div>
+    <button class="btn ghost" id="hm">처음으로</button>`;
+  document.getElementById('hm').onclick = home;
+}
+home();
+</script>
+</body>
+</html>

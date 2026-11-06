@@ -1,0 +1,172 @@
+{
+ "about": "pipeline/wikt_compare.py 결과. Wiktionary(en.wiktionary.org, CC BY-SA 4.0) 낱말 문서의 전사와 대조만 했다. 우리 전사는 data/bundles에 있고 Wiktionary에서 가져오지 않았다.",
+ "fetched": "2026-11-06",
+ "bundle": "b01",
+ "rows": [
+  {
+   "word": "ko-bada",
+   "ours": "[pada]",
+   "wiktionary": [
+    "[pa̠da̠]"
+   ],
+   "target_ok": true,
+   "other_diff": []
+  },
+  {
+   "word": "ko-pul",
+   "ours": "[pʰul]",
+   "wiktionary": [
+    "[pʰuɭ]"
+   ],
+   "target_ok": true,
+   "other_diff": [
+    "[pʰuɭ]"
+   ]
+  },
+  {
+   "word": "ko-ppang",
+   "ours": "[p͈aŋ]",
+   "wiktionary": [
+    "[p͈a̠ŋ]"
+   ],
+   "target_ok": true,
+   "other_diff": []
+  },
+  {
+   "word": "ko-abeoji",
+   "ours": "[abʌdʑi]",
+   "wiktionary": [
+    "[a̠bʌ̹d͡ʑi]"
+   ],
+   "target_ok": true,
+   "other_diff": []
+  },
+  {
+   "word": "en-pin",
+   "ours": "[pʰɪn]",
+   "wiktionary": [
+    "/pɪn/",
+    "[ˈpʰɪn]",
+    "/pən/",
+    "[ˈpʰən]"
+   ],
+   "target_ok": true,
+   "other_diff": [
+    "/pɪn/",
+    "/pən/",
+    "[ˈpʰən]"
+   ]
+  },
+  {
+   "word": "en-spin",
+   "ours": "[spɪn]",
+   "wiktionary": [
+    "/spɪn/"
+   ],
+   "target_ok": true,
+   "other_diff": []
+  },
+  {
+   "word": "en-bin",
+   "ours": "[bɪn]",
+   "wiktionary": [
+    "/bɪn/",
+    "/bən/"
+   ],
+   "target_ok": true,
+   "other_diff": [
+    "/bən/"
+   ]
+  },
+  {
+   "word": "es-pan",
+   "ours": "[pan]",
+   "wiktionary": [
+    "/ˈpan/",
+    "[ˈpãn]"
+   ],
+   "target_ok": true,
+   "other_diff": [
+    "[ˈpãn]"
+   ]
+  },
+  {
+   "word": "es-vaca",
+   "ours": "[ˈbaka]",
+   "wiktionary": [
+    "/ˈbaka/",
+    "[ˈba.ka]"
+   ],
+   "target_ok": true,
+   "other_diff": []
+  },
+  {
+   "word": "es-lobo",
+   "ours": "[ˈloβ̞o]",
+   "wiktionary": [
+    "/ˈlobo/",
+    "[ˈlo.β̞o]"
+   ],
+   "target_ok": true,
+   "other_diff": [
+    "/ˈlobo/"
+   ]
+  },
+  {
+   "word": "ja-pan",
+   "ours": "[paɴ]",
+   "wiktionary": [
+    "[pã̠ɴ]"
+   ],
+   "target_ok": true,
+   "other_diff": [
+    "[pã̠ɴ]"
+   ]
+  },
+  {
+   "word": "ja-basu",
+   "ours": "[basɯ]",
+   "wiktionary": [
+    "[ba̠sɨ]"
+   ],
+   "target_ok": true,
+   "other_diff": [
+    "[ba̠sɨ]"
+   ]
+  },
+  {
+   "word": "fr-pain",
+   "ours": "[pɛ̃]",
+   "wiktionary": [
+    "/pɛ̃/",
+    "/pẽ/",
+    "[pẽĩ]",
+    "/pɛŋ/"
+   ],
+   "target_ok": true,
+   "other_diff": [
+    "/pẽ/",
+    "[pẽĩ]",
+    "/pɛŋ/"
+   ]
+  },
+  {
+   "word": "fr-bain",
+   "ours": "[bɛ̃]",
+   "wiktionary": [
+    "/bɛ̃/"
+   ],
+   "target_ok": true,
+   "other_diff": []
+  },
+  {
+   "word": "fr-paris",
+   "ours": "[paʁi]",
+   "wiktionary": [
+    "/pa.ʁi/"
+   ],
+   "target_ok": true,
+   "other_diff": []
+  }
+ ]
+}
