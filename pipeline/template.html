@@ -5,104 +5,168 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>발음고양</title>
 <!--ARTIFACT_META-->
-<!-- 생성물이다. 고칠 때는 pipeline/template.html과 data/·sources/를 고치고 python3 pipeline/build.py를 돌린다. -->
+<!-- 생성물이다. 고칠 때는 pipeline/template.html과 data/·sources/를 고치고 python3 pipeline/build.py를 돌린다.
+     화면은 고양 시리즈(보카고양·탄고고양) 틀을 따른다: 밤하늘 바탕, 진보라 판, 픽셀 고양고양이 표정 7종(proposals/vocagoyang-design-analysis-20261106.md). -->
 <style>
 @font-face{font-family:"Balum IPA";src:url("assets/fonts/BalumIPA-Regular.woff2") format("woff2");font-weight:400;font-display:swap}
 @font-face{font-family:"Balum IPA";src:url("assets/fonts/BalumIPA-Bold.woff2") format("woff2");font-weight:700;font-display:swap}
+/* 고양 시리즈 색(보카고양 :root) + 발음고양은 소리를 청록으로 칠한다. 시리즈처럼 어두운 화면 하나로 간다. */
 :root{
-  --bg:#fbf8f3;--card:#ffffff;--ink:#22201c;--sub:#6b665d;--line:#e4ddd1;
-  --tis:#efe6da;--cav:#f7f2ea;--tongue:#f2b8b0;--tooth:#ffffff;--hot:#e0541e;--hot-soft:#fde3d6;
-  --ok:#2f8f4e;--ok-soft:#dff2e5;--ng:#c43d3d;--ng-soft:#f8e0e0;--key:#f4efe6;--accent:#3b5bdb;
-  --ipa:"Balum IPA","Charis SIL","Doulos SIL","Gentium Plus","Noto Sans","Segoe UI",sans-serif;
-  --ko:-apple-system,BlinkMacSystemFont,"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",sans-serif;
+  --bg1:#160826;--bg2:#2a0c40;--bg3:#3a1054;--ink:#ffffff;--muted:#c6bcdd;--panel:#1d0c2e;--panel2:#26103a;--line:#6f3c95;
+  --pink:#ff4fa3;--pink2:#ff8ac6;--pinkpale:#f6e2ec;--cyan:#5ce6ff;--cyansoft:#a5dfef;--mint:#7cffb2;--gold:#ffd34d;--gold2:#f5b301;
+  --bad:#ff5d6c;--bad2:#ff8a94;--lav:#c3aefc;--radius:14px;
+  --sub:var(--muted);--card:var(--panel);--accent:var(--cyan);--hot:var(--gold);--hot-soft:#3d2c0c;
+  --cav:#2a1240;--tis:#3d2558;--tongue:#a4567c;--tooth:#f6e2ec;--ok:var(--mint);--ng:var(--bad2);
+  --ipa:"Balum IPA","Charis SIL","Doulos SIL","Gentium Plus",serif;
+  --ko:"Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",system-ui,sans-serif;
+  color-scheme:dark;
 }
-@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#181715;--card:#222120;--ink:#ece8e1;--sub:#a59f95;--line:#3a3733;
-  --tis:#3a332c;--cav:#2a2622;--tongue:#8e4f49;--tooth:#e9e4dc;--hot:#ff7a45;--hot-soft:#4a2a1d;
-  --ok:#5cc47f;--ok-soft:#1f3a28;--ng:#ff7b7b;--ng-soft:#432424;--key:#2d2b28;--accent:#8ea4ff;color-scheme:dark}}
-:root[data-theme="dark"]{--bg:#181715;--card:#222120;--ink:#ece8e1;--sub:#a59f95;--line:#3a3733;
-  --tis:#3a332c;--cav:#2a2622;--tongue:#8e4f49;--tooth:#e9e4dc;--hot:#ff7a45;--hot-soft:#4a2a1d;
-  --ok:#5cc47f;--ok-soft:#1f3a28;--ng:#ff7b7b;--ng-soft:#432424;--key:#2d2b28;--accent:#8ea4ff;color-scheme:dark}
-*{box-sizing:border-box}
-html,body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--ko);word-break:keep-all;-webkit-text-size-adjust:100%}
-body{min-height:100vh}
-.wrap{max-width:560px;margin:0 auto;padding-block:12px 40px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;min-height:100%}
+body{font-family:var(--ko);color:var(--ink);word-break:keep-all;overflow-wrap:break-word;-webkit-text-size-adjust:100%;
+  background:
+    radial-gradient(circle at 16% 14%, rgba(255,79,163,.30), transparent 30%),
+    radial-gradient(circle at 84% 10%, rgba(92,230,255,.16), transparent 26%),
+    radial-gradient(circle at 78% 84%, rgba(124,255,178,.10), transparent 26%),
+    linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 60%, var(--bg3) 100%);
+  background-color:var(--bg1);background-attachment:fixed;overflow-x:hidden}
+body::before{content:"";position:fixed;inset:0;z-index:0;pointer-events:none;
+  background-image:radial-gradient(2px 2px at 20% 30%,#fff,transparent),radial-gradient(2px 2px at 70% 80%,#fff,transparent),
+    radial-gradient(1px 1px at 40% 60%,var(--gold),transparent),radial-gradient(1px 1px at 85% 22%,var(--cyan),transparent),
+    radial-gradient(2px 2px at 12% 82%,var(--pink2),transparent),radial-gradient(1px 1px at 52% 12%,#fff,transparent),
+    radial-gradient(2px 2px at 34% 88%,var(--pink),transparent);
+  opacity:.7;animation:tw 3s steps(2) infinite}
+@keyframes tw{50%{opacity:.3}}
+button,input{font:inherit;color:inherit}
+a{color:var(--cyansoft)}
+.app{position:relative;z-index:1;width:min(100%,560px);margin:0 auto;display:flex;flex-direction:column;gap:12px;
+  padding-block:10px 24px;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
 .ipa{font-family:var(--ipa);font-weight:400}
-h1{font-size:26px;margin:6px 0 2px}
-h2{font-size:19px;margin:16px 0 8px}
-p{line-height:1.6;margin:6px 0}
-.sub{color:var(--sub);font-size:14px}
-.card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px;margin:12px 0}
-button{font:inherit;color:inherit;cursor:pointer}
-.btn{display:block;width:100%;padding:13px 16px;border-radius:12px;border:0;background:var(--accent);color:#fff;font-size:17px;font-weight:700;margin-top:12px}
-.btn.ghost{background:transparent;color:var(--accent);border:1px solid var(--line);font-weight:600}
-.row{display:flex;gap:8px;align-items:center}
-.top{display:flex;align-items:flex-start;gap:10px;min-height:64px}
-.bubble{flex:1;background:var(--card);border:1px solid var(--line);border-radius:14px;padding:9px 12px;font-size:15px;line-height:1.45;position:relative;min-height:46px}
-.bubble:before{content:"";position:absolute;left:-8px;top:16px;border:8px solid transparent;border-right-color:var(--line);border-left:0}
-.bubble:after{content:"";position:absolute;left:-6px;top:17px;border:7px solid transparent;border-right-color:var(--card);border-left:0}
-.cat{width:54px;height:54px;flex:none}
-.bar{height:6px;background:var(--line);border-radius:3px;overflow:hidden;margin:6px 0 10px}
-.bar i{display:block;height:100%;background:var(--accent);width:0;transition:width .3s}
-.big{font-size:64px;line-height:1;text-align:center;margin:6px 0}
-.name{text-align:center;font-weight:700;font-size:17px}
+.appbar{display:flex;align-items:center;gap:10px;min-height:40px}
+.appbar h1{margin:0;font-size:clamp(.92rem,4vw,1.12rem);letter-spacing:-.4px;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.appbar h1 b{color:var(--gold)}
+.appbar .spacer{flex:1}
+.qcount{font-size:.8rem;font-weight:800;color:var(--muted);font-variant-numeric:tabular-nums}
+.iconbtn{flex:none;width:40px;height:40px;border-radius:11px;border:2px solid var(--line);background:var(--panel2);color:#fff;font-size:1.05rem;cursor:pointer;display:grid;place-items:center}
+.iconbtn:focus-visible,.btn:focus-visible,.lessonbtn:focus-visible,.opt:focus-visible,.key:focus-visible,.play:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+.catrow{display:grid;grid-template-columns:auto 1fr;gap:11px;align-items:end;border:2px solid var(--line);border-radius:var(--radius);
+  background:linear-gradient(135deg,rgba(255,255,255,.05),transparent 40%),var(--panel);padding:12px}
+.catimg{width:clamp(78px,21vw,104px)}
+.catrow.small .catimg{width:clamp(60px,16vw,76px)}
+.catimg img,.catbtn img{display:block;width:100%;height:auto;image-rendering:pixelated}
+.bubble{position:relative;border:2px solid var(--pink2);border-radius:12px;padding:11px 13px;background:rgba(34,16,58,.96);
+  font-size:clamp(.86rem,3.6vw,1.02rem);line-height:1.5;min-height:3em;display:flex;align-items:center}
+.bubble:before{content:"";position:absolute;left:-9px;bottom:16px;border:8px solid transparent;border-right-color:var(--pink2);border-left:0}
+.bubble .nm,.nm{color:var(--pink2);font-weight:900}
+.panel{border:2px solid var(--line);border-radius:var(--radius);background:linear-gradient(135deg,rgba(255,255,255,.05),transparent 42%),var(--panel);min-width:0}
+.phead{display:flex;align-items:center;gap:10px;padding:13px 13px 8px}
+h2,h3{margin:0;font-size:1.05rem}
+small{font-weight:800;font-size:.76rem;opacity:.85;color:var(--muted)}
+.note{margin:0;padding:0 13px 13px;font-size:.84rem;line-height:1.6;color:var(--muted)}
 .svgbox svg{width:100%;height:auto;display:block}
-.cap{font-size:12px;color:var(--sub);text-align:center;margin-top:2px}
-.pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:start}
-.ex{display:grid;grid-template-columns:auto 1fr auto;gap:4px 10px;align-items:center;padding:8px 0;border-top:1px solid var(--line)}
+.mapbox{padding:0 8px}
+.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px;align-items:start;padding:0 13px 13px}
+.lessonbtn{border:2px solid var(--line);border-radius:12px;cursor:pointer;color:#fff;text-align:left;padding:13px;display:flex;flex-direction:column;gap:6px;
+  background:linear-gradient(160deg,#3a1555,#26103a 62%,#170824);transition:transform .12s,border-color .12s;min-width:0}
+.lessonbtn:active{transform:scale(.98)}
+.lessonbtn .t{font-size:1.18rem;font-weight:900}
+.lessonbtn .s{color:var(--pink2);font-weight:900;font-size:.9rem}
+.lessonbtn .sy{color:var(--cyan);font-size:1rem}
+.lessonbtn .m{color:var(--muted);font-size:.76rem;font-weight:800}
+.lessonbtn.done{border-color:var(--gold2)}
+.lessonbtn.locked{border-style:dashed;background:transparent;opacity:.55;cursor:default}
+.btn{display:block;width:100%;min-height:56px;border-radius:11px;border:2px solid var(--gold2);cursor:pointer;font-weight:900;font-size:1.05rem;padding:0 18px;
+  background:linear-gradient(180deg,#ffe06b,#e0a92a 60%,#7d4f06);color:#1a0820;box-shadow:0 4px 0 #4a2d06}
+.btn:active{transform:translateY(2px);box-shadow:0 2px 0 #4a2d06}
+.btn.sub{background:var(--panel2);border-color:var(--line);color:#fff;box-shadow:none;min-height:48px}
+.homeCredit{margin:4px 0 0;text-align:center;font-size:.78rem;font-weight:800;letter-spacing:.4px;color:var(--muted)}
+.homeCredit a{color:var(--muted);text-decoration:none}
+.homeCredit b{color:var(--pink2)}
+/* 배우기 */
+.learn{padding:14px 13px}
+.dots{display:flex;gap:6px;justify-content:center}
+.dots i{width:8px;height:8px;border-radius:50%;background:var(--line)}
+.dots i.on{background:var(--gold)}
+.big{font-size:68px;line-height:1.05;text-align:center;color:var(--cyan)}
+.name{text-align:center;font-weight:900;font-size:1.05rem;margin-top:2px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;align-items:start;margin-top:12px}
+.cap{font-size:.72rem;color:var(--muted);text-align:center;margin-top:3px;font-weight:700}
+.learn p{line-height:1.65;margin:8px 0 0;font-size:.95rem}
+.learn .k{color:var(--pink2);font-weight:900}
+.learn .other{color:var(--muted);font-size:.84rem}
+.symrow{display:flex;justify-content:center;align-items:center;gap:8px;margin-top:8px;font-size:.8rem;color:var(--muted);font-weight:700}
+.exlist{padding:0 13px 8px}
+.ex{display:grid;grid-template-columns:auto 1fr auto;gap:4px 10px;align-items:center;padding:10px 0;border-top:1px solid rgba(111,60,149,.6)}
 .ex:first-child{border-top:0}
-.lang{font-size:12px;color:var(--sub);white-space:nowrap}
-.word{font-size:17px;font-weight:600}
-.word small{font-weight:400;color:var(--sub);font-size:13px;margin-left:6px}
-.tr{font-family:var(--ipa);font-size:18px}
-.tr b{color:var(--hot);font-weight:700}
-.play{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);background:var(--key);font-size:15px;display:flex;align-items:center;justify-content:center}
-.play[disabled]{opacity:.35;cursor:default}
-.soon{font-size:11px;color:var(--sub);white-space:nowrap}
+.lang{font-size:.72rem;color:var(--muted);white-space:nowrap;font-weight:800}
+.word{font-size:1.05rem;font-weight:900}
+.word small{margin-left:6px;font-size:.78rem}
+.tr{font-family:var(--ipa);font-size:1.15rem;color:var(--cyan)}
+.tr b{color:var(--gold);font-weight:700}
+.play{width:44px;height:44px;border-radius:50%;border:2px solid var(--cyan);background:var(--panel2);color:var(--cyan);font-size:15px;display:grid;place-items:center;cursor:pointer}
+.play[disabled]{border-color:var(--line);color:var(--line);cursor:default}
+.soon{font-size:.68rem;color:var(--muted);white-space:nowrap;font-weight:700}
 .pcell{display:flex;flex-direction:column;align-items:center;gap:2px}
 canvas.wave{width:100%;height:40px;display:block;grid-column:1/-1}
-.feel{background:var(--hot-soft);border-radius:12px;padding:10px 12px;font-size:14px;line-height:1.55}
-.dots{display:flex;gap:6px;justify-content:center;margin:8px 0}
-.dots i{width:8px;height:8px;border-radius:50%;background:var(--line)}
-.dots i.on{background:var(--accent)}
-.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(64px,1fr));gap:10px;margin-top:12px}
-.opt{padding:14px 6px;border-radius:12px;border:1px solid var(--line);background:var(--card);font-size:26px}
-.opt.ipa{font-size:30px}
-.opt.right{background:var(--ok-soft);border-color:var(--ok)}
-.opt.wrong{background:var(--ng-soft);border-color:var(--ng)}
-.opt.need{outline:3px solid var(--hot);outline-offset:2px}
-.qword{font-size:30px;text-align:center;font-weight:700;margin:8px 0 0}
-.qmeta{text-align:center;color:var(--sub);font-size:14px}
-.qtr{font-family:var(--ipa);font-size:34px;text-align:center;margin:10px 0}
-.slot{display:inline-block;min-width:1.3em;border-bottom:3px solid var(--hot);color:var(--hot);text-align:center}
-.kb{margin-top:12px;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.feel{border:2px dashed var(--line);border-radius:12px;padding:11px 13px;font-size:.88rem;line-height:1.6;color:var(--pinkpale);background:rgba(255,255,255,.03)}
+.feel b{color:var(--pink2)}
+/* 문제 */
+.quiz{padding:12px 12px 14px;display:flex;flex-direction:column;gap:10px}
+.trow{display:flex;align-items:center;gap:10px}
+.tslot{flex:1;min-width:0}
+.pbar{height:12px;border-radius:7px;background:var(--panel2);border:2px solid var(--line);overflow:hidden}
+.pbar i{display:block;height:100%;background:var(--lav);transition:width .3s}
+.combo{font-weight:900;color:var(--pink);font-size:.9rem;min-width:2.2em;text-align:right;font-variant-numeric:tabular-nums}
+.catbtn{flex:none;width:48px;background:none;border:0;padding:0;cursor:default}
+.cat-speech{margin:0;padding:7px 9px;border:1px solid var(--pink2);border-radius:10px;background:var(--panel2);color:var(--pink2);
+  font-size:clamp(.85rem,3.5vw,.98rem);font-weight:800;line-height:1.45;text-align:center;min-height:2.6em;display:flex;align-items:center;justify-content:center}
+.qmeta{text-align:center;color:var(--muted);font-size:.8rem;font-weight:800}
+.qword{font-size:clamp(1.6rem,7vw,2rem);text-align:center;font-weight:900;line-height:1.2}
+.qtr{font-family:var(--ipa);font-size:clamp(2rem,9vw,2.4rem);text-align:center;color:var(--cyan)}
+.slot{display:inline-block;min-width:1.3em;border-bottom:3px solid var(--gold);color:var(--gold);text-align:center}
+.qplay{display:flex;justify-content:center;align-items:center;gap:8px}
+.qask{text-align:center;margin:0;font-weight:800}
+.opts{display:grid;grid-template-columns:repeat(auto-fit,minmax(64px,1fr));gap:8px}
+.opt,.key{border:2px solid var(--line);border-radius:12px;cursor:pointer;color:#fff;background:linear-gradient(160deg,#3a1555,#26103a 62%,#170824)}
+.opt{padding:14px 6px;font-size:1.6rem;font-weight:900}
+.opt.ipa{font-size:1.9rem;color:var(--cyan);font-weight:400}
+.opt.right,.key.right{border-color:var(--mint);background:rgba(124,255,178,.14)}
+.opt.wrong,.key.wrong{border-color:var(--bad);background:rgba(255,93,108,.14)}
+.opt.need,.key.need{outline:3px solid var(--gold);outline-offset:2px}
+.kb{border:2px solid var(--line);border-radius:12px;overflow:hidden}
+.kbhead{font-size:.72rem;color:var(--muted);padding:6px 9px;background:var(--panel2);font-weight:800}
 .kb table{width:100%;border-collapse:collapse}
-.kb th{font-size:11px;color:var(--sub);font-weight:600;text-align:left;padding:6px 8px;background:var(--key);width:64px;border-top:1px solid var(--line)}
+.kb th{font-size:.72rem;color:var(--muted);font-weight:800;text-align:left;padding:6px 9px;background:var(--panel2);width:62px;border-top:1px solid var(--line)}
 .kb td{padding:6px;border-top:1px solid var(--line)}
-.kb .keys{display:flex;gap:6px;flex-wrap:wrap}
-.key{min-width:54px;padding:6px 6px 4px;border-radius:10px;border:1px solid var(--line);background:var(--card);font-family:var(--ipa);font-size:26px;line-height:1;text-align:center}
+.keys{display:flex;gap:6px;flex-wrap:wrap}
+.key{min-width:54px;padding:5px 6px 4px;font-family:var(--ipa);font-size:1.6rem;line-height:1;text-align:center;color:var(--cyan)}
 .key .ks{display:block;line-height:1.5;padding-bottom:3px}
-.key small{display:block;font-family:var(--ko);font-size:10px;color:var(--sub);line-height:1.2}
-.key.right{background:var(--ok-soft);border-color:var(--ok)}
-.key.wrong{background:var(--ng-soft);border-color:var(--ng)}
-.key.need{outline:3px solid var(--hot);outline-offset:1px}
-.kbhead{font-size:11px;color:var(--sub);padding:6px 8px;background:var(--key)}
-.reveal{margin-top:12px;border-radius:12px;padding:12px;font-size:15px;line-height:1.55}
-.reveal.ok{background:var(--ok-soft)}
-.reveal.ng{background:var(--ng-soft)}
-.reveal .tr{font-size:22px}
-.tap{font-size:12px;color:var(--sub);text-align:center;margin-top:8px}
-table.cr{width:100%;border-collapse:collapse;font-size:13px}
-table.cr td,table.cr th{border-top:1px solid var(--line);padding:6px 4px;text-align:left;vertical-align:top}
-a{color:var(--accent)}
+.key small{display:block;font-family:var(--ko);font-size:.62rem;line-height:1.2}
+.tap{font-size:.74rem;color:var(--muted);text-align:center;font-weight:700}
+.reveal{border-radius:12px;padding:12px 13px;font-size:.92rem;line-height:1.6;background:var(--panel2);border:2px solid var(--line)}
+.reveal.ok{border-color:var(--mint)}
+.reveal.ng{border-color:var(--bad)}
+.reveal .tr{font-size:1.3rem}
+.reveal .lbl{font-weight:900}
+.reveal.ok .lbl{color:var(--mint)}
+.reveal.ng .lbl{color:var(--bad2)}
+.heart{position:fixed;z-index:9;pointer-events:none;font-size:56px;color:var(--pink);transform:translate(-50%,-50%) scale(.2);opacity:0;animation:hb .9s cubic-bezier(.16,1,.3,1) forwards}
+@keyframes hb{20%{opacity:1}60%{transform:translate(-50%,-80%) scale(1.15);opacity:1}100%{transform:translate(-50%,-110%) scale(1);opacity:0}}
+/* 결과·출처 */
+.res{padding:0 13px 13px}
+.perfect{font-size:1.4rem;font-weight:900;color:var(--gold);letter-spacing:1px}
+table.cr{width:100%;border-collapse:collapse;font-size:.8rem}
+table.cr td{border-top:1px solid var(--line);padding:7px 4px;text-align:left;vertical-align:top;color:var(--pinkpale)}
+.crbox{padding:0 13px 13px;overflow-x:auto}
 .vib{animation:vib .12s linear infinite alternate}
 @keyframes vib{from{transform:translateX(-.6px)}to{transform:translateX(.6px)}}
 .puff{animation:puff 1.4s ease-out infinite}
 @keyframes puff{0%{opacity:0;transform:translateX(0)}30%{opacity:1}100%{opacity:0;transform:translateX(-8px)}}
-@media (prefers-reduced-motion:reduce){.vib,.puff{animation:none}}
+@media (prefers-reduced-motion:reduce){.vib,.puff,body::before,.heart{animation:none}.heart{display:none}}
 </style>
 </head>
 <body>
-<div class="wrap" id="app"></div>
+<div class="app" id="app"></div>
 <script>
 const D = /*__DATA__*/null;
 const KEY = 'ipagoyang-v1';
@@ -115,6 +179,7 @@ const pick = a => a[Math.floor(Math.random() * a.length)];
 const shuffle = a => { a = a.slice(); for (let i = a.length - 1; i > 0; i--) { const j = Math.floor(Math.random() * (i + 1)); [a[i], a[j]] = [a[j], a[i]]; } return a; };
 function load() { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch (e) { return {}; } }
 function save(s) { try { localStorage.setItem(KEY, JSON.stringify(s)); } catch (e) {} }
+const TYPE_KO = {compare: '한국어와 견주기', listen: '듣고 고르기', blank: '전사 빈칸'};
 
 /* ---------- 소리 ---------- */
 let cur = null, raf = 0;
@@ -140,7 +205,7 @@ function wave(c, id, t) {
   const bw = w / pk.length;
   pk.forEach((v, i) => {
     const bh = Math.max(1, v * (h - 4));
-    g.fillStyle = (i / pk.length) <= t ? css.getPropertyValue('--hot') : css.getPropertyValue('--sub');
+    g.fillStyle = (i / pk.length) <= t ? css.getPropertyValue('--cyan') : css.getPropertyValue('--sub');
     g.globalAlpha = (i / pk.length) <= t ? 1 : .45;
     g.fillRect(i * bw, (h - bh) / 2, Math.max(1, bw - 1), bh);
   });
@@ -226,15 +291,16 @@ function votSvg(k) {
   if (k === 'long') { s += noise(rel + 2, 196) + wavy(198, 290); s += `<text x="158" y="14" font-size="10" text-anchor="middle" fill="var(--hot)">바람(흐)</text><text x="244" y="14" font-size="10" text-anchor="middle" fill="var(--accent)">울림</text>`; }
   return s + '</svg>';
 }
-function catSvg() {
-  return `<svg class="cat" viewBox="0 0 60 60" aria-hidden="true"><path d="M12,24 L14,6 L26,17 Z M48,24 L46,6 L34,17 Z" fill="#f0a35e"/><circle cx="30" cy="34" r="20" fill="#f0a35e"/>
-    <path d="M18,31 q4,-4 8,0 M34,31 q4,-4 8,0" stroke="#2b2b2b" stroke-width="2.2" fill="none" stroke-linecap="round"/><path d="M27,40 l3,2 l3,-2" stroke="#2b2b2b" stroke-width="1.6" fill="none"/>
-    <path d="M8,38 l10,1 M8,43 l10,-1 M52,38 l-10,1 M52,43 l-10,-1" stroke="#2b2b2b" stroke-width="1"/></svg>`;
+/* 고양고양이: 보카고양·탄고고양과 같은 30×33 픽셀 그림, 표정 7종(normal·evil·win·rage·blank·sour·wicked) */
+function catImg(expr) { return `<img src="${D.cat[expr] || D.cat.normal}" alt="고양고양이">`; }
+function catRow(expr, line, small) {
+  return `<section class="catrow${small ? ' small' : ''}"><div class="catimg">${catImg(expr)}</div><div class="bubble"><span><span class="nm">고양고양이</span> ${esc(line)}</span></div></section>`;
 }
 function trHtml(w, blank) {
   const [a, t, b] = w.ipa;
   return `[${esc(a)}${blank ? `<span class="slot">${blank === true ? '&nbsp;' : esc(blank)}</span>` : `<b>${esc(t)}</b>`}${esc(b)}]`;
 }
+function quizCount() { return B.compare.length + B.words.filter(w => w.listen !== false && hasAudio(w.audio) && w.lang !== 'kor').length + B.words.length; }
 
 /* ---------- 화면 ---------- */
 function home() {
@@ -242,17 +308,22 @@ function home() {
   const st = load();
   const done = st.b01 && st.b01.done;
   app.innerHTML = `
-    <div class="top">${catSvg()}<div class="bubble">발음기호는 입 지도라고양. 오늘은 맨 앞, 입술부터라고양.</div></div>
-    <h1>발음고양</h1>
-    <p class="sub">같은 기호로 여러 언어의 소리를 견주며 IPA를 익힌다. 시제품: 묶음 1.</p>
-    <div class="card"><div class="svgbox">${mapSvg(done ? ['p', 'b'] : [])}</div>
-      <p class="sub">입을 옆에서 본 그림의 1(입술)~11(목청)이 IPA 자음표의 가로 칸 순서다. 표의 왼쪽일수록 입 앞쪽, 오른쪽일수록 목 안쪽에서 나는 소리다. 칸을 다 익히면 표에 불이 들어온다.</p></div>
-    <div class="card"><b>묶음 1 · ${esc(B.title)}</b> <span class="ipa">${esc(B.symbols_title)}</span>
-      <p class="sub">한국어·영어·스페인어·일본어·프랑스어. 배우기 ${B.learn.length}장 → 한국어와 견주기 → 듣고 고르기 → 전사 빈칸.${done ? ` 최고 ${st.b01.best}/${st.b01.total}` : ''}</p>
-      <button class="btn" id="go">시작</button></div>
-    <button class="btn ghost" id="cr">출처·라이선스</button>`;
+    <header class="appbar"><h1><b>발음고양</b></h1><span class="spacer"></span><button class="iconbtn" id="cr" aria-label="출처·라이선스">ⓘ</button></header>
+    ${catRow('normal', done ? '입술 칸은 켰다고양. 표는 아직 깜깜하다고양. ㅎㅎ' : '발음기호는 입 지도라고양. 오늘은 맨 앞, 입술부터라고양.')}
+    <section class="panel"><div class="phead"><div style="flex:1;min-width:0"><h3>IPA 입 지도</h3><small>입 옆모습 1(입술)~11(목청) = IPA 자음표의 가로 칸</small></div></div>
+      <div class="svgbox mapbox">${mapSvg(done ? ['p', 'b'] : [])}</div>
+      <p class="note">표의 왼쪽일수록 입 앞쪽, 오른쪽일수록 목 안쪽에서 나는 소리다. 묶음을 끝내면 그 칸에 불이 들어온다.</p></section>
+    <section class="panel"><div class="phead"><div style="flex:1;min-width:0"><h3>묶음</h3><small>${done ? `묶음 1 최고 ${st.b01.best}/${st.b01.total}` : '한국어 귀가 헷갈리는 대립부터'}</small></div></div>
+      <div class="grid">
+        <button class="lessonbtn${done ? ' done' : ''}" id="go"><span class="t">${done ? '★ ' : ''}묶음 1</span><span class="s">${esc(B.title)}</span><span class="ipa sy">${esc(B.symbols_title)}</span><span class="m">한·영·스·일·프 · 배우기 ${B.learn.length} · 문제 ${quizCount()}</span></button>
+        <div class="lessonbtn locked" aria-disabled="true"><span class="t">🔒 묶음 2</span><span class="ipa sy">[t d tʰ t͈] [k ɡ kʰ k͈]</span><span class="m">${done ? '준비 중' : '묶음 1을 끝내면 열려'}</span></div>
+      </div></section>
+    <p class="homeCredit"><a href="https://blog.naver.com/study1study" target="_blank" rel="noopener"><b>STUDY1</b> 국어 블로그 ›</a></p>
+    <p class="homeCredit"><a href="#" id="cr2">출처·라이선스 ›</a></p>`;
   document.getElementById('go').onclick = () => learn(0);
   document.getElementById('cr').onclick = credits;
+  document.getElementById('cr2').onclick = e => { e.preventDefault(); credits(); };
+  window.scrollTo(0, 0);
 }
 
 function learn(i) {
@@ -261,32 +332,32 @@ function learn(i) {
   const ex = B.words.filter(w => w.target === k);
   const feel = (B.feel || []).filter(f => f.for.includes(k));
   app.innerHTML = `
-    <div class="top">${catSvg()}<div class="bubble">${i === 0 ? esc(B.lines.start) : '눌러서 들어 보라고양. 눈으로도 보라고양.'}</div></div>
+    <header class="appbar"><button class="iconbtn" id="prev" aria-label="${i > 0 ? '앞 기호' : '처음으로'}">‹</button><h1><b>묶음 1</b> · 배우기 ${i + 1}/${B.learn.length}</h1></header>
+    ${catRow(i === 0 ? 'evil' : 'normal', i === 0 ? B.lines.start : '눌러서 들어 보라고양. 눈으로도 보라고양.', true)}
     <div class="dots">${B.learn.map((_, j) => `<i class="${j === i ? 'on' : ''}"></i>`).join('')}</div>
-    <div class="card">
+    <section class="panel learn">
       <div class="big ipa">${esc(k === 'β' ? 'β β̞' : k)}</div>
       <div class="name">${esc(s.name)}</div>
-      ${hasAudio(s.sound) ? `<div class="row" style="justify-content:center;gap:8px;margin-top:6px"><button class="play" id="symplay" aria-label="기호 소리 듣기">▶</button><span class="sub">기호 소리(시범 녹음, 낱말 아님)</span></div>` : ''}
-      <div class="pair" style="margin-top:10px">
-        <div><div class="svgbox"><svg viewBox="0 0 196 240">${sagittal({lips: s.lips, highlight: s.place, puff: s.glottis === 'wide'})}</svg></div><div class="cap">입 옆모습(모식도)</div></div>
-        <div><div class="svgbox">${glottisSvg(s.glottis)}</div><div class="cap">목청(위에서 본 모식도)</div><p class="sub" style="font-size:13px">${esc(D.symbols.glottis[s.glottis] || '')}</p></div>
+      ${hasAudio(s.sound) ? `<div class="symrow"><button class="play" id="symplay" aria-label="기호 소리 듣기">▶</button>기호 소리(시범 녹음, 낱말 아님)</div>` : ''}
+      <div class="pair">
+        <div><div class="svgbox"><svg viewBox="0 0 196 240" role="img" aria-label="입 옆모습">${sagittal({lips: s.lips, highlight: s.place, puff: s.glottis === 'wide'})}</svg></div><div class="cap">입 옆모습(모식도)</div></div>
+        <div><div class="svgbox">${glottisSvg(s.glottis)}</div><div class="cap">목청(위에서 본 모식도)</div><p class="other" style="font-size:.8rem;margin-top:6px">${esc(D.symbols.glottis[s.glottis] || '')}</p></div>
       </div>
-      ${s.vot ? `<div class="svgbox" style="margin-top:6px">${votSvg(s.vot)}</div><div class="cap">소리 시작 띠(모식도): ${esc(D.symbols.vot[s.vot])}</div>` : ''}
-      <p style="margin-top:10px">${esc(s.how)}</p>
-      <p><b>한국어와:</b> ${esc(s.ko)}</p>
-      ${s.other ? `<p class="sub">다른 표기: ${esc(s.other)}</p>` : ''}
-    </div>
-    <div class="card"><b>언어별로 들어 보기</b>
+      ${s.vot ? `<div class="svgbox" style="margin-top:8px">${votSvg(s.vot)}</div><div class="cap">소리 시작 띠(모식도): ${esc(D.symbols.vot[s.vot])}</div>` : ''}
+      <p>${esc(s.how)}</p>
+      <p><span class="k">한국어와</span> ${esc(s.ko)}</p>
+      ${s.other ? `<p class="other">다른 표기: ${esc(s.other)}</p>` : ''}
+    </section>
+    <section class="panel"><div class="phead"><h3>언어별로 들어 보기</h3></div><div class="exlist">
       ${ex.map(w => `<div class="ex" data-w="${w.id}">
           <span class="lang">${esc(LANG[w.lang].ko)}</span>
           <span><span class="word">${esc(w.text)}<small>${esc(w.ko)}</small></span><br><span class="tr">${trHtml(w)}</span></span>
           <span class="pcell"><button class="play" ${hasAudio(w.audio) ? '' : 'disabled'} aria-label="${esc(w.text)} 듣기">▶</button>${hasAudio(w.audio) ? '' : '<span class="soon">녹음 준비 중</span>'}</span>
           ${hasAudio(w.audio) ? '<canvas class="wave"></canvas>' : ''}
-        </div>`).join('') || '<p class="sub">예 낱말 없음</p>'}
-    </div>
-    ${feel.map(f => `<div class="feel">${esc(f.text)}</div>`).join('')}
-    <button class="btn" id="next">${i < B.learn.length - 1 ? '다음 기호' : '문제로'}</button>
-    ${i > 0 ? '<button class="btn ghost" id="prev">앞으로</button>' : '<button class="btn ghost" id="prev">처음으로</button>'}`;
+        </div>`).join('') || '<p class="note">예 낱말 없음</p>'}
+    </div></section>
+    ${feel.map(f => `<div class="feel"><b>해 보기</b> ${esc(f.text)}</div>`).join('')}
+    <button class="btn" id="next">${i < B.learn.length - 1 ? '다음 기호 ▶' : '문제로 ▶'}</button>`;
   app.querySelectorAll('.ex').forEach(el => {
     const w = WORD[el.dataset.w], c = el.querySelector('canvas'), b = el.querySelector('.play');
     if (c) requestAnimationFrame(() => wave(c, w.audio, 0));
@@ -298,16 +369,25 @@ function learn(i) {
   window.scrollTo(0, 0);
 }
 
-let Q = [], qi = 0, res = [], lock = false, timer = 0;
+let Q = [], qi = 0, res = [], lock = false, timer = 0, streak = 0;
 function startQuiz() {
   const cmp = B.compare.map(c => ({type: 'compare', c, w: WORD[c.word]}));
   const lis = shuffle(B.words.filter(w => w.listen !== false && hasAudio(w.audio) && w.lang !== 'kor')).map(w => ({type: 'listen', w}));
   const bl = shuffle(B.words).map(w => ({type: 'blank', w}));
-  Q = [...cmp, ...lis, ...bl]; qi = 0; res = [];
+  Q = [...cmp, ...lis, ...bl]; qi = 0; res = []; streak = 0;
   question();
 }
-function header(msg) {
-  return `<div class="top">${catSvg()}<div class="bubble" id="say">${esc(msg)}</div></div><div class="bar"><i style="width:${Math.round(qi / Q.length * 100)}%"></i></div>`;
+function header(msg, type) {
+  return `<header class="appbar"><button class="iconbtn" id="quit" aria-label="처음으로">⌂</button><h1><b>묶음 1</b> · ${esc(TYPE_KO[type])}</h1><span class="spacer"></span><span class="qcount">${qi + 1}/${Q.length}</span></header>
+    <section class="panel quiz"><div class="trow"><div class="tslot"><div class="pbar"><i style="width:${Math.round(qi / Q.length * 100)}%"></i></div></div><span class="combo" id="combo">${streak >= 2 ? '♥×' + streak : ''}</span><button class="catbtn" id="catb" tabindex="-1" aria-hidden="true">${catImg('evil')}</button></div>
+    <p class="cat-speech" id="say">${esc(msg)}</p>`;
+}
+function setCat(expr) { const b = document.getElementById('catb'); if (b) b.innerHTML = catImg(expr); }
+function heart(btn) {
+  if (!btn || matchMedia('(prefers-reduced-motion: reduce)').matches) return;
+  const r = btn.getBoundingClientRect(), h = document.createElement('span');
+  h.className = 'heart'; h.textContent = '♥'; h.style.left = (r.left + r.width / 2) + 'px'; h.style.top = (r.top + r.height / 2) + 'px';
+  document.body.appendChild(h); setTimeout(() => h.remove(), 1000);
 }
 function say(t) { const b = document.getElementById('say'); if (b) b.textContent = t; }
 function keyboard() {
@@ -321,25 +401,25 @@ function question() {
   const q = Q[qi], w = q.w, L = LANG[w.lang].ko;
   let body = '';
   if (q.type === 'compare') {
-    body = `${header('한국어 귀로 들어 보라고양.')}
-      <div class="card"><div class="qmeta">${esc(L)} · 한국어와 견주기</div><div class="qword">${esc(w.text)}</div><div class="qmeta">${esc(w.roman !== w.text ? w.roman : '\u00a0')}</div>
-      <div class="row" style="justify-content:center;margin-top:8px"><button class="play" id="pl" ${hasAudio(w.audio) ? '' : 'disabled'}>▶</button>${hasAudio(w.audio) ? '' : '<span class="soon">녹음 준비 중</span>'}</div>
+    body = `${header('한국어 귀로 들어 보라고양.', q.type)}
+      <div class="qmeta">${esc(L)}</div><div class="qword">${esc(w.text)}</div><div class="qmeta">${esc(w.roman !== w.text ? w.roman : '\u00a0')}</div>
+      <div class="qplay"><button class="play" id="pl" ${hasAudio(w.audio) ? '' : 'disabled'} aria-label="듣기">▶</button>${hasAudio(w.audio) ? '' : '<span class="soon">녹음 준비 중</span>'}</div>
       ${hasAudio(w.audio) ? '<canvas class="wave" id="wv"></canvas>' : ''}
-      <p style="text-align:center;margin-top:10px">${esc(q.c.q)}</p>
-      <div class="opts">${q.c.options.map(o => `<button class="opt" data-o="${esc(o)}">${esc(o)}</button>`).join('')}</div></div>`;
+      <p class="qask">${esc(q.c.q)}</p>
+      <div class="opts">${q.c.options.map(o => `<button class="opt" data-o="${esc(o)}">${esc(o)}</button>`).join('')}</div></section>`;
   } else if (q.type === 'listen') {
-    body = `${header('첫소리 기호를 고르라고양. 철자는 안 보여 준다고양.')}
-      <div class="card"><div class="qmeta">${esc(L)} · 듣고 고르기</div>
-      <div class="row" style="justify-content:center;margin-top:10px"><button class="play" id="pl" style="width:64px;height:64px;font-size:22px">▶</button></div>
-      <canvas class="wave" id="wv" style="margin-top:8px"></canvas>
-      <div class="opts">${['p', 'b', 'pʰ', 'p͈'].map(o => `<button class="opt ipa" data-o="${esc(o)}">${esc(o)}</button>`).join('')}</div></div>`;
+    body = `${header('첫소리 기호를 고르라고양. 철자는 안 보여 준다고양.', q.type)}
+      <div class="qmeta">${esc(L)}</div>
+      <div class="qplay"><button class="play" id="pl" style="width:64px;height:64px;font-size:22px" aria-label="듣기">▶</button></div>
+      <canvas class="wave" id="wv"></canvas>
+      <div class="opts">${['p', 'b', 'pʰ', 'p͈'].map(o => `<button class="opt ipa" data-o="${esc(o)}">${esc(o)}</button>`).join('')}</div></section>`;
   } else {
-    body = `${header('빈칸에 들어갈 기호를 치라고양.')}
-      <div class="card"><div class="qmeta">${esc(L)} · 전사 빈칸</div><div class="qword">${esc(w.text)}</div><div class="qmeta">${esc(w.roman !== w.text ? w.roman + ' · ' : '')}${esc(w.ko)}</div>
+    body = `${header('빈칸에 들어갈 기호를 치라고양.', q.type)}
+      <div class="qmeta">${esc(L)}</div><div class="qword">${esc(w.text)}</div><div class="qmeta">${esc(w.roman !== w.text ? w.roman + ' · ' : '')}${esc(w.ko)}</div>
       <div class="qtr" id="qtr">${trHtml(w, true)}</div>
-      <div class="row" style="justify-content:center"><button class="play" id="pl" ${hasAudio(w.audio) ? '' : 'disabled'}>▶</button>${hasAudio(w.audio) ? '' : '<span class="soon">녹음 준비 중</span>'}</div>
+      <div class="qplay"><button class="play" id="pl" ${hasAudio(w.audio) ? '' : 'disabled'} aria-label="듣기">▶</button>${hasAudio(w.audio) ? '' : '<span class="soon">녹음 준비 중</span>'}</div>
       ${hasAudio(w.audio) ? '<canvas class="wave" id="wv"></canvas>' : ''}
-      ${keyboard()}<div class="tap">컴퓨터 자판: 키 아래 글자를 치고 Enter</div></div>`;
+      ${keyboard()}<div class="tap">컴퓨터 자판: 키 아래 글자를 치고 Enter</div></section>`;
   }
   app.innerHTML = body + '<div id="rv"></div>';
   const wv = document.getElementById('wv'), pl = document.getElementById('pl');
@@ -348,7 +428,9 @@ function question() {
   if (q.type !== 'blank' && hasAudio(w.audio)) setTimeout(() => play(w.audio, wv), 250);
   app.querySelectorAll('.opt').forEach(b => b.onclick = () => answer(b.dataset.o, b));
   app.querySelectorAll('.key').forEach(b => b.onclick = () => answer(b.dataset.k, b));
+  document.getElementById('quit').onclick = home;
   typed = '';
+  window.scrollTo(0, 0);
 }
 let typed = '';
 document.addEventListener('keydown', e => {
@@ -379,15 +461,19 @@ function answer(v, btn) {
   const sel = q.type === 'blank' ? '.key' : '.opt';
   const right = correctOf(q)[0];
   if (btn) btn.classList.add(ok ? 'right' : 'wrong');
+  streak = ok ? streak + 1 : 0;
+  setCat(ok ? 'win' : 'rage');
+  if (ok) heart(btn);
+  const cb = document.getElementById('combo'); if (cb) cb.textContent = streak >= 2 ? '♥×' + streak : '';
   const slot = app.querySelector('.slot'); if (slot) { slot.textContent = right; slot.style.color = ok ? 'var(--ok)' : 'var(--ng)'; }
   const w = q.w;
   const why = q.type === 'compare' ? q.c.why : (w.note || '');
   const line = (B.lines.by_word || {})[w.id] || pick(ok ? B.lines.correct : B.lines.wrong);
   say(line);
   document.getElementById('rv').innerHTML = `<div class="reveal ${ok ? 'ok' : 'ng'}">
-      <b>${ok ? '맞음' : '틀림'}</b> · ${esc(LANG[w.lang].ko)} <b>${esc(w.text)}</b> <span class="tr">${trHtml(w)}</span>
+      <span class="lbl">${ok ? '맞았다' : '틀렸다'}</span> · ${esc(LANG[w.lang].ko)} <b>${esc(w.text)}</b> <span class="tr">${trHtml(w)}</span>
       ${why ? `<div style="margin-top:4px">${esc(why)}</div>` : ''}
-      ${q.type !== 'compare' ? `<div class="sub" style="margin-top:4px"><span class="ipa">[${esc(w.target === 'β' ? 'β̞' : w.target)}]</span> ${esc(SYM[w.target].name)}</div>` : ''}
+      ${q.type !== 'compare' ? `<div style="margin-top:4px;color:var(--muted)"><span class="ipa" style="color:var(--cyan)">[${esc(w.target === 'β' ? 'β̞' : w.target)}]</span> ${esc(SYM[w.target].name)}</div>` : ''}
       ${ok ? '' : `<div style="margin-top:6px"><b>따라 하기:</b> 정답 칸(<span class="ipa">${esc(right)}</span>)을 눌러야 넘어간다고양.</div>`}
     </div><div class="tap" id="tp">${ok ? '화면을 누르거나 Enter로 다음' : ''}</div>`;
   if (hasAudio(w.audio)) play(w.audio, document.getElementById('wv'));
@@ -422,33 +508,38 @@ function next() { if (!lock) return; lock = false; clearTimeout(timer); document
 
 function result() {
   stopAudio();
-  const ok = res.filter(r => r.ok).length, tot = res.length;
+  const ok = res.filter(r => r.ok).length, tot = res.length, perfect = ok === tot;
   const st = load(); const prev = st.b01 || {};
   st.b01 = {done: true, best: Math.max(prev.best || 0, ok), total: tot, at: new Date().toISOString().slice(0, 10)};
   save(st);
   const wrong = res.filter(r => !r.ok);
-  app.innerHTML = `<div class="top">${catSvg()}<div class="bubble">${esc(B.lines.end)}</div></div>
-    <h2>묶음 1 끝: ${ok}/${tot}</h2>
-    <div class="card"><div class="svgbox">${mapSvg(['p', 'b'])}</div><p class="sub">입술(1) 칸의 파열음에 불이 들어왔다. [pʰ]·[p͈]는 표에 따로 칸이 없고, [p]에 부호를 붙여 적는다.</p></div>
-    ${wrong.length ? `<div class="card"><b>틀린 것</b>${wrong.map(r => `<div class="ex"><span class="lang">${esc(LANG[r.q.w.lang].ko)}</span><span><span class="word">${esc(r.q.w.text)}</span> <span class="tr">${trHtml(r.q.w)}</span></span><span class="sub">${esc(r.v)}</span></div>`).join('')}</div>` : ''}
-    <button class="btn" id="again">다시</button><button class="btn ghost" id="hm">처음으로</button>`;
+  app.innerHTML = `
+    <header class="appbar"><h1><b>발음고양</b> · 묶음 1</h1></header>
+    ${catRow(perfect ? 'win' : 'normal', perfect ? (B.lines.perfect || B.lines.end) : B.lines.end)}
+    <section class="panel"><div class="phead"><div style="flex:1;min-width:0"><h2>묶음 1 끝: ${ok}/${tot}</h2>${perfect ? '<div class="perfect">PERFECT</div>' : ''}</div></div>
+      <div class="svgbox mapbox">${mapSvg(['p', 'b'])}</div>
+      <p class="note">입술(1) 칸의 파열음에 불이 들어왔다. [pʰ]·[p͈]는 표에 따로 칸이 없고, [p]에 부호를 붙여 적는다.</p></section>
+    ${wrong.length ? `<section class="panel"><div class="phead"><h3>틀린 것</h3></div><div class="exlist">${wrong.map(r => `<div class="ex"><span class="lang">${esc(LANG[r.q.w.lang].ko)}</span><span><span class="word">${esc(r.q.w.text)}</span> <span class="tr">${trHtml(r.q.w)}</span></span><span class="lang">${esc(TYPE_KO[r.q.type])} · <span class="ipa">${esc(r.v)}</span></span></div>`).join('')}</div></section>` : ''}
+    <button class="btn" id="again">다시 ▶</button><button class="btn sub" id="hm">처음으로</button>`;
   document.getElementById('again').onclick = startQuiz;
   document.getElementById('hm').onclick = home;
+  window.scrollTo(0, 0);
 }
 
 function credits() {
   stopAudio();
   const files = D.audioCredits;
-  app.innerHTML = `<h2>출처·라이선스</h2>
-    <div class="card"><b>녹음</b> (Wikimedia Commons, 파일마다 라이선스 확인)
-    <table class="cr">${files.map(f => `<tr><td>${esc(f.id)}</td><td><a href="${esc(f.page)}" target="_blank" rel="noopener">${esc(f.commons_file)}</a><br>${esc(f.author)} · ${esc(f.license)}${f.mp3 ? '' : ' · <b>아직 못 받음</b>'}</td></tr>`).join('')}</table>
-    <p class="sub">게임에는 형식만 mp3로 바꿔 넣었다(자르거나 다듬지 않음). ${esc(D.audioPlan || '')}</p></div>
-    <div class="card"><b>자료</b><table class="cr">${D.refs.map(r => `<tr><td>${esc(r.cite)}${r.doi ? ` <a href="https://doi.org/${esc(r.doi)}" target="_blank" rel="noopener">doi</a>` : ''}</td></tr>`).join('')}</table>
-    <p class="sub">PHOIBLE 대조 결과(sources/phoible-b01.json)는 CC BY-SA 3.0을 따른다.</p></div>
-    <div class="card"><b>글꼴</b><p class="sub">Balum IPA: Charis SIL 7.000(SIL Global)에서 글자를 줄이고 이름을 바꾼 것. SIL Open Font License 1.1(assets/fonts/OFL.txt).</p></div>
-    <div class="card"><b>그림</b><p class="sub">입 옆모습·목청·소리 시작 띠는 이 게임이 그린 모식도다. 실제 비율이 아니다.</p></div>
-    <button class="btn ghost" id="hm">처음으로</button>`;
+  app.innerHTML = `
+    <header class="appbar"><button class="iconbtn" id="hm" aria-label="처음으로">‹</button><h1><b>발음고양</b> · 출처·라이선스</h1></header>
+    <section class="panel"><div class="phead"><h3>녹음</h3></div><div class="crbox">
+      <table class="cr">${files.map(f => `<tr><td>${esc(f.id)}</td><td><a href="${esc(f.page)}" target="_blank" rel="noopener">${esc(f.commons_file)}</a><br>${esc(f.author)} · ${esc(f.license)}${f.mp3 ? '' : ' · <b>아직 못 받음</b>'}</td></tr>`).join('')}</table>
+      <p class="note" style="padding:8px 0 0">Wikimedia Commons, 파일마다 라이선스를 확인했다. 게임에는 형식만 mp3로 바꿔 넣었다(자르거나 다듬지 않음). ${esc(D.audioPlan || '')}</p></div></section>
+    <section class="panel"><div class="phead"><h3>자료</h3></div><div class="crbox"><table class="cr">${D.refs.map(r => `<tr><td>${esc(r.cite)}${r.doi ? ` <a href="https://doi.org/${esc(r.doi)}" target="_blank" rel="noopener">doi</a>` : ''}</td></tr>`).join('')}</table>
+      <p class="note" style="padding:8px 0 0">PHOIBLE 대조 결과(sources/phoible-b01.json)는 CC BY-SA 3.0을 따른다.</p></div></section>
+    <section class="panel"><div class="phead"><h3>그림과 글꼴</h3></div>
+      <p class="note">고양고양이 픽셀 그림은 보카고양에서 가져왔다. 입 옆모습·목청·소리 시작 띠는 이 게임이 그린 모식도이고 실제 비율이 아니다. IPA 글꼴 Balum IPA는 Charis SIL 7.000(SIL Global)에서 글자를 줄이고 이름을 바꾼 것이다(SIL Open Font License 1.1).</p></section>`;
   document.getElementById('hm').onclick = home;
+  window.scrollTo(0, 0);
 }
 home();
 </script>

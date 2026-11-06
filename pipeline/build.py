@@ -1,7 +1,7 @@
 """발음고양 조립: data/·sources/ + pipeline/template.html → index.html(생성물).
 
 쓰는 법: python3 pipeline/build.py [--check] [--artifact <파일.html>]
-- 원본은 data/(묶음·기호·언어)와 sources/(음원·서지·파형)다. index.html만 고치면 다음 조립 때 사라진다.
+- 원본은 data/(묶음·기호·언어)와 sources/(음원·서지·파형)다. 고양고양이 그림은 assets/cat/goyang-cat.json(보카고양과 같은 자료). index.html만 고치면 다음 조립 때 사라진다.
 - 녹음 파일(assets/audio/<id>.mp3)이 없는 음원은 재생 단추를 끄고, 듣고 고르기에서 뺀다.
 - --check: 지금 index.html이 원본과 맞는지만 본다(다르면 끝 상태 1).
 - --artifact: claude.ai 미리보기 페이지용 한 파일을 따로 만든다. 문서 껍데기(doctype·head·body)를 빼고,
@@ -36,7 +36,8 @@ def build(inline=False):
             audio[f['id']] = {'src': src, 'peaks': peaks.get(f['id']), 'duration': f.get('duration')}
     credits = [{k: f.get(k) for k in ('id', 'commons_file', 'page', 'author', 'license', 'mp3')} for f in audio_src if f['id'] in used]
     data = {'bundle': bundle, 'symbols': symbols, 'langs': langs, 'audio': audio, 'audioCredits': credits,
-            'refs': [{'cite': r['cite'], 'doi': r.get('doi')} for r in refs], 'audioPlan': bundle.get('audio_plan')}
+            'refs': [{'cite': r['cite'], 'doi': r.get('doi')} for r in refs], 'audioPlan': bundle.get('audio_plan'),
+            'cat': rd('assets', 'cat', 'goyang-cat.json')}
     js = json.dumps(data, ensure_ascii=False, separators=(',', ':')).replace('</', '<\\/')
     tpl = open(os.path.join(ROOT, 'pipeline', 'template.html'), encoding='utf-8').read()
     assert tpl.count('/*__DATA__*/null') == 1

@@ -16,6 +16,12 @@
   - 결과 화면에서 표에 불이 들어온다. 출처·라이선스 화면이 있다.
   - 생성물은 `index.html`이다. 원본과 조립 방법은 [pipeline/README](pipeline/README.md).
   - **받은 녹음은 5개다**(영어 pin·spin·bin, IPA [p]·[b] 기호 소리). 기호 소리는 배우기 카드의 '기호 소리' 단추에 들어갔다. 한국어는 영신초이 녹음을 쓰기로 해서 Commons 한국어 4개는 받을 목록에서 뺐다. 남은 것은 스페인어·일본어·프랑스어 8개다. Wikimedia 파일 서버가 계속 HTTP 429(요청 제한)를 돌려준다. 못 받은 낱말은 재생 단추가 꺼지고 듣고 고르기에서 빠진다. 그래서 지금 듣고 고르기는 영어 2문제뿐이다.
+- **화면을 고양 시리즈 틀로 다시 짰다**(26.11.06 영신 "디자인왜이래 보카고양분석해옵시다", "색상은 바뀌어도 돼 다만 고양이만큼은 이런놈이 아니라구").
+  - 밤하늘 바탕, 진보라 판, 2열 타일, 금빛 단추를 쓴다. 소리는 청록이다.
+  - 고양고양이는 보카고양과 같은 픽셀 그림이다(표정 7종 가운데 normal·evil·win·rage를 쓴다).
+  - 콤보 하트를 넣었다.
+  - 분석은 [proposals/vocagoyang-design-analysis-20261106.md](proposals/vocagoyang-design-analysis-20261106.md), 원칙은 [PRINCIPLES 1·1-1](PRINCIPLES.md#1-1-화면은-고양-시리즈-틀).
+  - 영신이 정할 것 둘: 문제 시간 막대를 둘지(지금 없음), 시리즈 연출(퍼펙트 포효·장미 복습 등)을 어디까지 가져올지.
 - **미리보기(비공개 Artifact):** https://claude.ai/artifact/3QPEUivENNJjCLp4vcTcJo — `python3 pipeline/build.py --artifact <파일>`로 만든 한 파일 판(글꼴·녹음을 data: 주소로 넣음)이다. 공개 배포가 아니다.
 - **한국어 낱말을 불·풀·뿔·부부로 바꿨다**(26.11.06 영신 "일단 빈칸은 비워두고 한번 제작해보자"). 소리 칸은 영신초이 녹음이 올 때까지 비워 두고 '녹음 준비 중'으로 보인다. 처음 받은 Commons 한국어 녹음 후보(바다·풀·빵: 호로조, 아버지: HappyMidnight)는 sources/audio.json에 확인 기록만 남아 있고 쓰지 않는다.
 - **영신 직검수 페이지:** https://claude.ai/artifact/11cSUJ2Paoo2hgvctNgtH8 (줄 댓글, `python3 pipeline/review_page.py b01 --out <파일>`로 다시 만든다). 맨 위 '정할 것'에 위 결정 대기가 있다.

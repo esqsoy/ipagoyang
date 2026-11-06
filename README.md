@@ -14,6 +14,7 @@
 - 서지와 확인 방법 → [sources/references.json](sources/references.json)
 - PHOIBLE 대조 결과(`sources/phoible-*.json`)는 CC BY-SA 3.0, Wiktionary 대조 결과(`sources/wiktionary-*.json`)에 인용한 전사는 CC BY-SA 4.0
 - 글꼴 Balum IPA: Charis SIL 7.000(SIL Global)을 줄이고 이름을 바꾼 것, SIL Open Font License 1.1 → [assets/fonts/OFL.txt](assets/fonts/OFL.txt)
+- 고양고양이 픽셀 그림: 보카고양(esqsoy/vocagoyang)과 같은 자료([assets/cat/goyang-cat.json](assets/cat/goyang-cat.json))
 - 입 옆모습·목청·소리 시작 띠 그림은 이 게임이 그린 모식도
 
 ## 다른 고양
