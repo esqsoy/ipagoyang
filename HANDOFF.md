@@ -8,7 +8,7 @@
 - **영신 결정 대기:**
   - [설계안 7번 언어 풀](proposals/design-20261106.md#7-언어-풀-영신-결정-대기)
   - [설계안 8번 눈으로 배우기와 발음고양만의 요소](proposals/design-20261106.md#8-눈으로-배우기와-발음고양만의-요소-영신-결정-대기). 추천: CC0 단면도로 바꾸기, 여러 화자 듣기, 언어로 보기 등
-  - 한국어 낱말을 영신(·소연)이 녹음할지
+  - 한국어 녹음(불·풀·뿔·부부, 영신초이가 하기로 함)의 공개 조건(CC0 / CC BY-SA 4.0)과 화자 설명. 파일은 구글 드라이브나 저장소 `incoming/`으로 받는다
 - **시제품(묶음 1, [p] [b] [pʰ] [p͈] × 한국어·영어·스페인어·일본어·프랑스어)을 만들었다. 커밋·푸시만 했고 공개 배포는 안 했다.**
   - 처음 화면: 입 옆모습 → IPA 자음표 지도.
   - 배우기 5장: [p] [pʰ] [p͈] [b] [β]. 입 옆모습·목청 창·소리 시작 띠·파형·체감 연습이 들어 있다.
@@ -16,13 +16,15 @@
   - 결과 화면에서 표에 불이 들어온다. 출처·라이선스 화면이 있다.
   - 생성물은 `index.html`이다. 원본과 조립 방법은 [pipeline/README](pipeline/README.md).
   - **녹음 17개 가운데 4개만 받았다**(영어 pin·spin·bin, IPA [p] 기호 소리). [p] 기호 소리는 배우기 카드의 '기호 소리' 단추로 들어갔다. Wikimedia 파일 서버가 계속 HTTP 429(요청 제한)를 돌려준다. 못 받은 낱말은 재생 단추가 꺼지고 듣고 고르기에서 빠진다. 그래서 지금 듣고 고르기는 영어 2문제뿐이다.
+- **미리보기(비공개 Artifact):** https://claude.ai/artifact/3QPEUivENNJjCLp4vcTcJo — `python3 pipeline/build.py --artifact <파일>`로 만든 한 파일 판(글꼴·녹음을 data: 주소로 넣음)이다. 공개 배포가 아니다.
+- **한국어 낱말을 불·풀·뿔·부부로 바꿨다**(26.11.06 영신 "일단 빈칸은 비워두고 한번 제작해보자"). 소리 칸은 영신초이 녹음이 올 때까지 비워 두고 '녹음 준비 중'으로 보인다. 처음 받은 Commons 한국어 녹음 후보(바다·풀·빵: 호로조, 아버지: HappyMidnight)는 sources/audio.json에 확인 기록만 남아 있고 쓰지 않는다.
 - **영신 직검수 페이지:** https://claude.ai/artifact/11cSUJ2Paoo2hgvctNgtH8 (줄 댓글, `python3 pipeline/review_page.py b01 --out <파일>`로 다시 만든다). 맨 위 '정할 것'에 위 결정 대기가 있다.
 
 ## 검사 (26.11.06 이 세션에서 돌림)
 
 - `node pipeline/tests/prototype.test.cjs`: 처음 화면부터 출처 화면까지 390px로 지나가며 확인했다. 결과는 통과(콘솔 오류 없음, 가로 넘침 없음, IPA 글꼴 읽힘, 기록 저장). Chromium만 봤고 실제 iPhone·Android에서는 보지 않았다.
-- `python3 pipeline/phoible_check.py <phoible.csv> <InventoryID-Bibtex.csv>`: 낱말 15개, 없어야 할 소리 10개 모두 맞음.
-- `python3 pipeline/wikt_compare.py <받은 전사.json>`: 대상 소리 15개 모두 Wiktionary와 맞음. 대상 밖 차이 둘은 기록해 두었다(풀 끝 ㄹ [l]/[ɭ], バス 모음 [ɯ]/[ɨ]).
+- `python3 pipeline/phoible_check.py <phoible.csv> <InventoryID-Bibtex.csv>`: 낱말 15개(한국어 불·풀·뿔·부부로 바꾼 뒤 다시 돌림), 없어야 할 소리 10개 모두 맞음.
+- `python3 pipeline/wikt_compare.py <받은 전사.json>`: 대상 소리 15개 모두 Wiktionary와 맞음. 대상 밖 차이 둘은 기록해 두었다(끝 ㄹ [l]/[ɭ]: PHOIBLE 2197은 /l/의 변이음으로 l·ɾ·ɭ·ʎ를 다 적어 [l]로 둠, r/l 묶음에서 다시 본다. バス 모음 [ɯ]/[ɨ]: 고모음 묶음에서 다시 본다).
 - `python3 pipeline/build.py --check`: index.html이 원본과 맞는지 본다.
 
 ## 확인한 것과 못 한 것

@@ -4,13 +4,15 @@
  "bundle": "b01",
  "rows": [
   {
-   "word": "ko-bada",
-   "ours": "[pada]",
+   "word": "ko-bul",
+   "ours": "[pul]",
    "wiktionary": [
-    "[pa̠da̠]"
+    "[puɭ]"
    ],
    "target_ok": true,
-   "other_diff": []
+   "other_diff": [
+    "[puɭ]"
+   ]
   },
   {
    "word": "ko-pul",
@@ -24,19 +26,21 @@
    ]
   },
   {
-   "word": "ko-ppang",
-   "ours": "[p͈aŋ]",
+   "word": "ko-ppul",
+   "ours": "[p͈ul]",
    "wiktionary": [
-    "[p͈a̠ŋ]"
+    "[p͈uɭ]"
    ],
    "target_ok": true,
-   "other_diff": []
+   "other_diff": [
+    "[p͈uɭ]"
+   ]
   },
   {
-   "word": "ko-abeoji",
-   "ours": "[abʌdʑi]",
+   "word": "ko-bubu",
+   "ours": "[pubu]",
    "wiktionary": [
-    "[a̠bʌ̹d͡ʑi]"
+    "[pubu]"
    ],
    "target_ok": true,
    "other_diff": []

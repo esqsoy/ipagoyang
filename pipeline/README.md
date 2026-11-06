@@ -4,7 +4,7 @@
 
 | 파일 | 하는 일 |
 |---|---|
-| `build.py` | `template.html` + 원본 → `index.html`. `--check`는 맞는지만 본다 |
+| `build.py` | `template.html` + 원본 → `index.html`. `--check`는 맞는지만 본다. `--artifact <파일>`은 미리보기용 한 파일(글꼴·녹음을 data: 주소로) |
 | `template.html` | 게임 화면(입 지도·목청 창·소리 시작 띠·파형·묶음 자판·문제) |
 | `phoible_check.py` | 낱말의 대상 소리가 PHOIBLE 목록에 있는지 대조 → `sources/phoible-<묶음>.json` |
 | `wikt_compare.py` | 우리 전사의 대상 소리가 Wiktionary 전사에도 있는지 대조 → `sources/wiktionary-<묶음>.json` |

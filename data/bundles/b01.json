@@ -37,25 +37,25 @@
  },
  "words": [
   {
-   "id": "ko-bada",
+   "id": "ko-bul",
    "lang": "kor",
-   "text": "바다",
-   "roman": "bada",
-   "ko": "바다",
+   "text": "불",
+   "roman": "bul",
+   "ko": "불",
    "ipa": [
     "",
     "p",
-    "ada"
+    "ul"
    ],
    "target": "p",
-   "audio": "ko-bada",
+   "audio": "ko-bul-ys",
    "phoible": {
     "inv": 2197,
     "seg": "p͉"
    },
    "note": "낱말 첫 ㅂ. 좁게 적으면 [p͉]로 적는 문헌도 있다.",
    "status": "확인",
-   "status_why": "PHOIBLE 2197(Lee 1993) /p͉/. 이 게임은 [p]로 적는다(symbols p)"
+   "status_why": "PHOIBLE 2197(Lee 1993) /p͉/. 이 게임은 [p]로 적는다(PRINCIPLES 2-4)"
   },
   {
    "id": "ko-pul",
@@ -69,7 +69,7 @@
     "ul"
    ],
    "target": "pʰ",
-   "audio": "ko-pul",
+   "audio": "ko-pul-ys",
    "phoible": {
     "inv": 2197,
     "seg": "pʰ"
@@ -78,18 +78,18 @@
    "status_why": "PHOIBLE 2197 /pʰ/"
   },
   {
-   "id": "ko-ppang",
+   "id": "ko-ppul",
    "lang": "kor",
-   "text": "빵",
-   "roman": "ppang",
-   "ko": "빵",
+   "text": "뿔",
+   "roman": "ppul",
+   "ko": "뿔",
    "ipa": [
     "",
     "p͈",
-    "aŋ"
+    "ul"
    ],
    "target": "p͈",
-   "audio": "ko-ppang",
+   "audio": "ko-ppul-ys",
    "phoible": {
     "inv": 2197,
     "seg": "p"
@@ -99,24 +99,24 @@
    "status_why": "PHOIBLE 2197 /p/(된소리 줄). 표기 관례 차이는 symbols p͈"
   },
   {
-   "id": "ko-abeoji",
+   "id": "ko-bubu",
    "lang": "kor",
-   "text": "아버지",
-   "roman": "abeoji",
-   "ko": "아버지",
+   "text": "부부",
+   "roman": "bubu",
+   "ko": "부부",
    "ipa": [
-    "a",
+    "pu",
     "b",
-    "ʌdʑi"
+    "u"
    ],
    "target": "b",
-   "audio": "ko-abeoji",
+   "audio": "ko-bubu-ys",
    "phoible": {
     "inv": 2197,
     "seg": "p͉",
     "allo": "b"
    },
-   "note": "모음 사이 ㅂ은 울린다.",
+   "note": "같은 ㅂ인데 앞은 [p], 모음 사이 뒤는 [b]다.",
    "status": "확인",
    "status_why": "PHOIBLE 2197 /p͉/의 변이음 b"
   },
@@ -433,8 +433,8 @@
    "ja-pan": "빵은 pão가 パン 거쳐 온 말이라고양. 한국어는 그 [p]를 ㅃ으로 적었다고양.",
    "fr-paris": "표기법은 파리, 입은 빠리라고양. 둘 다 [p] 하나라고양.",
    "en-spin": "s 뒤 p는 바람이 빠진다고양. 영어도 다 ㅍ은 아니라고양.",
-   "ko-abeoji": "아버지의 ㅂ은 [b]라고양. 이미 쓰고 있었다고양. 모르는 척했을 뿐.",
-   "es-lobo": "모음 사이 b는 입술을 덜 닫는다고양. 늑대도 입은 덜 다문다고양."
+   "es-lobo": "모음 사이 b는 입술을 덜 닫는다고양. 늑대도 입은 덜 다문다고양.",
+   "ko-bubu": "부부의 두 ㅂ은 소리가 다르다고양. 원래 부부는 서로 다르다고양."
   },
   "end": "입술 칸 하나 채웠다고양. 표는 아직 한참 남았다고양. ㅎㅎ"
  },
@@ -445,7 +445,7 @@
     "p",
     "p͈"
    ],
-   "text": "입 앞에 휴지 한 장을 대고 '풀', '바다', '빵'을 말해 본다. 휴지가 가장 크게 펄럭이는 것이 [pʰ]다."
+   "text": "입 앞에 휴지 한 장을 대고 '불', '풀', '뿔'을 말해 본다. 휴지가 가장 크게 펄럭이는 것이 [pʰ]다."
   },
   {
    "for": [
@@ -475,5 +475,6 @@
    "v"
   ]
  },
- "absent_about": "한국어 목록 셋에 β·v가 없어야 symbols β의 '한국어에 없다'가 맞다. 스페인어 2210에 /v/가 없어야 철자 v = /b/가 맞다."
+ "absent_about": "한국어 목록 셋에 β·v가 없어야 symbols β의 '한국어에 없다'가 맞다. 스페인어 2210에 /v/가 없어야 철자 v = /b/가 맞다.",
+ "audio_plan": "한국어 불·풀·뿔·부부는 영신초이가 녹음하기로 함(26.11.06 영신, 공개 조건·화자 설명 확인 대기). 녹음이 오기 전에는 소리 칸을 비워 둔다(영신: '일단 빈칸은 비워두고 한번 제작해보자')."
 }

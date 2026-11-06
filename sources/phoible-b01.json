@@ -3,7 +3,7 @@
  "bundle": "b01",
  "results": [
   {
-   "word": "ko-bada",
+   "word": "ko-bul",
    "inv": 2197,
    "seg": "p͉",
    "allo": null,
@@ -19,7 +19,7 @@
    "why": ""
   },
   {
-   "word": "ko-ppang",
+   "word": "ko-ppul",
    "inv": 2197,
    "seg": "p",
    "allo": null,
@@ -27,7 +27,7 @@
    "why": ""
   },
   {
-   "word": "ko-abeoji",
+   "word": "ko-bubu",
    "inv": 2197,
    "seg": "p͉",
    "allo": "b",
