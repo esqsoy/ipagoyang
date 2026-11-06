@@ -219,7 +219,11 @@
    "license": "CC BY-SA 3.0 Unported / GFDL 1.2+",
    "speaker": "IPA 기호 소리 녹음(원어민 낱말 아님)",
    "checked": "2026-11-06",
-   "listened": null
+   "listened": null,
+   "original_sha256": "a91f7aee6c44ad70cbbf9d298d7b572cbf77afcb6923b3e3b9f4f6c91f9e7f53",
+   "mp3": "assets/audio/ipa-b.mp3",
+   "mp3_sha256": "be985cf5023ff9159b49d79b7798a8535722fa25f8554c9ecf6510d116387eff",
+   "duration": 2.061
   }
  ]
 }

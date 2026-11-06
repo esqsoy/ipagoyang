@@ -15,7 +15,7 @@
   - 문제: 한국어와 견주기 3 → 듣고 고르기 → 전사 빈칸 15(묶음 자판). 틀리면 따라 한다.
   - 결과 화면에서 표에 불이 들어온다. 출처·라이선스 화면이 있다.
   - 생성물은 `index.html`이다. 원본과 조립 방법은 [pipeline/README](pipeline/README.md).
-  - **녹음 17개 가운데 4개만 받았다**(영어 pin·spin·bin, IPA [p] 기호 소리). [p] 기호 소리는 배우기 카드의 '기호 소리' 단추로 들어갔다. Wikimedia 파일 서버가 계속 HTTP 429(요청 제한)를 돌려준다. 못 받은 낱말은 재생 단추가 꺼지고 듣고 고르기에서 빠진다. 그래서 지금 듣고 고르기는 영어 2문제뿐이다.
+  - **받은 녹음은 5개다**(영어 pin·spin·bin, IPA [p]·[b] 기호 소리). 기호 소리는 배우기 카드의 '기호 소리' 단추에 들어갔다. 한국어는 영신초이 녹음을 쓰기로 해서 Commons 한국어 4개는 받을 목록에서 뺐다. 남은 것은 스페인어·일본어·프랑스어 8개다. Wikimedia 파일 서버가 계속 HTTP 429(요청 제한)를 돌려준다. 못 받은 낱말은 재생 단추가 꺼지고 듣고 고르기에서 빠진다. 그래서 지금 듣고 고르기는 영어 2문제뿐이다.
 - **미리보기(비공개 Artifact):** https://claude.ai/artifact/3QPEUivENNJjCLp4vcTcJo — `python3 pipeline/build.py --artifact <파일>`로 만든 한 파일 판(글꼴·녹음을 data: 주소로 넣음)이다. 공개 배포가 아니다.
 - **한국어 낱말을 불·풀·뿔·부부로 바꿨다**(26.11.06 영신 "일단 빈칸은 비워두고 한번 제작해보자"). 소리 칸은 영신초이 녹음이 올 때까지 비워 두고 '녹음 준비 중'으로 보인다. 처음 받은 Commons 한국어 녹음 후보(바다·풀·빵: 호로조, 아버지: HappyMidnight)는 sources/audio.json에 확인 기록만 남아 있고 쓰지 않는다.
 - **영신 직검수 페이지:** https://claude.ai/artifact/11cSUJ2Paoo2hgvctNgtH8 (줄 댓글, `python3 pipeline/review_page.py b01 --out <파일>`로 다시 만든다). 맨 위 '정할 것'에 위 결정 대기가 있다.
@@ -45,12 +45,11 @@
 
 ## 남은 일
 
-1. 녹음 13개 마저 받기. 받으면 차례로 돌린다.
+1. 외국어 녹음 8개 마저 받기. 받으면 차례로 돌린다.
    - `python3 pipeline/audio_import.py <폴더> <목록.json>`
    - `python3 pipeline/build.py`
    - 시제품 검사
    - 받을 파일과 주소는 sources/audio.json에 있다.
-2. IPA [b] 기호 소리(ipa-b)를 받으면 배우기 카드 [b]에 저절로 붙는다(data/symbols.json `sound`).
 3. 영신 직검수 반영, 설계안 7·8 결정 반영.
 4. 묶음 2([t d tʰ t͈]·[k ɡ kʰ k͈]).
 
