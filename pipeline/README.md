@@ -1,6 +1,6 @@
 # 발음고양 파이프라인
 
-화면은 보카고양 틀이다. `derive_template.py`가 보카고양 마더텅 게임(`vocagoyangksat2027.html`)에서 `frame.html`을 한 번 뽑았다(PRINCIPLES 1-1). 원본은 `frame.html`, 덧붙임(`ipa_extra.js`·`ipa_extra.css`), `data/`(묶음·기호·언어·시리즈 대사), `sources/`(음원·서지·대조 결과), `assets/cat/`다. `index.html`은 생성물이라 손으로 고치지 않는다.
+화면은 보카고양 틀이다. `derive_template.py`가 보카고양 마더텅 게임(`vocagoyangksat2027.html`)에서 `frame.html`을 한 번 뽑았다(PRINCIPLES 1-1). 원본은 `frame.html`, 덧붙임(`ipa_extra.js`·`ipa_extra.css`), `data/`(묶음·기호·언어·발음 용어·시리즈 대사), `sources/`(음원·서지·대조 결과), `assets/cat/`다. `index.html`은 생성물이라 손으로 고치지 않는다.
 
 | 파일 | 하는 일 |
 |---|---|
@@ -29,4 +29,4 @@ node pipeline/tests/prototype.test.cjs
 
 ## 녹음 받기
 
-`sources/audio.json`의 `original` 주소에서 받는다. 파일 페이지(`page`)에서 라이선스를 다시 확인하고, 받은 목록(Commons 파일 이름 → 로컬 파일·SHA256)을 만들어 `audio_import.py`에 준다. Wikimedia 파일 서버는 짧게 많이 받으면 HTTP 429를 돌려준다. 파일 사이를 길게 띄운다.
+`sources/audio.json`의 `original` 주소에서 받는다. 파일 페이지(`page`)에서 라이선스를 다시 확인하고, 받은 목록(Commons 파일 이름 → 로컬 파일·SHA256)을 만들어 `audio_import.py`에 준다. Wikimedia 파일 서버는 짧게 많이 받으면 HTTP 429를 돌려준다. 이 작업 환경(Claude 클라우드)에서는 26.11.06부터 직접 연결이 계속 429라서, 26.11.07부터 Claude의 WebFetch로 받고 Commons API(`prop=imageinfo&iiprop=sha1`)의 SHA-1과 맞춰 본 뒤 넣는다. 맞지 않으면 넣지 않는다.

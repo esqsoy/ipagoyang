@@ -3,7 +3,7 @@
 쓰는 법: python3 pipeline/build.py [--check] [--artifact <파일.html>]
 - 틀은 보카고양 마더텅 게임에서 뽑은 것이다(pipeline/derive_template.py, 26.11.06 영신 "그냥 보카고양에서 틀을 가져오면 돼").
   발음고양 덧붙임은 pipeline/ipa_extra.js·ipa_extra.css.
-- 원본: data/(묶음·기호·언어·시리즈 대사), sources/(음원·서지·파형), assets/cat/goyang-cat.json(고양고양이, 보카고양과 같은 자료).
+- 원본: data/(묶음·기호·언어·발음 용어·시리즈 대사), sources/(음원·서지·파형), assets/cat/goyang-cat.json(고양고양이, 보카고양과 같은 자료).
   index.html만 고치면 다음 조립 때 사라진다.
 - 묶음 하나 = 틀의 '강' 하나. 연습은 배우기 → 한국어와 견주기 → 듣고 고르기 → 전사 빈칸(PRINCIPLES 8-2).
   전사 빈칸은 틀의 '원문 속 빈칸'(MT_CONTEXTS)을 쓴다: 원문 자리에 전사, 빈칸에 대상 기호.
@@ -26,6 +26,12 @@ def js(v):
 def build(inline=False):
     b = rd('data', 'bundles', 'b01.json')
     sy = rd('data', 'symbols.json')
+    terms = rd('data', 'terms.json')['terms']
+    # 기호 이름의 한자는 용어 자료(표준국어대사전 대조)에 있는 것만 쓴다: 지어낸 한자가 들어가지 않게
+    known = {t['hanja'] for t in terms.values()} | {t.get('short_hanja') for t in terms.values()}
+    for k, s in sy['symbols'].items():
+        for tok in re.split(r'[ ·]+', s.get('name_hanja', '')):
+            assert not tok or tok in known, (k, tok, 'data/terms.json에 없는 한자')
     langs = {l['id']: l for l in rd('data', 'languages.json')['langs']}
     series = rd('data', 'series-lines.json')['lines']
     audio_src = {f['id']: f for f in rd('sources', 'audio.json')['files']}
@@ -88,8 +94,12 @@ def build(inline=False):
             continue
         lg = langs[wd['lang']]['ko']
         ans = wd['target']
-        w = {'en': ans, 'ko': f'{lg} 낱말 · 듣고 첫소리 기호를 친다', 'audio': wd['audio'], 'listen': True, 'lang': wd['lang'], 'wid': wd['id']}
-        ctx = {**ctx0, 'example': f'첫소리 → {ans}', 'surfaceParts': [ans], 'translation': f'{wd["text"]} [{"".join(wd["ipa"])}] · {wd["ko"]}'}
+        a, t, z = wd['ipa']
+        # 대상 기호가 첫소리가 아닌 낱말(spin·lobo)이 있어 '첫소리'라 하지 않고 전사의 빈칸으로 묻는다. 낱말 글자는 답한 뒤에 보인다
+        example = f'[{a}{t}{z}]'
+        assert example.find(t) == 1 + len(a), (wd['id'], '대상 기호가 앞에 또 나온다')
+        w = {'en': ans, 'ko': f'{lg} 낱말 · 듣고 빈칸 기호를 친다', 'audio': wd['audio'], 'listen': True, 'lang': wd['lang'], 'wid': wd['id']}
+        ctx = {**ctx0, 'example': example, 'surfaceParts': [t], 'translation': f'{wd["text"]} · {wd["ko"]}'}
         lis.append((w, ctx, ''.join(wd['ipa']), wd['audio']))
     # 같은 '뜻' 줄이 여럿이면 틀의 발음 찾기가 섞이므로 번호를 붙여 가른다
     for i, item in enumerate(lis):
@@ -126,7 +136,7 @@ def build(inline=False):
         examples.setdefault(wd['target'], []).append({'lang': langs[wd['lang']]['ko'], 'text': wd['text'], 'a': a, 't': t, 'b': z, 'audio': wd['audio']})
     used_audio = {wd['audio'] for wd in b['words']} | {s.get('sound') for s in sy['symbols'].values()}
     ipa_data = {
-        'short': short, 'symbols': sy['symbols'], 'glottis': sy['glottis'], 'vot': sy['vot'], 'examples': examples,
+        'short': short, 'terms': terms, 'symbols': sy['symbols'], 'glottis': sy['glottis'], 'vot': sy['vot'], 'examples': examples,
         'audio': {aid: {'src': src_of(aid), 'peaks': peaks.get(aid), 'duration': audio_src[aid].get('duration')}
                   for aid in sorted(a for a in used_audio if a) if audio_ok(aid)},
         # IPA 지도에서 켜는 칸: 표에 칸이 있는 기호만(pʰ·p͈는 p 칸의 부호라 따로 켜지 않는다)

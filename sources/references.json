@@ -117,6 +117,24 @@
    "cite": "Wiktionary, '핀' (Korean, Etymology 1): Borrowed from English pin. 전사 [pʰin].",
    "checked": "en.wiktionary.org/wiki/핀 (26.11.06)",
    "read": true
+  },
+  {
+   "id": "stdict",
+   "cite": "국립국어원 표준국어대사전(stdict.korean.go.kr). 발음 용어의 표제어와 원어(한자)만 대조했고 뜻풀이는 옮기지 않았다. data/terms.json의 word_no로 찾는다.",
+   "checked": "표제어 검색 결과의 원어 칸(26.11.07). 된소리=경음, 거센소리=격음=유기음, 예사소리=평음, 목청=성대, 성문=성대문도 같은 결과의 동의어 표시로 확인",
+   "read": true
+  },
+  {
+   "id": "ipa-chart-ko",
+   "cite": "The International Phonetic Alphabet (revised to 2015) Korean.pdf. Original: International Phonetic Association, Translation: Benzenekim, Wikimedia Commons, 2018-06-18, CC BY-SA 3.0. 국제음성학회가 낸 번역이 아니라 Commons 기여자 번역이다.",
+   "checked": "Commons 파일 페이지와 PDF 본문(pdftotext)에서 자음표 열·줄 이름을 읽음(26.11.07): 양순·순치·치·치경·후치경·권설·경구개·연구개·구개수·인두·성문 / 파열음·비음·전동음·탄음·마찰음·설측 마찰음·접근음·설측 접근음",
+   "read": true
+  },
+  {
+   "id": "vot-ko",
+   "cite": "「벅아이 코퍼스 파열음의 성대진동 개시시간 연구」, KoreaScience JAKO201611962056286. VOT의 한국어 이름 '성대 진동 개시 시간'의 쓰임 예('성대 진동 시작 시간'이라고도 쓴다).",
+   "checked": "논문 제목만 확인(26.11.07). 본문은 읽지 않음",
+   "read": false
   }
  ]
 }

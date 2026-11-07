@@ -15,6 +15,14 @@
 .ipa-learn p{margin:6px 0 0}
 .ipa-learn b{color:var(--pink2)}
 .ipa-big{font-family:var(--ipa);font-size:64px;line-height:1.05;text-align:center;color:var(--cyan)}
+/* 발음 용어: 한글 · 한자 · 영어 */
+.ipa-name{text-align:center;line-height:1.35;margin:2px 0 6px}
+.ipa-name b{display:block;color:#fff!important;font-size:1rem}
+.ipa-hanja{display:block;color:var(--pinkpale);font-size:.86rem;letter-spacing:.06em}
+.ipa-en{display:block;color:var(--muted);font-size:.78rem;font-style:italic}
+.ipa-hz{color:var(--muted);font-weight:600}
+.ipa-dex-in .ipa-name{text-align:left;margin:0 0 4px}
+.ipa-term-h{font-family:inherit;font-size:1.25rem;letter-spacing:.04em}
 .ipa-symplay{display:flex;justify-content:center;align-items:center;gap:8px;font-size:.78rem;color:var(--muted);font-weight:800}
 .ipa-pair{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:8px}
 .ipa-pair svg,.ipa-vot svg{width:100%;height:auto;display:block}
@@ -37,10 +45,11 @@
 /* IPA 지도: 주기율표 게임처럼 잠긴 칸이 다 보인다 */
 .ipamap{overflow:hidden}
 .ipa-map-wrap{padding:0 8px 8px;overflow-x:auto}
-.ipa-grid{display:grid;grid-template-columns:44px repeat(11,minmax(24px,1fr));gap:2px;min-width:330px}
-.ipa-col{font-size:.62rem;font-weight:900;color:var(--muted);text-align:center;line-height:1.1}
+.ipa-grid{display:grid;grid-template-columns:50px repeat(11,minmax(24px,1fr));gap:2px;min-width:336px}
+.ipa-col{font:inherit;font-size:.62rem;font-weight:900;color:var(--muted);text-align:center;line-height:1.1;background:none;border:0;padding:0;cursor:pointer}
 .ipa-col small{display:block;font-size:.5rem;font-weight:700;opacity:.8;white-space:nowrap}
-.ipa-rowh{font-size:.56rem;font-weight:800;color:var(--muted);display:flex;align-items:center;line-height:1.1}
+.ipa-rowh{font:inherit;font-size:.56rem;font-weight:800;color:var(--muted);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;line-height:1.1;background:none;border:0;padding:0;text-align:left;cursor:pointer}
+.ipa-col small.h,.ipa-rowh small.h{font-size:.5rem;font-weight:600;opacity:.75;letter-spacing:0;white-space:nowrap}
 .ipa-cell{display:flex;align-items:center;justify-content:center;gap:1px;min-height:26px;border-radius:5px;background:rgba(255,255,255,.04);border:1px solid rgba(111,60,149,.55)}
 .ipa-cell.empty{background:transparent;border-color:transparent}
 .ipa-cell-s{font-family:var(--ipa);font-size:.9rem;line-height:1;background:none;border:0;padding:2px 1px;color:var(--line);cursor:pointer;min-width:11px}

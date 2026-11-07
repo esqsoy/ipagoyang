@@ -104,6 +104,15 @@ function ipaVot(k) {
 
 /* ---------- 카드 위 ---------- */
 function ipaEsc(s) { return String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+/* 발음 용어는 한글·한자·영어를 함께 보인다(영신 26.11.07, PRINCIPLES 2-5). 용어 자료는 data/terms.json */
+function ipaT(k) { return (IPA.terms || {})[k] || {ko: k}; }
+function ipaTermInline(k, label) {
+  const t = ipaT(k);
+  return `${ipaEsc(label || t.ko)}<span class="ipa-hz">(${ipaEsc(t.hanja || '')}${t.en ? ' · ' + ipaEsc(t.en) : ''})</span>`;
+}
+function ipaNameHtml(s) {
+  return `<div class="ipa-name"><b>${ipaEsc(s.name)}</b>${s.name_hanja ? `<span class="ipa-hanja">${ipaEsc(s.name_hanja)}</span>` : ''}${s.name_en ? `<span class="ipa-en">${ipaEsc(s.name_en)}</span>` : ''}</div>`;
+}
 function ipaPlayBtn(id, label) {
   return ipaHasAudio(id)
     ? `<button type="button" class="ipa-play" data-audio="${ipaEsc(id)}" aria-label="${ipaEsc(label || '듣기')}">▶</button>`
@@ -116,9 +125,10 @@ function ipaBeforeCard(w) {
     const ex = (IPA.examples[w.sym] || []).map(e => `<div class="ipa-ex"><span class="ipa-lang">${ipaEsc(e.lang)}</span><span class="ipa-word">${ipaEsc(e.text)}</span><span class="ipa-tr">[${ipaEsc(e.a)}<b>${ipaEsc(e.t)}</b>${ipaEsc(e.b)}]</span>${ipaPlayBtn(e.audio, e.text + ' 듣기')}</div>`).join('');
     return `<div class="ipa-learn">
       <div class="ipa-big">${ipaEsc(w.sym === 'β' ? 'β β̞' : w.sym)}</div>
+      ${ipaNameHtml(s)}
       ${s.sound && ipaHasAudio(s.sound) ? `<div class="ipa-symplay">${ipaPlayBtn(s.sound, '기호 소리 듣기')}<span>기호 소리(시범 녹음)</span></div>` : ''}
-      <div class="ipa-pair"><div>${ipaSagittal({lips: s.lips, place: s.place, puff: s.glottis === 'wide'})}<i>입 옆모습</i></div><div>${ipaGlottis(s.glottis)}<i>목청: ${ipaEsc((IPA.glottis || {})[s.glottis] || '')}</i></div></div>
-      ${s.vot ? `<div class="ipa-vot">${ipaVot(s.vot)}<i>소리 시작 띠: ${ipaEsc((IPA.vot || {})[s.vot] || '')}</i></div>` : ''}
+      <div class="ipa-pair"><div>${ipaSagittal({lips: s.lips, place: s.place, puff: s.glottis === 'wide'})}<i>입 옆모습</i></div><div>${ipaGlottis(s.glottis)}<i>목청 = ${ipaTermInline('성대')}: ${ipaEsc((IPA.glottis || {})[s.glottis] || '')}</i></div></div>
+      ${s.vot ? `<div class="ipa-vot">${ipaVot(s.vot)}<i>소리 시작 띠 = ${ipaTermInline('성대 진동 개시 시간')}: ${ipaEsc((IPA.vot || {})[s.vot] || '')}</i></div>` : ''}
       <p>${ipaEsc(s.how)}</p><p><b>한국어와</b> ${ipaEsc(s.ko)}</p>${s.other ? `<p class="ipa-other">다른 표기: ${ipaEsc(s.other)}</p>` : ''}
       ${ex ? `<div class="ipa-exs">${ex}</div>` : ''}
       <p class="ipa-code">치는 법: <b>${ipaEsc(w.code)}</b> → <span>${ipaEsc(w.en)}</span></p>
@@ -141,17 +151,18 @@ function ipaAfterCard(w, noAuto) {
 }
 
 /* ---------- 처음 화면: IPA 지도(주기율표 게임처럼 잠긴 칸이 다 보이고, 익힌 칸에 불이 들어온다) ---------- */
-const IPA_COLS = ['양순', '순치', '치', '치경', '후치경', '권설', '경구개', '연구개', '구개수', '인두', '성문'];
+/* 열·줄 이름은 IPA 표 한국어판(Commons, CC BY-SA 3.0)을 따르고, 한자·영어는 data/terms.json */
+const IPA_COLS = ['양순음', '순치음', '치음', '치경음', '후치경음', '권설음', '경구개음', '연구개음', '구개수음', '인두음', '성문음'];
 /* 국제음성학회 IPA 표(2020, CC BY-SA 4.0)의 폐 기류 자음. 치·치경·후치경이 한 칸인 줄은 span 3 */
 const IPA_ROWS = [
   {ko:'파열음', cells:[['p','b'],null,{span:3,v:['t','d']},['ʈ','ɖ'],['c','ɟ'],['k','ɡ'],['q','ɢ'],null,['ʔ']]},
   {ko:'비음', cells:[['m'],['ɱ'],{span:3,v:['n']},['ɳ'],['ɲ'],['ŋ'],['ɴ'],null,null]},
-  {ko:'떨음', cells:[['ʙ'],null,{span:3,v:['r']},null,null,null,['ʀ'],null,null]},
+  {ko:'전동음', cells:[['ʙ'],null,{span:3,v:['r']},null,null,null,['ʀ'],null,null]},
   {ko:'탄음', cells:[null,['ⱱ'],{span:3,v:['ɾ']},['ɽ'],null,null,null,null,null]},
   {ko:'마찰음', cells:[['ɸ','β'],['f','v'],['θ','ð'],['s','z'],['ʃ','ʒ'],['ʂ','ʐ'],['ç','ʝ'],['x','ɣ'],['χ','ʁ'],['ħ','ʕ'],['h','ɦ']]},
-  {ko:'설측마찰', cells:[null,null,{span:3,v:['ɬ','ɮ']},null,null,null,null,null,null]},
+  {ko:'설측 마찰음', cells:[null,null,{span:3,v:['ɬ','ɮ']},null,null,null,null,null,null]},
   {ko:'접근음', cells:[null,['ʋ'],{span:3,v:['ɹ']},['ɻ'],['j'],['ɰ'],null,null,null]},
-  {ko:'설측접근', cells:[null,null,{span:3,v:['l']},['ɭ'],['ʎ'],['ʟ'],null,null,null]},
+  {ko:'설측 접근음', cells:[null,null,{span:3,v:['l']},['ɭ'],['ʎ'],['ʟ'],null,null,null]},
 ];
 function ipaLearned() {
   const set = new Set(), current = new Set();
@@ -173,9 +184,11 @@ function ipaRenderMap() {
     const on = set.has(v), cur = current.has(v);
     return `<button type="button" class="ipa-cell-s${on ? ' on' : ''}${cur ? ' cur' : ''}" data-s="${ipaEsc(v)}" aria-label="${ipaEsc(on ? v : '잠긴 칸')}">${on || cur ? ipaEsc(v) : '·'}</button>`;
   };
-  let grid = `<div class="ipa-grid"><span></span>${IPA_COLS.map((c, i) => `<span class="ipa-col">${i + 1}<small>${c}</small></span>`).join('')}`;
+  const colh = (k, i) => { const t = ipaT(k); return `<button type="button" class="ipa-col" data-term="${ipaEsc(k)}" aria-label="${ipaEsc(t.ko + ' ' + (t.hanja || '') + ' ' + (t.en || ''))}">${i + 1}<small>${ipaEsc(t.short || t.ko.replace(/음$/, ''))}</small><small class="h">${ipaEsc(t.short_hanja || t.hanja || '')}</small></button>`; };
+  const rowh = k => { const t = ipaT(k); return `<button type="button" class="ipa-rowh" data-term="${ipaEsc(k)}" aria-label="${ipaEsc(t.ko + ' ' + (t.hanja || '') + ' ' + (t.en || ''))}"><span>${ipaEsc(t.ko)}</span><small class="h">${ipaEsc(t.hanja || '')}</small></button>`; };
+  let grid = `<div class="ipa-grid"><span></span>${IPA_COLS.map(colh).join('')}`;
   for (const r of IPA_ROWS) {
-    grid += `<span class="ipa-rowh">${r.ko}</span>`;
+    grid += rowh(r.ko);
     for (const c of r.cells) {
       if (c === null) { grid += `<span class="ipa-cell empty"></span>`; continue; }
       const span = c.span || 1, v = c.v || c;
@@ -184,10 +197,11 @@ function ipaRenderMap() {
   }
   grid += '</div>';
   const lit = [...set].length, all = IPA_ROWS.reduce((a, r) => a + r.cells.filter(Boolean).reduce((b, c) => b + (c.v || c).length, 0), 0);
-  el.innerHTML = `<div class="phead"><div style="flex:1;min-width:0"><h2>IPA 입 지도</h2><small>입술(1)에서 목청(11)까지 · 켠 칸 ${lit}/${all} · 점은 잠긴 칸</small></div></div>
+  el.innerHTML = `<div class="phead"><div style="flex:1;min-width:0"><h2>IPA 입 지도</h2><small>입술(1)에서 목청(11)까지 · 켠 칸 ${lit}/${all} · 점은 잠긴 칸 · 머리 칸을 누르면 용어 풀이</small></div></div>
     <div class="ipa-map-wrap">${grid}</div>
     <div class="ipa-dex" id="ipaDex"></div>`;
   el.querySelectorAll('.ipa-cell-s').forEach(b => b.onclick = () => { ipaPick = b.dataset.s; ipaShowDex(); });
+  el.querySelectorAll('[data-term]').forEach(b => b.onclick = () => ipaShowTerm(b.dataset.term));
   ipaShowDex();
 }
 function ipaShowDex() {
@@ -201,5 +215,11 @@ function ipaShowDex() {
     return;
   }
   const words = (IPA.examples[v] || []).map(e => `<span class="ipa-chip">${ipaEsc(e.lang)} ${ipaEsc(e.text)}</span>`).join('');
-  box.innerHTML = `<div class="ipa-dex-in"><b class="ipa-dex-sym">${ipaEsc(v)}</b><span><b>${ipaEsc(s.name)}</b>${set.has(v) ? '' : ' <em>· 지금 묶음</em>'}<br>${ipaEsc(s.how)}</span></div>${words ? `<div class="ipa-chips">${words}</div>` : ''}`;
+  box.innerHTML = `<div class="ipa-dex-in"><b class="ipa-dex-sym">${ipaEsc(v)}</b><span>${ipaNameHtml(s)}${set.has(v) ? '' : '<em>지금 묶음</em><br>'}${ipaEsc(s.how)}</span></div>${words ? `<div class="ipa-chips">${words}</div>` : ''}`;
+}
+function ipaShowTerm(k) {
+  const box = document.getElementById('ipaDex'); if (!box) return;
+  const t = ipaT(k);
+  const extra = [t.native ? `고유어 ${ipaEsc(t.native)}` : '', t.note ? ipaEsc(t.note) : ''].filter(Boolean).join(' · ');
+  box.innerHTML = `<div class="ipa-dex-in ipa-term"><b class="ipa-dex-sym ipa-term-h">${ipaEsc(t.hanja || '')}</b><span><b>${ipaEsc(t.ko)}</b><span class="ipa-en">${ipaEsc(t.en || '')}</span>${extra ? `<br><small>${extra}</small>` : ''}</span></div>`;
 }

@@ -12,6 +12,7 @@
 
 - 녹음: Wikimedia Commons, 파일마다 다름(CC0·CC BY·CC BY-SA·퍼블릭 도메인) → [sources/audio.json](sources/audio.json)
 - 서지와 확인 방법 → [sources/references.json](sources/references.json)
+- 발음 용어의 한자: 표준국어대사전 표제어로 대조(뜻풀이는 옮기지 않음), 한국어 이름: IPA 표 한국어판(Commons, CC BY-SA 3.0) → [data/terms.json](data/terms.json)
 - PHOIBLE 대조 결과(`sources/phoible-*.json`)는 CC BY-SA 3.0, Wiktionary 대조 결과(`sources/wiktionary-*.json`)에 인용한 전사는 CC BY-SA 4.0
 - 글꼴 Balum IPA: Charis SIL 7.000(SIL Global)을 줄이고 이름을 바꾼 것, SIL Open Font License 1.1 → [assets/fonts/OFL.txt](assets/fonts/OFL.txt)
 - 게임 틀(`pipeline/frame.html`)과 고양고양이 픽셀 그림: 보카고양(esqsoy/vocagoyang)에서 가져옴([assets/cat/goyang-cat.json](assets/cat/goyang-cat.json), 만든 법은 `pipeline/derive_template.py`)

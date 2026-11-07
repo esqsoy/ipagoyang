@@ -26,10 +26,12 @@
    ],
    "status": "확인 필요",
    "status_why": "'낱말 첫 ㅂ은 바람이 조금 샌다'는 1차 출처 본문(Lee 1993 등)을 이 세션에서 읽지 못함",
-   "sound": "ipa-p"
+   "sound": "ipa-p",
+   "name_hanja": "無聲 兩脣 破裂音",
+   "name_en": "voiceless bilabial plosive"
   },
   "pʰ": {
-   "name": "기식 있는 무성 양순 파열음",
+   "name": "무성 유기 양순 파열음",
    "how": "[p]처럼 터뜨린 다음, 모음 전에 '흐' 하는 바람이 샌다. 오른쪽 위 작은 ʰ가 그 바람(기식) 표시다.",
    "ko": "한국어 ㅍ. 영어 낱말 첫 p도 이 소리라서 pin을 '핀'으로 적는다. 다만 영어도 s 뒤의 p(spin)는 바람이 없다.",
    "place": "bilabial",
@@ -43,7 +45,9 @@
     }
    ],
    "status": "확인 필요",
-   "status_why": "영어 p가 s 뒤에서 기식이 없다는 조건은 PHOIBLE에 없고(변이음 p만 있음), Hillenbrand 2003 본문을 읽지 못함"
+   "status_why": "영어 p가 s 뒤에서 기식이 없다는 조건은 PHOIBLE에 없고(변이음 p만 있음), Hillenbrand 2003 본문을 읽지 못함",
+   "name_hanja": "無聲 有氣 兩脣 破裂音",
+   "name_en": "voiceless aspirated bilabial plosive"
   },
   "b": {
    "name": "유성 양순 파열음",
@@ -66,10 +70,12 @@
    ],
    "status": "확인 필요",
    "status_why": "'낱말 첫 [b]를 [p]와 헷갈리기 쉽다'는 지각 연구 본문을 읽지 못함",
-   "sound": "ipa-b"
+   "sound": "ipa-b",
+   "name_hanja": "有聲 兩脣 破裂音",
+   "name_en": "voiced bilabial plosive"
   },
   "p͈": {
-   "name": "된소리 무성 양순 파열음",
+   "name": "무성 경음 양순 파열음",
    "how": "목청을 조이고 입술을 꽉 닫았다가, 바람 없이 터뜨린다.",
    "ko": "한국어 ㅃ. 밑의 ͈ 표시는 IPA 본표에 없어서, 다른 표시를 빌려 쓴다. 표기가 문헌마다 다르다.",
    "other": "[p*]·[pˀ]·[pʼ]로 적는 문헌도 있다. PHOIBLE 1은 [pˀ], 2197(Lee 1993)과 2287은 그냥 [p]로 적는다.",
@@ -84,7 +90,9 @@
     }
    ],
    "status": "확인 필요",
-   "status_why": "͈가 IPA 확장 기호(extIPA)의 '강한 조음' 표시라는 것은 extIPA 표를 이 세션에서 열어 보지 못함"
+   "status_why": "͈가 IPA 확장 기호(extIPA)의 '강한 조음' 표시라는 것은 extIPA 표를 이 세션에서 열어 보지 못함",
+   "name_hanja": "無聲 硬音 兩脣 破裂音",
+   "name_en": "voiceless tense (fortis) bilabial plosive"
   },
   "β": {
    "name": "유성 양순 마찰음 [β] · 접근음 [β̞]",
@@ -101,16 +109,20 @@
     }
    ],
    "status": "확인",
-   "status_why": "PHOIBLE(Martínez-Celdrán 외 2003·Okada 1991을 옮긴 목록)과 대조"
+   "status_why": "PHOIBLE(Martínez-Celdrán 외 2003·Okada 1991을 옮긴 목록)과 대조",
+   "name_hanja": "有聲 兩脣 摩擦音 · 接近音",
+   "name_en": "voiced bilabial fricative [β] · approximant [β̞]"
   },
   "m": {
-   "name": "양순 비음",
+   "name": "유성 양순 비음",
    "how": "입술을 닫고 코로 소리를 낸다.",
    "ko": "한국어 ㅁ.",
    "place": "bilabial",
    "lips": "closed",
    "glottis": "voiced",
-   "keyonly": true
+   "keyonly": true,
+   "name_hanja": "有聲 兩脣 鼻音",
+   "name_en": "voiced bilabial nasal"
   },
   "ɸ": {
    "name": "무성 양순 마찰음",
@@ -119,7 +131,9 @@
    "place": "bilabial",
    "lips": "near",
    "glottis": "open",
-   "keyonly": true
+   "keyonly": true,
+   "name_hanja": "無聲 兩脣 摩擦音",
+   "name_en": "voiceless bilabial fricative"
   }
  },
  "glottis": {

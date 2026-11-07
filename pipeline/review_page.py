@@ -173,7 +173,10 @@ def main():
     P.append(ln('설계안 8-4 추천 2', '설계안 8-4 ②', '여러 화자로 듣기(HVPT): 낱말마다 녹음 2~3명, 듣고 고르기에서 화자를 섞기. 메타분석 근거 있음.'))
     P.append(ln('설계안 8-4 추천 3~5', '설계안 8-4 ③~⑤', '언어로 보기(언어를 고르면 그 언어 자음이 표에 켜짐)는 묶음 서너 개 뒤, 성조 곡선·마이크는 성조 묶음 때 논의, Seeing Speech 등은 링크로만.'))
     P.append(ln('한국어 녹음', '녹음', '한국어 불·풀·뿔·부부는 영신초이 녹음을 기다리며 소리 칸을 비워 뒀다. 공개 조건(CC0 / CC BY-SA 4.0)과 화자 설명(예: 서울·경기, 일산)을 정해 줘. 파일은 구글 드라이브나 저장소 incoming/ 폴더로.'))
-    P.append(ln('청취 검수', '청취', '받은 녹음(영어 pin·spin·bin, [p] 기호 소리)을 미리보기에서 들어 보고, 이상한 게 있으면 그 줄에 적어 줘. 아직 사람이 들은 파일은 없다. 미리보기: https://claude.ai/artifact/3QPEUivENNJjCLp4vcTcJo'))
+    got_n = sum(1 for f in audio.values() if f.get('mp3'))
+    P.append(ln('청취 검수', '청취', f'받은 녹음 {got_n}개(영어·스페인어·일본어·프랑스어 낱말과 기호 소리)를 미리보기에서 들어 보고, 이상한 게 있으면 그 줄에 적어 줘. 아직 사람이 들은 파일은 없다. 미리보기: https://claude.ai/artifact/3QPEUivENNJjCLp4vcTcJo'))
+    P.append(ln('녹음 출처', '녹음 출처', 'Commons·Lingua Libre를 주 출처로(WebFetch로 받고 SHA-1 대조), 네이버·Forvo는 공개 라이선스가 없어 넣지 않기, Commons에 없는 낱말은 원어민 지인 녹음. 자세히: proposals/audio-sources-20261107.md. 추천대로 갈지?'))
+    P.append(ln('용어 한자', '용어', '아래 \'발음 용어 한자·영어\' 칸의 한자·영어 이름이 맞는지, 지도의 \'떨음\'을 IPA 표 한국어판대로 \'전동음\'으로 바꾼 게 괜찮은지 봐 줘.'))
     P.append('</section>')
 
     # 기호
@@ -181,6 +184,7 @@ def main():
     for k in b['learn']:
         s = sy['symbols'][k]
         P.append(f'<div class="item"><div class="head"><span class="sym">{E(k)}</span><b>{E(s["name"])}</b>{chip(s.get("status"))}</div>')
+        P.append(ln(f'[{k}] 한자·영어 이름', '한자·영어', f'{s.get("name_hanja", "")} · {s.get("name_en", "")}'))
         P.append(ln(f'[{k}] 내는 법', '내는 법', s['how']))
         P.append(ln(f'[{k}] 한국어와', '한국어와', s['ko']))
         if s.get('other'):
@@ -190,6 +194,16 @@ def main():
         if s.get('status_why'):
             P.append(f'<div class="why">{E(s["status_why"])}</div>')
         P.append('</div>')
+    P.append('</section>')
+
+    # 발음 용어(PRINCIPLES 2-5)
+    terms = rd('data', 'terms.json')['terms']
+    P.append('<section><h2>발음 용어 한자·영어</h2><p class="why">한자는 표준국어대사전 표제어 원어로 대조했다. 사전에 없는 말은 구성 요소 한자로 맞춘 것이라 따로 표시했다.</p>')
+    for t in terms.values():
+        src = t.get('source', {})
+        where = f'표준국어대사전 {src["word_no"]}' if src.get('word_no') else ('사전 표제어 없음: ' + ' + '.join(src.get('composed_from', [])) if src.get('composed_from') else src.get('ref', ''))
+        extra = ' · '.join(x for x in [f'고유어 {t["native"]}' if t.get('native') else '', t.get('note', '')] if x)
+        P.append(ln(f'용어 {t["ko"]}', t['ko'], f'{t["hanja"]} · {t["en"]} · {where}' + (f' · {extra}' if extra else '')))
     P.append('</section>')
 
     # 낱말
@@ -207,7 +221,7 @@ def main():
         wv = ', '.join(k2.get('wiktionary', [])) or '없음'
         P.append(ln(f'{w["text"]} Wiktionary', 'Wiktionary', f'{wv} · 대상 소리 {"맞음" if k2.get("target_ok") else "확인 필요"}'))
         a = audio.get(w.get('audio'), {})
-        got = '게임에 들어감' if a.get('mp3') else '아직 못 받음(요청 제한)'
+        got = '게임에 들어감' if a.get('mp3') else ('영신초이 녹음 대기' if not a.get('commons_file') else '아직 못 받음')
         P.append(ln(f'{w["text"]} 녹음', '녹음',
                     f'<a href="{E(a.get("page", ""))}" target="_blank" rel="noopener">{E(a.get("commons_file", "없음"))}</a> · {E(a.get("author", ""))} · {E(a.get("license", ""))} · {E(a.get("speaker", ""))} · {got} · 청취 {"했음" if a.get("listened") else "대기"}', raw=True))
         P.append('</div>')

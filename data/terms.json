@@ -1,0 +1,389 @@
+{
+ "about": "발음 용어 한글·한자·영어(영신 26.11.07 \"발음 용어는 한자와 영어를 병기해줘\"). 한국어 이름은 IPA 표 한국어판(sources/references.json ipa-chart-ko)을 따르고, 한자는 표준국어대사전 표제어의 원어로 대조했다(word_no). 영어는 국제음성학회 IPA 표(ipa-chart)의 이름. 사전에 없는 말은 구성 요소의 사전 한자로 맞추고 status에 적는다. 뜻풀이는 옮기지 않았다.",
+ "checked": "2026-11-07",
+ "terms": {
+  "양순음": {
+   "ko": "양순음",
+   "hanja": "兩脣音",
+   "en": "bilabial",
+   "group": "place",
+   "short": "양순",
+   "short_hanja": "兩脣",
+   "native": "입술소리",
+   "source": {
+    "ref": "stdict",
+    "word_no": "460123"
+   },
+   "status": "확인"
+  },
+  "순치음": {
+   "ko": "순치음",
+   "hanja": "脣齒音",
+   "en": "labiodental",
+   "group": "place",
+   "short": "순치",
+   "short_hanja": "脣齒",
+   "source": {
+    "ref": "stdict",
+    "word_no": "198484"
+   },
+   "status": "확인"
+  },
+  "치음": {
+   "ko": "치음",
+   "hanja": "齒音",
+   "en": "dental",
+   "group": "place",
+   "short": "치",
+   "short_hanja": "齒",
+   "source": {
+    "ref": "stdict",
+    "word_no": "490756"
+   },
+   "status": "확인"
+  },
+  "치경음": {
+   "ko": "치경음",
+   "hanja": "齒莖音",
+   "en": "alveolar",
+   "group": "place",
+   "short": "치경",
+   "short_hanja": "齒莖",
+   "source": {
+    "ref": "stdict",
+    "word_no": "333062"
+   },
+   "status": "확인"
+  },
+  "후치경음": {
+   "ko": "후치경음",
+   "hanja": "後齒莖音",
+   "en": "postalveolar",
+   "group": "place",
+   "short": "후치경",
+   "short_hanja": "後齒莖",
+   "source": {
+    "ref": "stdict",
+    "composed_from": [
+     "후(後)",
+     "치경음 333062"
+    ]
+   },
+   "status": "사전 표제어 없음: 구성 요소의 사전 한자로 맞춤"
+  },
+  "권설음": {
+   "ko": "권설음",
+   "hanja": "捲舌音",
+   "en": "retroflex",
+   "group": "place",
+   "short": "권설",
+   "short_hanja": "捲舌",
+   "source": {
+    "ref": "stdict",
+    "word_no": "400480"
+   },
+   "status": "확인"
+  },
+  "경구개음": {
+   "ko": "경구개음",
+   "hanja": "硬口蓋音",
+   "en": "palatal",
+   "group": "place",
+   "short": "경구개",
+   "short_hanja": "硬口蓋",
+   "source": {
+    "ref": "stdict",
+    "word_no": "19815"
+   },
+   "status": "확인"
+  },
+  "연구개음": {
+   "ko": "연구개음",
+   "hanja": "軟口蓋音",
+   "en": "velar",
+   "group": "place",
+   "short": "연구개",
+   "short_hanja": "軟口蓋",
+   "source": {
+    "ref": "stdict",
+    "word_no": "459921"
+   },
+   "status": "확인"
+  },
+  "구개수음": {
+   "ko": "구개수음",
+   "hanja": "口蓋垂音",
+   "en": "uvular",
+   "group": "place",
+   "short": "구개수",
+   "short_hanja": "口蓋垂",
+   "source": {
+    "ref": "stdict",
+    "word_no": "34996"
+   },
+   "status": "확인"
+  },
+  "인두음": {
+   "ko": "인두음",
+   "hanja": "咽頭音",
+   "en": "pharyngeal",
+   "group": "place",
+   "short": "인두",
+   "short_hanja": "咽頭",
+   "source": {
+    "ref": "stdict",
+    "word_no": "269062"
+   },
+   "status": "확인"
+  },
+  "성문음": {
+   "ko": "성문음",
+   "hanja": "聲門音",
+   "en": "glottal",
+   "group": "place",
+   "short": "성문",
+   "short_hanja": "聲門",
+   "source": {
+    "ref": "stdict",
+    "word_no": "185848"
+   },
+   "status": "확인"
+  },
+  "파열음": {
+   "ko": "파열음",
+   "hanja": "破裂音",
+   "en": "plosive",
+   "group": "manner",
+   "source": {
+    "ref": "stdict",
+    "word_no": "497698"
+   },
+   "status": "확인",
+   "note": "폐쇄음(閉鎖音, 표준국어대사전 355775)이라고도 한다"
+  },
+  "비음": {
+   "ko": "비음",
+   "hanja": "鼻音",
+   "en": "nasal",
+   "group": "manner",
+   "source": {
+    "ref": "stdict",
+    "word_no": "436259"
+   },
+   "status": "확인"
+  },
+  "전동음": {
+   "ko": "전동음",
+   "hanja": "顫動音",
+   "en": "trill",
+   "group": "manner",
+   "source": {
+    "ref": "stdict",
+    "word_no": "296406"
+   },
+   "status": "확인"
+  },
+  "탄음": {
+   "ko": "탄음",
+   "hanja": "彈音",
+   "en": "tap or flap",
+   "group": "manner",
+   "source": {
+    "ref": "stdict",
+    "word_no": "489751"
+   },
+   "status": "확인",
+   "note": "탄설음(彈舌音, 표준국어대사전 342895)이라고도 한다"
+  },
+  "마찰음": {
+   "ko": "마찰음",
+   "hanja": "摩擦音",
+   "en": "fricative",
+   "group": "manner",
+   "source": {
+    "ref": "stdict",
+    "word_no": "422606"
+   },
+   "status": "확인"
+  },
+  "설측 마찰음": {
+   "ko": "설측 마찰음",
+   "hanja": "舌側摩擦音",
+   "en": "lateral fricative",
+   "group": "manner",
+   "short": "설측마찰",
+   "short_hanja": "舌側摩擦",
+   "source": {
+    "ref": "stdict",
+    "composed_from": [
+     "설측음 444424",
+     "마찰음 422606"
+    ]
+   },
+   "status": "사전 표제어 없음: 구성 요소의 사전 한자로 맞춤"
+  },
+  "접근음": {
+   "ko": "접근음",
+   "hanja": "接近音",
+   "en": "approximant",
+   "group": "manner",
+   "source": {
+    "ref": "stdict",
+    "composed_from": [
+     "접근 475143",
+     "음(音)"
+    ]
+   },
+   "status": "사전 표제어 없음: 구성 요소의 사전 한자로 맞춤"
+  },
+  "설측 접근음": {
+   "ko": "설측 접근음",
+   "hanja": "舌側接近音",
+   "en": "lateral approximant",
+   "group": "manner",
+   "short": "설측접근",
+   "short_hanja": "舌側接近",
+   "source": {
+    "ref": "stdict",
+    "composed_from": [
+     "설측음 444424",
+     "접근 475143",
+     "음(音)"
+    ]
+   },
+   "status": "사전 표제어 없음: 구성 요소의 사전 한자로 맞춤"
+  },
+  "무성음": {
+   "ko": "무성음",
+   "hanja": "無聲音",
+   "en": "voiceless",
+   "group": "voice",
+   "short": "무성",
+   "short_hanja": "無聲",
+   "source": {
+    "ref": "stdict",
+    "word_no": "423811"
+   },
+   "status": "확인"
+  },
+  "유성음": {
+   "ko": "유성음",
+   "hanja": "有聲音",
+   "en": "voiced",
+   "group": "voice",
+   "short": "유성",
+   "short_hanja": "有聲",
+   "source": {
+    "ref": "stdict",
+    "word_no": "253500"
+   },
+   "status": "확인"
+  },
+  "유기음": {
+   "ko": "유기음",
+   "hanja": "有氣音",
+   "en": "aspirated",
+   "group": "voice",
+   "short": "유기",
+   "short_hanja": "有氣",
+   "native": "거센소리",
+   "source": {
+    "ref": "stdict",
+    "word_no": "253444"
+   },
+   "status": "확인"
+  },
+  "격음": {
+   "ko": "격음",
+   "hanja": "激音",
+   "en": "aspirated (Korean ㅍ·ㅌ·ㅋ·ㅊ)",
+   "group": "voice",
+   "native": "거센소리",
+   "source": {
+    "ref": "stdict",
+    "word_no": "17365"
+   },
+   "status": "확인"
+  },
+  "경음": {
+   "ko": "경음",
+   "hanja": "硬音",
+   "en": "tense, fortis (Korean ㅃ·ㄸ·ㄲ·ㅆ·ㅉ)",
+   "group": "voice",
+   "native": "된소리",
+   "source": {
+    "ref": "stdict",
+    "word_no": "21022"
+   },
+   "status": "확인"
+  },
+  "평음": {
+   "ko": "평음",
+   "hanja": "平音",
+   "en": "lax, lenis (Korean ㅂ·ㄷ·ㄱ·ㅅ·ㅈ)",
+   "group": "voice",
+   "native": "예사소리",
+   "source": {
+    "ref": "stdict",
+    "word_no": "357790"
+   },
+   "status": "확인"
+  },
+  "기식": {
+   "ko": "기식",
+   "hanja": "氣息",
+   "en": "aspiration",
+   "group": "voice",
+   "source": {
+    "ref": "stdict",
+    "word_no": "405461"
+   },
+   "status": "확인"
+  },
+  "성대": {
+   "ko": "성대",
+   "hanja": "聲帶",
+   "en": "vocal folds",
+   "group": "organ",
+   "native": "목청",
+   "source": {
+    "ref": "stdict",
+    "word_no": "181027"
+   },
+   "status": "확인"
+  },
+  "성문": {
+   "ko": "성문",
+   "hanja": "聲門",
+   "en": "glottis",
+   "group": "organ",
+   "source": {
+    "ref": "stdict",
+    "word_no": "185804"
+   },
+   "status": "확인",
+   "note": "표준국어대사전: =성대문"
+  },
+  "조음": {
+   "ko": "조음",
+   "hanja": "調音",
+   "en": "articulation",
+   "group": "organ",
+   "source": {
+    "ref": "stdict",
+    "word_no": "301839"
+   },
+   "status": "확인"
+  },
+  "성대 진동 개시 시간": {
+   "ko": "성대 진동 개시 시간",
+   "hanja": "聲帶振動開始時間",
+   "en": "voice onset time (VOT)",
+   "group": "measure",
+   "source": {
+    "ref": "vot-ko"
+   },
+   "status": "사전 표제어 없음: 한국어 음성학 논문의 용어. 한자는 구성 낱말(성대 181027 등)로 맞춤"
+  }
+ }
+}
