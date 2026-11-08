@@ -22,10 +22,17 @@ def main():
         tgt = w['ipa'][1]
         found = [t for t in theirs if any(a in t for a in accept + [tgt])]
         ok = bool(found)
+        via = ''
+        # Wiktionary에 음소 표기(/…/)만 있고 우리 대상이 기식 변이음([pʰ]·[tʰ])이면 바탕 음소가 있는지만 보고, 기식은 PHOIBLE 대조로 넘긴다
+        if not ok and tgt.endswith('ʰ'):
+            base = tgt[:-1]
+            ph = [t for t in theirs if t.startswith('/') and base in t]
+            if ph:
+                ok, found, via = True, ph, '음소 표기만 있음: 기식은 PHOIBLE로 대조'
         bad += 0 if ok else 1
         plain = lambda s: re.sub(r'[\[\]/ˈ.̠̞̹̃͡]', '', s)
         rest = [t for t in theirs if plain(t) != plain(ours)]
-        rows.append({'word': w['id'], 'ours': f'[{ours}]', 'wiktionary': theirs, 'target_ok': ok,
+        rows.append({'word': w['id'], 'ours': f'[{ours}]', 'wiktionary': theirs, 'target_ok': ok, 'via': via,
                      'other_diff': rest if ok else []})
         print(('OK  ' if ok else 'NG  ') + key, f'[{ours}]', theirs)
     out = {'about': 'pipeline/wikt_compare.py 결과. Wiktionary(en.wiktionary.org, CC BY-SA 4.0) 낱말 문서의 전사와 대조만 했다. 우리 전사는 data/bundles에 있고 Wiktionary에서 가져오지 않았다.',

@@ -11,6 +11,7 @@
     "[ta̠(ː)ɭ]"
    ],
    "target_ok": true,
+   "via": "",
    "other_diff": [
     "[ta̠ɭ]",
     "[ta̠(ː)ɭ]"
@@ -24,6 +25,7 @@
     "[tʰa̠ɭ]"
    ],
    "target_ok": true,
+   "via": "",
    "other_diff": [
     "[tʰa̠(ː)ɭ]",
     "[tʰa̠ɭ]"
@@ -38,6 +40,7 @@
     "[t͈a̠ɭ]"
    ],
    "target_ok": true,
+   "via": "",
    "other_diff": [
     "[t͈-]",
     "/st-/",
@@ -51,6 +54,7 @@
     "[pa̠da̠]"
    ],
    "target_ok": true,
+   "via": "",
    "other_diff": []
   },
   {
@@ -63,6 +67,7 @@
     "[tʰɑp]"
    ],
    "target_ok": true,
+   "via": "",
    "other_diff": [
     "/tɒp/",
     "[tʰɒp]",
@@ -81,6 +86,7 @@
     "/(ɪ)sʈɑp/"
    ],
    "target_ok": true,
+   "via": "",
    "other_diff": [
     "/stɒp/",
     "/stɔp/",
@@ -99,6 +105,7 @@
     "[dɛɪ̯]"
    ],
    "target_ok": true,
+   "via": "",
    "other_diff": [
     "/deɪ̯/",
     "[deː]",
@@ -114,6 +121,7 @@
     "[ˈt̪u]"
    ],
    "target_ok": true,
+   "via": "",
    "other_diff": [
     "[ˈt̪u]"
    ]
@@ -126,6 +134,7 @@
     "[ˈd̪os]"
    ],
    "target_ok": true,
+   "via": "",
    "other_diff": [
     "[ˈd̪os]"
    ]
@@ -138,6 +147,7 @@
     "[ˈna.ð̞a]"
    ],
    "target_ok": true,
+   "via": "",
    "other_diff": [
     "/ˈnada/"
    ]
@@ -149,6 +159,7 @@
     "[tẽ̞ŋʲkʲi]"
    ],
    "target_ok": true,
+   "via": "",
    "other_diff": [
     "[tẽ̞ŋʲkʲi]"
    ]
@@ -160,6 +171,7 @@
     "[dẽ̞ŋʲkʲi]"
    ],
    "target_ok": true,
+   "via": "",
    "other_diff": [
     "[dẽ̞ŋʲkʲi]"
    ]
@@ -171,6 +183,7 @@
     "/te/"
    ],
    "target_ok": true,
+   "via": "",
    "other_diff": []
   },
   {
@@ -180,7 +193,209 @@
     "/de/"
    ],
    "target_ok": true,
+   "via": "",
    "other_diff": []
+  },
+  {
+   "word": "pt-tudo",
+   "ours": "[ˈtudu]",
+   "wiktionary": [
+    "/ˈtu.du/",
+    "[ˈtu.ðu]",
+    "[ˈtyd]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[ˈtu.ðu]",
+    "[ˈtyd]"
+   ]
+  },
+  {
+   "word": "pt-dois",
+   "ours": "[dojs]",
+   "wiktionary": [
+    "/ˈdojs/",
+    "[ˈdoɪ̯s]",
+    "/ˈdojʃ/",
+    "[ˈdoɪ̯ʃ]",
+    "/ˈdøʃ/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[ˈdoɪ̯s]",
+    "/ˈdojʃ/",
+    "[ˈdoɪ̯ʃ]",
+    "/ˈdøʃ/"
+   ]
+  },
+  {
+   "word": "zh-da",
+   "ours": "[ta˥˩]",
+   "wiktionary": [
+    "/tä⁵¹/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/tä⁵¹/"
+   ]
+  },
+  {
+   "word": "zh-ta",
+   "ours": "[tʰa˥]",
+   "wiktionary": [
+    "/tʰä⁵⁵/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/tʰä⁵⁵/"
+   ]
+  },
+  {
+   "word": "ru-ty",
+   "ours": "[tɨ]",
+   "wiktionary": [
+    "[tɨ]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "ru-dom",
+   "ours": "[dom]",
+   "wiktionary": [
+    "[dom]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "de-tag",
+   "ours": "[tʰaːk]",
+   "wiktionary": [
+    "/taːk/",
+    "[tʰaːkʰ]",
+    "/tax/",
+    "/taːx/",
+    "/taːɡ̊/",
+    "/d̥aːɡ̊/",
+    "[d̥ɑːɡ̊]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/taːk/",
+    "[tʰaːkʰ]",
+    "/tax/",
+    "/taːx/",
+    "/taːɡ̊/",
+    "/d̥aːɡ̊/",
+    "[d̥ɑːɡ̊]"
+   ]
+  },
+  {
+   "word": "de-stein",
+   "ours": "[ʃtaɪ̯n]",
+   "wiktionary": [
+    "/ʃtaɪn/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ʃtaɪn/"
+   ]
+  },
+  {
+   "word": "de-dach",
+   "ours": "[dax]",
+   "wiktionary": [
+    "/dax/",
+    "[däχ]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[däχ]"
+   ]
+  },
+  {
+   "word": "it-tu",
+   "ours": "[tu]",
+   "wiktionary": [
+    "/ˈtu/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "it-due",
+   "ours": "[ˈdue]",
+   "wiktionary": [
+    "/ˈdu.e/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "ar-tamr",
+   "ours": "[tʰamr]",
+   "wiktionary": [
+    "/tamr/",
+    "/ta.mur.ru/",
+    "/ta.mar.ru/",
+    "/ta.mur.ra/",
+    "/ta.mar.ra/",
+    "/ta.mur.ri/",
+    "/ta.mar.ri/",
+    "/ta.mur/"
+   ],
+   "target_ok": true,
+   "via": "음소 표기만 있음: 기식은 PHOIBLE로 대조",
+   "other_diff": [
+    "/tamr/",
+    "/ta.mur.ru/",
+    "/ta.mar.ru/",
+    "/ta.mur.ra/",
+    "/ta.mar.ra/",
+    "/ta.mur.ri/",
+    "/ta.mar.ri/",
+    "/ta.mur/"
+   ]
+  },
+  {
+   "word": "ar-dar",
+   "ours": "[daːr]",
+   "wiktionary": [
+    "/daː.ra/",
+    "/daːr/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/daː.ra/"
+   ]
+  },
+  {
+   "word": "ar-dhahab",
+   "ours": "[ðahab]",
+   "wiktionary": [
+    "/ða.ha.ba/",
+    "/ðah.ha.ba/",
+    "/ða.hab/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ða.ha.ba/",
+    "/ðah.ha.ba/"
+   ]
   }
  ]
 }

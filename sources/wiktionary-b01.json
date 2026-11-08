@@ -10,6 +10,7 @@
     "[puɭ]"
    ],
    "target_ok": true,
+   "via": "",
    "other_diff": [
     "[puɭ]"
    ]
@@ -21,6 +22,7 @@
     "[pʰuɭ]"
    ],
    "target_ok": true,
+   "via": "",
    "other_diff": [
     "[pʰuɭ]"
    ]
@@ -32,6 +34,7 @@
     "[p͈uɭ]"
    ],
    "target_ok": true,
+   "via": "",
    "other_diff": [
     "[p͈uɭ]"
    ]
@@ -43,6 +46,7 @@
     "[pubu]"
    ],
    "target_ok": true,
+   "via": "",
    "other_diff": []
   },
   {
@@ -55,6 +59,7 @@
     "[ˈpʰən]"
    ],
    "target_ok": true,
+   "via": "",
    "other_diff": [
     "/pɪn/",
     "/pən/",
@@ -68,6 +73,7 @@
     "/spɪn/"
    ],
    "target_ok": true,
+   "via": "",
    "other_diff": []
   },
   {
@@ -78,6 +84,7 @@
     "/bən/"
    ],
    "target_ok": true,
+   "via": "",
    "other_diff": [
     "/bən/"
    ]
@@ -90,6 +97,7 @@
     "[ˈpãn]"
    ],
    "target_ok": true,
+   "via": "",
    "other_diff": [
     "[ˈpãn]"
    ]
@@ -102,6 +110,7 @@
     "[ˈba.ka]"
    ],
    "target_ok": true,
+   "via": "",
    "other_diff": []
   },
   {
@@ -112,6 +121,7 @@
     "[ˈlo.β̞o]"
    ],
    "target_ok": true,
+   "via": "",
    "other_diff": [
     "/ˈlobo/"
    ]
@@ -123,6 +133,7 @@
     "[pã̠ɴ]"
    ],
    "target_ok": true,
+   "via": "",
    "other_diff": [
     "[pã̠ɴ]"
    ]
@@ -134,6 +145,7 @@
     "[ba̠sɨ]"
    ],
    "target_ok": true,
+   "via": "",
    "other_diff": [
     "[ba̠sɨ]"
    ]
@@ -148,6 +160,7 @@
     "/pɛŋ/"
    ],
    "target_ok": true,
+   "via": "",
    "other_diff": [
     "/pẽ/",
     "[pẽĩ]",
@@ -161,6 +174,7 @@
     "/bɛ̃/"
    ],
    "target_ok": true,
+   "via": "",
    "other_diff": []
   },
   {
@@ -170,6 +184,142 @@
     "/pa.ʁi/"
    ],
    "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "pt-pe",
+   "ours": "[pɛ]",
+   "wiktionary": [
+    "/ˈpɛ/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "pt-bom",
+   "ours": "[bõ]",
+   "wiktionary": [
+    "/ˈbõ/",
+    "/ˈbɐ̃w̃/",
+    "/bo/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ˈbɐ̃w̃/",
+    "/bo/"
+   ]
+  },
+  {
+   "word": "zh-ba",
+   "ours": "[pa˥]",
+   "wiktionary": [
+    "/pä⁵⁵/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/pä⁵⁵/"
+   ]
+  },
+  {
+   "word": "zh-pa",
+   "ours": "[pʰa˥˩]",
+   "wiktionary": [
+    "/pʰä⁵¹/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/pʰä⁵¹/"
+   ]
+  },
+  {
+   "word": "ru-pol",
+   "ours": "[poɫ]",
+   "wiktionary": [
+    "[poɫ]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "ru-brat",
+   "ours": "[brat]",
+   "wiktionary": [
+    "[brat]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "de-post",
+   "ours": "[pʰɔst]",
+   "wiktionary": [
+    "/pɔst/",
+    "/pɔʊ̯st/",
+    "/poːst/"
+   ],
+   "target_ok": true,
+   "via": "음소 표기만 있음: 기식은 PHOIBLE로 대조",
+   "other_diff": [
+    "/pɔst/",
+    "/pɔʊ̯st/",
+    "/poːst/"
+   ]
+  },
+  {
+   "word": "de-spiel",
+   "ours": "[ʃpiːl]",
+   "wiktionary": [
+    "/ʃpiːl/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "de-ball",
+   "ours": "[bal]",
+   "wiktionary": [
+    "/bal/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "it-pane",
+   "ours": "[ˈpane]",
+   "wiktionary": [
+    "/ˈpa.ne/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "it-bocca",
+   "ours": "[ˈbokka]",
+   "wiktionary": [
+    "/ˈbok.ka/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "ar-bab",
+   "ours": "[baːb]",
+   "wiktionary": [
+    "/baːb/"
+   ],
+   "target_ok": true,
+   "via": "",
    "other_diff": []
   }
  ]

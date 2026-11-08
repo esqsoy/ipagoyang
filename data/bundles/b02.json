@@ -2,7 +2,7 @@
  "id": "b02",
  "title": "혀끝 파열음",
  "symbols_title": "[t] [d] [tʰ] [t͈]",
- "about": "묶음 2 원본(PRINCIPLES 8-5: 묶음 1 다음 [t d tʰ t͈]). 언어는 한국어 + 영어·스페인어·일본어·프랑스어(8-7: 넷 다 t/d를 음소로 가르고, 일본어 天気/電気는 한국어 화자가 틀리는 짝). 짜는 법은 b01과 같다.",
+ "about": "묶음 2 원본(PRINCIPLES 8-5: 묶음 1 다음 [t d tʰ t͈]). 언어는 한국어 + 영어·스페인어·일본어·프랑스어(8-7: 넷 다 t/d를 음소로 가르고, 일본어 天気/電気는 한국어 화자가 틀리는 짝). 짜는 법은 b01과 같다. 26.11.08: 그 소리가 있는 언어는 11개 가운데 다 넣는다(PRINCIPLES 8-7 바뀜). 포르투갈어·중국어·러시아어·독일어·이탈리아어·아랍어 낱말을 더했다.",
  "place": "alveolar",
  "learn": [
   "t",
@@ -367,6 +367,325 @@
     "fr-de-loquaxfr",
     "fr-de-sartus85"
    ]
+  },
+  {
+   "id": "pt-tudo",
+   "lang": "por",
+   "text": "tudo",
+   "roman": "tudo",
+   "ko": "모두",
+   "ipa": [
+    "ˈ",
+    "t",
+    "udu"
+   ],
+   "target": "t",
+   "phoible": {
+    "inv": 2207,
+    "seg": "t̪"
+   },
+   "note": "혀끝이 윗니 뒤에 닿는다([t̪]). 브라질에서는 i 앞의 t가 [tʃ]로 바뀌어서 i 앞이 아닌 낱말을 골랐다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2207 /t̪/(변이음 t̪·t̪ʃ̟)",
+   "audio": "pt-tudo-jnpojuwan"
+  },
+  {
+   "id": "pt-dois",
+   "lang": "por",
+   "text": "dois",
+   "roman": "dois",
+   "ko": "둘(2)",
+   "ipa": [
+    "",
+    "d",
+    "ojs"
+   ],
+   "target": "d",
+   "phoible": {
+    "inv": 2207,
+    "seg": "d̪"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2207 /d̪/",
+   "audio": "pt-dois-sillim"
+  },
+  {
+   "id": "zh-da",
+   "lang": "cmn",
+   "text": "大",
+   "roman": "dà",
+   "ko": "크다",
+   "ipa": [
+    "",
+    "t",
+    "a˥˩"
+   ],
+   "target": "t",
+   "phoible": {
+    "inv": 1047,
+    "seg": "t"
+   },
+   "note": "병음 d는 기식 없는 [t], t는 기식 있는 [tʰ]다(他 tā).",
+   "status": "확인",
+   "status_why": "PHOIBLE 1047 /t/",
+   "audio": "zh-da4-weigao",
+   "audio_more": [
+    "zh-da4-luilui6666"
+   ]
+  },
+  {
+   "id": "zh-ta",
+   "lang": "cmn",
+   "text": "他",
+   "roman": "tā",
+   "ko": "그(남자)",
+   "ipa": [
+    "",
+    "tʰ",
+    "a˥"
+   ],
+   "target": "tʰ",
+   "phoible": {
+    "inv": 1047,
+    "seg": "tʰ"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 1047 /tʰ/",
+   "audio": "zh-ta1-luilui6666",
+   "audio_more": [
+    "zh-ta1-wangcheng"
+   ]
+  },
+  {
+   "id": "ru-ty",
+   "lang": "rus",
+   "text": "ты",
+   "roman": "ty",
+   "ko": "너",
+   "ipa": [
+    "",
+    "t",
+    "ɨ"
+   ],
+   "target": "t",
+   "phoible": {
+    "inv": 2261,
+    "seg": "t̪"
+   },
+   "note": "혀끝이 윗니 뒤에 닿는다([t̪]).",
+   "status": "확인",
+   "status_why": "PHOIBLE 2261 /t̪/",
+   "audio": "ru-ty"
+  },
+  {
+   "id": "ru-dom",
+   "lang": "rus",
+   "text": "дом",
+   "roman": "dom",
+   "ko": "집",
+   "ipa": [
+    "",
+    "d",
+    "om"
+   ],
+   "target": "d",
+   "phoible": {
+    "inv": 2261,
+    "seg": "d̪"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2261 /d̪/",
+   "audio": "ru-dom-tatianakerbush",
+   "audio_more": [
+    "ru-dom-infovarius"
+   ]
+  },
+  {
+   "id": "de-tag",
+   "lang": "deu",
+   "text": "Tag",
+   "roman": "Tag",
+   "ko": "날·낮",
+   "ipa": [
+    "",
+    "tʰ",
+    "aːk"
+   ],
+   "target": "tʰ",
+   "phoible": {
+    "inv": 2184,
+    "seg": "tʰ",
+    "allo": "tʰ"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2184 /tʰ/",
+   "audio": "de-tag-wallroth",
+   "audio_more": [
+    "de-tag-jeuwre",
+    "de-tag-ionenlaser"
+   ]
+  },
+  {
+   "id": "de-stein",
+   "lang": "deu",
+   "text": "Stein",
+   "roman": "Stein",
+   "ko": "돌",
+   "ipa": [
+    "ʃ",
+    "t",
+    "aɪ̯n"
+   ],
+   "target": "t",
+   "phoible": {
+    "inv": 2184,
+    "seg": "tʰ",
+    "allo": "t"
+   },
+   "note": "ʃ 뒤 t는 기식이 없다.",
+   "status": "확인 필요",
+   "status_why": "PHOIBLE은 /tʰ/의 변이음 t만 적고 조건(ʃ 뒤)은 없다. Kohler 1990 본문 미열람",
+   "audio": "de-stein-wallroth",
+   "audio_more": [
+    "de-stein-jeuwre",
+    "de-stein-ionenlaser"
+   ]
+  },
+  {
+   "id": "de-dach",
+   "lang": "deu",
+   "text": "Dach",
+   "roman": "Dach",
+   "ko": "지붕",
+   "ipa": [
+    "",
+    "d",
+    "ax"
+   ],
+   "target": "d",
+   "phoible": {
+    "inv": 2184,
+    "seg": "d"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2184 /d/",
+   "audio": "de-dach-wallroth",
+   "audio_more": [
+    "de-dach-jeuwre"
+   ]
+  },
+  {
+   "id": "it-tu",
+   "lang": "ita",
+   "text": "tu",
+   "roman": "tu",
+   "ko": "너",
+   "ipa": [
+    "",
+    "t",
+    "u"
+   ],
+   "target": "t",
+   "phoible": {
+    "inv": 1145,
+    "seg": "t"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 1145 /t/",
+   "audio": "it-tu-xana000",
+   "audio_more": [
+    "it-tu-langpao",
+    "it-tu-martacarbone"
+   ]
+  },
+  {
+   "id": "it-due",
+   "lang": "ita",
+   "text": "due",
+   "roman": "due",
+   "ko": "둘(2)",
+   "ipa": [
+    "ˈ",
+    "d",
+    "ue"
+   ],
+   "target": "d",
+   "phoible": {
+    "inv": 1145,
+    "seg": "d"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 1145 /d/",
+   "audio": "it-due-xana000",
+   "audio_more": [
+    "it-due-langpao",
+    "it-due-ciampix"
+   ]
+  },
+  {
+   "id": "ar-tamr",
+   "lang": "arb",
+   "text": "تمر",
+   "roman": "tamr",
+   "ko": "대추야자",
+   "ipa": [
+    "",
+    "tʰ",
+    "amr"
+   ],
+   "target": "tʰ",
+   "phoible": {
+    "inv": 2157,
+    "seg": "t̪ʰ"
+   },
+   "note": "PHOIBLE 2157은 아랍어 t를 기식 있는 치음 [t̪ʰ]로 적는다.",
+   "status": "확인 필요",
+   "status_why": "녹음 화자는 모로코·알제리·남레반트 출신이고, 현대 표준 아랍어 녹음은 Commons에서 찾지 못했다. PHOIBLE 2157도 방언 화자 목록이다. 현대 표준 아랍어의 t에 기식이 있는지도 확인 필요",
+   "audio": "ar-tamr-ibrahimz"
+  },
+  {
+   "id": "ar-dar",
+   "lang": "arb",
+   "text": "دار",
+   "roman": "dār",
+   "ko": "집",
+   "ipa": [
+    "",
+    "d",
+    "aːr"
+   ],
+   "target": "d",
+   "phoible": {
+    "inv": 2157,
+    "seg": "d̪"
+   },
+   "status": "확인 필요",
+   "status_why": "녹음 화자는 모로코·알제리·남레반트 출신이고, 현대 표준 아랍어 녹음은 Commons에서 찾지 못했다. PHOIBLE 2157도 방언 화자 목록이다",
+   "audio": "ar-dar-zinou2go",
+   "audio_more": [
+    "ar-dar-fenakhay"
+   ]
+  },
+  {
+   "id": "ar-dhahab",
+   "lang": "arb",
+   "text": "ذهب",
+   "roman": "ðahab",
+   "ko": "금(金)",
+   "ipa": [
+    "",
+    "ð",
+    "ahab"
+   ],
+   "target": "ð",
+   "phoible": {
+    "inv": 2157,
+    "seg": "ð̪"
+   },
+   "note": "아랍어 [ð]는 음소다(스페인어처럼 d의 변이음이 아니다).",
+   "status": "확인 필요",
+   "status_why": "녹음 화자는 모로코·알제리·남레반트 출신이고, 현대 표준 아랍어 녹음은 Commons에서 찾지 못했다. PHOIBLE 2157도 방언 화자 목록이다",
+   "audio": "ar-dhahab-kadimihasna"
   }
  ],
  "compare": [

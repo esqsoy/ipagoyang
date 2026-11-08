@@ -2,7 +2,7 @@
  "id": "b01",
  "title": "입술 파열음",
  "symbols_title": "[p] [b] [pʰ] [p͈]",
- "about": "묶음 1 원본(PRINCIPLES 8-1·8-5: 첫 묶음). 낱말 전사는 출처 관례대로 직접 적었다(8-6). ipa는 [앞, 대상, 뒤]로 나눠 빈칸 자리를 정한다. phoible은 대상 소리를 대조할 PHOIBLE 목록과 분절음(seg: 음소, allo: 그 음소의 변이음). status는 PRINCIPLES 2-3.",
+ "about": "묶음 1 원본(PRINCIPLES 8-1·8-5: 첫 묶음). 낱말 전사는 출처 관례대로 직접 적었다(8-6). ipa는 [앞, 대상, 뒤]로 나눠 빈칸 자리를 정한다. phoible은 대상 소리를 대조할 PHOIBLE 목록과 분절음(seg: 음소, allo: 그 음소의 변이음). status는 PRINCIPLES 2-3. 26.11.08: 그 소리가 있는 언어는 11개 가운데 다 넣는다(PRINCIPLES 8-7 바뀜). 포르투갈어·중국어·러시아어·독일어·이탈리아어·아랍어 낱말을 더했다.",
  "place": "bilabial",
  "learn": [
   "p",
@@ -377,6 +377,277 @@
    "audio_more": [
     "fr-paris-loquaxfr",
     "fr-paris-sartus85"
+   ]
+  },
+  {
+   "id": "pt-pe",
+   "lang": "por",
+   "text": "pé",
+   "roman": "pé",
+   "ko": "발",
+   "ipa": [
+    "",
+    "p",
+    "ɛ"
+   ],
+   "target": "p",
+   "phoible": {
+    "inv": 2207,
+    "seg": "p"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2207(Barbosa·Albano 2004) /p/",
+   "audio": "pt-pe-medk1"
+  },
+  {
+   "id": "pt-bom",
+   "lang": "por",
+   "text": "bom",
+   "roman": "bom",
+   "ko": "좋은",
+   "ipa": [
+    "",
+    "b",
+    "õ"
+   ],
+   "target": "b",
+   "phoible": {
+    "inv": 2207,
+    "seg": "b"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2207 /b/",
+   "audio": "pt-bom-sillim"
+  },
+  {
+   "id": "zh-ba",
+   "lang": "cmn",
+   "text": "八",
+   "roman": "bā",
+   "ko": "여덟",
+   "ipa": [
+    "",
+    "p",
+    "a˥"
+   ],
+   "target": "p",
+   "phoible": {
+    "inv": 1047,
+    "seg": "p"
+   },
+   "note": "병음 b는 기식 없는 [p], p는 기식 있는 [pʰ]다(怕 pà).",
+   "status": "확인",
+   "status_why": "PHOIBLE 1047(Lee·Zee 2003) /p/",
+   "audio": "zh-ba1-weigao",
+   "audio_more": [
+    "zh-ba1-luilui6666"
+   ]
+  },
+  {
+   "id": "zh-pa",
+   "lang": "cmn",
+   "text": "怕",
+   "roman": "pà",
+   "ko": "두려워하다",
+   "ipa": [
+    "",
+    "pʰ",
+    "a˥˩"
+   ],
+   "target": "pʰ",
+   "phoible": {
+    "inv": 1047,
+    "seg": "pʰ"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 1047 /pʰ/",
+   "audio": "zh-pa4-weigao",
+   "audio_more": [
+    "zh-pa4-yunjiao"
+   ]
+  },
+  {
+   "id": "ru-pol",
+   "lang": "rus",
+   "text": "пол",
+   "roman": "pol",
+   "ko": "바닥",
+   "ipa": [
+    "",
+    "p",
+    "oɫ"
+   ],
+   "target": "p",
+   "phoible": {
+    "inv": 2261,
+    "seg": "p"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2261(Yanushevskaya·Bunčić 2015) /p/",
+   "audio": "ru-pol-tatianakerbush"
+  },
+  {
+   "id": "ru-brat",
+   "lang": "rus",
+   "text": "брат",
+   "roman": "brat",
+   "ko": "형제",
+   "ipa": [
+    "",
+    "b",
+    "rat"
+   ],
+   "target": "b",
+   "phoible": {
+    "inv": 2261,
+    "seg": "b"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2261 /b/",
+   "audio": "ru-brat-tatianakerbush"
+  },
+  {
+   "id": "de-post",
+   "lang": "deu",
+   "text": "Post",
+   "roman": "Post",
+   "ko": "우편",
+   "ipa": [
+    "",
+    "pʰ",
+    "ɔst"
+   ],
+   "target": "pʰ",
+   "phoible": {
+    "inv": 2184,
+    "seg": "pʰ",
+    "allo": "pʰ"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2184(Kohler 1990) /pʰ/",
+   "audio": "de-post-wallroth",
+   "audio_more": [
+    "de-post-jeuwre"
+   ]
+  },
+  {
+   "id": "de-spiel",
+   "lang": "deu",
+   "text": "Spiel",
+   "roman": "Spiel",
+   "ko": "놀이·경기",
+   "ipa": [
+    "ʃ",
+    "p",
+    "iːl"
+   ],
+   "target": "p",
+   "phoible": {
+    "inv": 2184,
+    "seg": "pʰ",
+    "allo": "p"
+   },
+   "note": "ʃ 뒤 p는 기식이 없다(영어 spin과 같은 사정).",
+   "status": "확인 필요",
+   "status_why": "PHOIBLE은 /pʰ/의 변이음 p만 적고 조건(ʃ 뒤)은 없다. Kohler 1990 본문 미열람",
+   "audio": "de-spiel-wallroth",
+   "audio_more": [
+    "de-spiel-jeuwre"
+   ]
+  },
+  {
+   "id": "de-ball",
+   "lang": "deu",
+   "text": "Ball",
+   "roman": "Ball",
+   "ko": "공",
+   "ipa": [
+    "",
+    "b",
+    "al"
+   ],
+   "target": "b",
+   "phoible": {
+    "inv": 2184,
+    "seg": "b"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2184 /b/",
+   "audio": "de-ball-wallroth",
+   "audio_more": [
+    "de-ball-jeuwre"
+   ]
+  },
+  {
+   "id": "it-pane",
+   "lang": "ita",
+   "text": "pane",
+   "roman": "pane",
+   "ko": "빵",
+   "ipa": [
+    "ˈ",
+    "p",
+    "ane"
+   ],
+   "target": "p",
+   "phoible": {
+    "inv": 1145,
+    "seg": "p"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 1145(Rogers·d'Arcangeli 2004) /p/",
+   "audio": "it-pane-xana000",
+   "audio_more": [
+    "it-pane-langpao",
+    "it-pane-ciampix"
+   ]
+  },
+  {
+   "id": "it-bocca",
+   "lang": "ita",
+   "text": "bocca",
+   "roman": "bocca",
+   "ko": "입",
+   "ipa": [
+    "ˈ",
+    "b",
+    "okka"
+   ],
+   "target": "b",
+   "phoible": {
+    "inv": 1145,
+    "seg": "b"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 1145 /b/",
+   "audio": "it-bocca-langpao",
+   "audio_more": [
+    "it-bocca-ciampix"
+   ]
+  },
+  {
+   "id": "ar-bab",
+   "lang": "arb",
+   "text": "باب",
+   "roman": "bāb",
+   "ko": "문",
+   "ipa": [
+    "",
+    "b",
+    "aːb"
+   ],
+   "target": "b",
+   "phoible": {
+    "inv": 2157,
+    "seg": "b"
+   },
+   "note": "아랍어에는 [p]가 없다(PHOIBLE 2157).",
+   "status": "확인 필요",
+   "status_why": "녹음 화자는 모로코·알제리·남레반트 출신이고, 현대 표준 아랍어 녹음은 Commons에서 찾지 못했다. PHOIBLE 2157도 방언 화자 목록이다",
+   "audio": "ar-bab-anasssedrati",
+   "audio_more": [
+    "ar-bab-khalilrantissi",
+    "ar-bab-fenakhay"
    ]
   }
  ],
