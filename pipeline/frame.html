@@ -2142,7 +2142,7 @@ state.lessons=buildLessons();
 // Short display titles leave source metadata and progress identities intact.
 const lessonDisplayNames={14:'문장 위치',16:'장문 - 단일 지문',17:'장문 - 복합 지문'};
 state.lessons.forEach(L=>{L.name=lessonDisplayNames[L.lesson]||L.name;});
-mtAttachContexts(state.lessons);
+mtAttachContexts(state.lessons);if(typeof ipaFilterLessons==='function')ipaFilterLessons(state.lessons);
 function activeLesson(){return state.savedLesson||state.lessons[state.li];}
 function visEx(L){return L.kind==='saved'||state.prevOn?L.exercises:L.exercises.filter(e=>e.scope!=='prev');}
 function nextLessonIndex(li){if(state.savedLesson)return -1;for(let i=li+1;i<state.lessons.length;i++){if(visEx(state.lessons[i]).length>0)return i;}return -1;}

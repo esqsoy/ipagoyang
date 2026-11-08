@@ -304,6 +304,43 @@ function ipaAfterCard(w, noAuto) {
   setTimeout(ipaNameLive, 0);  // 따라 치기로 들어갈 때 틀이 입력칸을 비운 뒤 다시 그린다
 }
 
+/* ---------- 언어 고르기(26.11.08 영신: "언어별로 따로 배울수 있게 하는것도 좋겠어. 그러니까 선택한 언어의 수만큼으로 가는거지.
+   전체부터 한국어만 영어만 한국어 영어 일본어 이런식으로 고를수있게") ----------
+   고른 언어의 낱말 카드만 남긴다. 이름 대기는 고른 언어의 대표 낱말만 보이고, 고른 언어에 없는 기호는 뺀다.
+   고른 것은 브라우저에 기억하고, 바꾸면 다시 연다(틀이 처음 열 때 카드를 짜기 때문). */
+function ipaLangSel() { try { const v = JSON.parse(localStorage.getItem('ipagoyang-langs') || 'null'); return Array.isArray(v) && v.length ? v : null; } catch (e) { return null; } }
+function ipaLangSave(v) { try { if (v && v.length) localStorage.setItem('ipagoyang-langs', JSON.stringify(v)); else localStorage.removeItem('ipagoyang-langs'); } catch (e) {} location.reload(); }
+function ipaFilterLessons(lessons) {
+  const sel = ipaLangSel(); if (!sel) return;
+  const keep = new Set(sel), litBy = {};
+  for (const L of lessons) {
+    const syms = new Set();
+    for (const e of L.exercises) {
+      e.words = e.words.filter(w => {
+        if (w.reps) { w.reps = w.reps.filter(r => keep.has(r.lid)); if (!w.reps.length) return false; syms.add(ipaBase(w.sym)); return true; }
+        if (w.lang) { if (!keep.has(w.lang)) return false; const t = (IPA.wordTarget || {})[w.wid]; if (t) syms.add(ipaBase(t)); return true; }
+        return true;
+      });
+    }
+    L.exercises = L.exercises.filter(e => e.words.length);
+    litBy[L.lesson] = syms;
+  }
+  for (const b of IPA.bundles || []) b.lit = b.lit.filter(x => (litBy[b.lesson] || new Set()).has(ipaBase(x)));
+  for (const k of Object.keys(IPA.examples || {})) IPA.examples[k] = IPA.examples[k].filter(e => !e.lid || keep.has(e.lid));
+}
+function ipaLangPanel() {
+  const sel = ipaLangSel(), on = id => (sel ? sel.includes(id) : false);
+  const n = (state.lessons || []).reduce((a, L) => a + L.exercises.reduce((b, e) => b + e.words.length, 0), 0);
+  return `<div class="ipa-langs"><b>배울 언어</b><div class="ipa-lang-chips"><button type="button" data-lang="all" aria-pressed="${!sel}">전체</button>${(IPA.langs || []).map(l => `<button type="button" data-lang="${l.id}" aria-pressed="${on(l.id)}">${ipaEsc(l.ko)}</button>`).join('')}</div><small>${sel ? '고른 언어: ' + sel.map(id => ((IPA.langs || []).find(l => l.id === id) || {}).ko || id).join('·') : '모든 언어'} · 카드 ${n}장</small></div>`;
+}
+function ipaLangClick(id) {
+  if (id === 'all') return ipaLangSave(null);
+  const sel = ipaLangSel() || [];
+  const next = sel.includes(id) ? sel.filter(x => x !== id) : [...sel, id];
+  const order = (IPA.langs || []).map(l => l.id);
+  ipaLangSave(next.sort((a, b) => order.indexOf(a) - order.indexOf(b)));
+}
+
 /* ---------- 카드 위 작은 지도(PRINCIPLES 8-9 ②) ----------
    문제를 푸는 동안에는 그 묶음의 칸들을 깜박인다(답 칸만 깜박이면 β/b처럼 줄이 다른 답이 새므로). 맞히면 답 칸이 금빛이 된다. */
 function ipaCellOf(sym) {
@@ -442,8 +479,10 @@ function ipaRenderMap() {
   el.innerHTML = `<div class="phead"><div style="flex:1;min-width:0"><h2>IPA 입 지도</h2><small>입술(1)에서 목청(11)까지 · 켠 칸 ${lit}/${all} · 점은 잠긴 칸 · 머리 칸을 누르면 용어 풀이</small></div></div>
     <div class="ipa-map-wrap">${grid}</div>
     <div class="ipa-dex" id="ipaDex"></div>
+    ${ipaLangPanel()}
     <div class="ipa-pal">배색 ${IPA_PALS.map(([k, n]) => `<button type="button" data-pal="${k}" aria-label="${n}" title="${n}" aria-pressed="${ipaPalGet() === k}"></button>`).join('')}</div>`;
   el.querySelectorAll('.ipa-pal button').forEach(b => b.onclick = () => ipaPalSet(b.dataset.pal));
+  el.querySelectorAll('.ipa-langs button').forEach(b => b.onclick = () => ipaLangClick(b.dataset.lang));
   el.querySelectorAll('.ipa-cell-s').forEach(b => b.onclick = () => { ipaPick = b.dataset.s; ipaShowDex(); const sy = IPA.symbols[ipaPick]; if (sy && sy.sound && ipaHasAudio(sy.sound) && b.classList.contains('on')) ipaPlay(sy.sound); });
   el.querySelectorAll('[data-term]').forEach(b => b.onclick = () => ipaShowTerm(b.dataset.term));
   ipaShowDex();

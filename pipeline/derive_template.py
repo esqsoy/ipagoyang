@@ -104,6 +104,8 @@ rep('const wrap=$("#hoeCtx .blanks");if(!wrap)return;const w=s.words[s.currentId
     'const wrap=$("#hoeCtx .blanks");if(!wrap)return;const w=s.words[s.currentId],raw=ipaIn($("#ainput").value);')
 # 자동 제출을 끈다: p를 치는 순간 내 버리면 pʰ·p͈를 칠 수 없고, 칸이 차는 시점이 답을 흘린다
 rep('if(ready&&!options.fromHint)submit();', 'if(ready&&!options.fromHint&&!IPA_NO_AUTOSUBMIT)submit();')
+# 언어 고르기(26.11.08 영신 "언어별로 따로 배울수 있게"): 문맥을 붙인 뒤 고른 언어의 카드만 남긴다
+rep('mtAttachContexts(state.lessons);', "mtAttachContexts(state.lessons);if(typeof ipaFilterLessons==='function')ipaFilterLessons(state.lessons);")
 # 맞히면 소리 내는 차례 그림(PRINCIPLES 8-9 ①). 그림이 끝날 시간만큼 다음 카드를 늦춘다(Enter로 바로 넘어갈 수 있다)
 rep('''    showReveal("good",w.term,w.meaning,line);
     s.streak=(s.streak||0)+1;

@@ -106,6 +106,20 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) fails++
   const lit = await page.locator('#ipaMap .ipa-cell-s.on').count();
   ok(lit >= 3, `IPA 지도 켜진 칸 ${lit}`);
   await shot('t05-home-after');
+  // 언어 고르기(26.11.08): 한국어만 고르면 한국어 낱말 카드만 남고, 한국어에 없는 기호(β·ð)는 이름 대기에서 빠진다
+  const before = await page.evaluate(() => state.lessons.reduce((a, L) => a + L.exercises.reduce((b, e) => b + e.words.length, 0), 0));
+  await page.locator('.ipa-langs button[data-lang="kor"]').click(); await page.waitForTimeout(1200);
+  const after = await page.evaluate(() => ({ n: state.lessons.reduce((a, L) => a + L.exercises.reduce((b, e) => b + e.words.length, 0), 0),
+    langs: [...new Set(state.lessons.flatMap(L => L.exercises.flatMap(e => e.words.map(w => w.lang || (w.reps || []).map(r => r.lid).join(',')))))],
+    syms: state.lessons.flatMap(L => L.exercises.flatMap(e => e.words.filter(w => w.nameq).map(w => w.sym))) }));
+  ok(after.n > 0 && after.n < before && after.langs.every(x => x === 'kor'), `한국어만: 카드 ${before} → ${after.n}, 언어 ${after.langs.join('|')}`);
+  ok(!after.syms.includes('β') && !after.syms.includes('ð'), '한국어에 없는 기호는 이름 대기에서 빠짐');
+  await page.locator('.ipa-langs button[data-lang="eng"]').click(); await page.waitForTimeout(1200);
+  const both = await page.evaluate(() => JSON.parse(localStorage.getItem('ipagoyang-langs')));
+  ok(JSON.stringify(both) === '["kor","eng"]', '한국어 + 영어 고르기 ' + JSON.stringify(both));
+  await shot('t06-langs');
+  await page.locator('.ipa-langs button[data-lang="all"]').click(); await page.waitForTimeout(1200);
+  ok(await page.evaluate(() => localStorage.getItem('ipagoyang-langs') === null), '전체로 되돌리기');
   const keys = await page.evaluate(() => Object.keys(localStorage));
   ok(keys.length > 0 && keys.every(k => k.startsWith('ipagoyang-')), '저장 키는 ipagoyang- 로만 ' + keys.join(','));
   ok(errors.length === 0, '콘솔 오류 없음 ' + errors.slice(0, 3).join(' | '));

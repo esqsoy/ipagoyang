@@ -178,4 +178,11 @@ html[data-pal="chalk"]{--panel-rgb:18,37,28;--bg1-rgb:14,28,22;--bg1:#0e1c16;--b
 .ipa-lmini{position:relative;z-index:3;text-align:left;font-size:.86rem;line-height:1.55;margin:0 0 8px;padding:8px 10px;border:1px dashed var(--line);border-radius:12px}
 .ipa-lmini .ipa-name{text-align:center}
 .ipa-lmini p{margin:6px 0 0}
+/* 언어 고르기 */
+.ipa-langs{padding:0 13px 12px;display:grid;gap:6px;justify-items:center;text-align:center}
+.ipa-langs b{font-size:.82rem}
+.ipa-langs small{font-size:.72rem;color:var(--muted);font-weight:700}
+.ipa-lang-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
+.ipa-lang-chips button{position:relative;z-index:3;font:inherit;font-size:.78rem;font-weight:800;padding:6px 12px;min-height:34px;border-radius:999px;border:2px solid var(--line);background:var(--panel2);color:var(--muted);cursor:pointer}
+.ipa-lang-chips button[aria-pressed="true"]{border-color:var(--pink);color:#fff;background:rgba(var(--pink-rgb),.18)}
 

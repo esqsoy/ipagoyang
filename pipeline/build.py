@@ -124,7 +124,7 @@ def build(inline=False):
         # 그리고 영어로 이름대기", "듣고 고르기는 마음에 드는데 어느 경우든 발음명을 치는걸로만 하자".
         # 연습: 이름 대기·한국어 → 이름 대기·영어 → 듣고 고르기 → 전사 빈칸(PRINCIPLES 8-2 바뀜)
         def rep_list(k):
-            return [{'wid': wd['id'], 'lang': langs[wd['lang']]['ko'], 'text': wd['text'], 'a': wd['ipa'][0], 't': wd['ipa'][1], 'b': wd['ipa'][2]} for wd in rep_words(b, k)]
+            return [{'wid': wd['id'], 'lid': wd['lang'], 'lang': langs[wd['lang']]['ko'], 'text': wd['text'], 'a': wd['ipa'][0], 't': wd['ipa'][1], 'b': wd['ipa'][2]} for wd in rep_words(b, k)]
 
         for mode, title, ask in (('ko', '이름 대기 · 한국어', '한국어 이름은?'), ('en', '이름 대기 · 영어', '영어 이름은?')):
             cards = []
@@ -187,7 +187,7 @@ def build(inline=False):
             word_audio_map[wd['id']] = word_audio(wd)
             word_target[wd['id']] = wd['target']
             used_audio |= {wd['audio'], *wd.get('audio_more', [])}
-            examples.setdefault(wd['target'], []).append({'lang': langs[wd['lang']]['ko'], 'text': wd['text'], 'a': a, 't': t, 'b': z, 'audio': wd['audio'], 'wid': wd['id'], 'o': lang_order.index(wd['lang'])})
+            examples.setdefault(wd['target'], []).append({'lang': langs[wd['lang']]['ko'], 'text': wd['text'], 'a': a, 't': t, 'b': z, 'audio': wd['audio'], 'wid': wd['id'], 'lid': wd['lang'], 'o': lang_order.index(wd['lang'])})
         # IPA 지도에서 켜는 칸: 표에 칸이 있는 기호만(pʰ·p͈는 p 칸의 부호라 따로 켜지 않는다)
         bundles_lit.append({'lesson': L, 'id': b['id'], 'lit': b['lit']})
 
@@ -203,6 +203,8 @@ def build(inline=False):
         'audio': {aid: {'src': src_of(aid), 'peaks': peaks.get(aid), 'duration': audio_src[aid].get('duration'), 'speaker': audio_src[aid].get('speaker_short')}
                   for aid in sorted(a for a in used_audio if a) if audio_ok(aid)},
         'wordAudio': word_audio_map, 'wordTarget': word_target, 'byWord': by_word,
+        # 언어 고르기에 보일 언어: 묶음에 낱말이 있는 언어만, 한국어·영어·스페인어·그 밖 차례
+        'langs': [{'id': l, 'ko': langs[l]['ko']} for l in lang_order if any(wd['lang'] == l for b in bundles for wd in b['words'])],
         'bundles': bundles_lit,
         'sagittal': rd('assets', 'sagittal', 'sagittal.json'),
     }
