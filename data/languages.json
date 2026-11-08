@@ -1,16 +1,89 @@
 {
  "about": "언어 풀과 기본 변종(PRINCIPLES 8-6, 영신 26.11.06). phoible은 그 언어 칸을 대조할 PHOIBLE 목록 번호(1차 출처를 옮긴 목록이 있으면 그것). 아직 정하지 않은 언어는 null.",
  "langs": [
-  {"id": "kor", "ko": "한국어", "variety": "서울 표준어", "phoible": 2197, "ref": "lee1993", "tts": "ko-KR"},
-  {"id": "eng", "ko": "영어", "variety": "미국", "phoible": 2176, "ref": "hillenbrand2003", "tts": "en-US"},
-  {"id": "spa", "ko": "스페인어", "variety": "중남미 공통", "phoible": 2210, "ref": "martinez2003", "tts": "es-MX", "note": "PHOIBLE 2210은 에스파냐(카스티야) 목록이다. 이 묶음의 b → [β̞]는 중남미에서도 같은 것으로 알려져 있으나, 중남미 1차 출처(Coloma 2018 등) 대조는 확인 필요"},
-  {"id": "jpn", "ko": "일본어", "variety": "도쿄", "phoible": 2196, "ref": "okada1991", "tts": "ja-JP"},
-  {"id": "fra", "ko": "프랑스어", "variety": "파리 표준", "phoible": 2182, "ref": "fougeron1993", "tts": "fr-FR"},
-  {"id": "por", "ko": "포르투갈어", "variety": "브라질", "phoible": null},
-  {"id": "cmn", "ko": "중국어", "variety": "普通话", "phoible": null},
-  {"id": "rus", "ko": "러시아어", "variety": "모스크바 표준", "phoible": null},
-  {"id": "deu", "ko": "독일어", "variety": "독일 표준", "phoible": null},
-  {"id": "ita", "ko": "이탈리아어", "variety": "표준", "phoible": null},
-  {"id": "arb", "ko": "아랍어", "variety": "현대 표준 아랍어", "phoible": null}
+  {
+   "id": "kor",
+   "ko": "한국어",
+   "variety": "서울 표준어",
+   "phoible": 2197,
+   "ref": "lee1993",
+   "tts": "ko-KR"
+  },
+  {
+   "id": "eng",
+   "ko": "영어",
+   "variety": "미국",
+   "phoible": 2176,
+   "ref": "hillenbrand2003",
+   "tts": "en-US"
+  },
+  {
+   "id": "spa",
+   "ko": "스페인어",
+   "variety": "중남미 공통",
+   "phoible": 2210,
+   "ref": "martinez2003",
+   "tts": "es-MX",
+   "note": "PHOIBLE 2210은 에스파냐(카스티야) 목록이다. 이 묶음의 b → [β̞]는 중남미에서도 같은 것으로 알려져 있으나, 중남미 1차 출처(Coloma 2018 등) 대조는 확인 필요"
+  },
+  {
+   "id": "jpn",
+   "ko": "일본어",
+   "variety": "도쿄",
+   "phoible": 2196,
+   "ref": "okada1991",
+   "tts": "ja-JP"
+  },
+  {
+   "id": "fra",
+   "ko": "프랑스어",
+   "variety": "파리 표준",
+   "phoible": 2182,
+   "ref": "fougeron1993",
+   "tts": "fr-FR"
+  },
+  {
+   "id": "por",
+   "ko": "포르투갈어",
+   "variety": "브라질",
+   "phoible": 2207,
+   "ref": "por_barbosa2004"
+  },
+  {
+   "id": "cmn",
+   "ko": "중국어",
+   "variety": "普通话",
+   "phoible": 1047,
+   "ref": "cmn_lee2003_phon"
+  },
+  {
+   "id": "rus",
+   "ko": "러시아어",
+   "variety": "모스크바 표준",
+   "phoible": 2261,
+   "ref": "yanushevskaya2015russian"
+  },
+  {
+   "id": "deu",
+   "ko": "독일어",
+   "variety": "독일 표준",
+   "phoible": 2184,
+   "ref": "deu_kohler1990"
+  },
+  {
+   "id": "ita",
+   "ko": "이탈리아어",
+   "variety": "표준",
+   "phoible": 1145,
+   "ref": "ita_rogers2004"
+  },
+  {
+   "id": "arb",
+   "ko": "아랍어",
+   "variety": "현대 표준 아랍어",
+   "phoible": 2157,
+   "ref": "arb_thelwall1990",
+   "note": "PHOIBLE 2157(Thelwall·Sa'Adeddin 1990)은 사파드·베이루트·다마스쿠스·쿠웨이트 화자 목록이라 현대 표준 아랍어와 다를 수 있다(확인 필요). PHOIBLE에 현대 표준 아랍어 JIPA 목록은 없다."
+  }
  ]
 }
