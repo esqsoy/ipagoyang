@@ -141,6 +141,18 @@
    "cite": "외래어 표기법 제2장 표 4(일본어의 가나와 한글 대조표): タ チ ツ テ ト는 어두 다 지 쓰 데 도, 어중·어말 타 치 쓰 테 토.",
    "checked": "한국어 위키백과 '일본어의 한글 표기' 문서의 표 인용(26.11.08). 국립국어원 원문(kornorms.korean.go.kr)은 이 세션에서 접속 거부",
    "read": true
+  },
+  {
+   "id": "kowikt-hanja",
+   "cite": "한국어 위키낱말사전(ko.wiktionary.org) 한자 문서의 한자풀이 틀(훈·음), CC BY-SA 4.0.",
+   "checked": "한자 41자 문서의 원문(action=raw)에서 훈을 읽음(26.11.08). 顫·擦은 한자풀이 틀이 없었다",
+   "read": true
+  },
+  {
+   "id": "unihan",
+   "cite": "Unicode Unihan Database, kDefinition·kHangul 칸(unicode.org GetUnihanData).",
+   "checked": "擦·顫·捲·接 네 자(26.11.08)",
+   "read": true
   }
  ]
 }

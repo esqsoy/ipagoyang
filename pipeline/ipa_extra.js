@@ -74,8 +74,8 @@ function ipaNameLive() {
   if (ty) ty.innerHTML = raw ? ipaEsc(raw) + (s.answered && !s.copyMode ? '' : '<span class="caret"></span>') : '';
   // 맞으면 세 이름(한국어·한자·영어)을 다 보인다
   el.innerHTML = st.hit
-    ? `<span class="ok trio"><b>${ipaEsc(st.hit.ko)}</b><em>${ipaEsc(st.hit.hanja)}</em><i>${ipaEsc(st.hit.en)}</i></span>`
-    : `<span>${IPA_MODE_ASK[w.mode || 'both']}</span>`;
+    ? `<span class="ok trio"><b>${ipaEsc(st.hit.ko)}</b><em>${ipaHanjaHtml(st.hit.hanja)}</em><i>${ipaEsc(st.hit.en)}</i></span>`
+    : '';
   if (ty) ty.dataset.ask = IPA_MODE_ASK[w.mode || 'both'];
   // 맞으면 Enter 없이 넘긴다(틀린 답은 Enter로만 낸다)
   if (st.pass && !s.answered && !s.copyMode && !state.composing) {
@@ -187,14 +187,27 @@ function ipaVot(k) {
 
 /* ---------- 카드 위 ---------- */
 function ipaEsc(s) { return String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c])); }
+/* 뜻 풀이(26.11.08 영신): 한자 한 자 위에 커서를 올리면(폰은 누르면) 그 자의 뜻("벌리다"처럼 사전형, 훈음 아님),
+   예시 낱말은 철자 위에 올리면 낱말 뜻. 발음(전사)은 누르면 소리라서 뜻은 철자 쪽에만 둔다. 뜻 자료는 data/hanja.json */
+function ipaHanjaHtml(str) {
+  return [...String(str || '')].map(ch => (IPA.hanja || {})[ch] ? `<span class="ipa-gl" tabindex="0" data-g="${ipaEsc(IPA.hanja[ch])}">${ch}</span>` : ipaEsc(ch)).join('');
+}
+function ipaWordHtml(text, gloss) {
+  return gloss && gloss !== text ? `<span class="ipa-gl ipa-gl-w" tabindex="0" data-g="${ipaEsc(gloss)}">${ipaEsc(text)}</span>` : ipaEsc(text);
+}
+document.addEventListener('click', e => {
+  const g = e.target.closest && e.target.closest('.ipa-gl');
+  document.querySelectorAll('.ipa-gl.show').forEach(x => { if (x !== g) x.classList.remove('show'); });
+  if (g) g.classList.toggle('show');
+}, true);
 /* 발음 용어는 한글·한자·영어를 함께 보인다(영신 26.11.07, PRINCIPLES 2-5). 용어 자료는 data/terms.json */
 function ipaT(k) { return (IPA.terms || {})[k] || {ko: k}; }
 function ipaTermInline(k, label) {
   const t = ipaT(k);
-  return `${ipaEsc(label || t.ko)}<span class="ipa-hz">(${ipaEsc(t.hanja || '')}${t.en ? ' · ' + ipaEsc(t.en) : ''})</span>`;
+  return `${ipaEsc(label || t.ko)}<span class="ipa-hz">(${ipaHanjaHtml(t.hanja || '')}${t.en ? ' · ' + ipaEsc(t.en) : ''})</span>`;
 }
 function ipaNameHtml(s) {
-  return `<div class="ipa-name"><b>${ipaEsc(s.name)}</b>${s.name_hanja ? `<span class="ipa-hanja">${ipaEsc(s.name_hanja)}</span>` : ''}${s.name_en ? `<span class="ipa-en">${ipaEsc(s.name_en)}</span>` : ''}</div>`;
+  return `<div class="ipa-name"><b>${ipaEsc(s.name)}</b>${s.name_hanja ? `<span class="ipa-hanja">${ipaHanjaHtml(s.name_hanja)}</span>` : ''}${s.name_en ? `<span class="ipa-en">${ipaEsc(s.name_en)}</span>` : ''}</div>`;
 }
 /* 여러 화자로 듣기(HVPT, PRINCIPLES 8-8): 낱말마다 녹음 목록을 두고, 누를 때마다 다음 화자로 넘어간다. 첫 화자는 무작위 */
 function ipaAudioList(wid, fallback) {
@@ -247,7 +260,7 @@ function ipaBeforeCard(w) {
   const lm = copying ? ipaLearnMini(ipaSymOf(w)) : '';
   if (w.learn) {
     const s = IPA.symbols[w.sym] || {};
-    const ex = (IPA.examples[w.sym] || []).map(e => { const l = ipaAudioList(e.wid, e.audio); return `<div class="ipa-ex"><span class="ipa-lang">${ipaEsc(e.lang)}</span><span class="ipa-word">${ipaEsc(e.text)}</span><span class="ipa-tr"${ipaTapAttrs(l, e.text + ' 듣기')}>[${ipaEsc(e.a)}<b>${ipaEsc(e.t)}</b>${ipaEsc(e.b)}]</span><span class="ipa-exn">${l.length > 1 ? '×' + l.length : l.length ? '' : '녹음 없음'}</span></div>`; }).join('');
+    const ex = (IPA.examples[w.sym] || []).map(e => { const l = ipaAudioList(e.wid, e.audio); return `<div class="ipa-ex"><span class="ipa-lang">${ipaEsc(e.lang)}</span><span class="ipa-word">${ipaWordHtml(e.text, e.ko)}</span><span class="ipa-tr"${ipaTapAttrs(l, e.text + ' 듣기')}>[${ipaEsc(e.a)}<b>${ipaEsc(e.t)}</b>${ipaEsc(e.b)}]</span><span class="ipa-exn">${l.length > 1 ? '×' + l.length : l.length ? '' : '녹음 없음'}</span></div>`; }).join('');
     const symTap = s.sound && ipaHasAudio(s.sound) ? ipaTapAttrs(s.sound, w.sym + ' 기호 소리 듣기') : '';
     return `<div class="ipa-learn">
       <div class="ipa-big"><span${symTap}>${ipaEsc(w.sym === 'β' ? 'β β̞' : w.sym === 'ð' ? 'ð ð̞' : w.sym)}</span></div>
@@ -264,7 +277,7 @@ function ipaBeforeCard(w) {
   }
   if (w.nameq) {
     // 이름 대기: 보카고양의 예문처럼 기호를 대표 낱말 속에 보인다(한국어·영어·스페인어·그 밖 차례, 26.11.08 영신)
-    const rows = (w.reps || []).map(e => { const l = ipaAudioList(e.wid); return `<div class="ipa-rep"><span class="ipa-lang">${ipaEsc(e.lang)}</span><span class="ipa-word">${ipaEsc(e.text)}</span><span class="ipa-tr"${ipaTapAttrs(l, e.text + ' 듣기')}>[${ipaEsc(e.a)}<b>${ipaEsc(e.t)}</b>${ipaEsc(e.b)}]</span></div>`; }).join('');
+    const rows = (w.reps || []).map(e => { const l = ipaAudioList(e.wid); return `<div class="ipa-rep"><span class="ipa-lang">${ipaEsc(e.lang)}</span><span class="ipa-word">${ipaWordHtml(e.text, e.ko)}</span><span class="ipa-tr"${ipaTapAttrs(l, e.text + ' 듣기')}>[${ipaEsc(e.a)}<b>${ipaEsc(e.t)}</b>${ipaEsc(e.b)}]</span></div>`; }).join('');
     const s = IPA.symbols[w.sym] || {};
     const symTap = s.sound && ipaHasAudio(s.sound) ? ipaTapAttrs(s.sound, w.sym + ' 기호 소리 듣기') : '';
     return `${lm}<div class="ipa-nameq"><div class="ipa-big"><span${symTap}>${ipaEsc(w.sym)}</span></div>${ipaMiniMap(w)}<div class="ipa-reps">${rows || '<div class="ipa-soon">대표 낱말 없음</div>'}</div><div class="ipa-symhint">전사를 누르면 낱말 소리${symTap ? ', 기호를 누르면 기호 소리' : ''}</div></div><div class="ipa-typed" id="ipaTyped" aria-live="polite"></div><div class="ipa-namecheck" id="ipaNameCheck"></div>`;
@@ -382,11 +395,11 @@ function ipaMiniMap(w, hit) {
 function ipaZoomOpen(lesson, hit) {
   const bd = (IPA.bundles || []).find(b => b.lesson === +lesson);
   const cur = new Set(bd ? bd.lit : []), {set} = ipaLearned(), h = hit ? ipaBase(hit) : '';
-  const colh = (k, i) => { const t = ipaT(k); return `<span class="ipa-col">${i + 1}<small>${ipaEsc(t.short || t.ko.replace(/음$/, ''))}</small><small class="h">${ipaEsc(t.short_hanja || t.hanja || '')}</small></span>`; };
+  const colh = (k, i) => { const t = ipaT(k); return `<span class="ipa-col">${i + 1}<small>${ipaEsc(t.short || t.ko.replace(/음$/, ''))}</small><small class="h">${ipaHanjaHtml(t.short_hanja || t.hanja || '')}</small></span>`; };
   let g = `<div class="ipa-grid ipa-zoom-grid"><span></span>${IPA_COLS.map(colh).join('')}`;
   for (const r of IPA_ROWS) {
     const t = ipaT(r.ko);
-    g += `<span class="ipa-rowh"><span>${ipaEsc(t.ko)}</span><small class="h">${ipaEsc(t.hanja || '')}</small></span>`;
+    g += `<span class="ipa-rowh"><span>${ipaEsc(t.ko)}</span><small class="h">${ipaHanjaHtml(t.hanja || '')}</small></span>`;
     for (const c of r.cells) {
       if (c === null) { g += `<span class="ipa-cell empty"></span>`; continue; }
       const span = c.span || 1, v = c.v || c;
@@ -463,8 +476,8 @@ function ipaRenderMap() {
     const on = set.has(v), cur = current.has(v);
     return `<button type="button" class="ipa-cell-s${on ? ' on' : ''}${cur ? ' cur' : ''}" data-s="${ipaEsc(v)}" aria-label="${ipaEsc(on ? v : '잠긴 칸')}">${on || cur ? ipaEsc(v) : '·'}</button>`;
   };
-  const colh = (k, i) => { const t = ipaT(k); return `<button type="button" class="ipa-col" data-term="${ipaEsc(k)}" aria-label="${ipaEsc(t.ko + ' ' + (t.hanja || '') + ' ' + (t.en || ''))}">${i + 1}<small>${ipaEsc(t.short || t.ko.replace(/음$/, ''))}</small><small class="h">${ipaEsc(t.short_hanja || t.hanja || '')}</small></button>`; };
-  const rowh = k => { const t = ipaT(k); return `<button type="button" class="ipa-rowh" data-term="${ipaEsc(k)}" aria-label="${ipaEsc(t.ko + ' ' + (t.hanja || '') + ' ' + (t.en || ''))}"><span>${ipaEsc(t.ko)}</span><small class="h">${ipaEsc(t.hanja || '')}</small></button>`; };
+  const colh = (k, i) => { const t = ipaT(k); return `<button type="button" class="ipa-col" data-term="${ipaEsc(k)}" aria-label="${ipaEsc(t.ko + ' ' + (t.hanja || '') + ' ' + (t.en || ''))}">${i + 1}<small>${ipaEsc(t.short || t.ko.replace(/음$/, ''))}</small><small class="h">${ipaHanjaHtml(t.short_hanja || t.hanja || '')}</small></button>`; };
+  const rowh = k => { const t = ipaT(k); return `<button type="button" class="ipa-rowh" data-term="${ipaEsc(k)}" aria-label="${ipaEsc(t.ko + ' ' + (t.hanja || '') + ' ' + (t.en || ''))}"><span>${ipaEsc(t.ko)}</span><small class="h">${ipaHanjaHtml(t.hanja || '')}</small></button>`; };
   let grid = `<div class="ipa-grid"><span></span>${IPA_COLS.map(colh).join('')}`;
   for (const r of IPA_ROWS) {
     grid += rowh(r.ko);
@@ -497,7 +510,7 @@ function ipaShowDex() {
     box.innerHTML = `<div class="ipa-dex-in"><b class="ipa-dex-sym">??</b><span><span class="nm">고양고양이</span> 아직 잠긴 칸이라고양. 묶음에서 만나면 열린다고양.</span></div>`;
     return;
   }
-  const words = (IPA.examples[v] || []).map(e => `<span class="ipa-chip">${ipaEsc(e.lang)} ${ipaEsc(e.text)}</span>`).join('');
+  const words = (IPA.examples[v] || []).map(e => `<span class="ipa-chip">${ipaEsc(e.lang)} ${ipaWordHtml(e.text, e.ko)}</span>`).join('');
   const snd = s.sound && ipaHasAudio(s.sound) ? ipaTapAttrs(s.sound, v + ' 기호 소리 듣기') : '';
   box.innerHTML = `<div class="ipa-dex-in"><b class="ipa-dex-sym"${snd}>${ipaEsc(v)}</b><span>${ipaNameHtml(s)}${set.has(v) ? '' : '<em>지금 묶음</em><br>'}${ipaEsc(s.how)}</span></div>${words ? `<div class="ipa-chips">${words}</div>` : ''}`;
   ipaTapBind(box);
@@ -506,5 +519,5 @@ function ipaShowTerm(k) {
   const box = document.getElementById('ipaDex'); if (!box) return;
   const t = ipaT(k);
   const extra = [t.native ? `고유어 ${ipaEsc(t.native)}` : '', t.note ? ipaEsc(t.note) : ''].filter(Boolean).join(' · ');
-  box.innerHTML = `<div class="ipa-dex-in ipa-term"><b class="ipa-dex-sym ipa-term-h">${ipaEsc(t.hanja || '')}</b><span><b>${ipaEsc(t.ko)}</b><span class="ipa-en">${ipaEsc(t.en || '')}</span>${extra ? `<br><small>${extra}</small>` : ''}</span></div>`;
+  box.innerHTML = `<div class="ipa-dex-in ipa-term"><b class="ipa-dex-sym ipa-term-h">${ipaHanjaHtml(t.hanja || '')}</b><span><b>${ipaEsc(t.ko)}</b><span class="ipa-en">${ipaEsc(t.en || '')}</span>${extra ? `<br><small>${extra}</small>` : ''}</span></div>`;
 }

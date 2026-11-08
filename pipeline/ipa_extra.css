@@ -185,4 +185,12 @@ html[data-pal="chalk"]{--panel-rgb:18,37,28;--bg1-rgb:14,28,22;--bg1:#0e1c16;--b
 .ipa-lang-chips{display:flex;flex-wrap:wrap;justify-content:center;gap:6px}
 .ipa-lang-chips button{position:relative;z-index:3;font:inherit;font-size:.78rem;font-weight:800;padding:6px 12px;min-height:34px;border-radius:999px;border:2px solid var(--line);background:var(--panel2);color:var(--muted);cursor:pointer}
 .ipa-lang-chips button[aria-pressed="true"]{border-color:var(--pink);color:#fff;background:rgba(var(--pink-rgb),.18)}
-
+/* 뜻 풀이: 한자 한 자·예시 낱말 철자 위에 올리면(폰은 누르면) 뜻 */
+.ipa-gl{position:relative;cursor:help;border-bottom:1px dotted rgba(var(--gold-rgb),.7)}
+.ipa-gl:hover::after,.ipa-gl:focus-visible::after,.ipa-gl.show::after{content:attr(data-g);position:absolute;left:50%;bottom:calc(100% + 6px);transform:translateX(-50%);z-index:50;
+ background:var(--pinkpale);color:#1a1530;font:700 .74rem/1.3 "Apple SD Gothic Neo","Noto Sans KR",system-ui,sans-serif;letter-spacing:0;font-style:normal;padding:4px 8px;border-radius:7px;white-space:nowrap;box-shadow:0 4px 14px rgba(0,0,0,.4);pointer-events:none}
+.ipa-gl:focus{outline:none}
+.ipa-gl-w{border-bottom-color:rgba(var(--cyan-rgb),.6)}
+.ipa-map-wrap .ipa-gl::after{bottom:auto;top:calc(100% + 4px)}
+.ipa-rowh .ipa-gl::after{left:0;transform:none}
+.ipa-namecheck:empty{display:none}
