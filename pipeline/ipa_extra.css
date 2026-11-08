@@ -9,8 +9,9 @@
 .lessonbtn .lname{font-family:var(--ipa-sans)}
 .ipa-play{position:relative;z-index:3;width:44px;height:44px;border-radius:50%;border:2px solid var(--cyan);background:var(--panel2);color:var(--cyan);font-size:15px;display:inline-grid;place-items:center;cursor:pointer;flex:none}
 .ipa-soon{position:relative;z-index:3;font-size:.72rem;color:var(--muted);font-weight:800}
-.ipa-cardplay{display:flex;align-items:center;justify-content:center;gap:10px;margin:2px 0 6px}
-.ipa-cardplay canvas{flex:1;max-width:260px;height:36px}
+.ipa-cardplay{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:6px 10px;margin:2px 0 6px}
+.ipa-cardplay .ipa-spk{order:5;flex-basis:100%;text-align:center}
+.ipa-cardplay canvas{flex:1;min-width:0;max-width:220px;height:36px}
 .ipa-learn{position:relative;z-index:3;text-align:left;font-size:.92rem;line-height:1.6;margin-bottom:8px}
 .ipa-learn p{margin:6px 0 0}
 .ipa-learn b{color:var(--pink2)}

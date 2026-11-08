@@ -134,14 +134,18 @@
     "ɑp"
    ],
    "target": "tʰ",
-   "audio": "en-top",
+   "audio": "en-top-grendelkhan",
    "phoible": {
     "inv": 2176,
     "seg": "tʰ",
     "allo": "tʰ"
    },
    "status": "확인",
-   "status_why": "PHOIBLE 2176(Hillenbrand 2003) /tʰ/"
+   "status_why": "PHOIBLE 2176(Hillenbrand 2003) /tʰ/",
+   "audio_more": [
+    "en-top-wodencafe",
+    "en-top-dvortygirl"
+   ]
   },
   {
    "id": "en-stop",
@@ -155,7 +159,7 @@
     "ɑp"
    ],
    "target": "t",
-   "audio": "en-stop",
+   "audio": "en-stop-grendelkhan",
    "phoible": {
     "inv": 2176,
     "seg": "tʰ",
@@ -163,7 +167,11 @@
    },
    "note": "s 뒤 t는 기식이 없다.",
    "status": "확인 필요",
-   "status_why": "PHOIBLE은 /tʰ/의 변이음 t만 적고 조건(s 뒤)은 없다. 조건은 Hillenbrand 2003 본문 미열람(spin과 같은 사정)"
+   "status_why": "PHOIBLE은 /tʰ/의 변이음 t만 적고 조건(s 뒤)은 없다. 조건은 Hillenbrand 2003 본문 미열람(spin과 같은 사정)",
+   "audio_more": [
+    "en-stop-wodencafe",
+    "en-stop-dvortygirl"
+   ]
   },
   {
    "id": "en-day",
@@ -177,7 +185,7 @@
     "eɪ"
    ],
    "target": "d",
-   "audio": "en-day",
+   "audio": "en-day-grendelkhan",
    "phoible": {
     "inv": 2176,
     "seg": "d"
@@ -185,29 +193,35 @@
    "note": "낱말 첫 d는 흔히 덜 울린다([d̥]). 그래서 듣고 고르기에는 내지 않는다(PRINCIPLES 2-4).",
    "listen": false,
    "status": "확인",
-   "status_why": "PHOIBLE 2176 /d/(변이음 d·d̥·ɾ)"
+   "status_why": "PHOIBLE 2176 /d/(변이음 d·d̥·ɾ)",
+   "audio_more": [
+    "en-day-wodencafe"
+   ]
   },
   {
-   "id": "es-te",
+   "id": "es-tu",
    "lang": "spa",
-   "text": "té",
-   "roman": "té",
-   "ko": "차(茶)",
+   "text": "tú",
+   "roman": "tú",
+   "ko": "너",
    "ipa": [
     "",
     "t",
-    "e"
+    "u"
    ],
    "target": "t",
-   "audio": "es-te",
+   "audio": "es-tu-rodrigo5260",
    "phoible": {
     "inv": 2210,
     "seg": "t̻",
     "allo": "t̪"
    },
-   "note": "혀끝이 윗니 뒤에 닿는다([t̪]).",
+   "note": "혀끝이 윗니 뒤에 닿는다([t̪]). té(차)는 Commons에 원어민 녹음이 하나뿐이라 tú로 바꿨다.",
    "status": "확인",
-   "status_why": "PHOIBLE 2210 /t̻/(변이음 t̪)"
+   "status_why": "PHOIBLE 2210 /t̻/(변이음 t̪)",
+   "audio_more": [
+    "es-tu-rodelar"
+   ]
   },
   {
    "id": "es-dos",
@@ -221,7 +235,7 @@
     "os"
    ],
    "target": "d",
-   "audio": "es-dos",
+   "audio": "es-dos-txtdgtl",
    "phoible": {
     "inv": 2210,
     "seg": "d̻",
@@ -229,7 +243,11 @@
    },
    "note": "쉰 다음 첫머리에서는 [d].",
    "status": "확인",
-   "status_why": "PHOIBLE 2210 /d̻/(변이음 d̪·ð̞)"
+   "status_why": "PHOIBLE 2210 /d̻/(변이음 d̪·ð̞)",
+   "audio_more": [
+    "es-dos-precision27",
+    "es-dos-rodelar"
+   ]
   },
   {
    "id": "es-nada",
@@ -247,7 +265,7 @@
     "ð",
     "ð̞"
    ],
-   "audio": "es-nada",
+   "audio": "es-nada-adrianabdulbaha",
    "phoible": {
     "inv": 2210,
     "seg": "d̻",
@@ -255,7 +273,10 @@
    },
    "note": "모음 사이 d는 혀끝으로 막지 않는다.",
    "status": "확인",
-   "status_why": "PHOIBLE 2210 /d̻/의 변이음 ð̞"
+   "status_why": "PHOIBLE 2210 /d̻/의 변이음 ð̞",
+   "audio_more": [
+    "es-nada-precision27"
+   ]
   },
   {
    "id": "ja-tenki",
@@ -269,7 +290,7 @@
     "eŋki"
    ],
    "target": "t",
-   "audio": "ja-tenki",
+   "audio": "ja-tenki-wanikani-male",
    "phoible": {
     "inv": 2196,
     "seg": "t"
@@ -289,7 +310,7 @@
     "eŋki"
    ],
    "target": "d",
-   "audio": "ja-denki",
+   "audio": "ja-denki-kanji-fukujinzuke",
    "phoible": {
     "inv": 2196,
     "seg": "d"
@@ -310,14 +331,18 @@
     "e"
    ],
    "target": "t",
-   "audio": "fr-the",
+   "audio": "fr-the-poslovitch",
    "phoible": {
     "inv": 2182,
     "seg": "t̪"
    },
    "note": "혀끝이 윗니 뒤에 닿는다([t̪]).",
    "status": "확인",
-   "status_why": "PHOIBLE 2182(Fougeron·Smith 1993) /t̪/"
+   "status_why": "PHOIBLE 2182(Fougeron·Smith 1993) /t̪/",
+   "audio_more": [
+    "fr-the-loquaxfr",
+    "fr-the-sartus85"
+   ]
   },
   {
    "id": "fr-de",
@@ -331,13 +356,17 @@
     "e"
    ],
    "target": "d",
-   "audio": "fr-de",
+   "audio": "fr-de-poslovitch",
    "phoible": {
     "inv": 2182,
     "seg": "d̪"
    },
    "status": "확인",
-   "status_why": "PHOIBLE 2182 /d̪/"
+   "status_why": "PHOIBLE 2182 /d̪/",
+   "audio_more": [
+    "fr-de-loquaxfr",
+    "fr-de-sartus85"
+   ]
   }
  ],
  "compare": [
@@ -454,5 +483,5 @@
   ]
  },
  "absent_about": "한국어 목록 셋에 ð·θ가 없어야 symbols ð의 '한국어에 없다'가 맞다. 스페인어 2210에 음소 /ð/가 없어야 nada의 [ð̞]가 /d/의 변이음이라는 것이 맞다.",
- "audio_plan": "모두 Commons·Lingua Libre 녹음(PRINCIPLES 8-10). 26.11.08 영신 \"내 녹음 없이 최대한 진행해보자\"."
+ "audio_plan": "모두 Commons·Lingua Libre 녹음(PRINCIPLES 8-10). 한국어 달·탈·딸은 Amanda1970 계정 녹음뿐이라(출처 의심) 쓰지 않았다. 바다는 호로조. 스페인어 té는 원어민 녹음이 하나뿐(화자 거주지 프랑스)이라 tú로 바꿨다. 電気는 같은 화자의 두 녹음 중 한자 제목 하나만. En-us-day는 만든 사람이 '추정'으로 표시돼 쓰지 않았다."
 }

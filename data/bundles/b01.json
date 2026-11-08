@@ -50,7 +50,7 @@
     "ul"
    ],
    "target": "p",
-   "audio": "ko-bul-ys",
+   "audio": "ko-bul-happymidnight",
    "phoible": {
     "inv": 2197,
     "seg": "p͉"
@@ -71,7 +71,7 @@
     "ul"
    ],
    "target": "pʰ",
-   "audio": "ko-pul-ys",
+   "audio": "ko-pul",
    "phoible": {
     "inv": 2197,
     "seg": "pʰ"
@@ -91,7 +91,7 @@
     "ul"
    ],
    "target": "p͈",
-   "audio": "ko-ppul-ys",
+   "audio": "ko-ppul-horojo",
    "phoible": {
     "inv": 2197,
     "seg": "p"
@@ -112,7 +112,7 @@
     "u"
    ],
    "target": "b",
-   "audio": "ko-bubu-ys",
+   "audio": "ko-bubu",
    "phoible": {
     "inv": 2197,
     "seg": "p͉",
@@ -141,7 +141,11 @@
     "allo": "pʰ"
    },
    "status": "확인",
-   "status_why": "PHOIBLE 2176(Hillenbrand 2003) /pʰ/"
+   "status_why": "PHOIBLE 2176(Hillenbrand 2003) /pʰ/",
+   "audio_more": [
+    "en-pin-grendelkhan",
+    "en-pin-wodencafe"
+   ]
   },
   {
    "id": "en-spin",
@@ -163,7 +167,10 @@
    },
    "note": "s 뒤 p는 기식이 없다.",
    "status": "확인 필요",
-   "status_why": "PHOIBLE은 /pʰ/의 변이음 p만 적고 조건(s 뒤)은 없다. 조건은 Hillenbrand 2003 본문 미열람"
+   "status_why": "PHOIBLE은 /pʰ/의 변이음 p만 적고 조건(s 뒤)은 없다. 조건은 Hillenbrand 2003 본문 미열람",
+   "audio_more": [
+    "en-spin-grendelkhan"
+   ]
   },
   {
    "id": "en-bin",
@@ -253,7 +260,11 @@
    },
    "note": "모음 사이 b는 입술을 다 닫지 않는다.",
    "status": "확인",
-   "status_why": "PHOIBLE 2210 /b/의 변이음 β̞"
+   "status_why": "PHOIBLE 2210 /b/의 변이음 β̞",
+   "audio_more": [
+    "es-lobo-precision27",
+    "es-lobo-txtdgtl"
+   ]
   },
   {
    "id": "ja-pan",
@@ -314,7 +325,11 @@
     "seg": "p"
    },
    "status": "확인",
-   "status_why": "PHOIBLE 2182(Fougeron·Smith 1993) /p/"
+   "status_why": "PHOIBLE 2182(Fougeron·Smith 1993) /p/",
+   "audio_more": [
+    "fr-pain-loquaxfr",
+    "fr-pain-sartus85"
+   ]
   },
   {
    "id": "fr-bain",
@@ -334,7 +349,11 @@
     "seg": "b"
    },
    "status": "확인",
-   "status_why": "PHOIBLE 2182 /b/"
+   "status_why": "PHOIBLE 2182 /b/",
+   "audio_more": [
+    "fr-bain-loquaxfr",
+    "fr-bain-sartus85"
+   ]
   },
   {
    "id": "fr-paris",
@@ -354,7 +373,11 @@
     "seg": "p"
    },
    "status": "확인",
-   "status_why": "PHOIBLE 2182 /p/"
+   "status_why": "PHOIBLE 2182 /p/",
+   "audio_more": [
+    "fr-paris-loquaxfr",
+    "fr-paris-sartus85"
+   ]
   }
  ],
  "compare": [
@@ -486,6 +509,6 @@
   ]
  },
  "absent_about": "한국어 목록 셋에 β·v가 없어야 symbols β의 '한국어에 없다'가 맞다. 스페인어 2210에 /v/가 없어야 철자 v = /b/가 맞다.",
- "audio_plan": "한국어 불·풀·뿔·부부는 영신초이가 녹음하기로 함(26.11.06 영신, 공개 조건·화자 설명 확인 대기). 녹음이 오기 전에는 소리 칸을 비워 둔다(영신: '일단 빈칸은 비워두고 한번 제작해보자').",
+ "audio_plan": "한국어 낱말도 Commons 녹음(26.11.08 영신 \"내 녹음 없이 최대한 진행해보자\"): 불 HappyMidnight, 풀·뿔 호로조(Lingua Libre). 한 화자가 불·풀·뿔을 다 녹음한 것은 Commons에 없다. 부부는 녹음이 없다. Amanda1970 계정의 풀·뿔은 출처가 의심스러워(다중 계정 표시, 화자 정보 없음) 쓰지 않았다. 다른 언어는 낱말마다 여러 화자(PRINCIPLES 8-8).",
  "shortcuts_about": "IPA로 바꿔 읽는 줄임. ㅃ의 로마자 표기가 pp라서 p͈ = pp(Claude 안). β·ɸ는 대문자 B·F(입력칸은 첫 글자를 대문자로 바꾸지 않는다)."
 }

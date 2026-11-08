@@ -239,7 +239,8 @@ def main():
     # 고양이·체감
     P.append('<section><h2>고양이 대사</h2>')
     L = b['lines']
-    P.append(ln('시작 대사', '시작', L['start']))
+    if L.get('start'):
+        P.append(ln('시작 대사', '시작', L['start'] + ' (지금은 게임에 안 나온다: 틀의 시작 대사는 모든 강이 함께 써서, 이 묶음에만 맞는 대사는 빼 두었다)'))
     for i, t in enumerate(L['correct']):
         P.append(ln(f'맞힘 대사 {i + 1}', '맞힘', t))
     for i, t in enumerate(L['wrong']):
