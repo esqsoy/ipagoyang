@@ -18,15 +18,17 @@ function ipaCurWord() { try { const s = state.session; return s && s.currentId !
 function ipaIn(raw) {
   let s = String(raw || '');
   const w = ipaCurWord();
-  // 명칭 카드: 한글·영어 이름이 둘 다 맞으면(순서·띄어쓰기·동의어 무관) 대표 표기로 바꿔 틀의 판정에 넘긴다
-  if (w && w.names) return ipaNameState(s, w).both ? w.term : s;
+  // 명칭 카드: 그 단계가 묻는 이름이 맞으면(순서·띄어쓰기·동의어 무관) 대표 표기로 바꿔 틀의 판정에 넘긴다
+  if (w && w.names) return ipaNameState(s, w).pass ? w.term : s;
   for (const [k, v] of IPA.short || []) s = s.split(k).join(v);
   return s;
 }
 
 /* ---------- 명칭 치기(PRINCIPLES 8-3, 26.11.08 영신) ----------
-   "pp를 치는데 그대신 무성 경음 양순 파열음이라고 치는거지", "영어까지 제대로 쳐야 넘어가는걸로. 한자는 한글로 제대로 치면 같이 뜨게".
-   한글 이름과 영어 이름이 같은 짝으로 다 맞아야 맞다. 한글이 맞으면 한자가 바로 뜬다. 낱말 순서·띄어쓰기는 묻지 않고, 동의어는 인정한다. */
+   "pp를 치는데 그대신 무성 경음 양순 파열음이라고 치는거지", "이름대기는 일단 두단계로 나누나 한국어로 이름대기먼저. 한국어로 치면
+   한자도 영어도 뜨게. 그리고 영어로 이름대기. 영어로 치면 한국어와 한자도 뜨게", "어느 경우든 발음명을 치는걸로만".
+   카드의 mode: ko(한국어 이름) · en(영어 이름) · any(어느 쪽이든, 듣고 고르기·전사 빈칸). 맞으면 나머지 둘(한자 포함)이 뜬다.
+   낱말 순서·띄어쓰기는 묻지 않고, 사전 동의어는 인정한다. */
 const IPA_NAME_SYN = {'폐쇄음': '파열음', '된소리': '경음', '거센소리': '유기', '격음': '유기', 'stop': 'plosive', 'fortis': 'tense'};
 let ipaKoVocab = null;
 function ipaKoTokens(str) {
@@ -58,8 +60,11 @@ function ipaNameState(raw, w) {
     if (e && !enHit) enHit = pr;
     if (k && e) { both = pr; koHit = pr; enHit = pr; break; }
   }
-  return {koHit, enHit, both};
+  const mode = w.mode || 'both';
+  const hit = mode === 'ko' ? koHit : mode === 'en' ? enHit : mode === 'any' ? (koHit || enHit) : both;
+  return {koHit, enHit, both, hit, pass: !!hit};
 }
+const IPA_MODE_ASK = {ko: '한국어 이름을 친다', en: '영어 이름을 친다', any: '한국어나 영어 이름을 친다', both: '한국어 + 영어 이름을 친다'};
 function ipaNameLive() {
   const el = document.getElementById('ipaNameCheck'), w = ipaCurWord(), s = state.session;
   if (!el || !w || !w.names) return;
@@ -67,11 +72,15 @@ function ipaNameLive() {
   const st = ipaNameState(raw, w);
   const ty = document.getElementById('ipaTyped');
   if (ty) ty.innerHTML = raw ? ipaEsc(raw) + (s.answered && !s.copyMode ? '' : '<span class="caret"></span>') : '';
-  el.innerHTML = `<span class="${st.koHit ? 'ok' : ''}">${st.koHit ? `한글 ✓ <b>${ipaEsc(st.koHit.hanja)}</b>` : '한글 이름'}</span><span class="${st.enHit ? 'ok' : ''}">${st.enHit ? `영어 ✓ <i>${ipaEsc(st.enHit.en)}</i>` : '영어 이름'}</span>`;
-  // 다 맞으면 Enter 없이 넘긴다(틀린 답은 Enter로만 낸다)
-  if (st.both && !s.answered && !s.copyMode && !state.composing) {
+  // 맞으면 세 이름(한국어·한자·영어)을 다 보인다
+  el.innerHTML = st.hit
+    ? `<span class="ok trio"><b>${ipaEsc(st.hit.ko)}</b><em>${ipaEsc(st.hit.hanja)}</em><i>${ipaEsc(st.hit.en)}</i></span>`
+    : `<span>${IPA_MODE_ASK[w.mode || 'both']}</span>`;
+  if (ty) ty.dataset.ask = IPA_MODE_ASK[w.mode || 'both'];
+  // 맞으면 Enter 없이 넘긴다(틀린 답은 Enter로만 낸다)
+  if (st.pass && !s.answered && !s.copyMode && !state.composing) {
     clearTimeout(ipaNameLive.t);
-    ipaNameLive.t = setTimeout(() => { const s2 = state.session; if (s2 === s && !s2.answered && !s2.copyMode && ipaIn(document.getElementById('ainput').value) === w.term) submit(); }, 350);
+    ipaNameLive.t = setTimeout(() => { const s2 = state.session; if (s2 === s && !s2.answered && !s2.copyMode && ipaIn(document.getElementById('ainput').value) === w.term) submit(); }, 450);
   }
 }
 document.addEventListener('input', e => { if (e.target && e.target.id === 'ainput') ipaNameLive(); }, true);
@@ -79,8 +88,9 @@ document.addEventListener('compositionend', e => { if (e.target && e.target.id =
 /* 카드 시간: 이름이 길어서 틀의 낱말 기준(영문자 수)으로는 모자란다 */
 function ipaCardLimit(w) {
   if (!w.names) return w.learn ? 60 : limitFor(w.term);
-  const h = (w.term.match(/[가-힣]/g) || []).length, l = (w.term.match(/[a-z]/gi) || []).length;
-  return Math.min(120, Math.round(20 + h * 2 + l * 0.7) + (w.learn ? 30 : 0));
+  const p = w.names[0], h = (p.ko.match(/[가-힣]/g) || []).length, l = (p.en.match(/[a-z]/gi) || []).length;
+  const need = w.mode === 'en' ? l * 0.8 : w.mode === 'ko' ? h * 2.2 : Math.min(h * 2.2, l * 0.8);
+  return Math.min(90, Math.round(22 + need));
 }
 function ipaIsMark(c) { return /[ʰ-ˇˉ-ˋˍ-ˏˑ-˿̀-ͯ᷀-᷿]/.test(c); }
 function ipaIsBase(c) { return /[A-Za-zÀ-ɏɐ-ʯͰ-Ͽᴀ-ᵿ0-9=&ᄀ-ᇿ㄰-㆏가-힯]/.test(c); }
@@ -226,8 +236,15 @@ function ipaTapBind(root, canvasFor) {
     b.addEventListener('keydown', e => { if (e.key === 'Enter' || e.key === ' ') go(e); });
   });
 }
+/* 배우기를 뺐으므로(26.11.08 영신 "배우기 빼자") 틀렸을 때 따라 치는 동안 그 기호의 풀이를 짧게 보인다 */
+function ipaLearnMini(sym) {
+  const s = IPA.symbols[sym]; if (!s) return '';
+  return `<div class="ipa-lmini">${ipaNameHtml(s)}<div class="ipa-pair"><div>${ipaSagittal(ipaSagOpts(s))}<i>입 옆모습</i></div><div>${ipaGlottis(s.glottis)}<i>목청: ${ipaEsc((IPA.glottis || {})[s.glottis] || '')}</i></div></div><p>${ipaEsc(s.how)}</p></div>`;
+}
 function ipaBeforeCard(w) {
   if (!w) return '';
+  const copying = (() => { try { return !!state.session.copyMode; } catch (e) { return false; } })();
+  const lm = copying ? ipaLearnMini(ipaSymOf(w)) : '';
   if (w.learn) {
     const s = IPA.symbols[w.sym] || {};
     const ex = (IPA.examples[w.sym] || []).map(e => { const l = ipaAudioList(e.wid, e.audio); return `<div class="ipa-ex"><span class="ipa-lang">${ipaEsc(e.lang)}</span><span class="ipa-word">${ipaEsc(e.text)}</span><span class="ipa-tr"${ipaTapAttrs(l, e.text + ' 듣기')}>[${ipaEsc(e.a)}<b>${ipaEsc(e.t)}</b>${ipaEsc(e.b)}]</span><span class="ipa-exn">${l.length > 1 ? '×' + l.length : l.length ? '' : '녹음 없음'}</span></div>`; }).join('');
@@ -250,11 +267,11 @@ function ipaBeforeCard(w) {
     const rows = (w.reps || []).map(e => { const l = ipaAudioList(e.wid); return `<div class="ipa-rep"><span class="ipa-lang">${ipaEsc(e.lang)}</span><span class="ipa-word">${ipaEsc(e.text)}</span><span class="ipa-tr"${ipaTapAttrs(l, e.text + ' 듣기')}>[${ipaEsc(e.a)}<b>${ipaEsc(e.t)}</b>${ipaEsc(e.b)}]</span></div>`; }).join('');
     const s = IPA.symbols[w.sym] || {};
     const symTap = s.sound && ipaHasAudio(s.sound) ? ipaTapAttrs(s.sound, w.sym + ' 기호 소리 듣기') : '';
-    return `<div class="ipa-nameq"><div class="ipa-big"><span${symTap}>${ipaEsc(w.sym)}</span></div>${ipaMiniMap(w)}<div class="ipa-reps">${rows || '<div class="ipa-soon">대표 낱말 없음</div>'}</div><div class="ipa-symhint">전사를 누르면 낱말 소리${symTap ? ', 기호를 누르면 기호 소리' : ''}</div></div><div class="ipa-typed" id="ipaTyped" aria-live="polite"></div><div class="ipa-namecheck" id="ipaNameCheck"></div>`;
+    return `${lm}<div class="ipa-nameq"><div class="ipa-big"><span${symTap}>${ipaEsc(w.sym)}</span></div>${ipaMiniMap(w)}<div class="ipa-reps">${rows || '<div class="ipa-soon">대표 낱말 없음</div>'}</div><div class="ipa-symhint">전사를 누르면 낱말 소리${symTap ? ', 기호를 누르면 기호 소리' : ''}</div></div><div class="ipa-typed" id="ipaTyped" aria-live="polite"></div><div class="ipa-namecheck" id="ipaNameCheck"></div>`;
   }
   if (w.audio !== undefined) {
     const l = ipaAudioList(w.wid, w.audio);
-    return `<div class="ipa-cardplay" data-start="${Math.floor(Math.random() * Math.max(1, l.length))}">${ipaMiniMap(w)}${l.length ? '<canvas class="ipa-wave"></canvas>' : ''}${ipaSpkHtml(l)}</div>${w.names ? '<div class="ipa-typed" id="ipaTyped" aria-live="polite"></div><div class="ipa-namecheck" id="ipaNameCheck"></div>' : ''}`;
+    return `${lm}<div class="ipa-cardplay" data-start="${Math.floor(Math.random() * Math.max(1, l.length))}">${ipaMiniMap(w)}${l.length ? '<canvas class="ipa-wave"></canvas>' : ''}${ipaSpkHtml(l)}</div>${w.names ? '<div class="ipa-typed" id="ipaTyped" aria-live="polite"></div><div class="ipa-namecheck" id="ipaNameCheck"></div>' : ''}`;
   }
   return ipaMiniMap(w) + (w.names ? '<div class="ipa-typed" id="ipaTyped" aria-live="polite"></div><div class="ipa-namecheck" id="ipaNameCheck"></div>' : '');
 }
@@ -284,6 +301,7 @@ function ipaAfterCard(w, noAuto) {
   const ty = root.querySelector('#ipaTyped'), nc = root.querySelector('#ipaNameCheck');
   if (ty && nc && !root.querySelector('.ipa-learn')) root.append(ty, nc);
   ipaNameLive();
+  setTimeout(ipaNameLive, 0);  // 따라 치기로 들어갈 때 틀이 입력칸을 비운 뒤 다시 그린다
 }
 
 /* ---------- 카드 위 작은 지도(PRINCIPLES 8-9 ②) ----------
@@ -302,7 +320,7 @@ function ipaCellOf(sym) {
 }
 function ipaSymOf(w) {
   if (!w) return null;
-  if (w.learn) return w.sym;
+  if (w.learn || w.sym) return w.sym;
   if (IPA.symbols[w.term]) return w.term;
   return (IPA.wordTarget || {})[w.wid] || null;
 }

@@ -173,7 +173,7 @@ def main():
     mine = [a for w in b['words'] for a in [w['audio']] + w.get('audio_more', []) if audio.get(a, {}).get('mp3')]
     P.append(ln('청취 검수', '청취', f'이 묶음 녹음 {len(mine)}개(전체 {len(got)}개)를 미리보기에서 들어 보고, 이상한 게 있으면 그 줄에 적어 줘. 낱말마다 여러 화자가 있으면 재생할 때마다 다음 화자로 넘어간다. 아직 사람이 들은 파일은 없다. 미리보기: https://claude.ai/artifact/3QPEUivENNJjCLp4vcTcJo'))
     P.append(ln('낱말 고르기', '낱말', '아래 낱말들이 괜찮은지(짧고 흔한지, 대상 소리가 첫머리에 오는지) 봐 줘. 바꾸고 싶은 낱말이 있으면 그 줄에.'))
-    P.append(ln('명칭 치기', '명칭', '기호 대신 한글 이름 + 영어 이름을 친다(예: 무성 경음 양순 파열음 voiceless tense bilabial plosive). 한글이 맞으면 한자가 뜨고, 둘 다 맞아야 넘어간다. 순서·띄어쓰기는 자유, 폐쇄음·된소리·stop·fortis 같은 동의어는 인정. 아래 기호 줄의 \'인정하는 이름\'이 괜찮은지 봐 줘.'))
+    P.append(ln('명칭 치기', '명칭', '연습 넷: 이름 대기·한국어(한국어 이름) → 이름 대기·영어(영어 이름) → 듣고 고르기 → 전사 빈칸(한국어나 영어 이름 하나). 맞으면 세 이름(한국어·한자·영어)이 뜬다. 순서·띄어쓰기 자유, 폐쇄음·된소리·stop·fortis 같은 동의어 인정. 아래 기호 줄의 \'인정하는 이름\'이 괜찮은지 봐 줘.'))
     P.append(ln('한국어 녹음', '한국어 녹음', '영신 녹음 없이 Commons·Lingua Libre의 한국어 원어민 녹음을 썼다(26.11.08 영신 "내 녹음 없이 최대한 진행해보자"). 화자는 아래 녹음 줄에 있다. 나중에 녹음하면 더하거나 바꾼다.'))
     P.append('</section>')
 
@@ -228,7 +228,7 @@ def main():
     P.append('</section>')
 
     # 견주기
-    P.append('<section><h2>한국어와 견주기</h2>')
+    P.append('<section><h2>한국어와 견주기(게임에서 뺌, 26.11.08)</h2><p class="why">영신 "한국어와 견주기 빼자". 자료는 남겨 두었다.</p>')
     for c in b['compare']:
         w = next(x for x in b['words'] if x['id'] == c['word'])
         P.append(f'<div class="item"><div class="head"><b>{E(w["text"])}</b>{tr(w)}{chip(c.get("status"))}</div>')

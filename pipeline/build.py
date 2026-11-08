@@ -120,40 +120,22 @@ def build(inline=False):
             exercises.append(ex)
 
         ctx0 = {'sourceKind': 'body', 'page': 0, 'noTermMask': True}
-        # 1. 배우기: 기호를 보고(그림·설명·낱말 듣기) 따라 친다
-        learn = []
-        for k in b['learn']:
-            s = sy['symbols'][k]
-            term, names = names_for(k)
-            w = {'en': term, 'ko': f'[{k}] {s["name"]}', 'learn': True, 'sym': k, 'names': names}
-            ctx = {**ctx0, 'example': f'[{k}] = {term}', 'surfaceParts': [term], 'translation': f'{names[0]["hanja"]}'}
-            learn.append((w, ctx, k, s.get('sound')))
-        add_ex('배우기', learn)
+        # 26.11.08 영신: "배우기 빼자", "한국어와 견주기 빼자", "이름대기는 일단 두단계로 나누나 한국어로 이름대기먼저 …
+        # 그리고 영어로 이름대기", "듣고 고르기는 마음에 드는데 어느 경우든 발음명을 치는걸로만 하자".
+        # 연습: 이름 대기·한국어 → 이름 대기·영어 → 듣고 고르기 → 전사 빈칸(PRINCIPLES 8-2 바뀜)
+        def rep_list(k):
+            return [{'wid': wd['id'], 'lang': langs[wd['lang']]['ko'], 'text': wd['text'], 'a': wd['ipa'][0], 't': wd['ipa'][1], 'b': wd['ipa'][2]} for wd in rep_words(b, k)]
 
-        # 1-2. 이름 대기: 기호를 대표 낱말 속에 보이고(보카고양의 예문처럼) 이름을 친다. 이름은 보이지 않는다
-        nameq = []
-        for k in b['learn']:
-            reps = rep_words(b, k)
-            term, names = names_for(k)
-            w = {'en': term, 'ko': f'[{k}] 이 기호의 이름은?', 'nameq': True, 'sym': k, 'names': names,
-                 'reps': [{'wid': wd['id'], 'lang': langs[wd['lang']]['ko'], 'text': wd['text'], 'a': wd['ipa'][0], 't': wd['ipa'][1], 'b': wd['ipa'][2]} for wd in reps]}
-            first = reps[0] if reps else None
-            example = f'[{k}] = {term}'
-            ctx = {**ctx0, 'example': example, 'surfaceParts': [term],
-                   'translation': f'{names[0]["hanja"]}' + (f' · {first["text"]} [{"".join(first["ipa"])}]' if first else '')}
-            nameq.append((w, ctx, k, s.get('sound') if (s := sy['symbols'][k]) else None))
-        add_ex('이름 대기', nameq)
-
-        # 2. 한국어와 견주기
-        words_by_id = {w['id']: w for w in b['words']}
-        cmp = []
-        for c in b['compare']:
-            wd = words_by_id[c['word']]
-            lg = langs[wd['lang']]['ko']
-            w = {'en': c['answer'], 'ko': f'{lg} {wd["text"]} · {c["q"]} ({"·".join(c["options"])})', 'audio': wd['audio'], 'lang': wd['lang'], 'wid': wd['id']}
-            ctx = {**ctx0, 'example': f'{wd["text"]} → {c["answer"]}', 'surfaceParts': [c['answer']], 'translation': c['why']}
-            cmp.append((w, ctx, ''.join(wd['ipa']), wd['audio']))
-        add_ex('한국어와 견주기', cmp)
+        for mode, title, ask in (('ko', '이름 대기 · 한국어', '한국어 이름은?'), ('en', '이름 대기 · 영어', '영어 이름은?')):
+            cards = []
+            for k in b['learn']:
+                _, names = names_for(k)
+                term = names[0][mode]
+                w = {'en': term, 'ko': f'[{k}] {ask}', 'nameq': True, 'mode': mode, 'sym': k, 'names': names, 'reps': rep_list(k)}
+                ctx = {**ctx0, 'example': f'[{k}] = {term}', 'surfaceParts': [term],
+                       'translation': f'{names[0]["ko"]} · {names[0]["hanja"]} · {names[0]["en"]}'}
+                cards.append((w, ctx, k, sy['symbols'][k].get('sound')))
+            add_ex(title, cards)
 
         # 3. 듣고 고르기(녹음이 있는 낱말만, 좁게 들으면 답이 둘인 낱말은 뺀다: PRINCIPLES 2-4)
         #    한국어 낱말도 Commons 녹음이 있으면 낸다(26.11.08 영신 "내 녹음 없이 최대한 진행해보자")
@@ -167,8 +149,9 @@ def build(inline=False):
             # 대상 기호가 첫소리가 아닌 낱말(spin·lobo)이 있어 '첫소리'라 하지 않고 전사의 빈칸으로 묻는다. 낱말 글자는 답한 뒤에 보인다
             example = f'[{a}{t}{z}]'
             assert example.find(t) == 1 + len(a), (wd['id'], '대상 기호가 앞에 또 나온다')
-            term, names = names_for(ans, t, wd.get('accept'))
-            w = {'en': term, 'ko': f'{lg} 낱말 · 듣고 빈칸 소리의 이름을 친다', 'audio': wd['audio'], 'listen': True, 'lang': wd['lang'], 'wid': wd['id'], 'names': names}
+            _, names = names_for(ans, t, wd.get('accept'))
+            term = names[0]['ko']
+            w = {'en': term, 'ko': f'{lg} 낱말 · 듣고 빈칸 소리의 이름을 친다', 'audio': wd['audio'], 'listen': True, 'lang': wd['lang'], 'wid': wd['id'], 'names': names, 'mode': 'any'}
             ctx = {**ctx0, 'example': example, 'surfaceParts': [t], 'translation': f'{wd["text"]} · {wd["ko"]}'}
             lis.append((w, ctx, ''.join(wd['ipa']), wd['audio']))
         # 같은 '뜻' 줄이 여럿이면 틀의 발음 찾기가 섞이므로 번호를 붙여 가른다
@@ -184,11 +167,11 @@ def build(inline=False):
             assert example.find(t) == 1 + len(a), (wd['id'], '대상 기호가 앞에 또 나온다')
             lg = langs[wd['lang']]['ko']
             roman = f' ({wd["roman"]})' if wd['roman'] != wd['text'] else ''
-            term, names = names_for(wd['target'], t, wd.get('accept'))
-            w = {'en': term, 'ko': f'{lg} {wd["text"]}{roman} · {wd["ko"]}', 'audio': wd['audio'], 'lang': wd['lang'], 'wid': wd['id'], 'names': names}
-            name = sy['symbols'][wd['target']]['name']
+            _, names = names_for(wd['target'], t, wd.get('accept'))
+            term = names[0]['ko']
+            w = {'en': term, 'ko': f'{lg} {wd["text"]}{roman} · {wd["ko"]}', 'audio': wd['audio'], 'lang': wd['lang'], 'wid': wd['id'], 'names': names, 'mode': 'any'}
             ctx = {**ctx0, 'example': example, 'surfaceParts': [t],
-                   'translation': f'[{t}] {names[0]["hanja"]}' + (f' · {wd["note"]}' if wd.get('note') else '')}
+                   'translation': f'[{t}] {names[0]["ko"]} · {names[0]["hanja"]} · {names[0]["en"]}' + (f' · {wd["note"]}' if wd.get('note') else '')}
             bl.append((w, ctx, a + t + z, wd['audio']))
         add_ex('전사 빈칸', bl)
 

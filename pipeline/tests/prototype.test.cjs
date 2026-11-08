@@ -36,14 +36,12 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) fails++
   const nEx = await page.locator('.exbtn').count();
   ok(nEx >= 3, `연습 ${nEx}개`);
   await page.locator('.exbtn').first().click(); await page.waitForTimeout(3000);
-  ok(await page.locator('#hoeCtx .ipa-learn').count() === 1, '배우기 카드 그림');
-  // 명칭 치기(26.11.08): 칸 수로 답이 새지 않고, 한글이 맞으면 한자, 한글+영어가 다 맞아야 넘어간다(순서 자유)
+  ok(await page.locator('#hoeCtx .ipa-nameq .ipa-rep').count() >= 1, '이름 대기 카드: 기호와 대표 낱말');
+  // 명칭 치기(26.11.08): 칸 수로 답이 새지 않고, 한국어 단계에선 한국어 이름이 맞으면 한자·영어가 뜨며 넘어간다(순서·띄어쓰기 자유)
   const cur = await page.evaluate(() => state.session.words[state.session.currentId]);
+  ok(cur.mode === 'ko', '첫 연습은 한국어로 이름 대기');
   await page.locator('#ainput').fill('무성'); await page.waitForTimeout(150);
   ok(await page.locator('#hoeCtx .blanks .slot').count() === 3, '이름 칸은 친 글자 + 빈칸 하나(답 길이 숨김)');
-  await page.locator('#ainput').fill(cur.names[0].ko); await page.waitForTimeout(200);
-  ok((await page.locator('#ipaNameCheck').innerText()).includes(cur.names[0].hanja.split(' ')[0]), '한글이 맞으면 한자가 뜸');
-  ok(!(await page.evaluate(() => state.session.answered)), '한글만으로는 안 넘어감');
   await page.locator('#hoeCtx .ipa-tr[data-list]').first().click(); await page.waitForTimeout(200);
   ok(await page.evaluate(() => !!ipaAudioNow), '전사를 누르면 소리(재생 단추 없음)');
   ok(await page.locator('#hoeCtx .ipa-play').count() === 0, '따로 된 재생 단추 없음');
@@ -51,13 +49,17 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) fails++
   ok(await page.locator('.ipa-zoom .ipa-zs').count() > 40, '작은 지도를 누르면 큰 IPA 표');
   await shot('t02-zoom'); await page.keyboard.press('Escape'); await page.waitForTimeout(150);
   ok(await page.locator('.ipa-zoom').count() === 0, 'Esc로 큰 표 닫힘');
-  const shuffled = cur.names[0].en.split(' ').reverse().join(' ') + ' ' + cur.names[0].ko.split(' ').reverse().join('');
-  await page.locator('#ainput').fill(shuffled); await page.waitForTimeout(700);
-  ok(await page.evaluate(() => state.session.answered), '순서·띄어쓰기 달라도 한글+영어가 맞으면 넘어감');
-  await noH('배우기'); await shot('t02-learn');
+  await page.locator('#ainput').fill(cur.names[0].en); await page.waitForTimeout(600);
+  ok(!(await page.evaluate(() => state.session.answered)), '한국어 단계에서 영어만 쳐서는 안 넘어감');
+  await page.locator('#ainput').fill(cur.names[0].ko.split(' ').reverse().join('')); await page.waitForTimeout(200);
+  const trio = await page.locator('#ipaNameCheck').innerText();
+  ok(trio.includes(cur.names[0].hanja.split(' ')[0]) && trio.includes(cur.names[0].en), '한국어가 맞으면 한자·영어가 뜸');
+  await page.waitForTimeout(500);
+  ok(await page.evaluate(() => state.session.answered), '순서·띄어쓰기 달라도 한국어 이름이 맞으면 넘어감');
+  await noH('이름 대기'); await shot('t02-name-ko');
 
   // 연습을 차례로 끝까지: 첫 카드 하나는 일부러 틀려 따라 치기를 본다
-  let wrongDone = false, finished = 0, guard = 0, sawCopy = false, sawAnim = false;
+  let wrongDone = false, finished = 0, guard = 0, sawCopy = false, sawAnim = false, enChecked = false, anyChecked = false;
   while (guard++ < 400) {
     const st = await page.evaluate(() => ({
       game: document.querySelector('#gameScreen')?.classList.contains('active'),
@@ -73,16 +75,31 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) fails++
     }
     if (!st.game) { await page.waitForTimeout(200); continue; }
     if (st.copy) {
-      sawCopy = sawCopy || (await page.locator('#hoeCtx .ipa-learn, #hoeCtx .ipa-cardplay').count()) > 0;
+      sawCopy = sawCopy || (await page.locator('#hoeCtx .ipa-lmini').count()) > 0;
       await shot('t03-copy'); await page.locator('#ainput').fill(st.term); await page.waitForTimeout(1900); continue;
     }
     if (st.answered) { sawAnim = sawAnim || (await page.locator('#hoeCtx .ipa-anim').count()) > 0; await page.keyboard.press('Enter'); await page.waitForTimeout(250); continue; }
     if (!st.term) { await page.waitForTimeout(200); continue; }
-    if (!wrongDone) { await page.locator('#ainput').fill(st.term === 'b' ? 'p' : 'b'); wrongDone = true; }
+    const wd = await page.evaluate(() => state.session.words[state.session.currentId]);
+    if (wd.mode === 'en' && !enChecked) {
+      enChecked = true;
+      await page.locator('#ainput').fill(wd.names[0].en.split(' ').reverse().join('  ')); await page.waitForTimeout(200);
+      const t3 = await page.locator('#ipaNameCheck').innerText();
+      ok(t3.includes(wd.names[0].ko) && t3.includes(wd.names[0].hanja.split(' ')[0]), '영어 단계: 영어가 맞으면 한국어·한자가 뜸');
+      await shot('t03-name-en'); await page.waitForTimeout(600); continue;
+    }
+    if (wd.mode === 'any' && !anyChecked) {
+      anyChecked = true;
+      await page.locator('#ainput').fill(wd.names[0].en); await page.waitForTimeout(700);
+      ok(await page.evaluate(() => state.session.answered), '듣고 고르기·전사 빈칸: 영어 이름만 쳐도 맞음');
+      continue;
+    }
+    if (!wrongDone) { await page.locator('#ainput').fill('무성 양순 비음'); wrongDone = true; }
     else await page.locator('#ainput').fill(st.term);
     await page.locator('#ainput').press('Enter'); await page.waitForTimeout(300);
   }
-  ok(sawCopy, '따라 치기에도 그림·재생 단추가 남음');
+  ok(sawCopy, '틀려서 따라 칠 때 기호 풀이가 뜸');
+  ok(enChecked && anyChecked, '영어 단계·아무 쪽 단계를 지나감');
   ok(sawAnim, '맞히면 소리 내는 차례 그림이 뜸');
   ok(finished === nEx, `연습 ${finished}/${nEx}개 끝`);
   await page.goto(base); await page.waitForTimeout(800);
