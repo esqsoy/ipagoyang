@@ -37,10 +37,24 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) fails++
   ok(nEx >= 3, `연습 ${nEx}개`);
   await page.locator('.exbtn').first().click(); await page.waitForTimeout(3000);
   ok(await page.locator('#hoeCtx .ipa-learn').count() === 1, '배우기 카드 그림');
-  await page.locator('#ainput').fill('ph'); await page.waitForTimeout(150);
-  ok((await page.locator('#hoeCtx .blanks').innerText()).includes('pʰ'), 'ph → pʰ 바뀌어 보임');
-  ok(await page.locator('#hoeCtx .blanks .slot').count() === 1, '부호 붙은 기호도 칸 하나');
-  await page.locator('#ainput').fill(''); await noH('배우기'); await shot('t02-learn');
+  // 명칭 치기(26.11.08): 칸 수로 답이 새지 않고, 한글이 맞으면 한자, 한글+영어가 다 맞아야 넘어간다(순서 자유)
+  const cur = await page.evaluate(() => state.session.words[state.session.currentId]);
+  await page.locator('#ainput').fill('무성'); await page.waitForTimeout(150);
+  ok(await page.locator('#hoeCtx .blanks .slot').count() === 3, '이름 칸은 친 글자 + 빈칸 하나(답 길이 숨김)');
+  await page.locator('#ainput').fill(cur.names[0].ko); await page.waitForTimeout(200);
+  ok((await page.locator('#ipaNameCheck').innerText()).includes(cur.names[0].hanja.split(' ')[0]), '한글이 맞으면 한자가 뜸');
+  ok(!(await page.evaluate(() => state.session.answered)), '한글만으로는 안 넘어감');
+  await page.locator('#hoeCtx .ipa-tr[data-list]').first().click(); await page.waitForTimeout(200);
+  ok(await page.evaluate(() => !!ipaAudioNow), '전사를 누르면 소리(재생 단추 없음)');
+  ok(await page.locator('#hoeCtx .ipa-play').count() === 0, '따로 된 재생 단추 없음');
+  await page.locator('#hoeCtx .ipa-mini').click(); await page.waitForTimeout(200);
+  ok(await page.locator('.ipa-zoom .ipa-zs').count() > 40, '작은 지도를 누르면 큰 IPA 표');
+  await shot('t02-zoom'); await page.keyboard.press('Escape'); await page.waitForTimeout(150);
+  ok(await page.locator('.ipa-zoom').count() === 0, 'Esc로 큰 표 닫힘');
+  const shuffled = cur.names[0].en.split(' ').reverse().join(' ') + ' ' + cur.names[0].ko.split(' ').reverse().join('');
+  await page.locator('#ainput').fill(shuffled); await page.waitForTimeout(700);
+  ok(await page.evaluate(() => state.session.answered), '순서·띄어쓰기 달라도 한글+영어가 맞으면 넘어감');
+  await noH('배우기'); await shot('t02-learn');
 
   // 연습을 차례로 끝까지: 첫 카드 하나는 일부러 틀려 따라 치기를 본다
   let wrongDone = false, finished = 0, guard = 0, sawCopy = false, sawAnim = false;

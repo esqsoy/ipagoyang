@@ -173,7 +173,7 @@ def main():
     mine = [a for w in b['words'] for a in [w['audio']] + w.get('audio_more', []) if audio.get(a, {}).get('mp3')]
     P.append(ln('청취 검수', '청취', f'이 묶음 녹음 {len(mine)}개(전체 {len(got)}개)를 미리보기에서 들어 보고, 이상한 게 있으면 그 줄에 적어 줘. 낱말마다 여러 화자가 있으면 재생할 때마다 다음 화자로 넘어간다. 아직 사람이 들은 파일은 없다. 미리보기: https://claude.ai/artifact/3QPEUivENNJjCLp4vcTcJo'))
     P.append(ln('낱말 고르기', '낱말', '아래 낱말들이 괜찮은지(짧고 흔한지, 대상 소리가 첫머리에 오는지) 봐 줘. 바꾸고 싶은 낱말이 있으면 그 줄에.'))
-    P.append(ln('줄임 입력', '줄임', '치는 법: ' + ', '.join(f'{k} → {v}' for k, v in b['shortcuts'].items()) + '. 손에 맞는지?'))
+    P.append(ln('명칭 치기', '명칭', '기호 대신 한글 이름 + 영어 이름을 친다(예: 무성 경음 양순 파열음 voiceless tense bilabial plosive). 한글이 맞으면 한자가 뜨고, 둘 다 맞아야 넘어간다. 순서·띄어쓰기는 자유, 폐쇄음·된소리·stop·fortis 같은 동의어는 인정. 아래 기호 줄의 \'인정하는 이름\'이 괜찮은지 봐 줘.'))
     P.append(ln('한국어 녹음', '한국어 녹음', '영신 녹음 없이 Commons·Lingua Libre의 한국어 원어민 녹음을 썼다(26.11.08 영신 "내 녹음 없이 최대한 진행해보자"). 화자는 아래 녹음 줄에 있다. 나중에 녹음하면 더하거나 바꾼다.'))
     P.append('</section>')
 
@@ -183,6 +183,7 @@ def main():
         s = sy['symbols'][k]
         P.append(f'<div class="item"><div class="head"><span class="sym">{E(k)}</span><b>{E(s["name"])}</b>{chip(s.get("status"))}</div>')
         P.append(ln(f'[{k}] 한자·영어 이름', '한자·영어', f'{s.get("name_hanja", "")} · {s.get("name_en", "")}'))
+        P.append(ln(f'[{k}] 인정하는 이름', '인정 이름', ' / '.join(f'{x["ko"]} {x["en"]}' for x in s.get('answers', []))))
         P.append(ln(f'[{k}] 내는 법', '내는 법', s['how']))
         P.append(ln(f'[{k}] 한국어와', '한국어와', s['ko']))
         if s.get('other'):

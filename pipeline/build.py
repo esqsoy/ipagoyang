@@ -54,6 +54,41 @@ def build(inline=False):
         """낱말의 녹음 목록(여러 화자, PRINCIPLES 8-8): 첫째가 대표, 나머지는 audio_more"""
         return [a for a in [wd['audio']] + wd.get('audio_more', []) if audio_ok(a)]
 
+    # 명칭 치기(PRINCIPLES 8-3 바뀜 26.11.08): 한글 이름 + 영어 이름. 한자는 용어 자료에서 맞춰 한글을 맞게 치면 같이 뜬다
+    tok_hanja = {}
+    for t in terms.values():
+        tok_hanja[t['ko']] = t['hanja']
+        if t.get('short'):
+            tok_hanja[t['short']] = t['short_hanja']
+
+    def pair_full(pr):
+        toks = pr['ko'].split()
+        for tk in toks:
+            assert tk in tok_hanja, (pr['ko'], tk, 'data/terms.json에 없는 이름 낱말')
+        return {'ko': pr['ko'], 'en': pr['en'], 'hanja': ' '.join(tok_hanja[tk] for tk in toks)}
+
+    def names_for(sym, shown=None, accept=None):
+        """카드의 정답 이름들. shown이 β̞·ð̞(접근음 표시)이면 접근음 짝이 대표"""
+        pairs = []
+        for k in [x for x in (accept or [sym]) if x in sy['symbols']] or [sym]:
+            for pr in sy['symbols'][k]['answers']:
+                if pr not in pairs:
+                    pairs.append(pr)
+        if shown and '\u031e' in shown:
+            pairs.sort(key=lambda pr: '접근음' not in pr['ko'])
+        full = [pair_full(pr) for pr in pairs]
+        return f"{full[0]['ko']} {full[0]['en']}", full
+
+    lang_order = ['kor', 'eng', 'spa'] + [l for l in langs if l not in ('kor', 'eng', 'spa')]
+
+    def rep_words(b, sym):
+        """기호의 대표 낱말: 언어마다 하나(묶음 차례로 첫 낱말), 한국어·영어·스페인어·그 밖 차례(26.11.08 영신)"""
+        got = {}
+        for wd in b['words']:
+            if wd['target'] == sym and wd['lang'] not in got:
+                got[wd['lang']] = wd
+        return [got[l] for l in lang_order if l in got]
+
     bundles = [rd('data', 'bundles', f + '.json') for f in bundle_files()]
     shortcuts = {}
     for b in bundles:
@@ -61,7 +96,6 @@ def build(inline=False):
             assert shortcuts.get(k, v) == v, ('줄임이 묶음끼리 겹친다', k)
             shortcuts[k] = v
     short = sorted(shortcuts.items(), key=lambda kv: -len(kv[0]))
-    code_of = {v: k for k, v in shortcuts.items()}
     data, contexts, pron, amap = [], {}, {}, {}
     lessonclear, examples, word_audio_map, word_target, by_word, bundles_lit = {}, {}, {}, {}, {}, []
     used_audio = set()
@@ -90,11 +124,25 @@ def build(inline=False):
         learn = []
         for k in b['learn']:
             s = sy['symbols'][k]
-            code = code_of.get(k, k)
-            w = {'en': k, 'ko': f'[{k}] {s["name"]}', 'learn': True, 'sym': k, 'code': code}
-            ctx = {**ctx0, 'example': f'따라 치기 → {k}', 'surfaceParts': [k], 'translation': f'{s["name"]} · 치는 법 {code}'}
+            term, names = names_for(k)
+            w = {'en': term, 'ko': f'[{k}] {s["name"]}', 'learn': True, 'sym': k, 'names': names}
+            ctx = {**ctx0, 'example': f'[{k}] = {term}', 'surfaceParts': [term], 'translation': f'{names[0]["hanja"]}'}
             learn.append((w, ctx, k, s.get('sound')))
         add_ex('배우기', learn)
+
+        # 1-2. 이름 대기: 기호를 대표 낱말 속에 보이고(보카고양의 예문처럼) 이름을 친다. 이름은 보이지 않는다
+        nameq = []
+        for k in b['learn']:
+            reps = rep_words(b, k)
+            term, names = names_for(k)
+            w = {'en': term, 'ko': f'[{k}] 이 기호의 이름은?', 'nameq': True, 'sym': k, 'names': names,
+                 'reps': [{'wid': wd['id'], 'lang': langs[wd['lang']]['ko'], 'text': wd['text'], 'a': wd['ipa'][0], 't': wd['ipa'][1], 'b': wd['ipa'][2]} for wd in reps]}
+            first = reps[0] if reps else None
+            example = f'[{k}] = {term}'
+            ctx = {**ctx0, 'example': example, 'surfaceParts': [term],
+                   'translation': f'{names[0]["hanja"]}' + (f' · {first["text"]} [{"".join(first["ipa"])}]' if first else '')}
+            nameq.append((w, ctx, k, s.get('sound') if (s := sy['symbols'][k]) else None))
+        add_ex('이름 대기', nameq)
 
         # 2. 한국어와 견주기
         words_by_id = {w['id']: w for w in b['words']}
@@ -119,7 +167,8 @@ def build(inline=False):
             # 대상 기호가 첫소리가 아닌 낱말(spin·lobo)이 있어 '첫소리'라 하지 않고 전사의 빈칸으로 묻는다. 낱말 글자는 답한 뒤에 보인다
             example = f'[{a}{t}{z}]'
             assert example.find(t) == 1 + len(a), (wd['id'], '대상 기호가 앞에 또 나온다')
-            w = {'en': ans, 'ko': f'{lg} 낱말 · 듣고 빈칸 기호를 친다', 'audio': wd['audio'], 'listen': True, 'lang': wd['lang'], 'wid': wd['id']}
+            term, names = names_for(ans, t, wd.get('accept'))
+            w = {'en': term, 'ko': f'{lg} 낱말 · 듣고 빈칸 소리의 이름을 친다', 'audio': wd['audio'], 'listen': True, 'lang': wd['lang'], 'wid': wd['id'], 'names': names}
             ctx = {**ctx0, 'example': example, 'surfaceParts': [t], 'translation': f'{wd["text"]} · {wd["ko"]}'}
             lis.append((w, ctx, ''.join(wd['ipa']), wd['audio']))
         # 같은 '뜻' 줄이 여럿이면 틀의 발음 찾기가 섞이므로 번호를 붙여 가른다
@@ -135,10 +184,11 @@ def build(inline=False):
             assert example.find(t) == 1 + len(a), (wd['id'], '대상 기호가 앞에 또 나온다')
             lg = langs[wd['lang']]['ko']
             roman = f' ({wd["roman"]})' if wd['roman'] != wd['text'] else ''
-            w = {'en': wd['target'], 'ko': f'{lg} {wd["text"]}{roman} · {wd["ko"]}', 'audio': wd['audio'], 'lang': wd['lang'], 'wid': wd['id']}
+            term, names = names_for(wd['target'], t, wd.get('accept'))
+            w = {'en': term, 'ko': f'{lg} {wd["text"]}{roman} · {wd["ko"]}', 'audio': wd['audio'], 'lang': wd['lang'], 'wid': wd['id'], 'names': names}
             name = sy['symbols'][wd['target']]['name']
             ctx = {**ctx0, 'example': example, 'surfaceParts': [t],
-                   'translation': f'[{t}] {name}' + (f' · {wd["note"]}' if wd.get('note') else '')}
+                   'translation': f'[{t}] {names[0]["hanja"]}' + (f' · {wd["note"]}' if wd.get('note') else '')}
             bl.append((w, ctx, a + t + z, wd['audio']))
         add_ex('전사 빈칸', bl)
 
@@ -154,10 +204,12 @@ def build(inline=False):
             word_audio_map[wd['id']] = word_audio(wd)
             word_target[wd['id']] = wd['target']
             used_audio |= {wd['audio'], *wd.get('audio_more', [])}
-            examples.setdefault(wd['target'], []).append({'lang': langs[wd['lang']]['ko'], 'text': wd['text'], 'a': a, 't': t, 'b': z, 'audio': wd['audio'], 'wid': wd['id']})
+            examples.setdefault(wd['target'], []).append({'lang': langs[wd['lang']]['ko'], 'text': wd['text'], 'a': a, 't': t, 'b': z, 'audio': wd['audio'], 'wid': wd['id'], 'o': lang_order.index(wd['lang'])})
         # IPA 지도에서 켜는 칸: 표에 칸이 있는 기호만(pʰ·p͈는 p 칸의 부호라 따로 켜지 않는다)
         bundles_lit.append({'lesson': L, 'id': b['id'], 'lit': b['lit']})
 
+    for k in examples:
+        examples[k].sort(key=lambda e: e['o'])
     # 고양이 대사: 시리즈 공통 + 묶음들의 대사(묶음마다 다른 시작 대사는 넣지 않는다: 다른 강에서도 나오므로)
     lines = {k: list(series.get(k, [])) for k in ['welcome', 'start', 'correct', 'correctStreak', 'wrong', 'timeout', 'exerciseDone', 'lessonDone', 'allDone']}
     for k, v in bundle_lines.items():

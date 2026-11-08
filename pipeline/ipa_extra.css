@@ -31,7 +31,7 @@
 .ipa-vot{margin-top:6px}
 .ipa-other{color:var(--muted);font-size:.82rem}
 .ipa-exs{margin-top:8px;border-top:1px solid var(--line)}
-.ipa-ex{display:grid;grid-template-columns:auto auto 1fr auto;gap:8px;align-items:center;padding:7px 0;border-bottom:1px solid rgba(111,60,149,.5)}
+.ipa-ex{display:grid;grid-template-columns:auto auto 1fr auto;gap:8px;align-items:center;padding:7px 0;border-bottom:1px solid var(--line)}
 .ipa-lang{font-size:.7rem;color:var(--muted);font-weight:800}
 .ipa-word{font-weight:900}
 .ipa-tr{font-family:var(--ipa);color:var(--cyan)}
@@ -106,4 +106,71 @@
 @keyframes ipaVoiceShort{0%{stroke:var(--muted)}48%{stroke:var(--cyan)}100%{stroke:var(--cyan)}}
 @keyframes ipaVoiceLong{0%{stroke:var(--muted)}68%{stroke:var(--cyan)}100%{stroke:var(--cyan)}}
 @media (prefers-reduced-motion:reduce){.ipa-mini i.cur,.ipa-anim *{animation:none!important;opacity:1!important}}
+/* 기호를 누르면 소리(재생 단추 없음, 26.11.08 영신) */
+.ipa-tap{cursor:pointer;position:relative;z-index:3;border-radius:6px;text-decoration:underline dotted var(--cyan);text-underline-offset:4px;text-decoration-thickness:1px}
+.ipa-tap:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+.ipa-big .ipa-tap{text-decoration:none;display:inline-block;padding:0 .12em;border:2px dashed rgba(94,224,255,.35)}
+.ipa-sounding{animation:ipaSound .6s ease-out}
+@keyframes ipaSound{0%{box-shadow:0 0 0 0 rgba(94,224,255,.7)}100%{box-shadow:0 0 0 12px rgba(94,224,255,0)}}
+.ipa-symhint{text-align:center;font-size:.72rem;color:var(--muted);font-weight:800;margin:-2px 0 4px}
+.ipa-exn{font-size:.68rem;color:var(--muted);font-weight:800;text-align:right;white-space:nowrap}
+.mt-source.ipa-tap{text-decoration:underline dotted var(--cyan);text-underline-offset:6px}
+.ipa-cardplay canvas.ipa-tap{text-decoration:none}
+/* 명칭 치기: 한글 ✓(한자) · 영어 ✓ */
+.ipa-namecheck{position:relative;z-index:3;display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin:6px 0 2px;font-size:.78rem;font-weight:800}
+.ipa-namecheck span{border:1px solid var(--line);border-radius:999px;padding:3px 10px;color:var(--muted)}
+.ipa-namecheck span.ok{border-color:var(--mint);color:var(--mint)}
+.ipa-namecheck b{color:#fff;font-weight:700;letter-spacing:.05em;margin-left:2px}
+.ipa-namecheck i{font-style:italic;color:#fff;font-weight:600}
+/* 명칭 카드: 원문 줄(전사)의 빈칸에는 ?만, 친 이름은 아래 따로 된 줄에(전사 속에 긴 이름이 끼지 않게, 칸 수로 답이 새지 않게) */
+#hoeCtx:has(.ipa-namecheck) .blanks:not(.revealed) .slot,#hoeCtx:has(.ipa-namecheck) .blanks:not(.revealed) .slot-word{display:none}
+#hoeCtx:has(.ipa-namecheck) .blanks:not(.revealed)::before{content:"?";color:var(--gold);font-weight:900;border-bottom:3px solid var(--gold);padding:0 .25em}
+.ipa-typed{position:relative;z-index:3;min-height:1.6em;margin:8px auto 0;max-width:330px;padding:4px 10px;border-bottom:2px solid var(--gold);color:var(--gold);font-weight:900;font-size:1.05rem;text-align:center;word-break:keep-all;overflow-wrap:anywhere}
+.ipa-typed:empty::before{content:"이름을 친다(한글 + 영어)";color:var(--muted);font-weight:700;font-size:.82rem}
+.ipa-typed .caret{display:inline-block;width:2px;height:1em;background:#fff;vertical-align:-2px;margin-left:2px;animation:ipaBlink 1s steps(2) infinite}
+/* 이름 대기: 대표 낱말 줄 */
+.ipa-nameq{position:relative;z-index:3;margin-bottom:6px}
+.ipa-nameq .ipa-big{line-height:1.25;padding-bottom:.12em}
+.ipa-nameq .ipa-mini{margin:4px auto 8px}
+.ipa-reps{display:grid;gap:2px;max-width:320px;margin:0 auto;text-align:left}
+.ipa-rep{display:grid;grid-template-columns:4.2em auto 1fr;gap:8px;align-items:baseline;padding:4px 2px;border-bottom:1px solid var(--line)}
+/* 큰 IPA 표 */
+.ipa-mini[data-zoom]{cursor:zoom-in}
+.ipa-zoom{position:fixed;inset:0;z-index:9999;background:rgba(8,4,16,.78);display:flex;align-items:center;justify-content:center;padding:calc(12px + env(safe-area-inset-top,0px)) max(10px,env(safe-area-inset-right,0px)) calc(12px + env(safe-area-inset-bottom,0px)) max(10px,env(safe-area-inset-left,0px))}
+.ipa-zoom-in{width:min(760px,100%);max-height:100%;overflow:auto;background:var(--panel);border:2px solid var(--line);border-radius:16px;padding:10px 10px 12px}
+.ipa-zoom-h{display:flex;align-items:center;justify-content:space-between;padding:2px 4px 8px}
+.ipa-zoom-x{width:40px;height:40px;border-radius:50%;border:2px solid var(--line);background:var(--panel2);color:#fff;font-size:16px;cursor:pointer}
+.ipa-zoom-grid{grid-template-columns:44px repeat(11,minmax(0,1fr));min-width:0;gap:2px}
+.ipa-zoom-grid .ipa-cell{min-height:36px;gap:1px;flex-wrap:wrap}
+.ipa-zoom-grid .ipa-col small{white-space:normal;word-break:keep-all}
+@media (min-width:560px){.ipa-zoom-grid{grid-template-columns:60px repeat(11,minmax(0,1fr));gap:3px}.ipa-zoom-grid .ipa-cell{min-height:44px;gap:4px}.ipa-zs{font-size:1.4rem}}
+.ipa-zs{font-family:var(--ipa);font-size:1.05rem;line-height:1;color:var(--pinkpale);opacity:.55;padding:2px 3px;border-radius:5px}
+.ipa-zs.on{color:var(--gold);opacity:1}
+.ipa-zs.cur{color:var(--cyan);opacity:1}
+.ipa-zs.hit{outline:2px solid var(--gold);opacity:1}
+.ipa-zs.ipa-tap{text-decoration:underline dotted var(--cyan);text-underline-offset:3px}
+.ipa-zoom-k{font-size:.74rem;color:var(--muted);line-height:1.5;margin:8px 4px 0}
+.ipa-zoom-k span{font-weight:900;margin-right:8px}
+.ipa-zoom-k .on{color:var(--gold)}.ipa-zoom-k .cur{color:var(--cyan)}.ipa-zoom-k .hit{color:#fff}
+/* ---------- 배색(26.11.08 영신 "색상은 원래 보카고양이랑 달리가도 좋습니다 좀 더 보기좋은 배색을 찾아봅시다") ----------
+   html[data-pal]로 갈아 끼운다. voca는 보카고양 그대로. 고양고양이 그림 색은 바꾸지 않는다(PRINCIPLES 1). */
+html[data-pal="ink"]{--panel-rgb:17,21,48;--bg1-rgb:10,12,29;--bg1:#0a0c1d;--bg2:#121735;--bg3:#1a2050;--panel:#111530;--panel2:#181d3f;--line:#3a447e;--muted:#b9bfe2;--ink:#fff;
+ --pink:#ff9f45;--pink2:#ffbe7d;--pinkpale:#fff0de;--pink-rgb:255,159,69;--cyan:#79c6ff;--cyansoft:#b4dcff;--cyan-rgb:121,198,255;
+ --gold:#ffd86a;--gold2:#f2b51d;--gold-rgb:255,216,106;--mint:#8fe7aa;
+ --ipa-cav:#0b0f2c;--ipa-tis:#262e5e;--ipa-tongue:#d98a62;--ipa-sag-fill:#28316a;--ipa-sag-line:#8f9bd8}
+html[data-pal="sea"]{--panel-rgb:12,34,42;--bg1-rgb:5,22,27;--bg1:#05161b;--bg2:#0a2630;--bg3:#0f3440;--panel:#0c222a;--panel2:#112f38;--line:#2b5d68;--muted:#a8c8cd;--ink:#fff;
+ --pink:#ff7c5c;--pink2:#ffa287;--pinkpale:#ffe7de;--pink-rgb:255,124,92;--cyan:#5fe4d1;--cyansoft:#a7eadf;--cyan-rgb:95,228,209;
+ --gold:#ffd166;--gold2:#f2b400;--gold-rgb:255,209,102;--mint:#9ff0aa;
+ --ipa-cav:#071d25;--ipa-tis:#1c4652;--ipa-tongue:#d27a6b;--ipa-sag-fill:#1e4f5a;--ipa-sag-line:#80b7bf}
+html[data-pal="chalk"]{--panel-rgb:18,37,28;--bg1-rgb:14,28,22;--bg1:#0e1c16;--bg2:#14281f;--bg3:#1a3428;--panel:#12251c;--panel2:#172f24;--line:#3c6a55;--muted:#bdd7c9;--ink:#fff;
+ --pink:#ff8d7b;--pink2:#ffb3a7;--pinkpale:#fff1ec;--pink-rgb:255,141,123;--cyan:#8fd8ff;--cyansoft:#c0e8ff;--cyan-rgb:143,216,255;
+ --gold:#f6e27a;--gold2:#e5c632;--gold-rgb:246,226,122;--mint:#a9f0b9;
+ --ipa-cav:#0c1a14;--ipa-tis:#24443a;--ipa-tongue:#d58b78;--ipa-sag-fill:#2a4a3d;--ipa-sag-line:#9ec5b0}
+.ipa-pal{display:flex;align-items:center;justify-content:center;gap:8px;padding:0 13px 12px;font-size:.74rem;font-weight:800;color:var(--muted)}
+.ipa-pal button{width:30px;height:30px;border-radius:50%;border:2px solid var(--line);cursor:pointer;padding:0;position:relative;z-index:3}
+.ipa-pal button[aria-pressed="true"]{border-color:#fff;box-shadow:0 0 0 2px var(--pink)}
+.ipa-pal button[data-pal="voca"]{background:linear-gradient(135deg,#2a0c40 50%,#ff4fa3 50%)}
+.ipa-pal button[data-pal="ink"]{background:linear-gradient(135deg,#121735 50%,#ff9f45 50%)}
+.ipa-pal button[data-pal="sea"]{background:linear-gradient(135deg,#0a2630 50%,#ff7c5c 50%)}
+.ipa-pal button[data-pal="chalk"]{background:linear-gradient(135deg,#14281f 50%,#ff8d7b 50%)}
 

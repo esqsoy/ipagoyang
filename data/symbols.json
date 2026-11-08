@@ -29,7 +29,13 @@
    "sound": "ipa-p",
    "name_hanja": "無聲 兩脣 破裂音",
    "name_en": "voiceless bilabial plosive",
-   "sagittal": "p"
+   "sagittal": "p",
+   "answers": [
+    {
+     "ko": "무성 양순 파열음",
+     "en": "voiceless bilabial plosive"
+    }
+   ]
   },
   "pʰ": {
    "name": "무성 유기 양순 파열음",
@@ -49,7 +55,13 @@
    "status_why": "영어 p가 s 뒤에서 기식이 없다는 조건은 PHOIBLE에 없고(변이음 p만 있음), Hillenbrand 2003 본문을 읽지 못함",
    "name_hanja": "無聲 有氣 兩脣 破裂音",
    "name_en": "voiceless aspirated bilabial plosive",
-   "sagittal": "p"
+   "sagittal": "p",
+   "answers": [
+    {
+     "ko": "무성 유기 양순 파열음",
+     "en": "voiceless aspirated bilabial plosive"
+    }
+   ]
   },
   "b": {
    "name": "유성 양순 파열음",
@@ -75,7 +87,13 @@
    "sound": "ipa-b",
    "name_hanja": "有聲 兩脣 破裂音",
    "name_en": "voiced bilabial plosive",
-   "sagittal": "b"
+   "sagittal": "b",
+   "answers": [
+    {
+     "ko": "유성 양순 파열음",
+     "en": "voiced bilabial plosive"
+    }
+   ]
   },
   "p͈": {
    "name": "무성 경음 양순 파열음",
@@ -96,7 +114,13 @@
    "status_why": "͈가 IPA 확장 기호(extIPA)의 '강한 조음' 표시라는 것은 extIPA 표를 이 세션에서 열어 보지 못함",
    "name_hanja": "無聲 硬音 兩脣 破裂音",
    "name_en": "voiceless tense (fortis) bilabial plosive",
-   "sagittal": "p"
+   "sagittal": "p",
+   "answers": [
+    {
+     "ko": "무성 경음 양순 파열음",
+     "en": "voiceless tense bilabial plosive"
+    }
+   ]
   },
   "β": {
    "name": "유성 양순 마찰음 [β] · 접근음 [β̞]",
@@ -116,7 +140,18 @@
    "status_why": "PHOIBLE(Martínez-Celdrán 외 2003·Okada 1991을 옮긴 목록)과 대조",
    "name_hanja": "有聲 兩脣 摩擦音 · 接近音",
    "name_en": "voiced bilabial fricative [β] · approximant [β̞]",
-   "sagittal": "b"
+   "sagittal": "b",
+   "answers": [
+    {
+     "ko": "유성 양순 마찰음",
+     "en": "voiced bilabial fricative"
+    },
+    {
+     "ko": "유성 양순 접근음",
+     "en": "voiced bilabial approximant"
+    }
+   ],
+   "sound": "ipa-beta"
   },
   "m": {
    "name": "유성 양순 비음",
@@ -128,7 +163,14 @@
    "keyonly": true,
    "name_hanja": "有聲 兩脣 鼻音",
    "name_en": "voiced bilabial nasal",
-   "sagittal": "m"
+   "sagittal": "m",
+   "answers": [
+    {
+     "ko": "유성 양순 비음",
+     "en": "voiced bilabial nasal"
+    }
+   ],
+   "sound": "ipa-m"
   },
   "ɸ": {
    "name": "무성 양순 마찰음",
@@ -140,7 +182,14 @@
    "keyonly": true,
    "name_hanja": "無聲 兩脣 摩擦音",
    "name_en": "voiceless bilabial fricative",
-   "sagittal": "p"
+   "sagittal": "p",
+   "answers": [
+    {
+     "ko": "무성 양순 마찰음",
+     "en": "voiceless bilabial fricative"
+    }
+   ],
+   "sound": "ipa-phi"
   },
   "t": {
    "name": "무성 치경 파열음",
@@ -165,7 +214,18 @@
     }
    ],
    "status": "확인 필요",
-   "status_why": "'낱말 첫 ㄷ은 바람이 조금 샌다'는 1차 출처 본문(Lee 1993 등)을 이 세션에서 읽지 못함(묶음 1의 [p]와 같은 사정)"
+   "status_why": "'낱말 첫 ㄷ은 바람이 조금 샌다'는 1차 출처 본문(Lee 1993 등)을 이 세션에서 읽지 못함(묶음 1의 [p]와 같은 사정)",
+   "answers": [
+    {
+     "ko": "무성 치경 파열음",
+     "en": "voiceless alveolar plosive"
+    },
+    {
+     "ko": "무성 치 파열음",
+     "en": "voiceless dental plosive"
+    }
+   ],
+   "sound": "ipa-t"
   },
   "tʰ": {
    "name": "무성 유기 치경 파열음",
@@ -185,7 +245,17 @@
     }
    ],
    "status": "확인 필요",
-   "status_why": "영어 t가 s 뒤에서 기식이 없다는 조건은 PHOIBLE에 없고(변이음 t만 있음), Hillenbrand 2003 본문을 읽지 못함"
+   "status_why": "영어 t가 s 뒤에서 기식이 없다는 조건은 PHOIBLE에 없고(변이음 t만 있음), Hillenbrand 2003 본문을 읽지 못함",
+   "answers": [
+    {
+     "ko": "무성 유기 치경 파열음",
+     "en": "voiceless aspirated alveolar plosive"
+    },
+    {
+     "ko": "무성 유기 치 파열음",
+     "en": "voiceless aspirated dental plosive"
+    }
+   ]
   },
   "t͈": {
    "name": "무성 경음 치경 파열음",
@@ -206,7 +276,17 @@
     }
    ],
    "status": "확인 필요",
-   "status_why": "묶음 1의 p͈와 같은 사정: ͈가 extIPA의 '강한 조음' 표시라는 것은 extIPA 표를 이 세션에서 열어 보지 못함"
+   "status_why": "묶음 1의 p͈와 같은 사정: ͈가 extIPA의 '강한 조음' 표시라는 것은 extIPA 표를 이 세션에서 열어 보지 못함",
+   "answers": [
+    {
+     "ko": "무성 경음 치경 파열음",
+     "en": "voiceless tense alveolar plosive"
+    },
+    {
+     "ko": "무성 경음 치 파열음",
+     "en": "voiceless tense dental plosive"
+    }
+   ]
   },
   "d": {
    "name": "유성 치경 파열음",
@@ -231,7 +311,18 @@
     }
    ],
    "status": "확인 필요",
-   "status_why": "'낱말 첫 [d]를 [t]와 헷갈리기 쉽다'는 지각 연구 본문을 읽지 못함(묶음 1의 [b]와 같은 사정)"
+   "status_why": "'낱말 첫 [d]를 [t]와 헷갈리기 쉽다'는 지각 연구 본문을 읽지 못함(묶음 1의 [b]와 같은 사정)",
+   "answers": [
+    {
+     "ko": "유성 치경 파열음",
+     "en": "voiced alveolar plosive"
+    },
+    {
+     "ko": "유성 치 파열음",
+     "en": "voiced dental plosive"
+    }
+   ],
+   "sound": "ipa-d"
   },
   "ð": {
    "name": "유성 치 마찰음 [ð] · 접근음 [ð̞]",
@@ -251,7 +342,18 @@
     }
    ],
    "status": "확인",
-   "status_why": "PHOIBLE(Martínez-Celdrán 외 2003·Hillenbrand 2003을 옮긴 목록)과 대조"
+   "status_why": "PHOIBLE(Martínez-Celdrán 외 2003·Hillenbrand 2003을 옮긴 목록)과 대조",
+   "answers": [
+    {
+     "ko": "유성 치 마찰음",
+     "en": "voiced dental fricative"
+    },
+    {
+     "ko": "유성 치 접근음",
+     "en": "voiced dental approximant"
+    }
+   ],
+   "sound": "ipa-eth"
   }
  },
  "glottis": {
@@ -264,5 +366,6 @@
   "lead": "터뜨리기 전부터 울림",
   "short": "터뜨리자 바로 울림",
   "long": "바람이 샌 뒤 울림"
- }
+ },
+ "answers_about": "명칭 치기(26.11.08 영신: \"pp를 치는데 그대신 무성 경음 양순 파열음이라고 치는거지\", \"영어까지 제대로 쳐야 넘어가는걸로\"). answers는 인정하는 한글·영어 이름 짝이고 첫째가 대표다. 한글과 영어는 같은 짝이어야 한다. t·d 줄은 IPA 표에서 치·치경·후치경이 한 칸이라 치음 이름(프랑스어·스페인어 [t̪])도 인정한다. β·ð는 마찰음과 접근음(β̞·ð̞)을 다 인정하고, 전사가 β̞·ð̞인 낱말에서는 접근음이 대표다. 순서·띄어쓰기는 자유, 동의어는 ipa_extra.js IPA_NAME_SYN."
 }

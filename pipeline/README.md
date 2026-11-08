@@ -4,9 +4,9 @@
 
 | 파일 | 하는 일 |
 |---|---|
-| `derive_template.py` | 보카고양 마더텅 HTML → `frame.html`(한 번만. 다시 돌리면 frame.html 손 수정이 사라져 `--force`가 있어야 덮는다)과 `data/series-lines.json` |
+| `derive_template.py` | 보카고양 마더텅 HTML → `frame.html`(틀 CSS 고정 색은 배색 변수로)(한 번만. 다시 돌리면 frame.html 손 수정이 사라져 `--force`가 있어야 덮는다)과 `data/series-lines.json` |
 | `frame.html` | 보카고양 틀(데이터 자리를 비운 것) |
-| `ipa_extra.js`·`ipa_extra.css` | 발음고양 덧붙임: IPA 입력 변환, 기호 칸, 여러 화자 녹음 재생, 배우기 그림(CC0 단면도), 맞힘 그림, 카드 위 작은 지도, IPA 지도·도감 |
+| `ipa_extra.js`·`ipa_extra.css` | 발음고양 덧붙임: 명칭 치기(한글 + 영어, 한자 표시), 기호를 누르면 소리(여러 화자), 배우기·이름 대기 카드, 맞힘 그림, 카드 위 작은 지도와 큰 IPA 표, 처음 화면 IPA 지도·도감, 배색 넷 |
 | `build.py` | `frame.html` + 덧붙임 + 원본(`data/bundles/b01.json`, `b02.json` … 묶음 하나 = 강 하나) → `index.html`. `--check`는 맞는지만 본다. `--artifact <파일>`은 미리보기용 한 파일(글꼴·녹음을 data: 주소로) |
 | `phoible_check.py` | 낱말의 대상 소리가 PHOIBLE 목록에 있는지 대조 → `sources/phoible-<묶음>.json` |
 | `phoible_matrix.py` | PHOIBLE '기호 × 11개 언어' 표 → `data/phoible-matrix.json`(언어마다 JIPA 목록 하나, 알려진 빈틈 표시) |

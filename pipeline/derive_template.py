@@ -127,7 +127,7 @@ rep('.map(p=>(p.label?esc(p.label)+" ":"")+"/"+fmtIpa(p.ipa)+"/").join(" · ");'
     '.map(p=>(p.label?esc(p.label)+" ":"")+"["+fmtIpa(p.ipa)+"]").join(" · ");')
 # 카드가 뜰 때: 배우기 그림·재생 단추(ipaBeforeCard / ipaAfterCard). 배우기 카드는 읽을 게 많아 시간을 넉넉히
 rep('$("#hoeCtx").innerHTML=mtQuestionHtml(w);', '$("#hoeCtx").innerHTML=ipaBeforeCard(w)+mtQuestionHtml(w);ipaAfterCard(w);')
-rep('s.cardLimit=limitFor(w.term);', 's.cardLimit=w.learn?60:limitFor(w.term);')
+rep('s.cardLimit=limitFor(w.term);', "s.cardLimit=typeof ipaCardLimit==='function'?ipaCardLimit(w):(w.learn?60:limitFor(w.term));")
 # 틀렸을 때 따라 치기 화면도 그림·재생 단추를 그대로 둔다(틀은 이 자리를 다시 그린다)
 rep('$("#hoeCtx").innerHTML=mtQuestionHtml(mtCurrentWord(),true);', '$("#hoeCtx").innerHTML=ipaBeforeCard(mtCurrentWord())+mtQuestionHtml(mtCurrentWord(),true);ipaAfterCard(mtCurrentWord(),true);')
 # 처음 화면: IPA 지도
@@ -144,6 +144,30 @@ if not m:
 else:
     s = s[:m.start()] + '<script>/*__IPA_EXTRA_JS__*/</script>\n' + s[m.start():]
 rep('</style>\n</head>', '</style>\n<style>/*__IPA_EXTRA_CSS__*/</style>\n</head>')
+
+# 배색을 갈아 끼울 수 있게(26.11.08 영신 "색상은 원래 보카고양이랑 달리가도 좋습니다 좀 더 보기좋은 배색을 찾아봅시다"):
+# 틀 CSS(<style> 안, :root 정의는 빼고)의 고정 색 가운데 배색을 이루는 것만 변수로 바꾼다. 값은 그대로라 보카고양 배색에서는 화면이 같다.
+PAL_HEX = {'#ff4fa3': 'var(--pink)', '#ff8ac6': 'var(--pink2)', '#ffd34d': 'var(--gold)', '#5ce6ff': 'var(--cyan)', '#7cffb2': 'var(--mint)',
+           '#6f3c95': 'var(--line)', '#26103a': 'var(--panel2)', '#c6bcdd': 'var(--muted)', '#160826': 'var(--bg1)', '#f5b301': 'var(--gold2)',
+           '#c4b8cf': 'var(--muted)', '#b8a2d4': 'var(--muted)', '#6a4c86': 'var(--line)', '#8a6aa8': 'var(--muted)', '#4a0a72': 'var(--bg3)',
+           '#170824': 'var(--bg1)', '#2a1340': 'var(--panel2)', '#1d0c2e': 'var(--panel)', '#2a0c40': 'var(--bg2)', '#3a1054': 'var(--bg3)'}
+PAL_RGB = {'255,79,163': 'var(--pink-rgb)', '255,211,77': 'var(--gold-rgb)', '92,230,255': 'var(--cyan-rgb)', '34,16,58': 'var(--panel-rgb)', '22,8,38': 'var(--bg1-rgb)', '184,168,255': 'var(--cyan-rgb)'}
+
+
+def palettize(css):
+    parts = re.split(r'(:root\s*\{[^}]*\})', css)
+    for i in range(0, len(parts), 2):
+        seg = parts[i]
+        for h, v in PAL_HEX.items():
+            seg = re.sub(re.escape(h) + r'(?![0-9a-fA-F])', v, seg, flags=re.I)
+        for rgb, v in PAL_RGB.items():
+            seg = re.sub(r'rgba\(\s*' + rgb.replace(',', r'\s*,\s*') + r'\s*,', f'rgba({v},', seg)
+        parts[i] = seg
+    return ''.join(parts)
+
+
+s = re.sub(r'(<style[^>]*>)(.*?)(</style>)', lambda m: m.group(1) + palettize(m.group(2)) + m.group(3), s, flags=re.S)
+rep(':root{', ':root{--pink-rgb:255,79,163;--gold-rgb:255,211,77;--cyan-rgb:92,230,255;--panel-rgb:34,16,58;--bg1-rgb:22,8,38;')
 
 OUT.write_text(s, encoding='utf-8')
 print(OUT, len(s))
