@@ -55,33 +55,28 @@ function ipaWave(c, id, t) {
   });
 }
 
-/* ---------- 그림(모식도) ---------- */
-const IPA_PLACES = [
-  {n:1, ko:'양순', x:29, y:97}, {n:2, ko:'순치', x:45, y:98}, {n:3, ko:'치', x:47, y:89}, {n:4, ko:'치경', x:55, y:80},
-  {n:5, ko:'후치경', x:64, y:76}, {n:6, ko:'권설', x:76, y:72}, {n:7, ko:'경구개', x:96, y:67}, {n:8, ko:'연구개', x:126, y:72},
-  {n:9, ko:'구개수', x:149, y:99}, {n:10, ko:'인두', x:171, y:140}, {n:11, ko:'성문', x:161, y:206}];
+/* ---------- 그림: 입 옆모습(CC0 단면도, PRINCIPLES 8-8) ---------- */
+/* 원본은 drammock/phonetics-teaching-assets(CC0)의 경로 모양(assets/sagittal/sagittal.json). 얼굴이 오른쪽을 보므로
+   좌우로 뒤집어 IPA 표 방향(왼쪽 = 입 앞)에 맞춘다. 자리 점·바람·틈은 원본 좌표 위에 덧그린다. */
+const IPA_SAG_AT = {bilabial: [157, 137], alveolar: [147, 129], dental: [151, 136], glottis: [101, 205]};
 function ipaSagittal(o = {}) {
-  const low = o.lips === 'near' ? 4 : o.lips === 'open' ? 12 : -1;
-  const hot = o.place === 'bilabial' ? 1 : 0;
-  const lip = hot ? 'stroke="var(--gold)" stroke-width="2.2"' : 'stroke="var(--muted)" stroke-width=".8"';
-  let s = `<path d="M122,2 C94,4 74,14 67,28 C63,37 55,46 45,54 C38,59 31,61 32,66 C33,70 39,71 42,71" fill="none" stroke="var(--muted)" stroke-width="1" opacity=".6"/>
-  <path d="M29,${120 + low} C24,129 27,140 36,146 C54,158 82,167 106,177 C124,185 138,194 145,206 L147,236" fill="none" stroke="var(--muted)" stroke-width="1" opacity=".6"/>
-  <path d="M58,56 C70,36 112,28 158,34 L164,58 C150,56 120,56 58,56 Z" fill="var(--ipa-cav)" stroke="var(--line)"/>
-  <path d="M172,40 L184,40 L184,236 L172,236 Z" fill="var(--ipa-tis)"/>
-  <path d="M44,118 C34,121 26,124 28,134 C32,152 52,166 82,174 C104,180 122,184 136,186 L140,176 L60,124 L50,113 Z" fill="var(--ipa-tis)"/>
-  <path d="M50,113 C52,104 58,99 68,95 C88,86 116,82 134,92 C146,100 150,116 150,136 C150,154 148,166 142,176 L136,186 C118,170 88,150 60,124 Z" fill="var(--ipa-tongue)"/>
-  <path d="M58,56 L164,58 C166,66 160,76 156,84 C152,92 154,99 150,101 C146,98 146,90 142,84 C134,74 122,70 108,68 C88,66 72,70 62,78 C58,81 54,83 50,82 L44,80 L40,72 C42,64 48,58 58,56 Z" fill="var(--ipa-tis)"/>
-  <path d="M146,172 C150,162 156,160 160,166" fill="none" stroke="var(--muted)" stroke-width="1.4"/>
-  <path d="M150,186 L150,236 M170,186 L170,236" stroke="var(--muted)" stroke-width="1"/>
-  <path d="M151,206 L159,206 M169,206 L163,206" stroke="var(--muted)" stroke-width="2.4"/>
-  <path d="M44,80 L40,72 C30,72 20,78 19,86 C18,93 26,97 40,96 L44,95 Z" fill="var(--ipa-tongue)" ${lip}/>
-  <path d="M44,82 L50,82 L49,96 L45,97 Z" fill="var(--ipa-tooth)" stroke="var(--muted)" stroke-width=".7"/>
-  <g transform="translate(0,${low})"><path d="M45,100 L49,100 L50,112 L45,113 Z" fill="var(--ipa-tooth)" stroke="var(--muted)" stroke-width=".7"/>
-  <path d="M44,99 L40,98 C26,98 19,103 20,110 C21,118 32,121 44,118 Z" fill="var(--ipa-tongue)" ${lip}/></g>`;
-  if (o.puff) s += `<g class="ipa-puff" stroke="var(--gold)" fill="none" stroke-width="1.6" stroke-linecap="round"><path d="M14,92 q-4,3 0,6"/><path d="M9,90 q-5,5 0,10"/><path d="M4,88 q-6,7 0,14"/></g>`;
-  if (hot) s += `<circle cx="29" cy="97" r="5" fill="none" stroke="var(--gold)" stroke-width="1.6"/>`;
-  return `<svg viewBox="0 0 196 240" role="img" aria-label="입 옆모습(모식도)">${s}</svg>`;
+  const G = IPA.sagittal; if (!G) return '';
+  const idx = G.shapes[o.shape] || G.shapes.neutral;
+  const at = IPA_SAG_AT[o.place] || null, gl = IPA_SAG_AT.glottis;
+  const cls = ['ipa-sag-larynx', 'ipa-sag-head', 'ipa-sag-glottis', 'ipa-sag-upper', 'ipa-sag-tongue'];
+  let s = `<rect x="85" y="95" width="90" height="122" fill="var(--ipa-cav)"/>`;
+  idx.forEach((k, i) => { s += `<path class="${cls[i]}${i === 2 && o.voiced ? ' on' : ''}" d="${G.paths[k]}"/>`; });
+  if (o.near && at) s += `<ellipse class="ipa-sag-gap" cx="${at[0]}" cy="${at[1]}" rx="1.3" ry="2.6"/>`;
+  if (at) s += `<circle class="ipa-sag-at a-close" cx="${at[0]}" cy="${at[1]}" r="4.2"/>`;
+  s += `<circle class="ipa-sag-gl a-glot" cx="${gl[0]}" cy="${gl[1]}" r="4.6"/>`;
+  if (o.puff && at) s += `<g class="ipa-sag-puff a-puff${o.anim ? '' : ' ipa-puff'}"><path d="M${at[0] + 9},${at[1] - 3} q3,3 0,6"/><path d="M${at[0] + 13},${at[1] - 5} q4,5 0,10"/><path d="M${at[0] + 17},${at[1] - 7} q5,7 0,14"/></g>`;
+  const label = '입 옆모습(단면도 CC0, Wright·McCloy)' + (o.near ? ' · 입 틈은 덧그린 것' : '');
+  return `<svg class="ipa-sag" viewBox="85 95 90 122" role="img" aria-label="${label}"><g transform="translate(260,0) scale(-1,1)">${s}</g></svg>`;
 }
+function ipaSagOpts(s) {
+  return {shape: s.sagittal || 'neutral', place: s.place, near: s.lips === 'near', voiced: s.glottis === 'voiced', puff: s.glottis === 'wide'};
+}
+function ipaBase(sym) { return String(sym || '').normalize('NFD').replace(/[\u0300-\u036f\u02b0-\u02ff]/g, '').slice(0, 1); }
 function ipaGlottis(st) {
   const g = {open: [24, 46], wide: [12, 58], voiced: [33, 37], tight: [34, 36]}[st] || [24, 46];
   const w = st === 'tight' ? 6 : 5;
@@ -113,21 +108,36 @@ function ipaTermInline(k, label) {
 function ipaNameHtml(s) {
   return `<div class="ipa-name"><b>${ipaEsc(s.name)}</b>${s.name_hanja ? `<span class="ipa-hanja">${ipaEsc(s.name_hanja)}</span>` : ''}${s.name_en ? `<span class="ipa-en">${ipaEsc(s.name_en)}</span>` : ''}</div>`;
 }
-function ipaPlayBtn(id, label) {
-  return ipaHasAudio(id)
-    ? `<button type="button" class="ipa-play" data-audio="${ipaEsc(id)}" aria-label="${ipaEsc(label || '듣기')}">▶</button>`
-    : `<span class="ipa-soon">녹음 준비 중</span>`;
+/* 여러 화자로 듣기(HVPT, PRINCIPLES 8-8): 낱말마다 녹음 목록을 두고, 누를 때마다 다음 화자로 넘어간다. 첫 화자는 무작위 */
+function ipaAudioList(wid, fallback) {
+  const l = ((IPA.wordAudio || {})[wid] || [fallback]).filter(ipaHasAudio);
+  return l;
+}
+function ipaPlayBtn(ids, label, start) {
+  const l = (Array.isArray(ids) ? ids : [ids]).filter(ipaHasAudio);
+  if (!l.length) return `<span class="ipa-soon">녹음 준비 중</span>`;
+  const i = start === 'random' ? Math.floor(Math.random() * l.length) : 0;
+  return `<button type="button" class="ipa-play" data-list="${ipaEsc(l.join('|'))}" data-i="${i}" aria-label="${ipaEsc(label || '듣기')}">▶</button>` +
+    (l.length > 1 ? `<span class="ipa-spk" aria-live="polite">목소리 ${i + 1}/${l.length}</span>` : '');
+}
+function ipaBtnNext(b) {
+  const l = b.dataset.list.split('|'); let i = +b.dataset.i || 0; const id = l[i % l.length];
+  b.dataset.i = (i + 1) % l.length;
+  const sp = b.parentElement && b.parentElement.querySelector('.ipa-spk');
+  if (sp) sp.textContent = `목소리 ${(i % l.length) + 1}/${l.length}` + ((IPA.audio[id] || {}).speaker ? ` · ${IPA.audio[id].speaker}` : '');
+  return id;
 }
 function ipaBeforeCard(w) {
   if (!w) return '';
   if (w.learn) {
     const s = IPA.symbols[w.sym] || {};
-    const ex = (IPA.examples[w.sym] || []).map(e => `<div class="ipa-ex"><span class="ipa-lang">${ipaEsc(e.lang)}</span><span class="ipa-word">${ipaEsc(e.text)}</span><span class="ipa-tr">[${ipaEsc(e.a)}<b>${ipaEsc(e.t)}</b>${ipaEsc(e.b)}]</span>${ipaPlayBtn(e.audio, e.text + ' 듣기')}</div>`).join('');
+    const ex = (IPA.examples[w.sym] || []).map(e => `<div class="ipa-ex"><span class="ipa-lang">${ipaEsc(e.lang)}</span><span class="ipa-word">${ipaEsc(e.text)}</span><span class="ipa-tr">[${ipaEsc(e.a)}<b>${ipaEsc(e.t)}</b>${ipaEsc(e.b)}]</span><span class="ipa-explay">${ipaPlayBtn(ipaAudioList(e.wid, e.audio), e.text + ' 듣기')}</span></div>`).join('');
     return `<div class="ipa-learn">
       <div class="ipa-big">${ipaEsc(w.sym === 'β' ? 'β β̞' : w.sym)}</div>
       ${ipaNameHtml(s)}
+      ${ipaMiniMap(w)}
       ${s.sound && ipaHasAudio(s.sound) ? `<div class="ipa-symplay">${ipaPlayBtn(s.sound, '기호 소리 듣기')}<span>기호 소리(시범 녹음)</span></div>` : ''}
-      <div class="ipa-pair"><div>${ipaSagittal({lips: s.lips, place: s.place, puff: s.glottis === 'wide'})}<i>입 옆모습</i></div><div>${ipaGlottis(s.glottis)}<i>목청 = ${ipaTermInline('성대')}: ${ipaEsc((IPA.glottis || {})[s.glottis] || '')}</i></div></div>
+      <div class="ipa-pair"><div>${ipaSagittal(ipaSagOpts(s))}<i>입 옆모습${s.lips === 'near' ? ' · 틈은 덧그림' : ''}</i></div><div>${ipaGlottis(s.glottis)}<i>목청 = ${ipaTermInline('성대')}: ${ipaEsc((IPA.glottis || {})[s.glottis] || '')}</i></div></div>
       ${s.vot ? `<div class="ipa-vot">${ipaVot(s.vot)}<i>소리 시작 띠 = ${ipaTermInline('성대 진동 개시 시간')}: ${ipaEsc((IPA.vot || {})[s.vot] || '')}</i></div>` : ''}
       <p>${ipaEsc(s.how)}</p><p><b>한국어와</b> ${ipaEsc(s.ko)}</p>${s.other ? `<p class="ipa-other">다른 표기: ${ipaEsc(s.other)}</p>` : ''}
       ${ex ? `<div class="ipa-exs">${ex}</div>` : ''}
@@ -135,19 +145,77 @@ function ipaBeforeCard(w) {
     </div>`;
   }
   if (w.audio !== undefined) {
-    return `<div class="ipa-cardplay">${ipaPlayBtn(w.audio, '듣기')}${ipaHasAudio(w.audio) ? '<canvas class="ipa-wave"></canvas>' : ''}</div>`;
+    const l = ipaAudioList(w.wid, w.audio);
+    return `<div class="ipa-cardplay">${ipaMiniMap(w)}${ipaPlayBtn(l, '듣기', 'random')}${l.length ? '<canvas class="ipa-wave"></canvas>' : ''}</div>`;
   }
-  return '';
+  return ipaMiniMap(w);
 }
 function ipaAfterCard(w, noAuto) {
   const root = document.getElementById('hoeCtx'); if (!root || !w) return;
   root.querySelectorAll('.ipa-play').forEach(b => {
     const wrap = b.closest('.ipa-cardplay, .ipa-ex, .ipa-symplay');
     const cv = wrap ? wrap.querySelector('canvas') : null;
-    b.addEventListener('click', e => { e.preventDefault(); e.stopPropagation(); ipaPlay(b.dataset.audio, cv); });
-    if (cv) requestAnimationFrame(() => ipaWave(cv, b.dataset.audio, 0));
+    b.addEventListener('click', e => { e.preventDefault(); e.stopPropagation(); ipaPlay(ipaBtnNext(b), cv); });
+    if (cv) { const l = b.dataset.list.split('|'); requestAnimationFrame(() => ipaWave(cv, l[(+b.dataset.i || 0) % l.length], 0)); }
   });
-  if (!noAuto && w.listen && ipaHasAudio(w.audio)) setTimeout(() => { const cv = root.querySelector('.ipa-cardplay canvas'); ipaPlay(w.audio, cv); }, 350);
+  const main = root.querySelector('.ipa-cardplay .ipa-play');
+  if (!noAuto && w.listen && main) setTimeout(() => { const cv = root.querySelector('.ipa-cardplay canvas'); ipaPlay(ipaBtnNext(main), cv); }, 350);
+}
+
+/* ---------- 카드 위 작은 지도(PRINCIPLES 8-9 ②) ----------
+   문제를 푸는 동안에는 그 묶음의 칸들을 깜박인다(답 칸만 깜박이면 β/b처럼 줄이 다른 답이 새므로). 맞히면 답 칸이 금빛이 된다. */
+function ipaCellOf(sym) {
+  const b = ipaBase(sym);
+  for (let r = 0; r < IPA_ROWS.length; r++) {
+    let c = 0;
+    for (const cell of IPA_ROWS[r].cells) {
+      const span = (cell && cell.span) || 1;
+      if (cell && (cell.v || cell).includes(b)) return {r, c, span};
+      c += span;
+    }
+  }
+  return null;
+}
+function ipaSymOf(w) {
+  if (!w) return null;
+  if (w.learn) return w.sym;
+  if (IPA.symbols[w.term]) return w.term;
+  return (IPA.wordTarget || {})[w.wid] || null;
+}
+function ipaMiniMap(w, hit) {
+  const bd = (IPA.bundles || []).find(b => b.lesson === w.b); if (!bd) return '';
+  const cur = new Set(bd.lit.map(ipaCellOf).filter(Boolean).map(x => x.r + ':' + x.c));
+  const h = hit ? ipaCellOf(hit) : null;
+  let g = '';
+  IPA_ROWS.forEach((row, r) => {
+    let c = 0;
+    for (const cell of row.cells) {
+      const span = (cell && cell.span) || 1, k = r + ':' + c;
+      const cls = !cell ? 'e' : (h && h.r === r && h.c === c) ? 'hit' : cur.has(k) ? 'cur' : '';
+      g += `<i class="${cls}" style="grid-column:${c + 1}/span ${span};grid-row:${r + 1}"></i>`;
+      c += span;
+    }
+  });
+  return `<div class="ipa-mini" aria-label="IPA 지도에서 이 묶음의 칸">${g}</div>`;
+}
+/* 맞히면 소리를 내는 차례대로 그림이 움직인다(PRINCIPLES 8-9 ①): 닫기 → 목청 → 터뜨림 → 울림.
+   울림이 언제 시작하는지는 기호의 소리 시작 띠(vot) 값을 따른다: lead 처음부터, short 터뜨리자 바로, long 바람 뒤 */
+const IPA_NEXT_MS = 2400;
+function ipaOnCorrect(w) {
+  const root = document.getElementById('hoeCtx'); const sym = ipaSymOf(w); const s = sym && IPA.symbols[sym];
+  if (!root || !s) return;
+  const mini = root.querySelector('.ipa-mini'); if (mini) mini.outerHTML = ipaMiniMap(w, sym);
+  const bw = (IPA.byWord || {})[w.wid], sp = document.getElementById('catSpeech');
+  if (bw && sp && !w.learn) { sp.textContent = bw; sp.hidden = false; }
+  const where = {bilabial: '입술', alveolar: '혀끝·잇몸', dental: '혀끝·이'}[s.place] || '입';
+  const gl = (IPA.glottis || {})[s.glottis] || '';
+  const steps = s.vot
+    ? [`${where} 닫기`, `목청: ${gl}`, '터뜨림', {lead: '울림(닫을 때부터)', short: '울림(바로)', long: '바람 뒤 울림'}[s.vot]]
+    : [`${where} 좁히기`, '목청 울림', '틈으로 바람'];
+  const el = document.createElement('div');
+  el.className = `ipa-anim vot-${s.vot || 'cont'}`;
+  el.innerHTML = `<div class="ipa-anim-fig">${ipaSagittal({...ipaSagOpts(s), anim: true})}</div><ol class="ipa-steps">${steps.map(t => `<li>${ipaEsc(t)}</li>`).join('')}</ol>`;
+  root.prepend(el);
 }
 
 /* ---------- 처음 화면: IPA 지도(주기율표 게임처럼 잠긴 칸이 다 보이고, 익힌 칸에 불이 들어온다) ---------- */

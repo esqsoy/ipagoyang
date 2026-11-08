@@ -1,0 +1,595 @@
+{
+ "about": "PHOIBLE 2.0(Moran·McCloy 엮음, CC BY-SA 3.0)에서 이 묶음이 쓰는 목록의 입술소리 줄과 대조 결과. pipeline/phoible_check.py가 만든다. 손으로 고치지 않는다.",
+ "bundle": "b02",
+ "results": [
+  {
+   "word": "ko-dal",
+   "inv": 2197,
+   "seg": "t͉",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "ko-tal",
+   "inv": 2197,
+   "seg": "tʰ",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "ko-ttal",
+   "inv": 2197,
+   "seg": "t",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "ko-bada",
+   "inv": 2197,
+   "seg": "t͉",
+   "allo": "d",
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "en-top",
+   "inv": 2176,
+   "seg": "tʰ",
+   "allo": "tʰ",
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "en-stop",
+   "inv": 2176,
+   "seg": "tʰ",
+   "allo": "t",
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "en-day",
+   "inv": 2176,
+   "seg": "d",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "es-te",
+   "inv": 2210,
+   "seg": "t̻",
+   "allo": "t̪",
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "es-dos",
+   "inv": 2210,
+   "seg": "d̻",
+   "allo": "d̪",
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "es-nada",
+   "inv": 2210,
+   "seg": "d̻",
+   "allo": "ð̞",
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "ja-tenki",
+   "inv": 2196,
+   "seg": "t",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "ja-denki",
+   "inv": 2196,
+   "seg": "d",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "fr-the",
+   "inv": 2182,
+   "seg": "t̪",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "fr-de",
+   "inv": 2182,
+   "seg": "d̪",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  }
+ ],
+ "absent": [
+  {
+   "inv": 2197,
+   "seg": "ð",
+   "ok": true,
+   "found_in": []
+  },
+  {
+   "inv": 2197,
+   "seg": "θ",
+   "ok": true,
+   "found_in": []
+  },
+  {
+   "inv": 1,
+   "seg": "ð",
+   "ok": true,
+   "found_in": []
+  },
+  {
+   "inv": 1,
+   "seg": "θ",
+   "ok": true,
+   "found_in": []
+  },
+  {
+   "inv": 2287,
+   "seg": "ð",
+   "ok": true,
+   "found_in": []
+  },
+  {
+   "inv": 2287,
+   "seg": "θ",
+   "ok": true,
+   "found_in": []
+  },
+  {
+   "inv": 2210,
+   "seg": "ð",
+   "ok": true,
+   "found_in": []
+  }
+ ],
+ "inventories": {
+  "1": {
+   "meta": {
+    "iso": "kor",
+    "name": "Korean",
+    "dialect": "NA",
+    "source": "spa"
+   },
+   "bibtex": [
+    "Cho1967",
+    "Martin1951",
+    "Martin1954",
+    "MartinLee1969",
+    "Kim1968",
+    "Kim1972"
+   ],
+   "rows": [
+    {
+     "phoneme": "m",
+     "allophones": "mb m",
+     "marginal": "NA"
+    },
+    {
+     "phoneme": "p",
+     "allophones": "p b p̚",
+     "marginal": "NA"
+    },
+    {
+     "phoneme": "pʰ",
+     "allophones": "pʰ",
+     "marginal": "NA"
+    },
+    {
+     "phoneme": "pˀ",
+     "allophones": "pˀ",
+     "marginal": "NA"
+    },
+    {
+     "phoneme": "w",
+     "allophones": "w",
+     "marginal": "NA"
+    },
+    {
+     "phoneme": "o",
+     "allophones": "o",
+     "marginal": "NA"
+    },
+    {
+     "phoneme": "oː",
+     "allophones": "oː",
+     "marginal": "NA"
+    },
+    {
+     "phoneme": "u",
+     "allophones": "u",
+     "marginal": "NA"
+    },
+    {
+     "phoneme": "uː",
+     "allophones": "uː",
+     "marginal": "NA"
+    },
+    {
+     "phoneme": "y",
+     "allophones": "y",
+     "marginal": "NA"
+    },
+    {
+     "phoneme": "ø",
+     "allophones": "ø",
+     "marginal": "NA"
+    }
+   ]
+  },
+  "2176": {
+   "meta": {
+    "iso": "eng",
+    "name": "American English",
+    "dialect": "Southeastern Michigan",
+    "source": "ph"
+   },
+   "bibtex": [
+    "eng_hillenbrand2003"
+   ],
+   "rows": [
+    {
+     "phoneme": "b",
+     "allophones": "b b̥",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "f",
+     "allophones": "f",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "m",
+     "allophones": "m",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "pʰ",
+     "allophones": "pʰ p",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "v",
+     "allophones": "v",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "w",
+     "allophones": "w",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "oʊ",
+     "allophones": "oʊ o",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "u",
+     "allophones": "u",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "ɔ",
+     "allophones": "ɔ",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "ʊ",
+     "allophones": "ʊ",
+     "marginal": "FALSE"
+    }
+   ]
+  },
+  "2182": {
+   "meta": {
+    "iso": "fra",
+    "name": "French",
+    "dialect": "French (Parisian speaker)",
+    "source": "ph"
+   },
+   "bibtex": [
+    "fra_fougeron1993"
+   ],
+   "rows": [
+    {
+     "phoneme": "b",
+     "allophones": "b",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "f",
+     "allophones": "f",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "m",
+     "allophones": "m",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "p",
+     "allophones": "p pʰ pɸ̪ pɸ̪ʰ",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "v",
+     "allophones": "v",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "w",
+     "allophones": "w u",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "ɥ",
+     "allophones": "ɥ y",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "o",
+     "allophones": "o",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "u",
+     "allophones": "u w",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "y",
+     "allophones": "y ɥ",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "ø",
+     "allophones": "ø",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "œ",
+     "allophones": "œ",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "ɔ",
+     "allophones": "ɔ",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "ɔ̃",
+     "allophones": "ɔ̃",
+     "marginal": "FALSE"
+    }
+   ]
+  },
+  "2196": {
+   "meta": {
+    "iso": "jpn",
+    "name": "Japanese",
+    "dialect": "Japanese (Tokyo or other areas with similar pitch accent systems)",
+    "source": "ph"
+   },
+   "bibtex": [
+    "jpn_okada1991"
+   ],
+   "rows": [
+    {
+     "phoneme": "b",
+     "allophones": "b v̠ β bʲ",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "m",
+     "allophones": "m mʲ",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "p",
+     "allophones": "p pː pʲ",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "w",
+     "allophones": "w w̹",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "o",
+     "allophones": "o",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "u",
+     "allophones": "u ɯ ü̜ ɯ̈ u̥",
+     "marginal": "FALSE"
+    }
+   ]
+  },
+  "2197": {
+   "meta": {
+    "iso": "kor",
+    "name": "Korean",
+    "dialect": "Standard Korean (spoken in and around Seoul)",
+    "source": "ph"
+   },
+   "bibtex": [
+    "kor_lee1993"
+   ],
+   "rows": [
+    {
+     "phoneme": "m",
+     "allophones": "m",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "p",
+     "allophones": "p p̚",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "pʰ",
+     "allophones": "pʰ p̚",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "p͉",
+     "allophones": "p͉ b p͉̚",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "o",
+     "allophones": "o",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "oː",
+     "allophones": "oː",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "u",
+     "allophones": "u",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "uː",
+     "allophones": "uː",
+     "marginal": "FALSE"
+    }
+   ]
+  },
+  "2210": {
+   "meta": {
+    "iso": "spa",
+    "name": "Spanish",
+    "dialect": "Castilian Spanish",
+    "source": "ph"
+   },
+   "bibtex": [
+    "spa_martinez-celdra2003"
+   ],
+   "rows": [
+    {
+     "phoneme": "b",
+     "allophones": "b β̞",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "f",
+     "allophones": "f",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "m",
+     "allophones": "m ɱ",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "p",
+     "allophones": "p p",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "o",
+     "allophones": "o",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "ou̯",
+     "allophones": "ou̯",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "u",
+     "allophones": "u",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "u̯o",
+     "allophones": "u̯o",
+     "marginal": "FALSE"
+    }
+   ]
+  },
+  "2287": {
+   "meta": {
+    "iso": "kor",
+    "name": "Korean",
+    "dialect": "Korean (Seoul)",
+    "source": "ea"
+   },
+   "bibtex": [
+    "lee1989korean"
+   ],
+   "rows": [
+    {
+     "phoneme": "b̥",
+     "allophones": "NA",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "m",
+     "allophones": "NA",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "p",
+     "allophones": "NA",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "pʰ",
+     "allophones": "NA",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "w",
+     "allophones": "NA",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "oː",
+     "allophones": "NA",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "o̞̜",
+     "allophones": "NA",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "uː",
+     "allophones": "NA",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "ɐ",
+     "allophones": "NA",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "ʊ̜",
+     "allophones": "NA",
+     "marginal": "FALSE"
+    }
+   ]
+  }
+ }
+}

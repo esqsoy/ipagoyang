@@ -1,0 +1,186 @@
+{
+ "about": "pipeline/wikt_compare.py 결과. Wiktionary(en.wiktionary.org, CC BY-SA 4.0) 낱말 문서의 전사와 대조만 했다. 우리 전사는 data/bundles에 있고 Wiktionary에서 가져오지 않았다.",
+ "fetched": "2026-11-06",
+ "bundle": "b02",
+ "rows": [
+  {
+   "word": "ko-dal",
+   "ours": "[tal]",
+   "wiktionary": [
+    "[ta̠ɭ]",
+    "[ta̠(ː)ɭ]"
+   ],
+   "target_ok": true,
+   "other_diff": [
+    "[ta̠ɭ]",
+    "[ta̠(ː)ɭ]"
+   ]
+  },
+  {
+   "word": "ko-tal",
+   "ours": "[tʰal]",
+   "wiktionary": [
+    "[tʰa̠(ː)ɭ]",
+    "[tʰa̠ɭ]"
+   ],
+   "target_ok": true,
+   "other_diff": [
+    "[tʰa̠(ː)ɭ]",
+    "[tʰa̠ɭ]"
+   ]
+  },
+  {
+   "word": "ko-ttal",
+   "ours": "[t͈al]",
+   "wiktionary": [
+    "[t͈-]",
+    "/st-/",
+    "[t͈a̠ɭ]"
+   ],
+   "target_ok": true,
+   "other_diff": [
+    "[t͈-]",
+    "/st-/",
+    "[t͈a̠ɭ]"
+   ]
+  },
+  {
+   "word": "ko-bada",
+   "ours": "[pada]",
+   "wiktionary": [
+    "[pa̠da̠]"
+   ],
+   "target_ok": true,
+   "other_diff": []
+  },
+  {
+   "word": "en-top",
+   "ours": "[tʰɑp]",
+   "wiktionary": [
+    "/tɒp/",
+    "[tʰɒp]",
+    "/tɑp/",
+    "[tʰɑp]"
+   ],
+   "target_ok": true,
+   "other_diff": [
+    "/tɒp/",
+    "[tʰɒp]",
+    "/tɑp/"
+   ]
+  },
+  {
+   "word": "en-stop",
+   "ours": "[stɑp]",
+   "wiktionary": [
+    "/stɒp/",
+    "/stɔp/",
+    "/stɑp/",
+    "[stɔ̟p]",
+    "/(ɪ)sʈɔp/",
+    "/(ɪ)sʈɑp/"
+   ],
+   "target_ok": true,
+   "other_diff": [
+    "/stɒp/",
+    "/stɔp/",
+    "[stɔ̟p]",
+    "/(ɪ)sʈɔp/",
+    "/(ɪ)sʈɑp/"
+   ]
+  },
+  {
+   "word": "en-day",
+   "ours": "[deɪ]",
+   "wiktionary": [
+    "/deɪ̯/",
+    "[deː]",
+    "/dæɪ̯/",
+    "[dɛɪ̯]"
+   ],
+   "target_ok": true,
+   "other_diff": [
+    "/deɪ̯/",
+    "[deː]",
+    "/dæɪ̯/",
+    "[dɛɪ̯]"
+   ]
+  },
+  {
+   "word": "es-te",
+   "ours": "[te]",
+   "wiktionary": [
+    "/ˈte/",
+    "[ˈt̪e]"
+   ],
+   "target_ok": true,
+   "other_diff": [
+    "[ˈt̪e]"
+   ]
+  },
+  {
+   "word": "es-dos",
+   "ours": "[dos]",
+   "wiktionary": [
+    "/ˈdos/",
+    "[ˈd̪os]"
+   ],
+   "target_ok": true,
+   "other_diff": [
+    "[ˈd̪os]"
+   ]
+  },
+  {
+   "word": "es-nada",
+   "ours": "[ˈnað̞a]",
+   "wiktionary": [
+    "/ˈnada/",
+    "[ˈna.ð̞a]"
+   ],
+   "target_ok": true,
+   "other_diff": [
+    "/ˈnada/"
+   ]
+  },
+  {
+   "word": "ja-tenki",
+   "ours": "[teŋki]",
+   "wiktionary": [
+    "[tẽ̞ŋʲkʲi]"
+   ],
+   "target_ok": true,
+   "other_diff": [
+    "[tẽ̞ŋʲkʲi]"
+   ]
+  },
+  {
+   "word": "ja-denki",
+   "ours": "[deŋki]",
+   "wiktionary": [
+    "[dẽ̞ŋʲkʲi]"
+   ],
+   "target_ok": true,
+   "other_diff": [
+    "[dẽ̞ŋʲkʲi]"
+   ]
+  },
+  {
+   "word": "fr-the",
+   "ours": "[te]",
+   "wiktionary": [
+    "/te/"
+   ],
+   "target_ok": true,
+   "other_diff": []
+  },
+  {
+   "word": "fr-de",
+   "ours": "[de]",
+   "wiktionary": [
+    "/de/"
+   ],
+   "target_ok": true,
+   "other_diff": []
+  }
+ ]
+}

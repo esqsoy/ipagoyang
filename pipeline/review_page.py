@@ -1,6 +1,6 @@
 """영신 직검수 페이지(AGENTS, PRINCIPLES 7): 묶음 하나를 줄마다 댓글 다는 읽기 페이지로 만든다.
 
-쓰는 법: python3 pipeline/review_page.py b01 --out <파일.html>
+쓰는 법: python3 pipeline/review_page.py <묶음 id, 예: b01> --out <파일.html>
 - 결과를 Artifact로 올린다. 올릴 때 capabilities: {comments: {}}. 줄을 누르면 입력칸이 열리고 Enter로 바로 Claude에게 간다.
   (줄 댓글 방식은 보카고양 pipeline/review-page.py에서 가져왔다. 26.10.11 영신: "라인바이라인으로 댓글달수 있게 해주고 엔터치면 바로 너에게 가는걸로")
 - 원본은 data/·sources/다. 페이지는 생성물이라 손으로 고치지 않는다.
@@ -157,26 +157,24 @@ def main():
     ph = {r['word']: r for r in rd('sources', f'phoible-{bid}.json').get('results', [])}
     wk = {r['word']: r for r in rd('sources', f'wiktionary-{bid}.json').get('rows', [])}
     refs = {r['id']: r for r in rd('sources', 'references.json')['refs']}
-    P = ['<title>발음고양 묶음 1 검수</title><meta name="claude:viewport-fit-sides" content="cover">',
+    num = int(bid[1:])
+    P = [f'<title>발음고양 묶음 {num} 검수</title><meta name="claude:viewport-fit-sides" content="cover">',
          '<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>',
          '<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Charis+SIL:wght@400;700&family=Noto+Sans+KR:wght@400;600;700&display=swap">',
          CSS, '<div class="wrap">',
-         f'<header><h1>발음고양 묶음 1 · {E(b["title"])} <span class="ipa">{E(b["symbols_title"])}</span></h1>'
+         f'<header><h1>발음고양 묶음 {num} · {E(b["title"])} <span class="ipa">{E(b["symbols_title"])}</span></h1>'
          '<p class="lede">시제품 직검수. 기호 설명·낱말 전사·근거·녹음·고양이 대사를 한 줄씩 본다. '
          '<span class="chip ok">확인</span>은 이 세션에서 출처와 대조한 것, <span class="chip warn">확인 필요</span>는 원문을 못 본 것이다.</p></header>',
          '<p class="hint" id="cmhint">줄 댓글을 준비하는 중…</p>']
 
-    # 정할 것
-    P.append('<section><h2>정할 것</h2>')
-    P.append(ln('설계안 7 언어 풀', '설계안 7', '언어 풀: 11개 언어(라틴어·그리스어는 지금 뺌), 한국어는 모든 묶음에 기준, 묶음마다 한국어 + 3~4개, PHOIBLE로 기호×언어 표를 먼저 만들기. 추천대로 갈지?'))
-    P.append(ln('설계안 8-4 추천 1', '설계안 8-4 ①', '입 옆모습을 CC0 단면도(Wright·McCloy, 음성학 교재용)로 바꾸고 좌우로 뒤집어 표 방향에 맞추기. 지금 그림은 Claude 모식도.'))
-    P.append(ln('설계안 8-4 추천 2', '설계안 8-4 ②', '여러 화자로 듣기(HVPT): 낱말마다 녹음 2~3명, 듣고 고르기에서 화자를 섞기. 메타분석 근거 있음.'))
-    P.append(ln('설계안 8-4 추천 3~5', '설계안 8-4 ③~⑤', '언어로 보기(언어를 고르면 그 언어 자음이 표에 켜짐)는 묶음 서너 개 뒤, 성조 곡선·마이크는 성조 묶음 때 논의, Seeing Speech 등은 링크로만.'))
-    P.append(ln('한국어 녹음', '녹음', '한국어 불·풀·뿔·부부는 영신초이 녹음을 기다리며 소리 칸을 비워 뒀다. 공개 조건(CC0 / CC BY-SA 4.0)과 화자 설명(예: 서울·경기, 일산)을 정해 줘. 파일은 구글 드라이브나 저장소 incoming/ 폴더로.'))
-    got_n = sum(1 for f in audio.values() if f.get('mp3'))
-    P.append(ln('청취 검수', '청취', f'받은 녹음 {got_n}개(영어·스페인어·일본어·프랑스어 낱말과 기호 소리)를 미리보기에서 들어 보고, 이상한 게 있으면 그 줄에 적어 줘. 아직 사람이 들은 파일은 없다. 미리보기: https://claude.ai/artifact/3QPEUivENNJjCLp4vcTcJo'))
-    P.append(ln('녹음 출처', '녹음 출처', 'Commons·Lingua Libre를 주 출처로(WebFetch로 받고 SHA-1 대조), 네이버·Forvo는 공개 라이선스가 없어 넣지 않기, Commons에 없는 낱말은 원어민 지인 녹음. 자세히: proposals/audio-sources-20261107.md. 추천대로 갈지?'))
-    P.append(ln('용어 한자', '용어', '아래 \'발음 용어 한자·영어\' 칸의 한자·영어 이름이 맞는지, 지도의 \'떨음\'을 IPA 표 한국어판대로 \'전동음\'으로 바꾼 게 괜찮은지 봐 줘.'))
+    # 볼 것(설계 7·8·9번과 녹음 출처는 26.11.08 영신 "일단 다 네 추천대로" 로 정해짐: PRINCIPLES 8-7~8-10)
+    P.append('<section><h2>볼 것</h2>')
+    got = [f for f in audio.values() if f.get('mp3')]
+    mine = [a for w in b['words'] for a in [w['audio']] + w.get('audio_more', []) if audio.get(a, {}).get('mp3')]
+    P.append(ln('청취 검수', '청취', f'이 묶음 녹음 {len(mine)}개(전체 {len(got)}개)를 미리보기에서 들어 보고, 이상한 게 있으면 그 줄에 적어 줘. 낱말마다 여러 화자가 있으면 재생할 때마다 다음 화자로 넘어간다. 아직 사람이 들은 파일은 없다. 미리보기: https://claude.ai/artifact/3QPEUivENNJjCLp4vcTcJo'))
+    P.append(ln('낱말 고르기', '낱말', '아래 낱말들이 괜찮은지(짧고 흔한지, 대상 소리가 첫머리에 오는지) 봐 줘. 바꾸고 싶은 낱말이 있으면 그 줄에.'))
+    P.append(ln('줄임 입력', '줄임', '치는 법: ' + ', '.join(f'{k} → {v}' for k, v in b['shortcuts'].items()) + '. 손에 맞는지?'))
+    P.append(ln('한국어 녹음', '한국어 녹음', '영신 녹음 없이 Commons·Lingua Libre의 한국어 원어민 녹음을 썼다(26.11.08 영신 "내 녹음 없이 최대한 진행해보자"). 화자는 아래 녹음 줄에 있다. 나중에 녹음하면 더하거나 바꾼다.'))
     P.append('</section>')
 
     # 기호
@@ -220,10 +218,11 @@ def main():
         k2 = wk.get(w['id'], {})
         wv = ', '.join(k2.get('wiktionary', [])) or '없음'
         P.append(ln(f'{w["text"]} Wiktionary', 'Wiktionary', f'{wv} · 대상 소리 {"맞음" if k2.get("target_ok") else "확인 필요"}'))
-        a = audio.get(w.get('audio'), {})
-        got = '게임에 들어감' if a.get('mp3') else ('영신초이 녹음 대기' if not a.get('commons_file') else '아직 못 받음')
-        P.append(ln(f'{w["text"]} 녹음', '녹음',
-                    f'<a href="{E(a.get("page", ""))}" target="_blank" rel="noopener">{E(a.get("commons_file", "없음"))}</a> · {E(a.get("author", ""))} · {E(a.get("license", ""))} · {E(a.get("speaker", ""))} · {got} · 청취 {"했음" if a.get("listened") else "대기"}', raw=True))
+        for aid in [w.get('audio')] + w.get('audio_more', []):
+            a = audio.get(aid, {})
+            got = '게임에 들어감' if a.get('mp3') else ('녹음 없음' if not a.get('commons_file') else '아직 못 받음')
+            P.append(ln(f'{w["text"]} 녹음 {aid}', '녹음',
+                        f'<a href="{E(a.get("page", ""))}" target="_blank" rel="noopener">{E(a.get("commons_file", "없음"))}</a> · {E(a.get("author", ""))} · {E(a.get("license", ""))} · {E(a.get("speaker", ""))} · {got} · 청취 {"했음" if a.get("listened") else "대기"}', raw=True))
         P.append('</div>')
     P.append('</section>')
 

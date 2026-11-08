@@ -1,0 +1,458 @@
+{
+ "id": "b02",
+ "title": "혀끝 파열음",
+ "symbols_title": "[t] [d] [tʰ] [t͈]",
+ "about": "묶음 2 원본(PRINCIPLES 8-5: 묶음 1 다음 [t d tʰ t͈]). 언어는 한국어 + 영어·스페인어·일본어·프랑스어(8-7: 넷 다 t/d를 음소로 가르고, 일본어 天気/電気는 한국어 화자가 틀리는 짝). 짜는 법은 b01과 같다.",
+ "place": "alveolar",
+ "learn": [
+  "t",
+  "tʰ",
+  "t͈",
+  "d",
+  "ð"
+ ],
+ "lit": [
+  "t",
+  "d",
+  "ð"
+ ],
+ "keyboard": [
+  [
+   "t",
+   "tʰ",
+   "t͈",
+   "d"
+  ],
+  [
+   "n"
+  ],
+  [
+   "θ",
+   "ð"
+  ]
+ ],
+ "shortcuts": {
+  "th": "tʰ",
+  "tt": "t͈",
+  "D": "ð"
+ },
+ "shortcuts_about": "b01과 같은 방식: tʰ = th, ㄸ의 로마자 tt = t͈, ð = 대문자 D(Claude 안).",
+ "words": [
+  {
+   "id": "ko-dal",
+   "lang": "kor",
+   "text": "달",
+   "roman": "dal",
+   "ko": "달(하늘의)",
+   "ipa": [
+    "",
+    "t",
+    "al"
+   ],
+   "target": "t",
+   "audio": "ko-dal",
+   "phoible": {
+    "inv": 2197,
+    "seg": "t͉"
+   },
+   "note": "낱말 첫 ㄷ. 좁게 적으면 [t͉]로 적는 문헌도 있다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2197(Lee 1993) /t͉/. 이 게임은 [t]로 적는다(PRINCIPLES 2-4)"
+  },
+  {
+   "id": "ko-tal",
+   "lang": "kor",
+   "text": "탈",
+   "roman": "tal",
+   "ko": "탈(얼굴에 쓰는)",
+   "ipa": [
+    "",
+    "tʰ",
+    "al"
+   ],
+   "target": "tʰ",
+   "audio": "ko-tal",
+   "phoible": {
+    "inv": 2197,
+    "seg": "tʰ"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2197 /tʰ/"
+  },
+  {
+   "id": "ko-ttal",
+   "lang": "kor",
+   "text": "딸",
+   "roman": "ttal",
+   "ko": "딸",
+   "ipa": [
+    "",
+    "t͈",
+    "al"
+   ],
+   "target": "t͈",
+   "audio": "ko-ttal",
+   "phoible": {
+    "inv": 2197,
+    "seg": "t"
+   },
+   "note": "PHOIBLE 2197은 ㄸ을 그냥 [t]로 적는다. 이 게임은 [t͈].",
+   "status": "확인",
+   "status_why": "PHOIBLE 2197 /t/(된소리 줄). 표기 관례 차이는 symbols t͈"
+  },
+  {
+   "id": "ko-bada",
+   "lang": "kor",
+   "text": "바다",
+   "roman": "bada",
+   "ko": "바다",
+   "ipa": [
+    "pa",
+    "d",
+    "a"
+   ],
+   "target": "d",
+   "audio": "ko-bada",
+   "phoible": {
+    "inv": 2197,
+    "seg": "t͉",
+    "allo": "d"
+   },
+   "note": "모음 사이 ㄷ은 목이 울린다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2197 /t͉/의 변이음 d"
+  },
+  {
+   "id": "en-top",
+   "lang": "eng",
+   "text": "top",
+   "roman": "top",
+   "ko": "꼭대기·맨 위",
+   "ipa": [
+    "",
+    "tʰ",
+    "ɑp"
+   ],
+   "target": "tʰ",
+   "audio": "en-top",
+   "phoible": {
+    "inv": 2176,
+    "seg": "tʰ",
+    "allo": "tʰ"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2176(Hillenbrand 2003) /tʰ/"
+  },
+  {
+   "id": "en-stop",
+   "lang": "eng",
+   "text": "stop",
+   "roman": "stop",
+   "ko": "멈추다",
+   "ipa": [
+    "s",
+    "t",
+    "ɑp"
+   ],
+   "target": "t",
+   "audio": "en-stop",
+   "phoible": {
+    "inv": 2176,
+    "seg": "tʰ",
+    "allo": "t"
+   },
+   "note": "s 뒤 t는 기식이 없다.",
+   "status": "확인 필요",
+   "status_why": "PHOIBLE은 /tʰ/의 변이음 t만 적고 조건(s 뒤)은 없다. 조건은 Hillenbrand 2003 본문 미열람(spin과 같은 사정)"
+  },
+  {
+   "id": "en-day",
+   "lang": "eng",
+   "text": "day",
+   "roman": "day",
+   "ko": "날·낮",
+   "ipa": [
+    "",
+    "d",
+    "eɪ"
+   ],
+   "target": "d",
+   "audio": "en-day",
+   "phoible": {
+    "inv": 2176,
+    "seg": "d"
+   },
+   "note": "낱말 첫 d는 흔히 덜 울린다([d̥]). 그래서 듣고 고르기에는 내지 않는다(PRINCIPLES 2-4).",
+   "listen": false,
+   "status": "확인",
+   "status_why": "PHOIBLE 2176 /d/(변이음 d·d̥·ɾ)"
+  },
+  {
+   "id": "es-te",
+   "lang": "spa",
+   "text": "té",
+   "roman": "té",
+   "ko": "차(茶)",
+   "ipa": [
+    "",
+    "t",
+    "e"
+   ],
+   "target": "t",
+   "audio": "es-te",
+   "phoible": {
+    "inv": 2210,
+    "seg": "t̻",
+    "allo": "t̪"
+   },
+   "note": "혀끝이 윗니 뒤에 닿는다([t̪]).",
+   "status": "확인",
+   "status_why": "PHOIBLE 2210 /t̻/(변이음 t̪)"
+  },
+  {
+   "id": "es-dos",
+   "lang": "spa",
+   "text": "dos",
+   "roman": "dos",
+   "ko": "둘",
+   "ipa": [
+    "",
+    "d",
+    "os"
+   ],
+   "target": "d",
+   "audio": "es-dos",
+   "phoible": {
+    "inv": 2210,
+    "seg": "d̻",
+    "allo": "d̪"
+   },
+   "note": "쉰 다음 첫머리에서는 [d].",
+   "status": "확인",
+   "status_why": "PHOIBLE 2210 /d̻/(변이음 d̪·ð̞)"
+  },
+  {
+   "id": "es-nada",
+   "lang": "spa",
+   "text": "nada",
+   "roman": "nada",
+   "ko": "아무것도 (없음)",
+   "ipa": [
+    "ˈna",
+    "ð̞",
+    "a"
+   ],
+   "target": "ð",
+   "accept": [
+    "ð",
+    "ð̞"
+   ],
+   "audio": "es-nada",
+   "phoible": {
+    "inv": 2210,
+    "seg": "d̻",
+    "allo": "ð̞"
+   },
+   "note": "모음 사이 d는 혀끝으로 막지 않는다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2210 /d̻/의 변이음 ð̞"
+  },
+  {
+   "id": "ja-tenki",
+   "lang": "jpn",
+   "text": "天気",
+   "roman": "tenki",
+   "ko": "날씨",
+   "ipa": [
+    "",
+    "t",
+    "eŋki"
+   ],
+   "target": "t",
+   "audio": "ja-tenki",
+   "phoible": {
+    "inv": 2196,
+    "seg": "t"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2196(Okada 1991) /t/"
+  },
+  {
+   "id": "ja-denki",
+   "lang": "jpn",
+   "text": "電気",
+   "roman": "denki",
+   "ko": "전기",
+   "ipa": [
+    "",
+    "d",
+    "eŋki"
+   ],
+   "target": "d",
+   "audio": "ja-denki",
+   "phoible": {
+    "inv": 2196,
+    "seg": "d"
+   },
+   "note": "天気와 첫소리만 다르다(목이 울리느냐).",
+   "status": "확인",
+   "status_why": "PHOIBLE 2196 /d/"
+  },
+  {
+   "id": "fr-the",
+   "lang": "fra",
+   "text": "thé",
+   "roman": "thé",
+   "ko": "차(茶)",
+   "ipa": [
+    "",
+    "t",
+    "e"
+   ],
+   "target": "t",
+   "audio": "fr-the",
+   "phoible": {
+    "inv": 2182,
+    "seg": "t̪"
+   },
+   "note": "혀끝이 윗니 뒤에 닿는다([t̪]).",
+   "status": "확인",
+   "status_why": "PHOIBLE 2182(Fougeron·Smith 1993) /t̪/"
+  },
+  {
+   "id": "fr-de",
+   "lang": "fra",
+   "text": "dé",
+   "roman": "dé",
+   "ko": "주사위",
+   "ipa": [
+    "",
+    "d",
+    "e"
+   ],
+   "target": "d",
+   "audio": "fr-de",
+   "phoible": {
+    "inv": 2182,
+    "seg": "d̪"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2182 /d̪/"
+  }
+ ],
+ "compare": [
+  {
+   "word": "ja-tenki",
+   "q": "외래어 표기법은 일본어 낱말 첫 た행을 무엇으로 적나?",
+   "options": [
+    "ㄷ",
+    "ㅌ",
+    "ㄸ"
+   ],
+   "answer": "ㄷ",
+   "why": "덴키. 외래어 표기법은 일본어 タ·テ·ト를 낱말 첫머리면 다·데·도로, 가운데·끝이면 타·테·토로 적는다(東京 → 도쿄).",
+   "evidence": [
+    {
+     "src": "loanword-ja"
+    }
+   ],
+   "status": "확인",
+   "status_why": "외래어 표기법 일본어 가나 대조표(한국어 위키백과 인용)"
+  },
+  {
+   "word": "en-top",
+   "q": "한국어로는 무엇으로 적나?",
+   "options": [
+    "ㄷ",
+    "ㅌ",
+    "ㄸ"
+   ],
+   "answer": "ㅌ",
+   "why": "톱. 기식 있는 [tʰ]는 한국어 ㅌ과 같은 기호다.",
+   "evidence": [
+    {
+     "src": "stdict",
+     "note": "톱(top) 349094"
+    },
+    {
+     "src": "phoible",
+     "note": "한국어 2197 /tʰ/, 영어 2176 /tʰ/"
+    }
+   ],
+   "status": "확인",
+   "status_why": "표준국어대사전 표제어 톱(원어 top)과 PHOIBLE"
+  },
+  {
+   "word": "fr-the",
+   "q": "외래어 표기법으로는 무엇으로 적나?",
+   "options": [
+    "ㄷ",
+    "ㅌ",
+    "ㄸ"
+   ],
+   "answer": "ㅌ",
+   "why": "테. 프랑스어 t는 바람이 없어 한국어 귀에는 ㄸ에 가깝게 들리기도 하지만, 외래어 표기법은 파열음에 된소리를 쓰지 않는다(제1장 제4항). 묶음 1의 파리와 같은 사정이다.",
+   "evidence": [
+    {
+     "src": "loanword-rule"
+    }
+   ],
+   "status": "확인 필요",
+   "status_why": "제4항 조문은 확인. 'ㄸ에 가깝게 들린다'는 지각 연구 원문 미대조"
+  }
+ ],
+ "lines": {
+  "correct": [
+   "혀끝이 제자리를 찾았다고양.",
+   "ㄷ·ㅌ·ㄸ도 셋이라고양. 이건 한국 귀가 잘한다고양."
+  ],
+  "wrong": [
+   "혀끝 말고 귀를 쓰라고양.",
+   "목에 손 대 보라고양. 떨리면 [d]라고양."
+  ],
+  "by_word": {
+   "ja-denki": "天気는 날씨, 電気는 전기라고양. 목이 떨리면 電気라고양.",
+   "en-stop": "s 뒤 t도 바람이 빠진다고양. spin이랑 같은 수법이라고양.",
+   "es-nada": "모음 사이 d는 혀가 이에 닿을락 말락이라고양. nada, 아무것도 아니라고양.",
+   "ko-bada": "바다의 ㄷ은 목이 울린다고양. 바다는 원래 시끄럽다고양.",
+   "fr-the": "표기는 테, 귀는 떼라고양. 파리랑 같은 사정이라고양."
+  },
+  "end": "혀끝 칸까지 켰다고양. 입 앞쪽은 좀 안다고 쳐 주겠다고양. ㅎㅎ"
+ },
+ "feel": [
+  {
+   "for": [
+    "tʰ",
+    "t",
+    "t͈"
+   ],
+   "text": "입 앞에 휴지 한 장을 대고 '달', '탈', '딸'을 말해 본다. 휴지가 가장 크게 펄럭이는 것이 [tʰ]다."
+  },
+  {
+   "for": [
+    "d",
+    "t"
+   ],
+   "text": "목울대에 손가락을 대고 '바다'를 말해 본다. 둘째 ㄷ에서 떨림이 끊기지 않으면 [d]다."
+  }
+ ],
+ "absent": {
+  "2197": [
+   "ð",
+   "θ"
+  ],
+  "1": [
+   "ð",
+   "θ"
+  ],
+  "2287": [
+   "ð",
+   "θ"
+  ],
+  "2210": [
+   "ð"
+  ]
+ },
+ "absent_about": "한국어 목록 셋에 ð·θ가 없어야 symbols ð의 '한국어에 없다'가 맞다. 스페인어 2210에 음소 /ð/가 없어야 nada의 [ð̞]가 /d/의 변이음이라는 것이 맞다.",
+ "audio_plan": "모두 Commons·Lingua Libre 녹음(PRINCIPLES 8-10). 26.11.08 영신 \"내 녹음 없이 최대한 진행해보자\"."
+}

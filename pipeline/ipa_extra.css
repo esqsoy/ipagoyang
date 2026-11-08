@@ -1,7 +1,7 @@
 /* 발음고양 덧붙임 스타일. 보카고양 틀의 색(:root)을 그대로 쓰고, 소리는 청록(--cyan), 대상 기호는 금빛(--gold). */
 @font-face{font-family:"Balum IPA";src:url("assets/fonts/BalumIPA-Regular.woff2") format("woff2");font-weight:400;font-display:swap}
 @font-face{font-family:"Balum IPA";src:url("assets/fonts/BalumIPA-Bold.woff2") format("woff2");font-weight:700;font-display:swap}
-:root{--ipa:"Balum IPA","Charis SIL","Doulos SIL","Gentium Plus",serif;--ipa-sans:"Balum IPA","Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",system-ui,sans-serif;--ipa-cav:#2a1240;--ipa-tis:#3d2558;--ipa-tongue:#a4567c;--ipa-tooth:#f6e2ec}
+:root{--ipa-sag-fill:#4d2f6e;--ipa-sag-line:#a184c6;--ipa:"Balum IPA","Charis SIL","Doulos SIL","Gentium Plus",serif;--ipa-sans:"Balum IPA","Apple SD Gothic Neo","Noto Sans KR","Malgun Gothic",system-ui,sans-serif;--ipa-cav:#2a1240;--ipa-tis:#3d2558;--ipa-tongue:#a4567c;--ipa-tooth:#f6e2ec}
 #prevBtn{display:none!important}
 .slot,.slot-glyph,.mt-source,.ov-ipa,.rv-inline-ipa{font-family:var(--ipa)}
 .mt-source{color:var(--cyan)}
@@ -63,3 +63,46 @@
 .ipa-chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
 .ipa-chip{font-size:.7rem;font-weight:800;border:1px solid var(--line);border-radius:999px;padding:2px 8px;color:var(--pinkpale)}
 @media (prefers-reduced-motion:reduce){.ipa-puff,.ipa-vib,.ipa-cell-s.cur{animation:none}}
+/* 입 옆모습(CC0 단면도): 살은 --ipa-tis, 빈 곳은 --ipa-cav, 목청 선은 울리면 청록 */
+.ipa-sag path{fill:var(--ipa-sag-fill);stroke:var(--ipa-sag-line);stroke-width:.5}
+.ipa-sag .ipa-sag-glottis{fill:none;stroke:var(--muted);stroke-width:.9}
+.ipa-sag .ipa-sag-glottis.on{stroke:var(--cyan);stroke-width:1.1}
+.ipa-sag-gap{fill:var(--ipa-cav);stroke:var(--gold);stroke-width:.35}
+.ipa-sag-at{fill:none;stroke:var(--gold);stroke-width:1.1}
+.ipa-sag-gl{fill:none;stroke:transparent;stroke-width:1}
+.ipa-sag-puff path{fill:none;stroke:var(--gold);stroke-width:1;stroke-linecap:round}
+/* 여러 화자 */
+.ipa-spk{position:relative;z-index:3;font-size:.68rem;color:var(--muted);font-weight:800;white-space:nowrap}
+.ipa-explay{display:flex;align-items:center;gap:4px;justify-content:flex-end}
+.ipa-explay .ipa-spk{display:none}
+/* 카드 위 작은 지도 */
+.ipa-mini{position:relative;z-index:3;display:grid;width:max-content;grid-template-columns:repeat(11,6px);grid-template-rows:repeat(8,5px);gap:1px;flex:none;padding:3px;border:1px solid var(--line);border-radius:5px;background:rgba(0,0,0,.18);margin:0 auto}
+.ipa-learn .ipa-mini{margin:2px auto 6px}
+.ipa-mini i{display:block;border-radius:1px;background:rgba(255,255,255,.13)}
+.ipa-mini i.e{background:transparent}
+.ipa-mini i.cur{background:var(--cyan);animation:ipaBlink 1.2s steps(2) infinite}
+.ipa-mini i.hit{background:var(--gold);box-shadow:0 0 4px var(--gold)}
+/* 맞힘 그림: 닫기(0~1.0s) → 목청(0.45s~) → 터뜨림·바람(1.0s~) → 울림(소리 시작 띠에 따라) */
+.ipa-anim{position:relative;z-index:3;display:grid;grid-template-columns:96px 1fr;gap:10px;align-items:center;margin:0 0 8px;padding:6px 8px;border:1px solid var(--line);border-radius:10px;background:var(--panel2)}
+.ipa-anim-fig svg{width:96px;height:auto;display:block}
+.ipa-steps{margin:0;padding-left:1.25em;font-size:.78rem;line-height:1.55;color:var(--pinkpale);text-align:left}
+.ipa-steps li{opacity:.25;animation:ipaStep .3s ease-out forwards}
+.ipa-steps li:nth-child(1){animation-delay:0s}.ipa-steps li:nth-child(2){animation-delay:.45s}.ipa-steps li:nth-child(3){animation-delay:1s}.ipa-steps li:nth-child(4){animation-delay:1.45s}
+.vot-short .ipa-steps li:nth-child(4){animation-delay:1.05s}.vot-lead .ipa-steps li:nth-child(4){animation-delay:.1s}
+@keyframes ipaStep{to{opacity:1;color:#fff}}
+.ipa-anim .a-close{opacity:0;animation:ipaClose 2.2s ease forwards}
+@keyframes ipaClose{0%{opacity:0}8%{opacity:1}44%{opacity:1}48%{opacity:0}100%{opacity:0}}
+.ipa-anim.vot-cont .a-close{animation:none;opacity:1;stroke-dasharray:2 1.4}
+.ipa-anim .a-glot{animation:ipaGlot 2.2s ease forwards}
+@keyframes ipaGlot{0%,18%{stroke:transparent}24%,60%{stroke:var(--gold)}70%,100%{stroke:transparent}}
+.ipa-anim .a-puff{opacity:0;animation:ipaPuffOnce 2.2s ease forwards}
+@keyframes ipaPuffOnce{0%,46%{opacity:0;transform:translateX(0)}56%{opacity:1}80%{opacity:1;transform:translateX(5px)}100%{opacity:0;transform:translateX(7px)}}
+.ipa-anim .ipa-sag-glottis{stroke:var(--muted);animation:ipaVoice 2.2s steps(1) forwards}
+.ipa-anim.vot-lead .ipa-sag-glottis,.ipa-anim.vot-cont .ipa-sag-glottis{animation-name:ipaVoiceLead}
+.ipa-anim.vot-short .ipa-sag-glottis{animation-name:ipaVoiceShort}
+.ipa-anim.vot-long .ipa-sag-glottis{animation-name:ipaVoiceLong}
+@keyframes ipaVoiceLead{0%{stroke:var(--cyan)}100%{stroke:var(--cyan)}}
+@keyframes ipaVoiceShort{0%{stroke:var(--muted)}48%{stroke:var(--cyan)}100%{stroke:var(--cyan)}}
+@keyframes ipaVoiceLong{0%{stroke:var(--muted)}68%{stroke:var(--cyan)}100%{stroke:var(--cyan)}}
+@media (prefers-reduced-motion:reduce){.ipa-mini i.cur,.ipa-anim *{animation:none!important;opacity:1!important}}
+

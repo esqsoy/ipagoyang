@@ -1,4 +1,4 @@
-// 시제품 검사(보카고양 틀): 처음 화면 → 01강 → 연습 네 개를 끝까지 → 처음 화면 IPA 지도에 불이 켜지는지, 390px로 본다.
+// 시제품 검사(보카고양 틀): 처음 화면 → 마지막 강 → 연습 네 개를 끝까지 → 처음 화면 IPA 지도에 불이 켜지는지, 390px로 본다.
 // 쓰는 법: node pipeline/tests/prototype.test.cjs   (SHOT_DIR=폴더 를 주면 화면을 찍어 둔다)
 // Playwright·Chromium이 있어야 한다. 임시 서버와 새 브라우저 프로필을 쓴다.
 const http = require('http'), fs = require('fs'), path = require('path');
@@ -30,6 +30,8 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) fails++
   ok(await page.evaluate(async () => { await document.fonts.ready; return document.fonts.check('20px "Balum IPA"', 'pʰ'); }), 'IPA 글꼴 읽힘');
   await noH('처음'); await shot('t01-home');
 
+  const nB = fs.readdirSync(path.join(ROOT, 'data', 'bundles')).filter(f => /^b\d\d\.json$/.test(f)).length;
+  ok(await page.locator('#lessonGrid .lessonbtn').count() === nB + 1, `강 타일 ${nB}개 + 모아둔 카드`);
   await page.locator('#lessonGrid .lessonbtn').last().click(); await page.waitForTimeout(400);
   const nEx = await page.locator('.exbtn').count();
   ok(nEx >= 3, `연습 ${nEx}개`);
@@ -41,7 +43,7 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) fails++
   await page.locator('#ainput').fill(''); await noH('배우기'); await shot('t02-learn');
 
   // 연습을 차례로 끝까지: 첫 카드 하나는 일부러 틀려 따라 치기를 본다
-  let wrongDone = false, finished = 0, guard = 0, sawCopy = false;
+  let wrongDone = false, finished = 0, guard = 0, sawCopy = false, sawAnim = false;
   while (guard++ < 400) {
     const st = await page.evaluate(() => ({
       game: document.querySelector('#gameScreen')?.classList.contains('active'),
@@ -60,13 +62,14 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) fails++
       sawCopy = sawCopy || (await page.locator('#hoeCtx .ipa-learn, #hoeCtx .ipa-cardplay').count()) > 0;
       await shot('t03-copy'); await page.locator('#ainput').fill(st.term); await page.waitForTimeout(1900); continue;
     }
-    if (st.answered) { await page.keyboard.press('Enter'); await page.waitForTimeout(250); continue; }
+    if (st.answered) { sawAnim = sawAnim || (await page.locator('#hoeCtx .ipa-anim').count()) > 0; await page.keyboard.press('Enter'); await page.waitForTimeout(250); continue; }
     if (!st.term) { await page.waitForTimeout(200); continue; }
     if (!wrongDone) { await page.locator('#ainput').fill(st.term === 'b' ? 'p' : 'b'); wrongDone = true; }
     else await page.locator('#ainput').fill(st.term);
     await page.locator('#ainput').press('Enter'); await page.waitForTimeout(300);
   }
   ok(sawCopy, '따라 치기에도 그림·재생 단추가 남음');
+  ok(sawAnim, '맞히면 소리 내는 차례 그림이 뜸');
   ok(finished === nEx, `연습 ${finished}/${nEx}개 끝`);
   await page.goto(base); await page.waitForTimeout(800);
   const lit = await page.locator('#ipaMap .ipa-cell-s.on').count();

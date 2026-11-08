@@ -79,7 +79,7 @@ rep('탈출률 <b>0%</b>', '진도 <b>0%</b>')
 rep('$("#routePct").innerHTML=`탈출률 <b>${pct}%</b> · ${done}/${total} 구간 · ${state.prevOn?"전체":"2026"}`;',
     '$("#routePct").innerHTML=`진도 <b>${pct}%</b> · ${done}/${total} 연습`;')
 rep('${state.prevOn?"전체(이전 포함)":"2026만"}`;', '발음고양 시제품`;')
-rep('$("#sumTitle").textContent="BIG MOUNTAIN 입성! 🎓";', '$("#sumTitle").textContent="묶음 완주! 입술 칸이 켜졌다 ✦";')
+rep('$("#sumTitle").textContent="BIG MOUNTAIN 입성! 🎓";', '$("#sumTitle").textContent="묶음 완주! 지도에 칸이 켜졌다 ✦";')
 # 교재 선택 화면이 없다(index.html이 게임이다): 홈 단추를 지운다
 s, n = re.subn(r'\n\s*<a class="iconbtn course-home" href="index.html"[\s\S]*?</a>', '', s)
 assert n == 1, n
@@ -104,6 +104,12 @@ rep('const wrap=$("#hoeCtx .blanks");if(!wrap)return;const w=s.words[s.currentId
     'const wrap=$("#hoeCtx .blanks");if(!wrap)return;const w=s.words[s.currentId],raw=ipaIn($("#ainput").value);')
 # 자동 제출을 끈다: p를 치는 순간 내 버리면 pʰ·p͈를 칠 수 없고, 칸이 차는 시점이 답을 흘린다
 rep('if(ready&&!options.fromHint)submit();', 'if(ready&&!options.fromHint&&!IPA_NO_AUTOSUBMIT)submit();')
+# 맞히면 소리 내는 차례 그림(PRINCIPLES 8-9 ①). 그림이 끝날 시간만큼 다음 카드를 늦춘다(Enter로 바로 넘어갈 수 있다)
+rep('''    showReveal("good",w.term,w.meaning,line);
+    s.streak=(s.streak||0)+1;
+    scheduleNext(1500);''', '''    showReveal("good",w.term,w.meaning,line);if(typeof ipaOnCorrect==='function')ipaOnCorrect(w);
+    s.streak=(s.streak||0)+1;
+    scheduleNext(typeof IPA_NEXT_MS==='number'?IPA_NEXT_MS:1500);''')
 rep('const typed=$("#ainput").value;\n  if(!typed.trim()', 'const typed=ipaIn($("#ainput").value);\n  if(!typed.trim()')
 rep('function handleCopyInput(){const s=state.session;if(!s||!s.copyMode)return;const v=$("#ainput").value;',
     'function handleCopyInput(){const s=state.session;if(!s||!s.copyMode)return;const v=ipaIn($("#ainput").value);')
