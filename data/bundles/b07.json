@@ -1,0 +1,494 @@
+{
+ "id": "b07",
+ "title": "파찰음",
+ "symbols_title": "[ts] [tsʰ] [dz] [tʃ] [dʒ] [tɕ] [tɕʰ] [t͈ɕ] [dʑ] [tʂ] [tʂʰ]",
+ "about": "묶음 7 원본(PRINCIPLES 8-5: 치찰음 다음). 막았다가 갈며 떼는 소리. 한국어 ㅈ·ㅊ·ㅉ과 같은 줄의 중국어·일본어·러시아어, 한국어에 없는 ts·dz·tʃ·dʒ·tʂ. 파찰음은 IPA 자음표에 칸이 없어 지도 아래 '표 밖' 줄에 켠다.",
+ "place": "alveolopalatal",
+ "learn": [
+  "ts",
+  "tsʰ",
+  "dz",
+  "tʃ",
+  "dʒ",
+  "tɕ",
+  "tɕʰ",
+  "t͈ɕ",
+  "dʑ",
+  "tʂ",
+  "tʂʰ"
+ ],
+ "lit": [
+  "ts",
+  "dz",
+  "tʃ",
+  "dʒ",
+  "tɕ",
+  "dʑ",
+  "tʂ"
+ ],
+ "keyboard": [
+  [
+   "ts",
+   "tsʰ",
+   "dz"
+  ],
+  [
+   "tʃ",
+   "dʒ"
+  ],
+  [
+   "tɕ",
+   "tɕʰ",
+   "t͈ɕ",
+   "dʑ"
+  ],
+  [
+   "tʂ",
+   "tʂʰ"
+  ]
+ ],
+ "shortcuts": {},
+ "compare": [],
+ "lines": {
+  "correct": [
+   "막고, 갈고, 맞았다고양.",
+   "ㅈ 하나에도 줄이 여럿이라고양. 잘 갈랐다고양."
+  ],
+  "wrong": [
+   "막는 자리를 다시 보라고양. 잇몸이냐, 그 뒤냐, 혀 앞 넓은 면이냐.",
+   "바람이 섞였는지, 목을 조였는지 들어 보라고양. ㅈ·ㅊ·ㅉ처럼 말이다고양."
+  ],
+  "by_word": {
+   "ko-jjada": "짜다의 ㅉ은 목을 조인다고양. 짜게 먹으면 목이 조인다고양.",
+   "it-ciao": "ciao의 c는 [tʃ]라고양. 인사는 짧게 하라고양.",
+   "de-zeit": "Zeit의 z는 [ts]라고양. 독일 z는 ㅈ이 아니라고양.",
+   "pt-tipo": "브라질에서는 ti가 [tʃi]라고양. 찌뽀라고 들린다고양."
+  },
+  "end": "표 밖 줄이 켜졌다고양. 파찰음은 칸이 없어도 배운 거라고양."
+ },
+ "feel": [
+  {
+   "for": [
+    "ts",
+    "tʃ",
+    "tɕ"
+   ],
+   "text": "혀를 붙였다가 천천히 떼어 본다. 떼는 자리에서 바람이 갈리면 파찰음이다. 잇몸에서 떼면 [ts], 조금 뒤에서 입술을 내밀면 [tʃ], 혀 앞 넓은 면으로 떼면 [tɕ](한국어 ㅈ)에 가깝다."
+  },
+  {
+   "for": [
+    "tɕ",
+    "tɕʰ",
+    "t͈ɕ"
+   ],
+   "text": "'자·차·짜'를 손바닥 앞에서 말해 본다. 차에서만 바람이 세게 닿고, 짜는 목이 조인다. 묶음 1의 ㅂ·ㅍ·ㅃ과 같은 세 갈래다."
+  }
+ ],
+ "absent": {
+  "2197": [
+   "ts",
+   "dz",
+   "t̠ʃ",
+   "d̠ʒ"
+  ]
+ },
+ "absent_about": "한국어 2197에 ts·dz·tʃ·dʒ가 없어야 '한국어에 없다'가 맞다(PHOIBLE은 tʃ·dʒ를 t̠ʃ·d̠ʒ로 적는다).",
+ "audio_plan": "",
+ "words": [
+  {
+   "id": "ko-jada",
+   "lang": "kor",
+   "text": "자다",
+   "roman": "jada",
+   "ko": "자다",
+   "ipa": [
+    "",
+    "tɕ",
+    "ada"
+   ],
+   "target": "tɕ",
+   "phoible": {
+    "inv": 2197,
+    "seg": "t͉ɕ͉"
+   },
+   "note": "ㅈ. 문헌마다 [tɕ]·[tʃ]·[ts]로 다르게 적는다. PHOIBLE 2197은 약한 [t͉ɕ͉]로 적는다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2197 /t͉ɕ͉/",
+   "audio": "ko-jada-horojo"
+  },
+  {
+   "id": "ko-cha",
+   "lang": "kor",
+   "text": "차",
+   "roman": "cha",
+   "ko": "차(茶·車)",
+   "ipa": [
+    "",
+    "tɕʰ",
+    "a"
+   ],
+   "target": "tɕʰ",
+   "phoible": {
+    "inv": 2197,
+    "seg": "tɕʰ"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2197 /tɕʰ/",
+   "audio": "ko-cha-horojo"
+  },
+  {
+   "id": "ko-jjada",
+   "lang": "kor",
+   "text": "짜다",
+   "roman": "jjada",
+   "ko": "짜다",
+   "ipa": [
+    "",
+    "t͈ɕ",
+    "ada"
+   ],
+   "target": "t͈ɕ",
+   "phoible": {
+    "inv": 2197,
+    "seg": "tɕ"
+   },
+   "note": "ㅉ. 자다·차·짜다는 같은 화자가 녹음했다. PHOIBLE 2197은 경음 줄을 표시 없이 [tɕ]로 적는다. Wiktionary는 ͈ 표시를 ɕ 밑에 두어 [tɕ͈]로 적는다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2197 /tɕ/",
+   "audio": "ko-jjada-horojo",
+   "accept": [
+    "t͈ɕ",
+    "tɕ͈"
+   ]
+  },
+  {
+   "id": "en-chair",
+   "lang": "eng",
+   "text": "chair",
+   "roman": "chair",
+   "ko": "의자",
+   "ipa": [
+    "",
+    "tʃ",
+    "ɛɚ"
+   ],
+   "target": "tʃ",
+   "phoible": {
+    "inv": 2176,
+    "seg": "t̠ʃ"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2176 /t̠ʃ/",
+   "audio": "en-chair-wodencafe",
+   "audio_more": [
+    "en-chair-grendelkhan",
+    "en-chair-dvortygirl"
+   ]
+  },
+  {
+   "id": "en-jam",
+   "lang": "eng",
+   "text": "jam",
+   "roman": "jam",
+   "ko": "잼",
+   "ipa": [
+    "",
+    "dʒ",
+    "æm"
+   ],
+   "target": "dʒ",
+   "phoible": {
+    "inv": 2176,
+    "seg": "d̠ʒ"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2176 /d̠ʒ/",
+   "audio": "en-jam-grendelkhan",
+   "audio_more": [
+    "en-jam-dvortygirl"
+   ]
+  },
+  {
+   "id": "es-chocolate",
+   "lang": "spa",
+   "text": "chocolate",
+   "roman": "chocolate",
+   "ko": "초콜릿",
+   "ipa": [
+    "",
+    "tʃ",
+    "okolate"
+   ],
+   "target": "tʃ",
+   "phoible": {
+    "inv": 2210,
+    "seg": "t̠ʃ"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2210 /t̠ʃ/",
+   "audio": "es-chocolate-adrianabdulbaha",
+   "audio_more": [
+    "es-chocolate-rdrg109"
+   ]
+  },
+  {
+   "id": "ja-chizu",
+   "lang": "jpn",
+   "text": "地図",
+   "roman": "chizu",
+   "ko": "지도",
+   "ipa": [
+    "",
+    "tɕ",
+    "izɯ"
+   ],
+   "target": "tɕ",
+   "phoible": {
+    "inv": 2196,
+    "seg": "ts",
+    "allo": "tɕ"
+   },
+   "note": "ち의 자음은 [tɕ]다(PHOIBLE 2196은 /ts/의 변이음).",
+   "status": "확인",
+   "status_why": "PHOIBLE 2196 /ts/의 변이음 tɕ",
+   "audio": "ja-chizu-aoi"
+  },
+  {
+   "id": "pt-tipo",
+   "lang": "por",
+   "text": "tipo",
+   "roman": "tipo",
+   "ko": "종류",
+   "ipa": [
+    "",
+    "tʃ",
+    "ipu"
+   ],
+   "target": "tʃ",
+   "phoible": {
+    "inv": 2207,
+    "seg": "t̪",
+    "allo": "t̪ʃ̟"
+   },
+   "note": "브라질에서는 t가 i 앞에서 [tʃ]로 난다. 포르투갈에서는 [t]다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2207 /t̪/의 변이음 t̪ʃ̟",
+   "audio": "pt-tipo-sillim",
+   "audio_more": [
+    "pt-tipo-jjunho"
+   ]
+  },
+  {
+   "id": "pt-dia",
+   "lang": "por",
+   "text": "dia",
+   "roman": "dia",
+   "ko": "날",
+   "ipa": [
+    "",
+    "dʒ",
+    "iɐ"
+   ],
+   "target": "dʒ",
+   "phoible": {
+    "inv": 2207,
+    "seg": "d̪",
+    "allo": "d̪ʒ̟"
+   },
+   "note": "브라질에서는 d가 i 앞에서 [dʒ]로 난다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2207 /d̪/의 변이음 d̪ʒ̟",
+   "audio": "pt-dia-sillim",
+   "audio_more": [
+    "pt-dia-jjunho"
+   ]
+  },
+  {
+   "id": "ru-tsvet",
+   "lang": "rus",
+   "text": "цвет",
+   "roman": "tsvet",
+   "ko": "색",
+   "ipa": [
+    "",
+    "ts",
+    "vʲet"
+   ],
+   "target": "ts",
+   "phoible": {
+    "inv": 2261,
+    "seg": "t̪s"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2261 /t̪s/",
+   "audio": "ru-tsvet-kerbush"
+  },
+  {
+   "id": "ru-chai",
+   "lang": "rus",
+   "text": "чай",
+   "roman": "chay",
+   "ko": "차(茶)",
+   "ipa": [
+    "",
+    "tɕ",
+    "æj"
+   ],
+   "target": "tɕ",
+   "phoible": {
+    "inv": 2261,
+    "seg": "tɕ"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2261 /tɕ/",
+   "audio": "ru-chai-svetlov",
+   "audio_more": [
+    "ru-chai-kerbush",
+    "ru-chai-koyash"
+   ]
+  },
+  {
+   "id": "de-zeit",
+   "lang": "deu",
+   "text": "Zeit",
+   "roman": "Zeit",
+   "ko": "시간",
+   "ipa": [
+    "",
+    "ts",
+    "aɪ̯t"
+   ],
+   "target": "ts",
+   "phoible": {
+    "inv": 2398,
+    "seg": "ts"
+   },
+   "note": "독일어 z는 [ts]다. PHOIBLE 2184(Kohler 1990)에는 파찰음 칸이 따로 없어 2398(Hall 2000)로 대조했다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2398 /ts/",
+   "audio": "de-zeit-wallroth",
+   "audio_more": [
+    "de-zeit-jeuwre"
+   ]
+  },
+  {
+   "id": "de-tschuess",
+   "lang": "deu",
+   "text": "tschüss",
+   "roman": "tschüss",
+   "ko": "잘 가(헤어질 때)",
+   "ipa": [
+    "",
+    "tʃ",
+    "ʏs"
+   ],
+   "target": "tʃ",
+   "phoible": {
+    "inv": 2398,
+    "seg": "t̠ʃ"
+   },
+   "note": "PHOIBLE 2398(Hall 2000)로 대조했다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2398 /t̠ʃ/",
+   "audio": "de-tschuess-natschoba",
+   "audio_more": [
+    "de-tschuess-jeuwre"
+   ]
+  },
+  {
+   "id": "it-grazie",
+   "lang": "ita",
+   "text": "grazie",
+   "roman": "grazie",
+   "ko": "고마워요",
+   "ipa": [
+    "ɡrat",
+    "ts",
+    "je"
+   ],
+   "target": "ts",
+   "phoible": {
+    "inv": 1145,
+    "seg": "ts"
+   },
+   "note": "모음 사이의 z는 길게(겹쳐) 난다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 1145 /ts/",
+   "audio": "it-grazie-langpao",
+   "audio_more": [
+    "it-grazie-xana000"
+   ]
+  },
+  {
+   "id": "it-zero",
+   "lang": "ita",
+   "text": "zero",
+   "roman": "zero",
+   "ko": "영(0)",
+   "ipa": [
+    "",
+    "dz",
+    "ɛro"
+   ],
+   "target": "dz",
+   "phoible": {
+    "inv": 1145,
+    "seg": "dz"
+   },
+   "note": "첫소리 z는 표준어에서 [dz]다. 남부 화자는 다르게 낼 수 있다(녹음은 귀로 대조하지 않았다).",
+   "status": "확인",
+   "status_why": "PHOIBLE 1145 /dz/",
+   "audio": "it-zero-langpao",
+   "audio_more": [
+    "it-zero-xana000"
+   ]
+  },
+  {
+   "id": "it-ciao",
+   "lang": "ita",
+   "text": "ciao",
+   "roman": "ciao",
+   "ko": "안녕",
+   "ipa": [
+    "",
+    "tʃ",
+    "ao"
+   ],
+   "target": "tʃ",
+   "phoible": {
+    "inv": 1145,
+    "seg": "t̠ʃ"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 1145 /t̠ʃ/",
+   "audio": "it-ciao-langpao",
+   "audio_more": [
+    "it-ciao-xana000"
+   ]
+  },
+  {
+   "id": "it-giorno",
+   "lang": "ita",
+   "text": "giorno",
+   "roman": "giorno",
+   "ko": "날·낮",
+   "ipa": [
+    "",
+    "dʒ",
+    "orno"
+   ],
+   "target": "dʒ",
+   "phoible": {
+    "inv": 1145,
+    "seg": "d̠ʒ"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 1145 /d̠ʒ/",
+   "audio": "it-giorno-langpao",
+   "audio_more": [
+    "it-giorno-xana000",
+    "it-giorno-ciampix"
+   ]
+  }
+ ]
+}

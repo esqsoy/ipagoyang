@@ -149,7 +149,7 @@ function ipaWave(c, id, t) {
 /* ---------- 그림: 입 옆모습(CC0 단면도, PRINCIPLES 8-8) ---------- */
 /* 원본은 drammock/phonetics-teaching-assets(CC0)의 경로 모양(assets/sagittal/sagittal.json). 얼굴이 오른쪽을 보므로
    좌우로 뒤집어 IPA 표 방향(왼쪽 = 입 앞)에 맞춘다. 자리 점·바람·틈은 원본 좌표 위에 덧그린다. */
-const IPA_SAG_AT = {bilabial: [157, 137], alveolar: [147, 129], dental: [151, 136], velar: [106, 130], uvular: [93, 137], labiodental: [150, 138], palatal: [128, 124], glottal: [101, 205], glottis: [101, 205]};
+const IPA_SAG_AT = {bilabial: [157, 137], alveolar: [147, 129], dental: [151, 136], velar: [106, 130], uvular: [93, 137], labiodental: [150, 138], palatal: [128, 124], postalveolar: [143, 127], alveolopalatal: [136, 125], retroflex: [140, 126], glottal: [101, 205], glottis: [101, 205]};
 function ipaSagittal(o = {}) {
   const G = IPA.sagittal; if (!G) return '';
   const idx = G.shapes[o.shape] || G.shapes.neutral;
@@ -168,6 +168,11 @@ function ipaSagOpts(s) {
   return {shape: s.sagittal || 'neutral', place: s.place, near: s.lips === 'near', voiced: s.glottis === 'voiced', puff: s.glottis === 'wide'};
 }
 function ipaBase(sym) { return String(sym || '').normalize('NFD').replace(/[\u0300-\u036f\u02b0-\u02ff]/g, '').slice(0, 1); }
+/* IPA 자음표에 칸이 없는 기호(26.11.09, 묶음 6·7): ɕ는 IPA 표 '기타 기호'에 있고, 파찰음은 두 기호를 이어 적어 표에 줄이 없다.
+   지도 아래 '표 밖' 줄에 둔다. 이 게임이 가르치는 것만(8-7). 기식(ʰ)·경음(͈) 표시는 떼고 칸을 찾는다(tsʰ → ts 칸). */
+const IPA_OFF = ['ɕ', 'ts', 'dz', 'tʃ', 'dʒ', 'tɕ', 'dʑ', 'tʂ'];
+const IPA_OFF_HEAD = '<span class="ipa-rowh ipa-offh" title="IPA 표에 칸이 없는 기호"><span>표 밖</span><small class="h">기타·파찰</small></span>';
+function ipaKey(sym) { const k = String(sym || '').normalize('NFD').replace(/[\u0300-\u036f\u02b0-\u02ff]/g, ''); return IPA_OFF.includes(k) ? k : k.slice(0, 1); }
 function ipaGlottis(st) {
   const g = {open: [24, 46], wide: [12, 58], voiced: [33, 37], tight: [34, 36]}[st] || [24, 46];
   const w = st === 'tight' ? 6 : 5;
@@ -333,15 +338,15 @@ function ipaFilterLessons(lessons) {
     const syms = new Set();
     for (const e of L.exercises) {
       e.words = e.words.filter(w => {
-        if (w.reps) { w.reps = w.reps.filter(r => keep.has(r.lid)); if (!w.reps.length) return false; syms.add(ipaBase(w.sym)); return true; }
-        if (w.lang) { if (!keep.has(w.lang)) return false; const t = (IPA.wordTarget || {})[w.wid]; if (t) syms.add(ipaBase(t)); return true; }
+        if (w.reps) { w.reps = w.reps.filter(r => keep.has(r.lid)); if (!w.reps.length) return false; syms.add(ipaKey(w.sym)); return true; }
+        if (w.lang) { if (!keep.has(w.lang)) return false; const t = (IPA.wordTarget || {})[w.wid]; if (t) syms.add(ipaKey(t)); return true; }
         return true;
       });
     }
     L.exercises = L.exercises.filter(e => e.words.length);
     litBy[L.lesson] = syms;
   }
-  for (const b of IPA.bundles || []) b.lit = b.lit.filter(x => (litBy[b.lesson] || new Set()).has(ipaBase(x)));
+  for (const b of IPA.bundles || []) b.lit = b.lit.filter(x => (litBy[b.lesson] || new Set()).has(ipaKey(x)));
   for (const k of Object.keys(IPA.examples || {})) IPA.examples[k] = IPA.examples[k].filter(e => !e.lid || keep.has(e.lid));
 }
 function ipaLangPanel() {
@@ -360,7 +365,8 @@ function ipaLangClick(id) {
 /* ---------- 카드 위 작은 지도(PRINCIPLES 8-9 ②) ----------
    문제를 푸는 동안에는 그 묶음의 칸들을 깜박인다(답 칸만 깜박이면 β/b처럼 줄이 다른 답이 새므로). 맞히면 답 칸이 금빛이 된다. */
 function ipaCellOf(sym) {
-  const b = ipaBase(sym);
+  const b = ipaKey(sym), off = IPA_OFF.indexOf(b);
+  if (off >= 0) return {r: IPA_ROWS.length, c: off, span: 1};
   for (let r = 0; r < IPA_ROWS.length; r++) {
     let c = 0;
     for (const cell of IPA_ROWS[r].cells) {
@@ -391,14 +397,17 @@ function ipaMiniMap(w, hit) {
       c += span;
     }
   });
+  const R = IPA_ROWS.length;
+  IPA_OFF.forEach((x, c) => { g += `<i class="off ${h && h.r === R && h.c === c ? 'hit' : cur.has(R + ':' + c) ? 'cur' : ''}" style="grid-column:${c + 1};grid-row:${R + 2}"></i>`; });
   return `<div class="ipa-mini" role="button" tabindex="0" data-zoom="${w.b}" data-hit="${ipaEsc(hit || '')}" aria-label="IPA 표 크게 보기">${g}</div>`;
 }
 /* 작은 지도를 누르면 실제 IPA 자음표를 크게(26.11.08 영신: "해당 부분을 누르면 실제 ipa표를 확대해서 볼 수 있게").
    기호는 다 보인다(답을 가리지 않음: 묶음 칸 전체를 함께 표시). 배운 칸 금빛, 지금 묶음 칸 청록, 맞힌 답 칸 테두리. 기호를 누르면 기호 소리. */
 function ipaZoomOpen(lesson, hit) {
   const bd = (IPA.bundles || []).find(b => b.lesson === +lesson);
-  const cur = new Set(bd ? bd.lit : []), {set} = ipaLearned(), h = hit ? ipaBase(hit) : '';
+  const cur = new Set(bd ? bd.lit : []), {set} = ipaLearned(), h = hit ? ipaKey(hit) : '';
   const colh = (k, i) => { const t = ipaT(k); return `<span class="ipa-col">${i + 1}<small>${ipaEsc(t.short || t.ko.replace(/음$/, ''))}</small><small class="h">${ipaHanjaHtml(t.short_hanja || t.hanja || '')}</small></span>`; };
+  const zs = x => { const sy = IPA.symbols[x], snd = sy && sy.sound && ipaHasAudio(sy.sound) ? ipaTapAttrs(sy.sound, x + ' 소리') : ''; return `<span class="ipa-zs${set.has(x) ? ' on' : ''}${cur.has(x) ? ' cur' : ''}${x === h ? ' hit' : ''}"${snd}>${ipaEsc(x)}</span>`; };
   let g = `<div class="ipa-grid ipa-zoom-grid"><span></span>${IPA_COLS.map(colh).join('')}`;
   for (const r of IPA_ROWS) {
     const t = ipaT(r.ko);
@@ -406,15 +415,15 @@ function ipaZoomOpen(lesson, hit) {
     for (const c of r.cells) {
       if (c === null) { g += `<span class="ipa-cell empty"></span>`; continue; }
       const span = c.span || 1, v = c.v || c;
-      g += `<span class="ipa-cell" style="grid-column:span ${span}">${v.map(x => { const sy = IPA.symbols[x], snd = sy && sy.sound && ipaHasAudio(sy.sound) ? ipaTapAttrs(sy.sound, x + ' 소리') : ''; return `<span class="ipa-zs${set.has(x) ? ' on' : ''}${cur.has(x) ? ' cur' : ''}${x === h ? ' hit' : ''}"${snd}>${ipaEsc(x)}</span>`; }).join('')}</span>`;
+      g += `<span class="ipa-cell" style="grid-column:span ${span}">${v.map(zs).join('')}</span>`;
     }
   }
-  g += '</div>';
+  g += `${IPA_OFF_HEAD}${IPA_OFF.map(x => `<span class="ipa-cell">${zs(x)}</span>`).join('')}<span class="ipa-cell empty" style="grid-column:span ${11 - IPA_OFF.length}"></span></div>`;
   const ov = document.createElement('div');
   ov.className = 'ipa-zoom'; ov.setAttribute('role', 'dialog'); ov.setAttribute('aria-label', 'IPA 자음표');
   ov.innerHTML = `<div class="ipa-zoom-in"><div class="ipa-zoom-h"><b>IPA 자음표(폐 기류)</b><button type="button" class="ipa-zoom-x" aria-label="닫기">✕</button></div>
     <div class="ipa-map-wrap">${g}</div>
-    <p class="ipa-zoom-k"><span class="on">배운 칸</span><span class="cur">지금 묶음</span>${h ? '<span class="hit">맞힌 답</span>' : ''} · 가로는 입 앞(1 입술)에서 목 안(11 성문), 세로는 소리 내는 방법. 칸에 둘이면 앞(왼쪽·위)이 무성, 뒤(오른쪽·아래)가 유성. 국제음성학회 IPA 표(2020, CC BY-SA 4.0)</p></div>`;
+    <p class="ipa-zoom-k"><span class="on">배운 칸</span><span class="cur">지금 묶음</span>${h ? '<span class="hit">맞힌 답</span>' : ''} · 가로는 입 앞(1 입술)에서 목 안(11 성문), 세로는 소리 내는 방법. 칸에 둘이면 앞(왼쪽·위)이 무성, 뒤(오른쪽·아래)가 유성. 표 밖 줄은 IPA 표에 칸이 없는 기호: ɕ는 '기타 기호'에 있고, 파찰음은 두 기호를 이어 적는다. 국제음성학회 IPA 표(2020, CC BY-SA 4.0)</p></div>`;
   const close = () => { ov.remove(); document.removeEventListener('keydown', esc, true); if (typeof focusAnswerInput === 'function') focusAnswerInput(); };
   const esc = e => { if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); close(); } };
   ov.addEventListener('click', e => { if (e.target === ov || e.target.closest('.ipa-zoom-x')) close(); });
@@ -434,10 +443,10 @@ function ipaOnCorrect(w) {
   const mini = root.querySelector('.ipa-mini'); if (mini) mini.outerHTML = ipaMiniMap(w, sym);
   const bw = (IPA.byWord || {})[w.wid], sp = document.getElementById('catSpeech');
   if (bw && sp && !w.learn) { sp.textContent = bw; sp.hidden = false; }
-  const where = {bilabial: '입술', alveolar: '혀끝·잇몸', dental: '혀끝·이', velar: '혀뒤·여린입천장', uvular: '혀뒤·목젖', labiodental: '아랫입술·윗니', palatal: '혀 몸통·입천장', glottal: '목청'}[s.place] || '입';
+  const where = {bilabial: '입술', alveolar: '혀끝·잇몸', dental: '혀끝·이', velar: '혀뒤·여린입천장', uvular: '혀뒤·목젖', labiodental: '아랫입술·윗니', palatal: '혀 몸통·입천장', postalveolar: '혀·잇몸 뒤', alveolopalatal: '혀 앞면·입천장 앞', retroflex: '말아 올린 혀끝', glottal: '목청'}[s.place] || '입';
   const gl = (IPA.glottis || {})[s.glottis] || '';
   const steps = s.steps ? s.steps : s.vot
-    ? [`${where} 닫기`, `목청: ${gl}`, '터뜨림', {lead: '울림(닫을 때부터)', short: '울림(바로)', long: '바람 뒤 울림'}[s.vot]]
+    ? [`${where} 닫기`, `목청: ${gl}`, /파찰음/.test(s.name) ? '천천히 떼며 갈이(마찰)' : '터뜨림', {lead: '울림(닫을 때부터)', short: '울림(바로)', long: '바람 뒤 울림'}[s.vot]]
     : [`${where} 좁히기`, '목청 울림', '틈으로 바람'];
   const el = document.createElement('div');
   el.className = `ipa-anim vot-${s.vot || 'cont'}`;
@@ -490,8 +499,8 @@ function ipaRenderMap() {
       grid += `<span class="ipa-cell" style="grid-column:span ${span}">${v.map(sym).join('')}</span>`;
     }
   }
-  grid += '</div>';
-  const lit = [...set].length, all = IPA_ROWS.reduce((a, r) => a + r.cells.filter(Boolean).reduce((b, c) => b + (c.v || c).length, 0), 0);
+  grid += `${IPA_OFF_HEAD}${IPA_OFF.map(x => `<span class="ipa-cell">${sym(x)}</span>`).join('')}<span class="ipa-cell empty" style="grid-column:span ${11 - IPA_OFF.length}"></span></div>`;
+  const lit = [...set].length, all = IPA_ROWS.reduce((a, r) => a + r.cells.filter(Boolean).reduce((b, c) => b + (c.v || c).length, 0), 0) + IPA_OFF.length;
   el.innerHTML = `<div class="phead"><div style="flex:1;min-width:0"><h2>IPA 입 지도</h2><small>입술(1)에서 목청(11)까지 · 켠 칸 ${lit}/${all} · 점은 잠긴 칸 · 머리 칸을 누르면 용어 풀이</small></div></div>
     <div class="ipa-map-wrap">${grid}</div>
     <div class="ipa-dex" id="ipaDex"></div>

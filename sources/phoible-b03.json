@@ -1,5 +1,5 @@
 {
- "about": "PHOIBLE 2.0(Moran·McCloy 엮음, CC BY-SA 3.0)에서 이 묶음이 쓰는 목록의 입술소리 줄과 대조 결과. pipeline/phoible_check.py가 만든다. 손으로 고치지 않는다.",
+ "about": "PHOIBLE 2.0(Moran·McCloy 엮음, CC BY-SA 3.0)에서 이 묶음이 대조한 음소 줄과 대조 결과. pipeline/phoible_check.py가 만든다. 손으로 고치지 않는다.",
  "bundle": "b03",
  "results": [
   {
@@ -247,63 +247,7 @@
     "Kim1968",
     "Kim1972"
    ],
-   "rows": [
-    {
-     "phoneme": "m",
-     "allophones": "mb m",
-     "marginal": "NA"
-    },
-    {
-     "phoneme": "p",
-     "allophones": "p b p̚",
-     "marginal": "NA"
-    },
-    {
-     "phoneme": "pʰ",
-     "allophones": "pʰ",
-     "marginal": "NA"
-    },
-    {
-     "phoneme": "pˀ",
-     "allophones": "pˀ",
-     "marginal": "NA"
-    },
-    {
-     "phoneme": "w",
-     "allophones": "w",
-     "marginal": "NA"
-    },
-    {
-     "phoneme": "o",
-     "allophones": "o",
-     "marginal": "NA"
-    },
-    {
-     "phoneme": "oː",
-     "allophones": "oː",
-     "marginal": "NA"
-    },
-    {
-     "phoneme": "u",
-     "allophones": "u",
-     "marginal": "NA"
-    },
-    {
-     "phoneme": "uː",
-     "allophones": "uː",
-     "marginal": "NA"
-    },
-    {
-     "phoneme": "y",
-     "allophones": "y",
-     "marginal": "NA"
-    },
-    {
-     "phoneme": "ø",
-     "allophones": "ø",
-     "marginal": "NA"
-    }
-   ]
+   "rows": []
   },
   "1047": {
    "meta": {
@@ -317,48 +261,13 @@
    ],
    "rows": [
     {
-     "phoneme": "f",
-     "allophones": "f",
+     "phoneme": "k",
+     "allophones": "k",
      "marginal": "FALSE"
     },
     {
-     "phoneme": "m",
-     "allophones": "m",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "p",
-     "allophones": "p",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "pʰ",
-     "allophones": "pʰ",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "w",
-     "allophones": "w",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "ou",
-     "allophones": "ou",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "u",
-     "allophones": "u",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "uo",
-     "allophones": "uo",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "y",
-     "allophones": "y",
+     "phoneme": "kʰ",
+     "allophones": "kʰ",
      "marginal": "FALSE"
     }
    ]
@@ -375,53 +284,13 @@
    ],
    "rows": [
     {
-     "phoneme": "b",
-     "allophones": "b bː",
+     "phoneme": "k",
+     "allophones": "k kː",
      "marginal": "FALSE"
     },
     {
-     "phoneme": "f",
-     "allophones": "f fː",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "m",
-     "allophones": "m mː ɱ",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "p",
-     "allophones": "p pː",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "v",
-     "allophones": "v vː",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "w",
-     "allophones": "w",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "o",
-     "allophones": "o",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "u",
-     "allophones": "u",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "ɐ",
-     "allophones": "ɐ",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "ɔ",
-     "allophones": "ɔ",
+     "phoneme": "ɡ",
+     "allophones": "ɡ ɡː",
      "marginal": "FALSE"
     }
    ]
@@ -438,33 +307,13 @@
    ],
    "rows": [
     {
-     "phoneme": "b",
-     "allophones": "b",
+     "phoneme": "kʰ",
+     "allophones": "kʰ",
      "marginal": "FALSE"
     },
     {
-     "phoneme": "f",
-     "allophones": "f",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "m",
-     "allophones": "m",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "w",
-     "allophones": "w",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "u",
-     "allophones": "ʊ u",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "uu̯",
-     "allophones": "ɣ uu̯",
+     "phoneme": "ɣ",
+     "allophones": "ɣ",
      "marginal": "FALSE"
     }
    ]
@@ -481,53 +330,13 @@
    ],
    "rows": [
     {
-     "phoneme": "b",
-     "allophones": "b b̥",
+     "phoneme": "kʰ",
+     "allophones": "kʰ k",
      "marginal": "FALSE"
     },
     {
-     "phoneme": "f",
-     "allophones": "f",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "m",
-     "allophones": "m",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "pʰ",
-     "allophones": "pʰ p",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "v",
-     "allophones": "v",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "w",
-     "allophones": "w",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "oʊ",
-     "allophones": "oʊ o",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "u",
-     "allophones": "u",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "ɔ",
-     "allophones": "ɔ",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "ʊ",
-     "allophones": "ʊ",
+     "phoneme": "ɡ",
+     "allophones": "ɡ ɡ̥̊",
      "marginal": "FALSE"
     }
    ]
@@ -544,73 +353,13 @@
    ],
    "rows": [
     {
-     "phoneme": "b",
-     "allophones": "b",
+     "phoneme": "k",
+     "allophones": "k kʰ kx̟ kx̟ʰ",
      "marginal": "FALSE"
     },
     {
-     "phoneme": "f",
-     "allophones": "f",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "m",
-     "allophones": "m",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "p",
-     "allophones": "p pʰ pɸ̪ pɸ̪ʰ",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "v",
-     "allophones": "v",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "w",
-     "allophones": "w u",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "ɥ",
-     "allophones": "ɥ y",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "o",
-     "allophones": "o",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "u",
-     "allophones": "u w",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "y",
-     "allophones": "y ɥ",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "ø",
-     "allophones": "ø",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "œ",
-     "allophones": "œ",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "ɔ",
-     "allophones": "ɔ",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "ɔ̃",
-     "allophones": "ɔ̃",
+     "phoneme": "ɡ",
+     "allophones": "ɡ",
      "marginal": "FALSE"
     }
    ]
@@ -627,68 +376,13 @@
    ],
    "rows": [
     {
-     "phoneme": "b",
-     "allophones": "b",
+     "phoneme": "kʰ",
+     "allophones": "kʰ k",
      "marginal": "FALSE"
     },
     {
-     "phoneme": "f",
-     "allophones": "f",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "m",
-     "allophones": "m",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "pʰ",
-     "allophones": "pʰ p",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "v",
-     "allophones": "v",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "oː",
-     "allophones": "oː o",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "uː",
-     "allophones": "uː u",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "y",
-     "allophones": "y",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "øː",
-     "allophones": "øː ø",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "œ",
-     "allophones": "œ",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "ɔ",
-     "allophones": "ɔ",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "ʊ",
-     "allophones": "ʊ",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "ʏː",
-     "allophones": "ʏː ʏ",
+     "phoneme": "ɡ",
+     "allophones": "ɡ",
      "marginal": "FALSE"
     }
    ]
@@ -705,33 +399,13 @@
    ],
    "rows": [
     {
-     "phoneme": "b",
-     "allophones": "b v̠ β bʲ",
+     "phoneme": "k",
+     "allophones": "k kː kʲ",
      "marginal": "FALSE"
     },
     {
-     "phoneme": "m",
-     "allophones": "m mʲ",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "p",
-     "allophones": "p pː pʲ",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "w",
-     "allophones": "w w̹",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "o",
-     "allophones": "o",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "u",
-     "allophones": "u ɯ ü̜ ɯ̈ u̥",
+     "phoneme": "ɡ",
+     "allophones": "ɡ ɡʲ ŋ ɣ",
      "marginal": "FALSE"
     }
    ]
@@ -748,43 +422,18 @@
    ],
    "rows": [
     {
-     "phoneme": "m",
-     "allophones": "m",
+     "phoneme": "k",
+     "allophones": "k k̚",
      "marginal": "FALSE"
     },
     {
-     "phoneme": "p",
-     "allophones": "p p̚",
+     "phoneme": "kʰ",
+     "allophones": "kʰ k̚",
      "marginal": "FALSE"
     },
     {
-     "phoneme": "pʰ",
-     "allophones": "pʰ p̚",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "p͉",
-     "allophones": "p͉ b p͉̚",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "o",
-     "allophones": "o",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "oː",
-     "allophones": "oː",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "u",
-     "allophones": "u",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "uː",
-     "allophones": "uː",
+     "phoneme": "k͉",
+     "allophones": "k͉ ɡ k͉̚",
      "marginal": "FALSE"
     }
    ]
@@ -801,68 +450,13 @@
    ],
    "rows": [
     {
-     "phoneme": "b",
-     "allophones": "b",
+     "phoneme": "k",
+     "allophones": "k",
      "marginal": "FALSE"
     },
     {
-     "phoneme": "f",
-     "allophones": "f",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "m",
-     "allophones": "m",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "p",
-     "allophones": "p",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "v",
-     "allophones": "v",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "o",
-     "allophones": "o õ",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "oʊ̯",
-     "allophones": "oʊ̯",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "u",
-     "allophones": "u ʊ ũ",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "uʊ̯",
-     "allophones": "uʊ̯ u",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "ɐ̃ʊ̯̃",
-     "allophones": "ɐ̃ʊ̯̃",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "ɔ",
-     "allophones": "ɔ",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "ɔʊ̯",
-     "allophones": "ɔʊ̯",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "ʊ̯ɐ̃",
-     "allophones": "ʊ̯ɐ̃",
+     "phoneme": "ɡ",
+     "allophones": "ɡ",
      "marginal": "FALSE"
     }
    ]
@@ -879,43 +473,8 @@
    ],
    "rows": [
     {
-     "phoneme": "b",
-     "allophones": "b β̞",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "f",
-     "allophones": "f",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "m",
-     "allophones": "m ɱ",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "p",
-     "allophones": "p p",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "o",
-     "allophones": "o",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "ou̯",
-     "allophones": "ou̯",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "u",
-     "allophones": "u",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "u̯o",
-     "allophones": "u̯o",
+     "phoneme": "ɡ",
+     "allophones": "ɡ ɣ̞ ɰ",
      "marginal": "FALSE"
     }
    ]
@@ -932,62 +491,12 @@
    ],
    "rows": [
     {
-     "phoneme": "b",
+     "phoneme": "k",
      "allophones": "NA",
      "marginal": "FALSE"
     },
     {
-     "phoneme": "bʲ",
-     "allophones": "NA",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "f",
-     "allophones": "NA",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "fʲ",
-     "allophones": "NA",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "m",
-     "allophones": "NA",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "mʲ",
-     "allophones": "NA",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "p",
-     "allophones": "NA",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "pʲ",
-     "allophones": "NA",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "v",
-     "allophones": "NA",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "vʲ",
-     "allophones": "NA",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "o",
-     "allophones": "NA",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "u",
+     "phoneme": "ɡ",
      "allophones": "NA",
      "marginal": "FALSE"
     }
@@ -1003,58 +512,7 @@
    "bibtex": [
     "lee1989korean"
    ],
-   "rows": [
-    {
-     "phoneme": "b̥",
-     "allophones": "NA",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "m",
-     "allophones": "NA",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "p",
-     "allophones": "NA",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "pʰ",
-     "allophones": "NA",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "w",
-     "allophones": "NA",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "oː",
-     "allophones": "NA",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "o̞̜",
-     "allophones": "NA",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "uː",
-     "allophones": "NA",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "ɐ",
-     "allophones": "NA",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "ʊ̜",
-     "allophones": "NA",
-     "marginal": "FALSE"
-    }
-   ]
+   "rows": []
   },
   "2308": {
    "meta": {
@@ -1068,37 +526,7 @@
    ],
    "rows": [
     {
-     "phoneme": "b",
-     "allophones": "NA",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "f",
-     "allophones": "NA",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "m",
-     "allophones": "NA",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "p",
-     "allophones": "NA",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "o̞",
-     "allophones": "NA",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "u",
-     "allophones": "NA",
-     "marginal": "FALSE"
-    },
-    {
-     "phoneme": "u̯",
+     "phoneme": "k",
      "allophones": "NA",
      "marginal": "FALSE"
     }

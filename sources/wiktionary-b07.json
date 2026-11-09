@@ -1,0 +1,230 @@
+{
+ "about": "pipeline/wikt_compare.py 결과. Wiktionary(en.wiktionary.org, CC BY-SA 4.0) 낱말 문서의 전사와 대조만 했다. 우리 전사는 data/bundles에 있고 Wiktionary에서 가져오지 않았다.",
+ "fetched": "2026-11-06",
+ "bundle": "b07",
+ "rows": [
+  {
+   "word": "ko-jada",
+   "ours": "[tɕada]",
+   "wiktionary": [
+    "[tɕa̠da̠]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "ko-cha",
+   "ours": "[tɕʰa]",
+   "wiktionary": [
+    "[tɕʰa̠]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "ko-jjada",
+   "ours": "[t͈ɕada]",
+   "wiktionary": [
+    "[tɕ͈a̠da̠]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[tɕ͈a̠da̠]"
+   ]
+  },
+  {
+   "word": "en-chair",
+   "ours": "[tʃɛɚ]",
+   "wiktionary": [
+    "/tʃɛə/",
+    "/tʃɛː/",
+    "/tʃeɾ/",
+    "/tʃøː/",
+    "/tʃɜː(ɹ)/",
+    "/tʃɛɚ/",
+    "[tʃeːɹ]",
+    "[tʃɛːɹ]",
+    "/tʃeː/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/tʃɛə/",
+    "/tʃɛː/",
+    "/tʃeɾ/",
+    "/tʃøː/",
+    "/tʃɜː(ɹ)/",
+    "[tʃeːɹ]",
+    "[tʃɛːɹ]",
+    "/tʃeː/"
+   ]
+  },
+  {
+   "word": "en-jam",
+   "ours": "[dʒæm]",
+   "wiktionary": [
+    "/ˈdʒæm/",
+    "[ˈdʒeəm]",
+    "[ˈdʒɛəm]",
+    "/ˈdʒam/",
+    "/ˈdʒaːm/",
+    "/ˈdʒæːm/",
+    "[ˈdʒeːm]",
+    "[ˈdʒɛːm]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[ˈdʒeəm]",
+    "[ˈdʒɛəm]",
+    "/ˈdʒam/",
+    "/ˈdʒaːm/",
+    "/ˈdʒæːm/",
+    "[ˈdʒeːm]",
+    "[ˈdʒɛːm]"
+   ]
+  },
+  {
+   "word": "es-chocolate",
+   "ours": "[tʃokolate]",
+   "wiktionary": [
+    "/tʃokoˈlate/",
+    "[tʃo.koˈla.t̪e]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[tʃo.koˈla.t̪e]"
+   ]
+  },
+  {
+   "word": "ja-chizu",
+   "ours": "[tɕizɯ]",
+   "wiktionary": [
+    "[tɕizɨ]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[tɕizɨ]"
+   ]
+  },
+  {
+   "word": "pt-tipo",
+   "ours": "[tʃipu]",
+   "wiktionary": [
+    "/ˈtʃi.pu/",
+    "/ˈti.pu/",
+    "/ˈtʃi.pʷ/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ˈti.pu/",
+    "/ˈtʃi.pʷ/"
+   ]
+  },
+  {
+   "word": "pt-dia",
+   "ours": "[dʒiɐ]",
+   "wiktionary": [
+    "/ˈdʒi.ɐ/",
+    "/ˈdi.ɐ/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ˈdi.ɐ/"
+   ]
+  },
+  {
+   "word": "ru-tsvet",
+   "ours": "[tsvʲet]",
+   "wiktionary": [
+    "[tsvʲet]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "ru-chai",
+   "ours": "[tɕæj]",
+   "wiktionary": [
+    "[tɕæj]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "de-zeit",
+   "ours": "[tsaɪ̯t]",
+   "wiktionary": [
+    "[tsaɪ̯t]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "de-tschuess",
+   "ours": "[tʃʏs]",
+   "wiktionary": [
+    "/tʃʏs/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "it-grazie",
+   "ours": "[ɡrattsje]",
+   "wiktionary": [
+    "/ˈɡrat.tsje/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "it-zero",
+   "ours": "[dzɛro]",
+   "wiktionary": [
+    "/ˈdzɛ.ro/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "it-ciao",
+   "ours": "[tʃao]",
+   "wiktionary": [
+    "/stʃaʊ/",
+    "/ˈtʃa.o/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/stʃaʊ/"
+   ]
+  },
+  {
+   "word": "it-giorno",
+   "ours": "[dʒorno]",
+   "wiktionary": [
+    "/ˈdʒor.no/",
+    "/ˈdʒɔr.no/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ˈdʒɔr.no/"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,410 @@
+{
+ "about": "pipeline/wikt_compare.py 결과. Wiktionary(en.wiktionary.org, CC BY-SA 4.0) 낱말 문서의 전사와 대조만 했다. 우리 전사는 data/bundles에 있고 Wiktionary에서 가져오지 않았다.",
+ "fetched": "2026-11-06",
+ "bundle": "b06",
+ "rows": [
+  {
+   "word": "ko-so",
+   "ours": "[so]",
+   "wiktionary": [
+    "[sʰo̞]",
+    "[sʰo̞(ː)]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[sʰo̞]",
+    "[sʰo̞(ː)]"
+   ]
+  },
+  {
+   "word": "ko-saram",
+   "ours": "[saɾam]",
+   "wiktionary": [
+    "[ˈsʰa̠(ː)ɾa̠m]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[ˈsʰa̠(ː)ɾa̠m]"
+   ]
+  },
+  {
+   "word": "ko-si",
+   "ours": "[ɕi]",
+   "wiktionary": [
+    "[ɕʰi]",
+    "[ɕʰi(ː)]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[ɕʰi]",
+    "[ɕʰi(ː)]"
+   ]
+  },
+  {
+   "word": "en-sun",
+   "ours": "[sʌn]",
+   "wiktionary": [
+    "/sʌn/",
+    "/sʊn/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/sʊn/"
+   ]
+  },
+  {
+   "word": "en-zero",
+   "ours": "[zɪɹoʊ]",
+   "wiktionary": [
+    "/ˈzɪəɹəʊ/",
+    "/ˈzɪɹəʊ/",
+    "/ˈzɪːɹəw/",
+    "/ˈzɪɹoʊ/",
+    "/ˈziɹoʊ/",
+    "/ˈzɪə.ɹəʉ/",
+    "/ˈzɪə.ɹaʉ/",
+    "/ziː.roː/",
+    "/dʒiː.roː/",
+    "/siː.roː/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ˈzɪəɹəʊ/",
+    "/ˈzɪɹəʊ/",
+    "/ˈzɪːɹəw/",
+    "/ˈziɹoʊ/",
+    "/ˈzɪə.ɹəʉ/",
+    "/ˈzɪə.ɹaʉ/",
+    "/ziː.roː/",
+    "/dʒiː.roː/",
+    "/siː.roː/"
+   ]
+  },
+  {
+   "word": "en-ship",
+   "ours": "[ʃɪp]",
+   "wiktionary": [
+    "/ʃɪp/",
+    "/ʃəp/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ʃəp/"
+   ]
+  },
+  {
+   "word": "es-sol",
+   "ours": "[sol]",
+   "wiktionary": [
+    "/ˈsol/",
+    "[ˈsol]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "ja-sora",
+   "ours": "[soɾa]",
+   "wiktionary": [
+    "/sʷora/",
+    "/sora/",
+    "[so̞ɾa̠]",
+    "[ka̠ɾa̠]",
+    "[kɯ̟ː]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/sʷora/",
+    "/sora/",
+    "[ka̠ɾa̠]",
+    "[kɯ̟ː]"
+   ]
+  },
+  {
+   "word": "ja-shima",
+   "ours": "[ɕima]",
+   "wiktionary": [
+    "/sima/",
+    "/ɕima/",
+    "[ɕima̠]",
+    "/tau/",
+    "/tɔː/",
+    "/toː/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/sima/",
+    "/tau/",
+    "/tɔː/",
+    "/toː/"
+   ]
+  },
+  {
+   "word": "zh-si",
+   "ours": "[sɹ̩˥˩]",
+   "wiktionary": [
+    "/sɹ̩⁵¹/",
+    "/sɹ̩²¹³/",
+    "/sɹ̩⁵⁵/",
+    "/sɹ̩⁴⁴/, /sɹ̩³¹/, /ʂɻ̩⁴⁴/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/sɹ̩⁵¹/",
+    "/sɹ̩²¹³/",
+    "/sɹ̩⁵⁵/",
+    "/sɹ̩⁴⁴/, /sɹ̩³¹/, /ʂɻ̩⁴⁴/"
+   ]
+  },
+  {
+   "word": "zh-xiao",
+   "ours": "[ɕjau˨˩˦]",
+   "wiktionary": [
+    "/ɕi̯ɑʊ̯²¹⁴/",
+    "/ɕiau⁵³/",
+    "/siɔ¹¹/",
+    "/ɕiɔː⁵¹/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ɕi̯ɑʊ̯²¹⁴/",
+    "/ɕiau⁵³/",
+    "/siɔ¹¹/",
+    "/ɕiɔː⁵¹/"
+   ]
+  },
+  {
+   "word": "zh-shu",
+   "ours": "[ʂu˥]",
+   "wiktionary": [
+    "/ʂu⁵⁵/",
+    "/su⁵⁵/",
+    "/fu²¹/",
+    "/ʂu³¹/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ʂu⁵⁵/",
+    "/su⁵⁵/",
+    "/fu²¹/",
+    "/ʂu³¹/"
+   ]
+  },
+  {
+   "word": "fr-sac",
+   "ours": "[sak]",
+   "wiktionary": [
+    "/sak/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "fr-zero",
+   "ours": "[zeʁo]",
+   "wiktionary": [
+    "/ze.ʁo/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "fr-chat",
+   "ours": "[ʃa]",
+   "wiktionary": [
+    "/ʃa/",
+    "[ʃɑ]",
+    "[ʃɔ]",
+    "/tʃat/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[ʃɑ]",
+    "[ʃɔ]",
+    "/tʃat/"
+   ]
+  },
+  {
+   "word": "fr-jour",
+   "ours": "[ʒuʁ]",
+   "wiktionary": [
+    "/ʒuʁ/",
+    "/ʒʊːʁ/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ʒʊːʁ/"
+   ]
+  },
+  {
+   "word": "pt-sopa",
+   "ours": "[sopɐ]",
+   "wiktionary": [
+    "/ˈso.pɐ/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "pt-casa-z",
+   "ours": "[kazɐ]",
+   "wiktionary": [
+    "/ˈka.zɐ/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "pt-ja",
+   "ours": "[ʒa]",
+   "wiktionary": [
+    "/ˈʒa/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "ru-sok",
+   "ours": "[sok]",
+   "wiktionary": [
+    "[sok]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "ru-shum",
+   "ours": "[ʂum]",
+   "wiktionary": [
+    "[ʂum]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "ru-zhuk",
+   "ours": "[ʐuk]",
+   "wiktionary": [
+    "[ʐuk]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "de-glas",
+   "ours": "[ɡlaːs]",
+   "wiktionary": [
+    "/ɡlaːs/",
+    "/ɡlas/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ɡlas/"
+   ]
+  },
+  {
+   "word": "de-sonne",
+   "ours": "[zɔnə]",
+   "wiktionary": [
+    "/ˈzɔnə/",
+    "/ˈsɔnɛ/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ˈsɔnɛ/"
+   ]
+  },
+  {
+   "word": "de-schuh",
+   "ours": "[ʃuː]",
+   "wiktionary": [
+    "/ʃuː/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "it-sole",
+   "ours": "[sole]",
+   "wiktionary": [
+    "/ˈso.le/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "it-sci",
+   "ours": "[ʃi]",
+   "wiktionary": [
+    "/ˈʃi/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "ar-suq",
+   "ours": "[suːq]",
+   "wiktionary": [
+    "/suːq/",
+    "/suːʔ/",
+    "/suːɡ/",
+    "/sawq/",
+    "/saw.wa.qa/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/suːʔ/",
+    "/suːɡ/",
+    "/sawq/",
+    "/saw.wa.qa/"
+   ]
+  },
+  {
+   "word": "ar-shams",
+   "ours": "[ʃams]",
+   "wiktionary": [
+    "/ʃams/",
+    "/ʃa.ma.sa/",
+    "/ʃa.mi.sa/",
+    "/ʃam.ma.sa/",
+    "/ʃa.mas/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ʃa.ma.sa/",
+    "/ʃa.mi.sa/",
+    "/ʃam.ma.sa/",
+    "/ʃa.mas/"
+   ]
+  }
+ ]
+}

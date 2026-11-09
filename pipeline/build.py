@@ -5,7 +5,7 @@
   발음고양 덧붙임은 pipeline/ipa_extra.js·ipa_extra.css.
 - 원본: data/(묶음·기호·언어·발음 용어·시리즈 대사), sources/(음원·서지·파형), assets/cat/goyang-cat.json(고양고양이, 보카고양과 같은 자료).
   index.html만 고치면 다음 조립 때 사라진다.
-- 묶음 하나 = 틀의 '강' 하나(data/bundles/b01.json → 01강, b02 → 02강). 연습은 배우기 → 한국어와 견주기 → 듣고 고르기 → 전사 빈칸(PRINCIPLES 8-2).
+- 묶음 하나 = 틀의 '강' 하나(data/bundles/b01.json → 01강, b02 → 02강). 연습은 이름 대기·한국어 → 이름 대기·영어 → 듣고 고르기 → 전사 빈칸(PRINCIPLES 8-3, 26.11.08에 배우기·한국어와 견주기를 뺐다).
   전사 빈칸은 틀의 '원문 속 빈칸'(MT_CONTEXTS)을 쓴다: 원문 자리에 전사, 빈칸에 대상 기호.
 - 녹음 파일(assets/audio/<id>.mp3)이 없는 음원은 재생 단추 대신 '녹음 준비 중'이 뜨고, 듣고 고르기에서 빠진다.
 - --check: index.html이 원본과 맞는지만 본다. --artifact: claude.ai 미리보기용 한 파일(문서 껍데기를 빼고 글꼴·녹음을 data: 주소로).

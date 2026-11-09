@@ -77,10 +77,12 @@
 .ipa-explay{display:flex;align-items:center;gap:4px;justify-content:flex-end}
 .ipa-explay .ipa-spk{display:none}
 /* 카드 위 작은 지도 */
-.ipa-mini{position:relative;z-index:3;display:grid;width:max-content;grid-template-columns:repeat(11,6px);grid-template-rows:repeat(8,5px);gap:1px;flex:none;padding:3px;border:1px solid var(--line);border-radius:5px;background:rgba(0,0,0,.18);margin:0 auto}
+.ipa-mini{position:relative;z-index:3;display:grid;width:max-content;grid-template-columns:repeat(11,6px);grid-template-rows:repeat(8,5px) 2px 5px;gap:1px;flex:none;padding:3px;border:1px solid var(--line);border-radius:5px;background:rgba(0,0,0,.18);margin:0 auto}
 .ipa-learn .ipa-mini{margin:2px auto 6px}
 .ipa-mini i{display:block;border-radius:1px;background:rgba(255,255,255,.13)}
 .ipa-mini i.e{background:transparent}
+.ipa-mini i.off{border-radius:3px}
+.ipa-offh{cursor:default;border-top:1px dashed var(--line);padding-top:3px}
 .ipa-mini i.cur{background:var(--cyan);animation:ipaBlink 1.2s steps(2) infinite}
 .ipa-mini i.hit{background:var(--gold);box-shadow:0 0 4px var(--gold)}
 /* 맞힘 그림: 닫기(0~1.0s) → 목청(0.45s~) → 터뜨림·바람(1.0s~) → 울림(소리 시작 띠에 따라) */

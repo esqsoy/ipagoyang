@@ -397,6 +397,33 @@
     "word_no": "444424"
    },
    "status": "확인"
+  },
+  "파찰음": {
+   "ko": "파찰음",
+   "hanja": "破擦音",
+   "en": "affricate",
+   "group": "manner",
+   "source": {
+    "ref": "stdict",
+    "word_no": "353622"
+   },
+   "status": "확인"
+  },
+  "치경구개음": {
+   "ko": "치경구개음",
+   "hanja": "齒莖口蓋音",
+   "en": "alveolo-palatal",
+   "group": "place",
+   "short": "치경구개",
+   "short_hanja": "齒莖口蓋",
+   "source": {
+    "ref": "stdict",
+    "composed_from": [
+     "치경음 333062",
+     "경구개음 19815"
+    ]
+   },
+   "status": "사전 표제어 없음: 구성 요소의 사전 한자로 맞춤"
   }
  }
 }

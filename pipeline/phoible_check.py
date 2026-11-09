@@ -71,14 +71,21 @@ def main():
                 if not ok:
                     bad += 1
                 absent.append({'inv': k, 'seg': s, 'ok': ok, 'found_in': hit})
+        # 결과 파일에는 이 묶음 낱말이 대조한 음소 줄과 absent 줄만 남긴다(26.11.09: 전에는 입술소리 줄만 남겼다)
+        segs = collections.defaultdict(set)
+        for w in b['words']:
+            if w.get('phoible'):
+                segs[w['phoible']['inv']].add(w['phoible']['seg'])
+        for k, ss in b.get('absent', {}).items():
+            segs[int(k)].update(ss)
         keep = {}
         for k in used:
             keep[str(k)] = {
                 'meta': meta.get(k), 'bibtex': bib.get(k, []),
                 'rows': [{'phoneme': r['Phoneme'], 'allophones': r['Allophones'], 'marginal': r['Marginal']}
-                         for r in inv.get(k, []) if r['labial'] == '+' or r['Phoneme'][0] in 'pbmɸβfv']
+                         for r in inv.get(k, []) if r['Phoneme'] in segs.get(k, set())]
             }
-        out = {'about': 'PHOIBLE 2.0(Moran·McCloy 엮음, CC BY-SA 3.0)에서 이 묶음이 쓰는 목록의 입술소리 줄과 대조 결과. pipeline/phoible_check.py가 만든다. 손으로 고치지 않는다.',
+        out = {'about': 'PHOIBLE 2.0(Moran·McCloy 엮음, CC BY-SA 3.0)에서 이 묶음이 대조한 음소 줄과 대조 결과. pipeline/phoible_check.py가 만든다. 손으로 고치지 않는다.',
                'bundle': bid, 'results': results, 'absent': absent, 'inventories': keep}
         dst = os.path.join(ROOT, 'sources', f'phoible-{bid}.json')
         json.dump(out, open(dst, 'w', encoding='utf-8'), ensure_ascii=False, indent=1)

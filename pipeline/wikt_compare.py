@@ -4,6 +4,7 @@
 - 받은 전사.json: {"<언어>:<낱말>": {"ipa": ["/.../", "[...]", ...]}} (en.wiktionary.org 낱말 문서의 그 언어 절에서 뽑은 IPA)
 - Wiktionary 전사는 가져다 쓰지 않는다. 대조 결과만 sources/wiktionary-<묶음>.json에 남긴다(인용한 짧은 전사는 CC BY-SA 4.0, en.wiktionary.org).
 - 대상 소리가 없으면 '다름'으로 적고 끝 상태 1. 대상 밖 차이(다른 자리의 기호)는 사람이 보라고 따로 적는다.
+- 파찰음 잇는 줄(͡)은 떼고 견준다(Wiktionary t͡s = 우리 ts).
 """
 import json, os, sys, re
 
@@ -16,7 +17,8 @@ def main():
     rows, bad = [], 0
     for w in b['words']:
         key = f"{w['lang']}:{w['text']}"
-        theirs = [x for x in got.get(key, {}).get('ipa', []) if x.startswith(('/', '[')) and len(x) > 3]
+        # 파찰음 잇는 줄(t͡s의 ͡)은 떼고 견준다. 우리 전사는 ts로 적는다.
+        theirs = [x.replace('\u0361', '') for x in got.get(key, {}).get('ipa', []) if x.startswith(('/', '[')) and len(x) > 3]
         ours = ''.join(w['ipa'])
         accept = w.get('accept') or [w['target']]
         tgt = w['ipa'][1]

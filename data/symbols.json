@@ -878,6 +878,565 @@
    "status": "확인",
    "status_why": "PHOIBLE과 대조",
    "sound": "ipa-theta"
+  },
+  "s": {
+   "name": "무성 치경 마찰음",
+   "name_hanja": "無聲 齒莖 摩擦音",
+   "name_en": "voiceless alveolar fricative",
+   "answers": [
+    {
+     "ko": "무성 치경 마찰음",
+     "en": "voiceless alveolar fricative"
+    }
+   ],
+   "how": "혀끝을 윗잇몸 가까이 대고 좁은 틈으로 바람을 세게 낸다(쉿 소리). 목청은 울리지 않는다.",
+   "ko": "한국어 ㅅ(사과). 한국어 ㅅ은 바람이 조금 섞여 [sʰ]로 적는 문헌도 있다.",
+   "place": "alveolar",
+   "lips": null,
+   "glottis": "open",
+   "vot": null,
+   "sagittal": "s",
+   "evidence": [
+    {
+     "src": "phoible",
+     "note": "한국어 2197 /s͉/(ㅅ, 변이음 z·ɕ), 영어 2176 /s/, 스페인어 2210 /s/, 일본어 2196 /s/, 포르투갈어 2207 /s̪/, 프랑스어 2182 /s̪/, 중국어 1047 /s/, 러시아어 2261 /s/, 독일어 2184 /s/, 이탈리아어 1145 /s/, 아랍어 2157 /s/"
+    }
+   ],
+   "status": "확인 필요",
+   "status_why": "한국어 ㅅ의 기식([sʰ])은 1차 출처 본문 미열람",
+   "other": "PHOIBLE 2197(Lee 1993)은 ㅅ을 [s͉], ㅆ을 [s]로 적는다. 이 게임은 ㅅ [s], ㅆ [s͈].",
+   "steps": [
+    "혀끝을 잇몸 가까이",
+    "목청은 쉼",
+    "좁은 틈으로 바람"
+   ],
+   "sound": "ipa-s"
+  },
+  "s͈": {
+   "name": "무성 경음 치경 마찰음",
+   "name_hanja": "無聲 硬音 齒莖 摩擦音",
+   "name_en": "voiceless tense (fortis) alveolar fricative",
+   "answers": [
+    {
+     "ko": "무성 경음 치경 마찰음",
+     "en": "voiceless tense (fortis) alveolar fricative"
+    },
+    {
+     "ko": "무성 경음 치경 마찰음",
+     "en": "voiceless tense alveolar fricative"
+    }
+   ],
+   "how": "목청을 조이고 [s]보다 세고 짧게 낸다.",
+   "ko": "한국어 ㅆ(쌀). 밑의 ͈ 표시는 p͈·t͈·k͈와 같다. ㅣ 앞에서는 [ɕ͈]가 된다(씨).",
+   "place": "alveolar",
+   "lips": null,
+   "glottis": "tight",
+   "vot": null,
+   "sagittal": "s",
+   "evidence": [
+    {
+     "src": "phoible",
+     "note": "한국어 2197 /s/(ㅆ. 이 목록은 경음 줄을 표시 없이 적는다. 변이음 칸에는 ɕʰ로 적혀 있다)"
+    }
+   ],
+   "status": "확인 필요",
+   "status_why": "묶음 1의 p͈와 같은 사정",
+   "steps": [
+    "혀끝을 잇몸 가까이",
+    "목청을 조이기",
+    "세고 짧은 바람"
+   ]
+  },
+  "z": {
+   "name": "유성 치경 마찰음",
+   "name_hanja": "有聲 齒莖 摩擦音",
+   "name_en": "voiced alveolar fricative",
+   "answers": [
+    {
+     "ko": "유성 치경 마찰음",
+     "en": "voiced alveolar fricative"
+    }
+   ],
+   "how": "[s]처럼 바람을 내면서 목청을 울린다(벌 소리).",
+   "ko": "한국어에 음소로는 없다. 한국어 화자는 ㅈ으로 듣기 쉽다(zoo → 주). PHOIBLE 2197(Lee 1993)은 ㅅ의 변이음에 z를 적어 두었다(모음 사이, 확인 필요).",
+   "place": "alveolar",
+   "lips": null,
+   "glottis": "voiced",
+   "vot": null,
+   "sagittal": "z",
+   "evidence": [
+    {
+     "src": "phoible",
+     "note": "영어 2176 /z/, 프랑스어 2182 /z̪/, 포르투갈어 2207 /z/, 러시아어 2261 /z/, 독일어 2184 /z/, 이탈리아어 1145 /z/, 일본어 2196 /z/(변이음 dz·dʑ·ʑ), 아랍어 2157 /z/"
+    }
+   ],
+   "status": "확인",
+   "status_why": "PHOIBLE 목록 일곱 곳에 음소로 있다",
+   "steps": [
+    "혀끝을 잇몸 가까이",
+    "목청 울림",
+    "좁은 틈으로 바람"
+   ],
+   "sound": "ipa-z"
+  },
+  "ʃ": {
+   "name": "무성 후치경 마찰음",
+   "name_hanja": "無聲 後齒莖 摩擦音",
+   "name_en": "voiceless postalveolar fricative",
+   "answers": [
+    {
+     "ko": "무성 후치경 마찰음",
+     "en": "voiceless postalveolar fricative"
+    }
+   ],
+   "how": "혀를 [s]보다 조금 뒤(잇몸 뒤)로 물리고 입술을 조금 내밀며 바람을 낸다(쉬 소리).",
+   "ko": "한국어에 없다. 한국어 화자는 ㅅ·쉬로 듣는다(ship → 십, shoe → 슈).",
+   "place": "postalveolar",
+   "lips": null,
+   "glottis": "open",
+   "vot": null,
+   "sagittal": "sh",
+   "evidence": [
+    {
+     "src": "phoible",
+     "note": "영어 2176 /ʃ/, 프랑스어 2182 /ʃ/, 포르투갈어 2207 /ʃ/, 독일어 2184 /ʃ/, 이탈리아어 1145 /ʃ/, 아랍어 2157 /ʃ/"
+    }
+   ],
+   "status": "확인",
+   "status_why": "PHOIBLE 목록 여섯 곳에 음소로 있다",
+   "steps": [
+    "혀를 잇몸 뒤로",
+    "목청은 쉼",
+    "좁은 틈으로 바람"
+   ],
+   "sound": "ipa-esh"
+  },
+  "ʒ": {
+   "name": "유성 후치경 마찰음",
+   "name_hanja": "有聲 後齒莖 摩擦音",
+   "name_en": "voiced postalveolar fricative",
+   "answers": [
+    {
+     "ko": "유성 후치경 마찰음",
+     "en": "voiced postalveolar fricative"
+    }
+   ],
+   "how": "[ʃ]처럼 내면서 목청을 울린다.",
+   "ko": "한국어에 없다. 프랑스어 j(jour), 포르투갈어 j(já).",
+   "place": "postalveolar",
+   "lips": null,
+   "glottis": "voiced",
+   "vot": null,
+   "sagittal": "zh",
+   "evidence": [
+    {
+     "src": "phoible",
+     "note": "프랑스어 2182 /ʒ/, 포르투갈어 2207 /ʒ/, 영어 2176 /ʒ/, 독일어 2184 /ʒ/"
+    }
+   ],
+   "status": "확인",
+   "status_why": "PHOIBLE 목록 네 곳에 음소로 있다",
+   "steps": [
+    "혀를 잇몸 뒤로",
+    "목청 울림",
+    "좁은 틈으로 바람"
+   ],
+   "sound": "ipa-ezh"
+  },
+  "ɕ": {
+   "name": "무성 치경구개 마찰음",
+   "name_hanja": "無聲 齒莖口蓋 摩擦音",
+   "name_en": "voiceless alveolo-palatal fricative",
+   "answers": [
+    {
+     "ko": "무성 치경구개 마찰음",
+     "en": "voiceless alveolo-palatal fricative"
+    }
+   ],
+   "how": "혀 앞쪽 넓은 면을 잇몸과 입천장 사이에 가까이 대고 바람을 낸다. [ʃ]보다 혀가 넓게 닿는다.",
+   "ko": "한국어 ㅅ이 i 앞에서 이 소리다(시). 일본어 し, 중국어 병음 x(西).",
+   "place": "alveolopalatal",
+   "lips": null,
+   "glottis": "open",
+   "vot": null,
+   "sagittal": "sh",
+   "evidence": [
+    {
+     "src": "phoible",
+     "note": "한국어 2197 /s͉/(ㅅ)의 변이음 ɕ, 일본어 2196 /s/의 변이음 ɕ, 중국어 1047 /ɕ/, 러시아어 2261 /ɕː/(щ, 긴 소리)"
+    }
+   ],
+   "status": "확인 필요",
+   "status_why": "소리 근거는 PHOIBLE에 있다. 입 옆모습은 원본에 ɕ 그림이 없어 ʃ 그림을 빌렸다",
+   "other": "IPA 표의 폐 기류 자음표에는 칸이 없고 '기타 기호'에 있다. 그래서 지도에 켜지는 칸이 없다.",
+   "steps": [
+    "혀 앞 넓은 면을 입천장 가까이",
+    "목청은 쉼",
+    "좁은 틈으로 바람"
+   ],
+   "sound": "ipa-c-curl"
+  },
+  "ʂ": {
+   "name": "무성 권설 마찰음",
+   "name_hanja": "無聲 捲舌 摩擦音",
+   "name_en": "voiceless retroflex fricative",
+   "answers": [
+    {
+     "ko": "무성 권설 마찰음",
+     "en": "voiceless retroflex fricative"
+    }
+   ],
+   "how": "혀끝을 뒤로 말아 들고 잇몸 뒤에 가까이 대어 바람을 낸다.",
+   "ko": "한국어에 없다. 중국어 병음 sh(书), 러시아어 ш(шар).",
+   "place": "retroflex",
+   "lips": null,
+   "glottis": "open",
+   "vot": null,
+   "sagittal": "r_retroflex",
+   "evidence": [
+    {
+     "src": "phoible",
+     "note": "중국어 1047 /ʃ̺/(병음 sh), 러시아어 2261 /ʂ/(ш)"
+    }
+   ],
+   "status": "확인",
+   "status_why": "러시아어는 PHOIBLE에 /ʂ/. 중국어는 표기 관례가 다르다(other)",
+   "steps": [
+    "혀끝을 뒤로 말기",
+    "목청은 쉼",
+    "좁은 틈으로 바람"
+   ],
+   "other": "PHOIBLE 1047(Lee·Zee 2003, 베이징)은 중국어 권설음을 혀끝 후치경음 [ʃ̺]·[t̠ʃ]·[t̠ʃ̺ʰ]로 적는다. 이 게임은 흔히 쓰는 권설 기호 [ʂ]·[tʂ]·[tʂʰ]로 적는다.",
+   "sound": "ipa-s-retro"
+  },
+  "ʐ": {
+   "name": "유성 권설 마찰음",
+   "name_hanja": "有聲 捲舌 摩擦音",
+   "name_en": "voiced retroflex fricative",
+   "answers": [
+    {
+     "ko": "유성 권설 마찰음",
+     "en": "voiced retroflex fricative"
+    }
+   ],
+   "how": "[ʂ]처럼 내면서 목청을 울린다.",
+   "ko": "한국어에 없다. 러시아어 ж(жук).",
+   "place": "retroflex",
+   "lips": null,
+   "glottis": "voiced",
+   "vot": null,
+   "sagittal": "r_retroflex",
+   "evidence": [
+    {
+     "src": "phoible",
+     "note": "러시아어 2261 /ʐ/(ж)"
+    }
+   ],
+   "status": "확인",
+   "status_why": "PHOIBLE 2261에 음소로 있다",
+   "steps": [
+    "혀끝을 뒤로 말기",
+    "목청 울림",
+    "좁은 틈으로 바람"
+   ],
+   "other": "중국어 병음 r(日·人)을 [ʐ]로 적는 문헌도 있지만 PHOIBLE 1047은 [ɹ]로 적는다. 이 게임은 중국어 r을 묶음 4에서 다룬다.",
+   "sound": "ipa-z-retro"
+  },
+  "ts": {
+   "name": "무성 치경 파찰음",
+   "name_hanja": "無聲 齒莖 破擦音",
+   "name_en": "voiceless alveolar affricate",
+   "answers": [
+    {
+     "ko": "무성 치경 파찰음",
+     "en": "voiceless alveolar affricate"
+    }
+   ],
+   "how": "혀끝으로 막았다가([t]) 천천히 떼며 [s]로 이어 낸다.",
+   "ko": "한국어에 없다. 독일어 z(Zeit), 러시아어 ц, 일본어 つ, 중국어 병음 z(在).",
+   "place": "alveolar",
+   "lips": null,
+   "glottis": "open",
+   "vot": "short",
+   "sagittal": "s",
+   "evidence": [
+    {
+     "src": "phoible",
+     "note": "독일어 2398 /ts/(2184 Kohler 1990에는 파찰음 칸이 따로 없다), 러시아어 2261 /t̪s/, 일본어 2196 /ts/, 중국어 1047 /ts/, 이탈리아어 1145 /ts/"
+    }
+   ],
+   "status": "확인",
+   "status_why": "PHOIBLE 목록 다섯 곳에 음소로 있다",
+   "sound": "ipa-ts"
+  },
+  "tsʰ": {
+   "name": "무성 유기 치경 파찰음",
+   "name_hanja": "無聲 有氣 齒莖 破擦音",
+   "name_en": "voiceless aspirated alveolar affricate",
+   "answers": [
+    {
+     "ko": "무성 유기 치경 파찰음",
+     "en": "voiceless aspirated alveolar affricate"
+    }
+   ],
+   "how": "[ts] 뒤에 바람이 더 샌다.",
+   "ko": "한국어에 없다. 중국어 병음 c(菜).",
+   "place": "alveolar",
+   "lips": null,
+   "glottis": "wide",
+   "vot": "long",
+   "sagittal": "s",
+   "evidence": [
+    {
+     "src": "phoible",
+     "note": "중국어 1047 /tsʰ/"
+    }
+   ],
+   "status": "확인",
+   "status_why": "PHOIBLE 1047에 음소로 있다"
+  },
+  "dz": {
+   "name": "유성 치경 파찰음",
+   "name_hanja": "有聲 齒莖 破擦音",
+   "name_en": "voiced alveolar affricate",
+   "answers": [
+    {
+     "ko": "유성 치경 파찰음",
+     "en": "voiced alveolar affricate"
+    }
+   ],
+   "how": "[ts]처럼 내면서 목청을 울린다.",
+   "ko": "한국어에 없다. 이탈리아어 z(zero).",
+   "place": "alveolar",
+   "lips": null,
+   "glottis": "voiced",
+   "vot": "lead",
+   "sagittal": "z",
+   "evidence": [
+    {
+     "src": "phoible",
+     "note": "이탈리아어 1145 /dz/, 일본어 2196 /z/의 변이음 dz"
+    }
+   ],
+   "status": "확인",
+   "status_why": "PHOIBLE 1145에 음소로 있다",
+   "sound": "ipa-dz"
+  },
+  "tʃ": {
+   "name": "무성 후치경 파찰음",
+   "name_hanja": "無聲 後齒莖 破擦音",
+   "name_en": "voiceless postalveolar affricate",
+   "answers": [
+    {
+     "ko": "무성 후치경 파찰음",
+     "en": "voiceless postalveolar affricate"
+    }
+   ],
+   "how": "혀를 잇몸 뒤에 붙였다가 떼며 [ʃ]로 이어 낸다.",
+   "ko": "한국어 ㅊ·ㅈ과 비슷하게 들리지만 혀 자리가 다르다(ㅈ은 [tɕ]). 영어 ch(chair), 스페인어 ch(chico), 이탈리아어 ci(cena).",
+   "place": "postalveolar",
+   "lips": null,
+   "glottis": "open",
+   "vot": "short",
+   "sagittal": "sh",
+   "evidence": [
+    {
+     "src": "phoible",
+     "note": "영어 2176 /t̠ʃ/, 스페인어 2210 /t̠ʃ/, 이탈리아어 1145 /t̠ʃ/, 독일어 2398 /t̠ʃ/(2184에는 없다), 포르투갈어 2207 /t̪/의 변이음 t̪ʃ̟(브라질, i 앞)"
+    }
+   ],
+   "status": "확인",
+   "status_why": "PHOIBLE 목록 네 곳에 음소로 있다",
+   "sound": "ipa-tsh"
+  },
+  "dʒ": {
+   "name": "유성 후치경 파찰음",
+   "name_hanja": "有聲 後齒莖 破擦音",
+   "name_en": "voiced postalveolar affricate",
+   "answers": [
+    {
+     "ko": "유성 후치경 파찰음",
+     "en": "voiced postalveolar affricate"
+    }
+   ],
+   "how": "[tʃ]처럼 내면서 목청을 울린다.",
+   "ko": "한국어 ㅈ이 모음 사이에서 비슷하게 울린다. 영어 j(jam), 이탈리아어 gi(gelato), 아랍어 ج.",
+   "place": "postalveolar",
+   "lips": null,
+   "glottis": "voiced",
+   "vot": "lead",
+   "sagittal": "zh",
+   "evidence": [
+    {
+     "src": "phoible",
+     "note": "영어 2176 /d̠ʒ/, 이탈리아어 1145 /d̠ʒ/, 아랍어 2157 /d̪ʒ/, 독일어 2398 /d̠ʒ/, 포르투갈어 2207 /d̪/의 변이음 d̪ʒ̟(브라질, i 앞)"
+    }
+   ],
+   "status": "확인",
+   "status_why": "PHOIBLE 목록 네 곳에 음소로 있다",
+   "sound": "ipa-dzh"
+  },
+  "tɕ": {
+   "name": "무성 치경구개 파찰음",
+   "name_hanja": "無聲 齒莖口蓋 破擦音",
+   "name_en": "voiceless alveolo-palatal affricate",
+   "answers": [
+    {
+     "ko": "무성 치경구개 파찰음",
+     "en": "voiceless alveolo-palatal affricate"
+    }
+   ],
+   "how": "혀 앞 넓은 면을 잇몸 뒤·입천장에 붙였다가 떼며 [ɕ]로 이어 낸다.",
+   "ko": "한국어 ㅈ(자). 일본어 ち, 중국어 병음 j(鸡), 러시아어 ч.",
+   "place": "alveolopalatal",
+   "lips": null,
+   "glottis": "open",
+   "vot": "short",
+   "sagittal": "sh",
+   "evidence": [
+    {
+     "src": "phoible",
+     "note": "한국어 2197 /t͉ɕ͉/(ㅈ), 중국어 1047 /tɕ/, 일본어 2196 /ts/의 변이음 tɕ, 러시아어 2261 /tɕ/(ч)"
+    }
+   ],
+   "status": "확인 필요",
+   "status_why": "한국어 ㅈ을 문헌마다 [tɕ]·[tʃ]·[ts]로 다르게 적는다",
+   "other": "PHOIBLE 2197은 ㅈ을 [t͉ɕ͉], ㅉ을 [tɕ](경음 줄)로 적는다.",
+   "sound": "ipa-tc"
+  },
+  "tɕʰ": {
+   "name": "무성 유기 치경구개 파찰음",
+   "name_hanja": "無聲 有氣 齒莖口蓋 破擦音",
+   "name_en": "voiceless aspirated alveolo-palatal affricate",
+   "answers": [
+    {
+     "ko": "무성 유기 치경구개 파찰음",
+     "en": "voiceless aspirated alveolo-palatal affricate"
+    }
+   ],
+   "how": "[tɕ] 뒤에 바람이 더 샌다.",
+   "ko": "한국어 ㅊ(차). 중국어 병음 q(七).",
+   "place": "alveolopalatal",
+   "lips": null,
+   "glottis": "wide",
+   "vot": "long",
+   "sagittal": "sh",
+   "evidence": [
+    {
+     "src": "phoible",
+     "note": "한국어 2197 /tɕʰ/(ㅊ), 중국어 1047 /tɕʰ/"
+    }
+   ],
+   "status": "확인",
+   "status_why": "PHOIBLE 목록 두 곳에 음소로 있다"
+  },
+  "t͈ɕ": {
+   "name": "무성 경음 치경구개 파찰음",
+   "name_hanja": "無聲 硬音 齒莖口蓋 破擦音",
+   "name_en": "voiceless tense (fortis) alveolo-palatal affricate",
+   "answers": [
+    {
+     "ko": "무성 경음 치경구개 파찰음",
+     "en": "voiceless tense (fortis) alveolo-palatal affricate"
+    }
+   ],
+   "how": "목청을 조이고 바람 없이 [tɕ]를 낸다.",
+   "ko": "한국어 ㅉ(짜다).",
+   "place": "alveolopalatal",
+   "lips": null,
+   "glottis": "tight",
+   "vot": "short",
+   "sagittal": "sh",
+   "evidence": [
+    {
+     "src": "phoible",
+     "note": "한국어 2197 /tɕ/(ㅉ. 이 목록은 경음 줄을 표시 없이 적는다)"
+    }
+   ],
+   "status": "확인 필요",
+   "status_why": "묶음 1의 p͈와 같은 사정(͈ 표시의 근거)"
+  },
+  "dʑ": {
+   "name": "유성 치경구개 파찰음",
+   "name_hanja": "有聲 齒莖口蓋 破擦音",
+   "name_en": "voiced alveolo-palatal affricate",
+   "answers": [
+    {
+     "ko": "유성 치경구개 파찰음",
+     "en": "voiced alveolo-palatal affricate"
+    }
+   ],
+   "how": "[tɕ]처럼 내면서 목청을 울린다.",
+   "ko": "한국어 ㅈ이 모음 사이에서 이 소리에 가깝다. 일본어 じ(時間).",
+   "place": "alveolopalatal",
+   "lips": null,
+   "glottis": "voiced",
+   "vot": "lead",
+   "sagittal": "sh",
+   "evidence": [
+    {
+     "src": "phoible",
+     "note": "일본어 2196 /z/의 변이음 dʑ"
+    }
+   ],
+   "status": "확인",
+   "status_why": "PHOIBLE 2196에 변이음으로 있다",
+   "sound": "ipa-dz-curl"
+  },
+  "tʂ": {
+   "name": "무성 권설 파찰음",
+   "name_hanja": "無聲 捲舌 破擦音",
+   "name_en": "voiceless retroflex affricate",
+   "answers": [
+    {
+     "ko": "무성 권설 파찰음",
+     "en": "voiceless retroflex affricate"
+    }
+   ],
+   "how": "혀끝을 뒤로 말아 붙였다가 떼며 [ʂ]로 이어 낸다.",
+   "ko": "한국어에 없다. 중국어 병음 zh(中).",
+   "place": "retroflex",
+   "lips": null,
+   "glottis": "open",
+   "vot": "short",
+   "sagittal": "r_retroflex",
+   "evidence": [
+    {
+     "src": "phoible",
+     "note": "중국어 1047 /t̠ʃ/(병음 zh)"
+    }
+   ],
+   "status": "확인",
+   "status_why": "표기 관례가 다르다(other)",
+   "other": "PHOIBLE 1047(Lee·Zee 2003, 베이징)은 중국어 권설음을 혀끝 후치경음 [ʃ̺]·[t̠ʃ]·[t̠ʃ̺ʰ]로 적는다. 이 게임은 흔히 쓰는 권설 기호 [ʂ]·[tʂ]·[tʂʰ]로 적는다.",
+   "sound": "ipa-ts-retro"
+  },
+  "tʂʰ": {
+   "name": "무성 유기 권설 파찰음",
+   "name_hanja": "無聲 有氣 捲舌 破擦音",
+   "name_en": "voiceless aspirated retroflex affricate",
+   "answers": [
+    {
+     "ko": "무성 유기 권설 파찰음",
+     "en": "voiceless aspirated retroflex affricate"
+    }
+   ],
+   "how": "[tʂ] 뒤에 바람이 더 샌다.",
+   "ko": "한국어에 없다. 중국어 병음 ch(茶).",
+   "place": "retroflex",
+   "lips": null,
+   "glottis": "wide",
+   "vot": "long",
+   "sagittal": "r_retroflex",
+   "evidence": [
+    {
+     "src": "phoible",
+     "note": "중국어 1047 /t̠ʃ̺ʰ/(병음 ch)"
+    }
+   ],
+   "status": "확인",
+   "status_why": "표기 관례가 다르다(other)",
+   "other": "PHOIBLE 1047(Lee·Zee 2003, 베이징)은 중국어 권설음을 혀끝 후치경음 [ʃ̺]·[t̠ʃ]·[t̠ʃ̺ʰ]로 적는다. 이 게임은 흔히 쓰는 권설 기호 [ʂ]·[tʂ]·[tʂʰ]로 적는다."
   }
  },
  "glottis": {

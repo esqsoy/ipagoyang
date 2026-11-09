@@ -1,0 +1,738 @@
+{
+ "id": "b06",
+ "title": "치찰음",
+ "symbols_title": "[s] [s͈] [z] [ʃ] [ʒ] [ɕ] [ʂ] [ʐ]",
+ "about": "묶음 6 원본(PRINCIPLES 8-5: 치찰음). 한국어 ㅅ·ㅆ과 ㅣ 앞의 [ɕ], 한국어에 없는 z·ʃ·ʒ·ʂ·ʐ. 그 소리가 있는 언어는 다 넣는다(8-7).",
+ "place": "alveolar",
+ "learn": [
+  "s",
+  "s͈",
+  "z",
+  "ʃ",
+  "ʒ",
+  "ɕ",
+  "ʂ",
+  "ʐ"
+ ],
+ "lit": [
+  "s",
+  "z",
+  "ʃ",
+  "ʒ",
+  "ʂ",
+  "ʐ",
+  "ɕ"
+ ],
+ "keyboard": [
+  [
+   "s",
+   "s͈",
+   "z"
+  ],
+  [
+   "ʃ",
+   "ʒ",
+   "ɕ"
+  ],
+  [
+   "ʂ",
+   "ʐ"
+  ]
+ ],
+ "shortcuts": {},
+ "compare": [],
+ "lines": {
+  "correct": [
+   "쉿, 맞았다고양.",
+   "혀끝 자리를 잘 짚었다고양. 쉿소리는 혀가 다 한다고양."
+  ],
+  "wrong": [
+   "혀가 어디 붙는지 다시 보라고양. 잇몸이냐, 그 뒤냐, 말아 올렸냐.",
+   "ㅅ이라고 다 같은 ㅅ이 아니라고양. 시의 ㅅ은 혀가 넓게 닿는다고양."
+  ],
+  "by_word": {
+   "fr-chat": "chat는 고양이라고양. 나다고양. 입술을 내밀고 쉬 한다고양.",
+   "ko-si": "시의 ㅅ은 소의 ㅅ과 다르다고양. 혀 앞이 넓게 붙는다고양.",
+   "en-zero": "z는 s에 목 울림을 얹은 거라고양. 목에 손을 대 보라고양.",
+   "ru-zhuk": "ж는 혀끝을 들고 목을 울린다고양. 벌레 날갯소리 같다고양.",
+   "zh-shu": "书의 sh는 혀끝을 말아 올린다고양. 영어 sh랑 다르다고양."
+  },
+  "end": "쉿소리 칸이 켜졌다고양. 표 밖 줄에도 하나 켜졌다고양."
+ },
+ "feel": [
+  {
+   "for": [
+    "s",
+    "z"
+   ],
+   "text": "'스—' 하고 길게 낸다(s). 그대로 목을 울리면 [z]다. 손가락을 목울대에 대면 z에서만 떨린다."
+  },
+  {
+   "for": [
+    "s",
+    "ɕ"
+   ],
+   "text": "'사'와 '시'를 번갈아 속삭여 본다. '시'에서 혀 앞 넓은 면이 입천장 쪽으로 붙는 느낌이 [ɕ]다."
+  },
+  {
+   "for": [
+    "ʃ",
+    "ʂ"
+   ],
+   "text": "입술을 조금 내밀고 '쉬—' 하면 [ʃ]에 가깝다. 혀끝을 위로 든 채로 내면 [ʂ]에 가까워진다."
+  }
+ ],
+ "absent": {
+  "2197": [
+   "ʃ",
+   "ʒ",
+   "ʂ",
+   "ʐ"
+  ]
+ },
+ "absent_about": "한국어 2197에 ʃ·ʒ·ʂ·ʐ가 없어야 '한국어에 없다'가 맞다. z는 2197이 ㅅ의 변이음으로 적어 두어 넣지 않았다.",
+ "audio_plan": "",
+ "words": [
+  {
+   "id": "ko-so",
+   "lang": "kor",
+   "text": "소",
+   "roman": "so",
+   "ko": "소(동물)",
+   "ipa": [
+    "",
+    "s",
+    "o"
+   ],
+   "target": "s",
+   "phoible": {
+    "inv": 2197,
+    "seg": "s͉"
+   },
+   "note": "ㅅ은 숨이 조금 섞여 Wiktionary는 [sʰ]로, PHOIBLE 2197(Lee 1993)은 약한 [s͉]로 적는다. 이 게임은 ㅂ을 [p]로 쓰듯 ㅅ을 [s]로 쓴다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2197 /s͉/",
+   "audio": "ko-so-chk2605"
+  },
+  {
+   "id": "ko-saram",
+   "lang": "kor",
+   "text": "사람",
+   "roman": "saram",
+   "ko": "사람",
+   "ipa": [
+    "",
+    "s",
+    "aɾam"
+   ],
+   "target": "s",
+   "phoible": {
+    "inv": 2197,
+    "seg": "s͉"
+   },
+   "note": "ㅅ은 숨이 조금 섞여 Wiktionary는 [sʰ]로, PHOIBLE 2197(Lee 1993)은 약한 [s͉]로 적는다. 이 게임은 ㅂ을 [p]로 쓰듯 ㅅ을 [s]로 쓴다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2197 /s͉/",
+   "audio": "ko-saram-happymidnight"
+  },
+  {
+   "id": "ko-si",
+   "lang": "kor",
+   "text": "시",
+   "roman": "si",
+   "ko": "시(詩·時)",
+   "ipa": [
+    "",
+    "ɕ",
+    "i"
+   ],
+   "target": "ɕ",
+   "phoible": {
+    "inv": 2197,
+    "seg": "s͉",
+    "allo": "ɕ"
+   },
+   "note": "ㅅ이 ㅣ 앞에서 [ɕ]가 된다. Wiktionary는 숨이 섞인 [ɕʰi]로 적는다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2197 /s͉/의 변이음 ɕ",
+   "audio": "ko-si-happymidnight"
+  },
+  {
+   "id": "en-sun",
+   "lang": "eng",
+   "text": "sun",
+   "roman": "sun",
+   "ko": "해",
+   "ipa": [
+    "",
+    "s",
+    "ʌn"
+   ],
+   "target": "s",
+   "phoible": {
+    "inv": 2176,
+    "seg": "s"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2176 /s/",
+   "audio": "en-sun-grendelkhan",
+   "audio_more": [
+    "en-sun-wodencafe",
+    "en-sun-muldoonsamuel55"
+   ]
+  },
+  {
+   "id": "en-zero",
+   "lang": "eng",
+   "text": "zero",
+   "roman": "zero",
+   "ko": "영(0)",
+   "ipa": [
+    "",
+    "z",
+    "ɪɹoʊ"
+   ],
+   "target": "z",
+   "phoible": {
+    "inv": 2176,
+    "seg": "z"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2176 /z/",
+   "audio": "en-zero-grendelkhan"
+  },
+  {
+   "id": "en-ship",
+   "lang": "eng",
+   "text": "ship",
+   "roman": "ship",
+   "ko": "배",
+   "ipa": [
+    "",
+    "ʃ",
+    "ɪp"
+   ],
+   "target": "ʃ",
+   "phoible": {
+    "inv": 2176,
+    "seg": "ʃ"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2176 /ʃ/",
+   "audio": "en-ship-grendelkhan",
+   "audio_more": [
+    "en-ship-wodencafe"
+   ]
+  },
+  {
+   "id": "es-sol",
+   "lang": "spa",
+   "text": "sol",
+   "roman": "sol",
+   "ko": "해",
+   "ipa": [
+    "",
+    "s",
+    "ol"
+   ],
+   "target": "s",
+   "phoible": {
+    "inv": 2210,
+    "seg": "s"
+   },
+   "note": "녹음은 스페인 화자다. 스페인 중북부의 s는 혀끝을 세운 소리라 중남미 s와 조금 다르게 들린다고 흔히 설명한다(확인 필요: 1차 출처 본문).",
+   "status": "확인",
+   "status_why": "PHOIBLE 2210 /s/",
+   "audio": "es-sol-rodelar"
+  },
+  {
+   "id": "ja-sora",
+   "lang": "jpn",
+   "text": "空",
+   "roman": "sora",
+   "ko": "하늘",
+   "ipa": [
+    "",
+    "s",
+    "oɾa"
+   ],
+   "target": "s",
+   "phoible": {
+    "inv": 2196,
+    "seg": "s"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2196 /s/",
+   "audio": "ja-sora-wanikani-male"
+  },
+  {
+   "id": "ja-shima",
+   "lang": "jpn",
+   "text": "島",
+   "roman": "shima",
+   "ko": "섬",
+   "ipa": [
+    "",
+    "ɕ",
+    "ima"
+   ],
+   "target": "ɕ",
+   "phoible": {
+    "inv": 2196,
+    "seg": "s",
+    "allo": "ɕ"
+   },
+   "note": "し의 자음은 [ɕ]다(PHOIBLE 2196은 /s/의 변이음). 녹음은 관서 억양 화자다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2196 /s/의 변이음 ɕ",
+   "audio": "ja-shima-wanikani-female"
+  },
+  {
+   "id": "zh-si",
+   "lang": "cmn",
+   "text": "四",
+   "roman": "sì",
+   "ko": "넷(4)",
+   "ipa": [
+    "",
+    "s",
+    "ɹ̩˥˩"
+   ],
+   "target": "s",
+   "phoible": {
+    "inv": 1047,
+    "seg": "s"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 1047 /s/",
+   "audio": "zh-si4-luilui6666",
+   "audio_more": [
+    "zh-si4-yunjiao"
+   ]
+  },
+  {
+   "id": "zh-xiao",
+   "lang": "cmn",
+   "text": "小",
+   "roman": "xiǎo",
+   "ko": "작다",
+   "ipa": [
+    "",
+    "ɕ",
+    "jau˨˩˦"
+   ],
+   "target": "ɕ",
+   "phoible": {
+    "inv": 1047,
+    "seg": "ɕ"
+   },
+   "note": "병음 x는 [ɕ]다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 1047 /ɕ/",
+   "audio": "zh-xiao3-yunjiao"
+  },
+  {
+   "id": "zh-shu",
+   "lang": "cmn",
+   "text": "书",
+   "roman": "shū",
+   "ko": "책",
+   "ipa": [
+    "",
+    "ʂ",
+    "u˥"
+   ],
+   "target": "ʂ",
+   "phoible": {
+    "inv": 1047,
+    "seg": "ʃ̺"
+   },
+   "note": "PHOIBLE 1047은 중국어 권설음을 혀끝 후치경음([ʃ̺])로 적는다. 이 게임은 [ʂ]로 쓴다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 1047 /ʃ̺/",
+   "audio": "zh-shu1-luilui6666"
+  },
+  {
+   "id": "fr-sac",
+   "lang": "fra",
+   "text": "sac",
+   "roman": "sac",
+   "ko": "가방",
+   "ipa": [
+    "",
+    "s",
+    "ak"
+   ],
+   "target": "s",
+   "phoible": {
+    "inv": 2182,
+    "seg": "s̪"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2182 /s̪/",
+   "audio": "fr-sac-poslovitch",
+   "audio_more": [
+    "fr-sac-loquaxfr",
+    "fr-sac-sartus85"
+   ]
+  },
+  {
+   "id": "fr-zero",
+   "lang": "fra",
+   "text": "zéro",
+   "roman": "zéro",
+   "ko": "영(0)",
+   "ipa": [
+    "",
+    "z",
+    "eʁo"
+   ],
+   "target": "z",
+   "phoible": {
+    "inv": 2182,
+    "seg": "z̪"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2182 /z̪/",
+   "audio": "fr-zero-poslovitch",
+   "audio_more": [
+    "fr-zero-loquaxfr",
+    "fr-zero-sartus85"
+   ]
+  },
+  {
+   "id": "fr-chat",
+   "lang": "fra",
+   "text": "chat",
+   "roman": "chat",
+   "ko": "고양이",
+   "ipa": [
+    "",
+    "ʃ",
+    "a"
+   ],
+   "target": "ʃ",
+   "phoible": {
+    "inv": 2182,
+    "seg": "ʃ"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2182 /ʃ/",
+   "audio": "fr-chat-poslovitch",
+   "audio_more": [
+    "fr-chat-loquaxfr",
+    "fr-chat-sartus85"
+   ]
+  },
+  {
+   "id": "fr-jour",
+   "lang": "fra",
+   "text": "jour",
+   "roman": "jour",
+   "ko": "날",
+   "ipa": [
+    "",
+    "ʒ",
+    "uʁ"
+   ],
+   "target": "ʒ",
+   "phoible": {
+    "inv": 2182,
+    "seg": "ʒ"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2182 /ʒ/",
+   "audio": "fr-jour-poslovitch",
+   "audio_more": [
+    "fr-jour-loquaxfr",
+    "fr-jour-sartus85"
+   ]
+  },
+  {
+   "id": "pt-sopa",
+   "lang": "por",
+   "text": "sopa",
+   "roman": "sopa",
+   "ko": "수프",
+   "ipa": [
+    "",
+    "s",
+    "opɐ"
+   ],
+   "target": "s",
+   "phoible": {
+    "inv": 2207,
+    "seg": "s̪"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2207 /s̪/",
+   "audio": "pt-sopa-medk1"
+  },
+  {
+   "id": "pt-casa-z",
+   "lang": "por",
+   "text": "casa",
+   "roman": "casa",
+   "ko": "집",
+   "ipa": [
+    "ka",
+    "z",
+    "ɐ"
+   ],
+   "target": "z",
+   "phoible": {
+    "inv": 2207,
+    "seg": "z"
+   },
+   "note": "모음 사이의 s는 [z]로 난다. 묶음 3에서는 첫소리 [k]를 들었다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2207 /z/",
+   "audio": "pt-casa-sillim"
+  },
+  {
+   "id": "pt-ja",
+   "lang": "por",
+   "text": "já",
+   "roman": "já",
+   "ko": "벌써",
+   "ipa": [
+    "",
+    "ʒ",
+    "a"
+   ],
+   "target": "ʒ",
+   "phoible": {
+    "inv": 2207,
+    "seg": "ʒ"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2207 /ʒ/",
+   "audio": "pt-ja-sillim",
+   "audio_more": [
+    "pt-ja-jnpojuwan"
+   ]
+  },
+  {
+   "id": "ru-sok",
+   "lang": "rus",
+   "text": "сок",
+   "roman": "sok",
+   "ko": "주스(즙)",
+   "ipa": [
+    "",
+    "s",
+    "ok"
+   ],
+   "target": "s",
+   "phoible": {
+    "inv": 2261,
+    "seg": "s"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2261 /s/",
+   "audio": "ru-sok-tatianakerbush"
+  },
+  {
+   "id": "ru-shum",
+   "lang": "rus",
+   "text": "шум",
+   "roman": "shum",
+   "ko": "소음",
+   "ipa": [
+    "",
+    "ʂ",
+    "um"
+   ],
+   "target": "ʂ",
+   "phoible": {
+    "inv": 2261,
+    "seg": "ʂ"
+   },
+   "note": "러시아어 ш는 영어 sh와 달리 혀끝을 들어 [ʂ]로 난다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2261 /ʂ/",
+   "audio": "ru-shum-tatianakerbush"
+  },
+  {
+   "id": "ru-zhuk",
+   "lang": "rus",
+   "text": "жук",
+   "roman": "zhuk",
+   "ko": "딱정벌레",
+   "ipa": [
+    "",
+    "ʐ",
+    "uk"
+   ],
+   "target": "ʐ",
+   "phoible": {
+    "inv": 2261,
+    "seg": "ʐ"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2261 /ʐ/",
+   "audio": "ru-zhuk-lvova"
+  },
+  {
+   "id": "de-glas",
+   "lang": "deu",
+   "text": "Glas",
+   "roman": "Glas",
+   "ko": "유리·잔",
+   "ipa": [
+    "ɡlaː",
+    "s",
+    ""
+   ],
+   "target": "s",
+   "phoible": {
+    "inv": 2184,
+    "seg": "s"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2184 /s/",
+   "audio": "de-glas-wallroth",
+   "audio_more": [
+    "de-glas-lucaswerkmeister",
+    "de-glas-jeuwre"
+   ]
+  },
+  {
+   "id": "de-sonne",
+   "lang": "deu",
+   "text": "Sonne",
+   "roman": "Sonne",
+   "ko": "해",
+   "ipa": [
+    "",
+    "z",
+    "ɔnə"
+   ],
+   "target": "z",
+   "phoible": {
+    "inv": 2184,
+    "seg": "z"
+   },
+   "note": "독일어 s는 모음 앞 첫소리에서 [z]다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2184 /z/",
+   "audio": "de-sonne-wallroth",
+   "audio_more": [
+    "de-sonne-ionenlaser",
+    "de-sonne-lucaswerkmeister"
+   ]
+  },
+  {
+   "id": "de-schuh",
+   "lang": "deu",
+   "text": "Schuh",
+   "roman": "Schuh",
+   "ko": "신발",
+   "ipa": [
+    "",
+    "ʃ",
+    "uː"
+   ],
+   "target": "ʃ",
+   "phoible": {
+    "inv": 2184,
+    "seg": "ʃ"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2184 /ʃ/",
+   "audio": "de-schuh-wallroth",
+   "audio_more": [
+    "de-schuh-jeuwre"
+   ]
+  },
+  {
+   "id": "it-sole",
+   "lang": "ita",
+   "text": "sole",
+   "roman": "sole",
+   "ko": "해",
+   "ipa": [
+    "",
+    "s",
+    "ole"
+   ],
+   "target": "s",
+   "phoible": {
+    "inv": 1145,
+    "seg": "s"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 1145 /s/",
+   "audio": "it-sole-langpao",
+   "audio_more": [
+    "it-sole-xana000",
+    "it-sole-ciampix"
+   ]
+  },
+  {
+   "id": "it-sci",
+   "lang": "ita",
+   "text": "sci",
+   "roman": "sci",
+   "ko": "스키",
+   "ipa": [
+    "",
+    "ʃ",
+    "i"
+   ],
+   "target": "ʃ",
+   "phoible": {
+    "inv": 1145,
+    "seg": "ʃ"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 1145 /ʃ/",
+   "audio": "it-sci-langpao",
+   "audio_more": [
+    "it-sci-ciampix"
+   ]
+  },
+  {
+   "id": "ar-suq",
+   "lang": "arb",
+   "text": "سوق",
+   "roman": "sūq",
+   "ko": "시장",
+   "ipa": [
+    "",
+    "s",
+    "uːq"
+   ],
+   "target": "s",
+   "phoible": {
+    "inv": 2157,
+    "seg": "s"
+   },
+   "note": "녹음은 모로코 아랍어 화자다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2157 /s/",
+   "audio": "ar-suq-fenakhay"
+  },
+  {
+   "id": "ar-shams",
+   "lang": "arb",
+   "text": "شمس",
+   "roman": "shams",
+   "ko": "해",
+   "ipa": [
+    "",
+    "ʃ",
+    "ams"
+   ],
+   "target": "ʃ",
+   "phoible": {
+    "inv": 2157,
+    "seg": "ʃ"
+   },
+   "note": "녹음은 모로코 아랍어 화자다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2157 /ʃ/",
+   "audio": "ar-shams-fenakhay"
+  }
+ ]
+}

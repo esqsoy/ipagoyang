@@ -1,0 +1,359 @@
+{
+ "about": "PHOIBLE 2.0(Moran·McCloy 엮음, CC BY-SA 3.0)에서 이 묶음이 대조한 음소 줄과 대조 결과. pipeline/phoible_check.py가 만든다. 손으로 고치지 않는다.",
+ "bundle": "b07",
+ "results": [
+  {
+   "word": "ko-jada",
+   "inv": 2197,
+   "seg": "t͉ɕ͉",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "ko-cha",
+   "inv": 2197,
+   "seg": "tɕʰ",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "ko-jjada",
+   "inv": 2197,
+   "seg": "tɕ",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "en-chair",
+   "inv": 2176,
+   "seg": "t̠ʃ",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "en-jam",
+   "inv": 2176,
+   "seg": "d̠ʒ",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "es-chocolate",
+   "inv": 2210,
+   "seg": "t̠ʃ",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "ja-chizu",
+   "inv": 2196,
+   "seg": "ts",
+   "allo": "tɕ",
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "pt-tipo",
+   "inv": 2207,
+   "seg": "t̪",
+   "allo": "t̪ʃ̟",
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "pt-dia",
+   "inv": 2207,
+   "seg": "d̪",
+   "allo": "d̪ʒ̟",
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "ru-tsvet",
+   "inv": 2261,
+   "seg": "t̪s",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "ru-chai",
+   "inv": 2261,
+   "seg": "tɕ",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "de-zeit",
+   "inv": 2398,
+   "seg": "ts",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "de-tschuess",
+   "inv": 2398,
+   "seg": "t̠ʃ",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "it-grazie",
+   "inv": 1145,
+   "seg": "ts",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "it-zero",
+   "inv": 1145,
+   "seg": "dz",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "it-ciao",
+   "inv": 1145,
+   "seg": "t̠ʃ",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "it-giorno",
+   "inv": 1145,
+   "seg": "d̠ʒ",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  }
+ ],
+ "absent": [
+  {
+   "inv": 2197,
+   "seg": "ts",
+   "ok": true,
+   "found_in": []
+  },
+  {
+   "inv": 2197,
+   "seg": "dz",
+   "ok": true,
+   "found_in": []
+  },
+  {
+   "inv": 2197,
+   "seg": "t̠ʃ",
+   "ok": true,
+   "found_in": []
+  },
+  {
+   "inv": 2197,
+   "seg": "d̠ʒ",
+   "ok": true,
+   "found_in": []
+  }
+ ],
+ "inventories": {
+  "1145": {
+   "meta": {
+    "iso": "ita",
+    "name": "Italian",
+    "dialect": "Mainstream Italian'''",
+    "source": "ph"
+   },
+   "bibtex": [
+    "ita_rogers2004"
+   ],
+   "rows": [
+    {
+     "phoneme": "dz",
+     "allophones": "dz",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "d̠ʒ",
+     "allophones": "d̠ʒ dːʒ",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "ts",
+     "allophones": "ts",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "t̠ʃ",
+     "allophones": "t̠ʃ tːʃ",
+     "marginal": "FALSE"
+    }
+   ]
+  },
+  "2176": {
+   "meta": {
+    "iso": "eng",
+    "name": "American English",
+    "dialect": "Southeastern Michigan",
+    "source": "ph"
+   },
+   "bibtex": [
+    "eng_hillenbrand2003"
+   ],
+   "rows": [
+    {
+     "phoneme": "d̠ʒ",
+     "allophones": "d̠ʒ",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "t̠ʃ",
+     "allophones": "t̠ʃ",
+     "marginal": "FALSE"
+    }
+   ]
+  },
+  "2196": {
+   "meta": {
+    "iso": "jpn",
+    "name": "Japanese",
+    "dialect": "Japanese (Tokyo or other areas with similar pitch accent systems)",
+    "source": "ph"
+   },
+   "bibtex": [
+    "jpn_okada1991"
+   ],
+   "rows": [
+    {
+     "phoneme": "ts",
+     "allophones": "ts tːs tɕ",
+     "marginal": "FALSE"
+    }
+   ]
+  },
+  "2197": {
+   "meta": {
+    "iso": "kor",
+    "name": "Korean",
+    "dialect": "Standard Korean (spoken in and around Seoul)",
+    "source": "ph"
+   },
+   "bibtex": [
+    "kor_lee1993"
+   ],
+   "rows": [
+    {
+     "phoneme": "tɕ",
+     "allophones": "tɕ t̚",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "tɕʰ",
+     "allophones": "tɕʰ t̚",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "t͉ɕ͉",
+     "allophones": "t͉ɕ͉ t̚",
+     "marginal": "FALSE"
+    }
+   ]
+  },
+  "2207": {
+   "meta": {
+    "iso": "por",
+    "name": "Portuguese (Brazilian)",
+    "dialect": "São Paulo",
+    "source": "ph"
+   },
+   "bibtex": [
+    "por_barbosa2004"
+   ],
+   "rows": [
+    {
+     "phoneme": "d̪",
+     "allophones": "d̪ d̪ʒ̟",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "t̪",
+     "allophones": "t̪ t̪ʃ̟",
+     "marginal": "FALSE"
+    }
+   ]
+  },
+  "2210": {
+   "meta": {
+    "iso": "spa",
+    "name": "Spanish",
+    "dialect": "Castilian Spanish",
+    "source": "ph"
+   },
+   "bibtex": [
+    "spa_martinez-celdra2003"
+   ],
+   "rows": [
+    {
+     "phoneme": "t̠ʃ",
+     "allophones": "t̠ʃ",
+     "marginal": "FALSE"
+    }
+   ]
+  },
+  "2261": {
+   "meta": {
+    "iso": "rus",
+    "name": "Russian",
+    "dialect": "Russian (Standard)",
+    "source": "ea"
+   },
+   "bibtex": [
+    "yanushevskaya2015russian"
+   ],
+   "rows": [
+    {
+     "phoneme": "tɕ",
+     "allophones": "NA",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "t̪s",
+     "allophones": "NA",
+     "marginal": "FALSE"
+    }
+   ]
+  },
+  "2398": {
+   "meta": {
+    "iso": "deu",
+    "name": "German",
+    "dialect": "German (Standard)",
+    "source": "ea"
+   },
+   "bibtex": [
+    "hall2000phonologie"
+   ],
+   "rows": [
+    {
+     "phoneme": "ts",
+     "allophones": "NA",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "t̠ʃ",
+     "allophones": "NA",
+     "marginal": "FALSE"
+    }
+   ]
+  }
+ }
+}
