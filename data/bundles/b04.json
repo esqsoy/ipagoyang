@@ -1,0 +1,591 @@
+{
+ "id": "b04",
+ "title": "흐름소리(유음)",
+ "symbols_title": "[l] [ɾ] [r] [ɹ] [ʁ]",
+ "about": "묶음 4 원본(PRINCIPLES 8-5: 유음 r/l). 한국어 ㄹ의 두 소리([l]·[ɾ]), 영어 r, 스페인어 두 r, 프랑스어·독일어 목 r. 그 소리가 있는 언어는 다 넣는다(8-7).",
+ "place": "alveolar",
+ "learn": [
+  "l",
+  "ɾ",
+  "r",
+  "ɹ",
+  "ʁ"
+ ],
+ "lit": [
+  "l",
+  "ɾ",
+  "r",
+  "ɹ",
+  "ʁ"
+ ],
+ "keyboard": [
+  [
+   "l",
+   "ɾ",
+   "r",
+   "ɹ"
+  ],
+  [
+   "ʁ"
+  ]
+ ],
+ "shortcuts": {},
+ "compare": [],
+ "lines": {
+  "correct": [
+   "혀끝이 춤을 췄다고양.",
+   "ㄹ 하나로 소리가 둘이라고양. 한국 귀도 이건 모른다고양."
+  ],
+  "wrong": [
+   "혀끝이 닿았냐, 떨었냐, 안 닿았냐 셋 중 하나라고양.",
+   "r는 다섯 가지라고양. 하나만 알면 안 된다고양."
+  ],
+  "by_word": {
+   "ko-meori": "머리의 ㄹ은 한 번 툭이라고양. 발의 ㄹ은 붙이고 있고라고양.",
+   "es-perro": "pero는 툭, perro는 드르륵이라고양. 개는 드르륵 짖는다고양.",
+   "fr-rouge": "목구멍 r이라고양. 가글하듯 하라고양. ㅎㅎ",
+   "en-red": "영어 r은 혀가 아무 데도 안 닿는다고양.",
+   "zh-ren": "중국어 r은 책마다 다르게 적는다고양. 고양이도 헷갈린다고양."
+  },
+  "end": "ㄹ 칸이 켜졌다고양. 이제 r 다섯 형제를 다 만났다고양."
+ },
+ "feel": [
+  {
+   "for": [
+    "l",
+    "ɾ"
+   ],
+   "text": "'발'과 '머리'를 천천히 말해 본다. '발'의 ㄹ은 혀끝이 잇몸에 붙은 채 머물고, '머리'의 ㄹ은 한 번 툭 치고 떨어진다."
+  },
+  {
+   "for": [
+    "r",
+    "ɾ"
+   ],
+   "text": "혀끝을 잇몸에 가볍게 대고 '드르르' 하며 숨을 세게 내 본다. 혀끝이 여러 번 떨리면 [r], 한 번만 치면 [ɾ]다."
+  }
+ ],
+ "absent": {
+  "2197": [
+   "r",
+   "ɹ",
+   "ʁ"
+  ]
+ },
+ "absent_about": "한국어 2197에 r·ɹ·ʁ가 없어야 '한국어에 없다'가 맞다.",
+ "audio_plan": "모두 Commons·Lingua Libre 녹음(PRINCIPLES 8-10). 한국어 발·머리는 호로조(경기).",
+ "words": [
+  {
+   "id": "ko-bal",
+   "lang": "kor",
+   "text": "발",
+   "roman": "bal",
+   "ko": "발(몸)",
+   "ipa": [
+    "pa",
+    "l",
+    ""
+   ],
+   "target": "l",
+   "phoible": {
+    "inv": 2197,
+    "seg": "l"
+   },
+   "note": "받침 ㄹ은 [l]로 난다. Wiktionary는 [ɭ]로 적는다(PHOIBLE 2197도 /l/의 변이음으로 ɭ를 적는다).",
+   "status": "확인",
+   "status_why": "PHOIBLE 2197 /l/",
+   "audio": "ko-bal-horojo",
+   "accept": [
+    "l",
+    "ɭ"
+   ]
+  },
+  {
+   "id": "ko-meori",
+   "lang": "kor",
+   "text": "머리",
+   "roman": "meori",
+   "ko": "머리",
+   "ipa": [
+    "mʌ",
+    "ɾ",
+    "i"
+   ],
+   "target": "ɾ",
+   "phoible": {
+    "inv": 2197,
+    "seg": "l",
+    "allo": "ɾ"
+   },
+   "note": "모음 사이 ㄹ은 혀끝으로 한 번 친다([ɾ]). 같은 ㄹ이 받침에서는 [l](발).",
+   "status": "확인",
+   "status_why": "PHOIBLE 2197 /l/의 변이음 ɾ",
+   "audio": "ko-meori-horojo",
+   "audio_more": [
+    "ko-meori-happymidnight"
+   ]
+  },
+  {
+   "id": "en-light",
+   "lang": "eng",
+   "text": "light",
+   "roman": "light",
+   "ko": "빛",
+   "ipa": [
+    "",
+    "l",
+    "aɪt"
+   ],
+   "target": "l",
+   "phoible": {
+    "inv": 2176,
+    "seg": "l"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2176 /l/",
+   "audio": "en-light-wodencafe",
+   "audio_more": [
+    "en-light-grendelkhan",
+    "en-light-dvortygirl"
+   ]
+  },
+  {
+   "id": "en-red",
+   "lang": "eng",
+   "text": "red",
+   "roman": "red",
+   "ko": "빨강",
+   "ipa": [
+    "",
+    "ɹ",
+    "ɛd"
+   ],
+   "target": "ɹ",
+   "phoible": {
+    "inv": 2176,
+    "seg": "ɹ"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2176 /ɹ/",
+   "audio": "en-red-wodencafe",
+   "audio_more": [
+    "en-red-grendelkhan",
+    "en-red-muldoon"
+   ]
+  },
+  {
+   "id": "es-lado",
+   "lang": "spa",
+   "text": "lado",
+   "roman": "lado",
+   "ko": "옆·쪽",
+   "ipa": [
+    "ˈ",
+    "l",
+    "aðo"
+   ],
+   "target": "l",
+   "phoible": {
+    "inv": 2210,
+    "seg": "l"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2210 /l/",
+   "audio": "es-lado-adrianabdulbaha"
+  },
+  {
+   "id": "es-pero",
+   "lang": "spa",
+   "text": "pero",
+   "roman": "pero",
+   "ko": "그러나",
+   "ipa": [
+    "ˈpe",
+    "ɾ",
+    "o"
+   ],
+   "target": "ɾ",
+   "phoible": {
+    "inv": 2210,
+    "seg": "ɾ"
+   },
+   "note": "r 하나는 한 번 친다([ɾ]). perro와 견준다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2210 /ɾ/",
+   "audio": "es-pero-adrianabdulbaha",
+   "audio_more": [
+    "es-pero-rdrg109"
+   ]
+  },
+  {
+   "id": "es-perro",
+   "lang": "spa",
+   "text": "perro",
+   "roman": "perro",
+   "ko": "개",
+   "ipa": [
+    "ˈpe",
+    "r",
+    "o"
+   ],
+   "target": "r",
+   "phoible": {
+    "inv": 2210,
+    "seg": "r"
+   },
+   "note": "rr은 여러 번 떤다([r]). pero와 이것만 다르다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2210 /r/",
+   "audio": "es-perro-txtdgtl",
+   "audio_more": [
+    "es-perro-rdrg109",
+    "es-perro-waltermendia"
+   ]
+  },
+  {
+   "id": "ja-iro",
+   "lang": "jpn",
+   "text": "色",
+   "roman": "iro",
+   "ko": "색",
+   "ipa": [
+    "i",
+    "ɾ",
+    "o"
+   ],
+   "target": "ɾ",
+   "phoible": {
+    "inv": 2196,
+    "seg": "d̠",
+    "allo": "ɾ"
+   },
+   "note": "PHOIBLE 2196(Okada 1991)은 ら행 자음을 /d̠/의 변이음 ɾ로 적는다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2196 /d̠/의 변이음 ɾ",
+   "audio": "ja-iro-aoi",
+   "audio_more": [
+    "ja-iro-marsian"
+   ]
+  },
+  {
+   "id": "fr-lit",
+   "lang": "fra",
+   "text": "lit",
+   "roman": "lit",
+   "ko": "침대",
+   "ipa": [
+    "",
+    "l",
+    "i"
+   ],
+   "target": "l",
+   "phoible": {
+    "inv": 2182,
+    "seg": "l̪"
+   },
+   "note": "프랑스어 l은 혀끝이 윗니 뒤에 닿는다([l̪]).",
+   "status": "확인",
+   "status_why": "PHOIBLE 2182 /l̪/",
+   "audio": "fr-lit-lyokoi",
+   "audio_more": [
+    "fr-lit-lepticed7",
+    "fr-lit-poslovitch"
+   ]
+  },
+  {
+   "id": "fr-rouge",
+   "lang": "fra",
+   "text": "rouge",
+   "roman": "rouge",
+   "ko": "빨강",
+   "ipa": [
+    "",
+    "ʁ",
+    "uʒ"
+   ],
+   "target": "ʁ",
+   "phoible": {
+    "inv": 2182,
+    "seg": "ʁ"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2182 /ʁ/",
+   "audio": "fr-rouge-lyokoi",
+   "audio_more": [
+    "fr-rouge-lepticed7",
+    "fr-rouge-poslovitch"
+   ]
+  },
+  {
+   "id": "pt-lado",
+   "lang": "por",
+   "text": "lado",
+   "roman": "lado",
+   "ko": "옆·쪽",
+   "ipa": [
+    "ˈ",
+    "l",
+    "adu"
+   ],
+   "target": "l",
+   "phoible": {
+    "inv": 2207,
+    "seg": "l"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2207 /l/",
+   "audio": "pt-lado-jjunho"
+  },
+  {
+   "id": "pt-cara",
+   "lang": "por",
+   "text": "cara",
+   "roman": "cara",
+   "ko": "얼굴",
+   "ipa": [
+    "ˈka",
+    "ɾ",
+    "ɐ"
+   ],
+   "target": "ɾ",
+   "phoible": {
+    "inv": 2207,
+    "seg": "ɾ"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2207 /ɾ/",
+   "audio": "pt-cara-jjunho"
+  },
+  {
+   "id": "zh-lai",
+   "lang": "cmn",
+   "text": "来",
+   "roman": "lái",
+   "ko": "오다",
+   "ipa": [
+    "",
+    "l",
+    "ai˧˥"
+   ],
+   "target": "l",
+   "phoible": {
+    "inv": 1047,
+    "seg": "l"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 1047 /l/",
+   "audio": "zh-lai2-weigao",
+   "audio_more": [
+    "zh-lai2-yunjiao-tw"
+   ]
+  },
+  {
+   "id": "zh-ren",
+   "lang": "cmn",
+   "text": "人",
+   "roman": "rén",
+   "ko": "사람",
+   "ipa": [
+    "",
+    "ɹ",
+    "ən˧˥"
+   ],
+   "target": "ɹ",
+   "accept": [
+    "ɹ",
+    "ɻ"
+   ],
+   "phoible": {
+    "inv": 1047,
+    "seg": "ɹ"
+   },
+   "note": "PHOIBLE 1047(Lee·Zee 2003)은 [ɹ], Wiktionary는 [ɻ]로 적는다. 문헌마다 [ʐ]로도 적는다.",
+   "status": "확인 필요",
+   "status_why": "중국어 병음 r의 표기가 출처마다 다르다(ɹ·ɻ·ʐ)",
+   "audio": "zh-ren2-weigao",
+   "audio_more": [
+    "zh-ren2-yunjiao-tw"
+   ]
+  },
+  {
+   "id": "ru-luk",
+   "lang": "rus",
+   "text": "лук",
+   "roman": "luk",
+   "ko": "양파",
+   "ipa": [
+    "",
+    "ɫ",
+    "uk"
+   ],
+   "target": "l",
+   "accept": [
+    "l",
+    "ɫ"
+   ],
+   "phoible": {
+    "inv": 2261,
+    "seg": "l"
+   },
+   "note": "러시아어 '굳은' л은 혀 뒤를 들어 [ɫ](어두운 l)로 난다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2261 /l/, Wiktionary [ɫuk]",
+   "audio": "ru-luk-kerbush"
+  },
+  {
+   "id": "ru-rot",
+   "lang": "rus",
+   "text": "рот",
+   "roman": "rot",
+   "ko": "입",
+   "ipa": [
+    "",
+    "r",
+    "ot"
+   ],
+   "target": "r",
+   "phoible": {
+    "inv": 2261,
+    "seg": "r"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2261 /r/",
+   "audio": "ru-rot-kerbush"
+  },
+  {
+   "id": "de-licht",
+   "lang": "deu",
+   "text": "Licht",
+   "roman": "Licht",
+   "ko": "빛",
+   "ipa": [
+    "",
+    "l",
+    "ɪçt"
+   ],
+   "target": "l",
+   "phoible": {
+    "inv": 2184,
+    "seg": "l"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2184 /l/",
+   "audio": "de-licht-wallroth",
+   "audio_more": [
+    "de-licht-jeuwre"
+   ]
+  },
+  {
+   "id": "de-rot",
+   "lang": "deu",
+   "text": "rot",
+   "roman": "rot",
+   "ko": "빨갛다",
+   "ipa": [
+    "",
+    "ʁ",
+    "oːt"
+   ],
+   "target": "ʁ",
+   "phoible": {
+    "inv": 2184,
+    "seg": "ʁ"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2184 /ʁ/",
+   "audio": "de-rot-wallroth",
+   "audio_more": [
+    "de-rot-ionenlaser",
+    "de-rot-werkmeister"
+   ]
+  },
+  {
+   "id": "it-luna",
+   "lang": "ita",
+   "text": "luna",
+   "roman": "luna",
+   "ko": "달",
+   "ipa": [
+    "ˈ",
+    "l",
+    "una"
+   ],
+   "target": "l",
+   "phoible": {
+    "inv": 1145,
+    "seg": "l"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 1145 /l/",
+   "audio": "it-luna-langpao",
+   "audio_more": [
+    "it-luna-xana000",
+    "it-luna-ciampix"
+   ]
+  },
+  {
+   "id": "it-rosa",
+   "lang": "ita",
+   "text": "rosa",
+   "roman": "rosa",
+   "ko": "장미",
+   "ipa": [
+    "ˈ",
+    "r",
+    "ɔza"
+   ],
+   "target": "r",
+   "phoible": {
+    "inv": 1145,
+    "seg": "r"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 1145 /r/(변이음 r·ɾ)",
+   "audio": "it-rosa-langpao",
+   "audio_more": [
+    "it-rosa-carbone"
+   ]
+  },
+  {
+   "id": "ar-layl",
+   "lang": "arb",
+   "text": "ليل",
+   "roman": "layl",
+   "ko": "밤",
+   "ipa": [
+    "",
+    "l",
+    "ajl"
+   ],
+   "target": "l",
+   "phoible": {
+    "inv": 2157,
+    "seg": "l"
+   },
+   "note": "쓸 수 있는 녹음이 없다(모어 화자인지 적힌 녹음이 없음).",
+   "status": "확인 필요",
+   "status_why": "녹음 화자는 모로코 출신(모로코 아랍어)이고, 현대 표준 아랍어 녹음은 Commons에서 찾지 못했다. PHOIBLE 2157도 방언 화자 목록이다",
+   "audio": "ar-layl"
+  },
+  {
+   "id": "ar-rajul",
+   "lang": "arb",
+   "text": "رجل",
+   "roman": "rajul",
+   "ko": "남자",
+   "ipa": [
+    "",
+    "r",
+    "adʒul"
+   ],
+   "target": "r",
+   "phoible": {
+    "inv": 2157,
+    "seg": "r"
+   },
+   "status": "확인 필요",
+   "status_why": "녹음 화자는 모로코 출신(모로코 아랍어)이고, 현대 표준 아랍어 녹음은 Commons에서 찾지 못했다. PHOIBLE 2157도 방언 화자 목록이다",
+   "audio": "ar-rajul-sedrati-ary"
+  }
+ ]
+}

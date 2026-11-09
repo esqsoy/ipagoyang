@@ -1,0 +1,314 @@
+{
+ "about": "pipeline/wikt_compare.py 결과. Wiktionary(en.wiktionary.org, CC BY-SA 4.0) 낱말 문서의 전사와 대조만 했다. 우리 전사는 data/bundles에 있고 Wiktionary에서 가져오지 않았다.",
+ "fetched": "2026-11-06",
+ "bundle": "b04",
+ "rows": [
+  {
+   "word": "ko-bal",
+   "ours": "[pal]",
+   "wiktionary": [
+    "[pa̠ɭ]",
+    "[pa̠(ː)ɭ]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[pa̠ɭ]",
+    "[pa̠(ː)ɭ]"
+   ]
+  },
+  {
+   "word": "ko-meori",
+   "ours": "[mʌɾi]",
+   "wiktionary": [
+    "[mʌ̹ɾi]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "en-light",
+   "ours": "[laɪt]",
+   "wiktionary": [
+    "/laɪt/",
+    "[laɪt]",
+    "[lɑjt]",
+    "[ɫɐɪt]",
+    "[ləjt]",
+    "[lɑɪt]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[lɑjt]",
+    "[ɫɐɪt]",
+    "[ləjt]",
+    "[lɑɪt]"
+   ]
+  },
+  {
+   "word": "en-red",
+   "ours": "[ɹɛd]",
+   "wiktionary": [
+    "/ɹɛd/",
+    "[ɻʷɛˑd̥]",
+    "/ɹed/",
+    "/ɾɛd/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[ɻʷɛˑd̥]",
+    "/ɹed/",
+    "/ɾɛd/"
+   ]
+  },
+  {
+   "word": "es-lado",
+   "ours": "[ˈlaðo]",
+   "wiktionary": [
+    "/ˈlado/",
+    "[ˈla.ð̞o]",
+    "[lao̯ ~ law]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ˈlado/",
+    "[lao̯ ~ law]"
+   ]
+  },
+  {
+   "word": "es-pero",
+   "ours": "[ˈpeɾo]",
+   "wiktionary": [
+    "/ˈpeɾo/",
+    "[ˈpe.ɾo]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "es-perro",
+   "ours": "[ˈpero]",
+   "wiktionary": [
+    "/ˈpero/",
+    "[ˈpe.ro]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "ja-iro",
+   "ours": "[iɾo]",
+   "wiktionary": [
+    "/irə/",
+    "/iro/",
+    "[iɾo̞]",
+    "/irəpəj/",
+    "/irofe/",
+    "/iroe/",
+    "[iɾo̞e̞]",
+    "[ɕikʲi]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/irə/",
+    "/iro/",
+    "/irəpəj/",
+    "/irofe/",
+    "/iroe/",
+    "[iɾo̞e̞]",
+    "[ɕikʲi]"
+   ]
+  },
+  {
+   "word": "fr-lit",
+   "ours": "[li]",
+   "wiktionary": [
+    "/li/",
+    "[li]",
+    "[lit]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[lit]"
+   ]
+  },
+  {
+   "word": "fr-rouge",
+   "ours": "[ʁuʒ]",
+   "wiktionary": [
+    "/ʁuʒ/",
+    "/ˈʁuʒə/",
+    "/ruʒ/",
+    "[ɾuʒ]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ˈʁuʒə/",
+    "/ruʒ/",
+    "[ɾuʒ]"
+   ]
+  },
+  {
+   "word": "pt-lado",
+   "ours": "[ˈladu]",
+   "wiktionary": [
+    "/ˈla.du/",
+    "[ˈla.ðu]",
+    "/ˈla.dʷ/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[ˈla.ðu]",
+    "/ˈla.dʷ/"
+   ]
+  },
+  {
+   "word": "pt-cara",
+   "ours": "[ˈkaɾɐ]",
+   "wiktionary": [
+    "/ˈka.ɾɐ/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "zh-lai",
+   "ours": "[lai˧˥]",
+   "wiktionary": [
+    "/laɪ̯³⁵/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/laɪ̯³⁵/"
+   ]
+  },
+  {
+   "word": "zh-ren",
+   "ours": "[ɹən˧˥]",
+   "wiktionary": [
+    "/ɻən³⁵/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ɻən³⁵/"
+   ]
+  },
+  {
+   "word": "ru-luk",
+   "ours": "[ɫuk]",
+   "wiktionary": [
+    "[ɫuk]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "ru-rot",
+   "ours": "[rot]",
+   "wiktionary": [
+    "[rot]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "de-licht",
+   "ours": "[lɪçt]",
+   "wiktionary": [
+    "/lɪçt/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "de-rot",
+   "ours": "[ʁoːt]",
+   "wiktionary": [
+    "/roːt/",
+    "[ʁoːt(ʰ)]",
+    "[roːt]",
+    "[ɣoːtʰ]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/roːt/",
+    "[ʁoːt(ʰ)]",
+    "[roːt]",
+    "[ɣoːtʰ]"
+   ]
+  },
+  {
+   "word": "it-luna",
+   "ours": "[ˈluna]",
+   "wiktionary": [
+    "/ˈlu.na/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "it-rosa",
+   "ours": "[ˈrɔza]",
+   "wiktionary": [
+    "/ˈrɔ.za/",
+    "/ˈro.za/",
+    "/ˈro.sa/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ˈro.za/",
+    "/ˈro.sa/"
+   ]
+  },
+  {
+   "word": "ar-layl",
+   "ours": "[lajl]",
+   "wiktionary": [
+    "/lajl/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "ar-rajul",
+   "ours": "[radʒul]",
+   "wiktionary": [
+    "/ra.d͡ʒi.la/",
+    "/rad͡ʒ.d͡ʒa.la/",
+    "/ra.d͡ʒul/",
+    "/rid͡ʒl/",
+    "/ra.d͡ʒil/",
+    "/rad͡ʒl/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ra.d͡ʒi.la/",
+    "/rad͡ʒ.d͡ʒa.la/",
+    "/rid͡ʒl/",
+    "/ra.d͡ʒil/",
+    "/rad͡ʒl/"
+   ]
+  }
+ ]
+}

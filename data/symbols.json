@@ -174,12 +174,11 @@
   },
   "ɸ": {
    "name": "무성 양순 마찰음",
-   "how": "두 입술 틈으로 바람을 낸다.",
-   "ko": "한국어에 없다. 일본어 ふ의 첫소리(다음 묶음에서).",
+   "how": "두 입술을 다 닫지 않고 그 틈으로 바람을 낸다. 목청은 울리지 않는다.",
+   "ko": "한국어에 없다. 일본어 ふ의 첫소리다(ふね). 한국어 화자는 ㅎ이나 ㅍ으로 듣기 쉽다.",
    "place": "bilabial",
    "lips": "near",
    "glottis": "open",
-   "keyonly": true,
    "name_hanja": "無聲 兩脣 摩擦音",
    "name_en": "voiceless bilabial fricative",
    "sagittal": "p",
@@ -189,7 +188,21 @@
      "en": "voiceless bilabial fricative"
     }
    ],
-   "sound": "ipa-phi"
+   "sound": "ipa-phi",
+   "vot": null,
+   "steps": [
+    "두 입술을 좁히기",
+    "목청은 쉼",
+    "틈으로 바람"
+   ],
+   "evidence": [
+    {
+     "src": "phoible",
+     "note": "일본어 2196 /h/의 변이음 ɸ(ふ)"
+    }
+   ],
+   "status": "확인 필요",
+   "status_why": "'한국어 화자는 ㅎ이나 ㅍ으로 듣기 쉽다'는 지각 연구 원문 미대조. 일본어 ふ = [ɸ]는 PHOIBLE 대조 필요(아래 낱말 칸)"
   },
   "t": {
    "name": "무성 치경 파열음",
@@ -541,7 +554,8 @@
     }
    ],
    "status": "확인",
-   "status_why": "PHOIBLE과 대조"
+   "status_why": "PHOIBLE과 대조",
+   "sound": "ipa-l"
   },
   "ɾ": {
    "name": "유성 치경 탄음",
@@ -573,7 +587,8 @@
     }
    ],
    "status": "확인",
-   "status_why": "PHOIBLE과 대조"
+   "status_why": "PHOIBLE과 대조",
+   "sound": "ipa-tap"
   },
   "r": {
    "name": "유성 치경 전동음",
@@ -604,7 +619,8 @@
     }
    ],
    "status": "확인",
-   "status_why": "PHOIBLE과 대조"
+   "status_why": "PHOIBLE과 대조",
+   "sound": "ipa-r"
   },
   "ɹ": {
    "name": "유성 치경 접근음",
@@ -636,7 +652,8 @@
     }
    ],
    "status": "확인 필요",
-   "status_why": "입 옆모습은 권설 r 그림(r_retroflex)을 빌렸다. 미국 영어 r은 혀를 뭉쳐 내는 사람도 있어 하나로 그릴 수 없다. 중국어 r의 표기는 문헌마다 다르다"
+   "status_why": "입 옆모습은 권설 r 그림(r_retroflex)을 빌렸다. 미국 영어 r은 혀를 뭉쳐 내는 사람도 있어 하나로 그릴 수 없다. 중국어 r의 표기는 문헌마다 다르다",
+   "sound": "ipa-turned-r"
   },
   "ʁ": {
    "name": "유성 구개수 마찰음",
@@ -664,6 +681,193 @@
     {
      "src": "phoible",
      "note": "프랑스어 2182 /ʁ/, 독일어 2184 /ʁ/"
+    }
+   ],
+   "status": "확인",
+   "status_why": "PHOIBLE과 대조",
+   "sound": "ipa-uvular-r"
+  },
+  "f": {
+   "name": "무성 순치 마찰음",
+   "name_hanja": "無聲 脣齒 摩擦音",
+   "name_en": "voiceless labiodental fricative",
+   "answers": [
+    {
+     "ko": "무성 순치 마찰음",
+     "en": "voiceless labiodental fricative"
+    }
+   ],
+   "how": "아랫입술을 윗니에 가볍게 대고 그 틈으로 바람을 낸다. 목청은 울리지 않는다.",
+   "ko": "한국어에 없다. 한국어는 외래어 f를 ㅍ으로 적는다(fan → 팬).",
+   "place": "labiodental",
+   "lips": null,
+   "glottis": "open",
+   "vot": null,
+   "sagittal": "f",
+   "steps": [
+    "아랫입술을 윗니에",
+    "목청은 쉼",
+    "틈으로 바람"
+   ],
+   "evidence": [
+    {
+     "src": "phoible",
+     "note": "영어 2176 /f/, 스페인어 2210 /f/, 프랑스어 2182 /f/, 포르투갈어 2207 /f/, 중국어 1047 /f/, 러시아어 2261 /f/, 독일어 2184 /f/, 이탈리아어 1145 /f/, 아랍어 2157 /f/"
+    }
+   ],
+   "status": "확인",
+   "status_why": "PHOIBLE과 대조"
+  },
+  "v": {
+   "name": "유성 순치 마찰음",
+   "name_hanja": "有聲 脣齒 摩擦音",
+   "name_en": "voiced labiodental fricative",
+   "answers": [
+    {
+     "ko": "유성 순치 마찰음",
+     "en": "voiced labiodental fricative"
+    }
+   ],
+   "how": "[f]처럼 아랫입술을 윗니에 대고, 목청을 울리며 바람을 낸다.",
+   "ko": "한국어에 없다. 스페인어 v는 [b]·[β]로 난다(묶음 1 vaca).",
+   "place": "labiodental",
+   "lips": null,
+   "glottis": "voiced",
+   "vot": null,
+   "sagittal": "v",
+   "steps": [
+    "아랫입술을 윗니에",
+    "목청 울림",
+    "틈으로 바람"
+   ],
+   "evidence": [
+    {
+     "src": "phoible",
+     "note": "영어 2176 /v/, 프랑스어 2182 /v/, 포르투갈어 2207 /v/, 러시아어 2261 /v/, 독일어 2184 /v/, 이탈리아어 1145 /v/. 스페인어 2210에는 /v/가 없다"
+    }
+   ],
+   "status": "확인",
+   "status_why": "PHOIBLE과 대조"
+  },
+  "h": {
+   "name": "무성 성문 마찰음",
+   "name_hanja": "無聲 聲門 摩擦音",
+   "name_en": "voiceless glottal fricative",
+   "answers": [
+    {
+     "ko": "무성 성문 마찰음",
+     "en": "voiceless glottal fricative"
+    }
+   ],
+   "how": "입은 다음 모음 모양 그대로 두고, 목청 사이로 바람만 낸다.",
+   "ko": "한국어 ㅎ(하늘). i·y 앞의 ㅎ은 [ç]로, 모음 사이 ㅎ은 [ɦ]로 나기도 한다.",
+   "place": "glottal",
+   "lips": null,
+   "glottis": "wide",
+   "vot": null,
+   "sagittal": "neutral",
+   "steps": [
+    "입은 다음 모음 모양",
+    "목청을 열기",
+    "목청 사이로 바람"
+   ],
+   "evidence": [
+    {
+     "src": "phoible",
+     "note": "한국어 2197 /h/(변이음 ç·h·ɦ는 PHOIBLE 1), 영어 2176 /h/, 일본어 2196 /h/, 독일어 2184 /h/, 아랍어 2157 /h/. 포르투갈어 2207 /r/의 변이음 h(브라질 낱말 첫 r)"
+    }
+   ],
+   "status": "확인",
+   "status_why": "PHOIBLE과 대조"
+  },
+  "x": {
+   "name": "무성 연구개 마찰음",
+   "name_hanja": "無聲 軟口蓋 摩擦音",
+   "name_en": "voiceless velar fricative",
+   "answers": [
+    {
+     "ko": "무성 연구개 마찰음",
+     "en": "voiceless velar fricative"
+    }
+   ],
+   "how": "혀 뒤를 여린입천장에 가까이 대고, 그 틈으로 바람을 낸다. 목청은 울리지 않는다.",
+   "ko": "한국어에 없다. 한국어 화자는 ㅎ으로 듣기 쉽다. 스페인어 j(jugo), 러시아어 х, 중국어 병음 h(好), 독일어 ch(Bach), 아랍어 خ.",
+   "place": "velar",
+   "lips": "near",
+   "glottis": "open",
+   "vot": null,
+   "sagittal": "k",
+   "steps": [
+    "혀뒤를 좁히기",
+    "목청은 쉼",
+    "틈으로 바람"
+   ],
+   "evidence": [
+    {
+     "src": "phoible",
+     "note": "스페인어 2210 /x/, 러시아어 2261 /x/, 중국어 1047 /x/, 독일어 2184 /x/(변이음 x·ç·χ), 아랍어 2157 /xʀ̥/"
+    }
+   ],
+   "status": "확인 필요",
+   "status_why": "'한국어 화자는 ㅎ으로 듣기 쉽다'는 원문 미대조. 아랍어 خ를 PHOIBLE 2157은 [xʀ̥]로 적어 다른 목록과 다르다"
+  },
+  "ç": {
+   "name": "무성 경구개 마찰음",
+   "name_hanja": "無聲 硬口蓋 摩擦音",
+   "name_en": "voiceless palatal fricative",
+   "answers": [
+    {
+     "ko": "무성 경구개 마찰음",
+     "en": "voiceless palatal fricative"
+    }
+   ],
+   "how": "혀 몸통을 딱딱한 입천장(경구개)에 가까이 대고, 그 틈으로 바람을 낸다.",
+   "ko": "한국어 ㅎ이 i·y 앞에서 이 소리로 난다(힘). 독일어 ich의 ch, 일본어 ひ의 첫소리.",
+   "place": "palatal",
+   "lips": null,
+   "glottis": "open",
+   "vot": null,
+   "sagittal": "c_pal",
+   "steps": [
+    "혀 몸통을 입천장 가까이",
+    "목청은 쉼",
+    "틈으로 바람"
+   ],
+   "evidence": [
+    {
+     "src": "phoible",
+     "note": "독일어 2184 /x/의 변이음 ç, 한국어 1 /h/의 변이음 ç, 일본어 2196 /h/의 변이음 ç"
+    }
+   ],
+   "status": "확인",
+   "status_why": "PHOIBLE과 대조"
+  },
+  "θ": {
+   "name": "무성 치 마찰음",
+   "name_hanja": "無聲 齒 摩擦音",
+   "name_en": "voiceless dental fricative",
+   "answers": [
+    {
+     "ko": "무성 치 마찰음",
+     "en": "voiceless dental fricative"
+    }
+   ],
+   "how": "혀끝을 윗니 뒤(또는 이 사이)에 가까이 대고 그 틈으로 바람을 낸다. 목청은 울리지 않는다.",
+   "ko": "한국어에 없다. 영어 thin의 th. 스페인(카스티야) 스페인어 c·z(cinco), 아랍어 ث. 중남미 스페인어는 이 자리에 [s]를 쓴다.",
+   "place": "dental",
+   "lips": null,
+   "glottis": "open",
+   "vot": null,
+   "sagittal": "theta",
+   "steps": [
+    "혀끝을 이에 가까이",
+    "목청은 쉼",
+    "틈으로 바람"
+   ],
+   "evidence": [
+    {
+     "src": "phoible",
+     "note": "영어 2176 /θ/, 스페인어 2210(카스티야) /θ/, 아랍어 2157 /θ̪/"
     }
    ],
    "status": "확인",

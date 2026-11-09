@@ -30,6 +30,8 @@ function ipaIn(raw) {
    카드의 mode: ko(한국어 이름) · en(영어 이름) · any(어느 쪽이든, 듣고 고르기·전사 빈칸). 맞으면 나머지 둘(한자 포함)이 뜬다.
    낱말 순서·띄어쓰기는 묻지 않고, 사전 동의어는 인정한다. */
 const IPA_NAME_SYN = {'폐쇄음': '파열음', '된소리': '경음', '거센소리': '유기', '격음': '유기', '탄설음': '탄음', 'stop': 'plosive', 'fortis': 'tense', 'flap': 'tap'};
+// 붙은 용어는 낱말로 나눠 견준다(설측 접근음 = 설측 + 접근음): 순서를 바꿔 쳐도 같게
+const IPA_NAME_SPLIT = {'설측접근': ['설측', '접근음'], '설측마찰': ['설측', '마찰음']};
 let ipaKoVocab = null;
 function ipaKoTokens(str) {
   if (!ipaKoVocab) {
@@ -42,7 +44,7 @@ function ipaKoTokens(str) {
     ipaKoVocab = [...v].sort((a, b) => b.length - a.length);
   }
   const out = []; let rest = str.replace(/\s+/g, '');
-  while (rest) { const t = ipaKoVocab.find(x => rest.startsWith(x)); if (!t) return null; out.push(IPA_NAME_SYN[t] || t); rest = rest.slice(t.length); }
+  while (rest) { const t = ipaKoVocab.find(x => rest.startsWith(x)); if (!t) return null; const c = IPA_NAME_SYN[t] || t; out.push(...(IPA_NAME_SPLIT[c] || [c])); rest = rest.slice(t.length); }
   return out;
 }
 function ipaSplitName(raw) {
@@ -147,7 +149,7 @@ function ipaWave(c, id, t) {
 /* ---------- 그림: 입 옆모습(CC0 단면도, PRINCIPLES 8-8) ---------- */
 /* 원본은 drammock/phonetics-teaching-assets(CC0)의 경로 모양(assets/sagittal/sagittal.json). 얼굴이 오른쪽을 보므로
    좌우로 뒤집어 IPA 표 방향(왼쪽 = 입 앞)에 맞춘다. 자리 점·바람·틈은 원본 좌표 위에 덧그린다. */
-const IPA_SAG_AT = {bilabial: [157, 137], alveolar: [147, 129], dental: [151, 136], velar: [106, 130], uvular: [93, 137], glottis: [101, 205]};
+const IPA_SAG_AT = {bilabial: [157, 137], alveolar: [147, 129], dental: [151, 136], velar: [106, 130], uvular: [93, 137], labiodental: [150, 138], palatal: [128, 124], glottal: [101, 205], glottis: [101, 205]};
 function ipaSagittal(o = {}) {
   const G = IPA.sagittal; if (!G) return '';
   const idx = G.shapes[o.shape] || G.shapes.neutral;
@@ -432,7 +434,7 @@ function ipaOnCorrect(w) {
   const mini = root.querySelector('.ipa-mini'); if (mini) mini.outerHTML = ipaMiniMap(w, sym);
   const bw = (IPA.byWord || {})[w.wid], sp = document.getElementById('catSpeech');
   if (bw && sp && !w.learn) { sp.textContent = bw; sp.hidden = false; }
-  const where = {bilabial: '입술', alveolar: '혀끝·잇몸', dental: '혀끝·이', velar: '혀뒤·여린입천장', uvular: '혀뒤·목젖'}[s.place] || '입';
+  const where = {bilabial: '입술', alveolar: '혀끝·잇몸', dental: '혀끝·이', velar: '혀뒤·여린입천장', uvular: '혀뒤·목젖', labiodental: '아랫입술·윗니', palatal: '혀 몸통·입천장', glottal: '목청'}[s.place] || '입';
   const gl = (IPA.glottis || {})[s.glottis] || '';
   const steps = s.steps ? s.steps : s.vot
     ? [`${where} 닫기`, `목청: ${gl}`, '터뜨림', {lead: '울림(닫을 때부터)', short: '울림(바로)', long: '바람 뒤 울림'}[s.vot]]
