@@ -233,6 +233,54 @@
    "allo": null,
    "ok": true,
    "why": ""
+  },
+  {
+   "word": "ko-sseuda",
+   "inv": 2197,
+   "seg": "s",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "pt-acho",
+   "inv": 2207,
+   "seg": "ʃ",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "ru-vaza",
+   "inv": 2261,
+   "seg": "z",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "ru-veshch",
+   "inv": 2261,
+   "seg": "ɕː",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "ja-muzukashii",
+   "inv": 2196,
+   "seg": "z",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "ar-zar",
+   "inv": 2157,
+   "seg": "z",
+   "allo": null,
+   "ok": true,
+   "why": ""
   }
  ],
  "absent": [
@@ -327,6 +375,11 @@
     {
      "phoneme": "s",
      "allophones": "s",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "z",
+     "allophones": "z",
      "marginal": "FALSE"
     },
     {
@@ -440,6 +493,11 @@
      "phoneme": "s",
      "allophones": "s ɕ",
      "marginal": "FALSE"
+    },
+    {
+     "phoneme": "z",
+     "allophones": "z ʑ dz dʑ",
+     "marginal": "FALSE"
     }
    ]
   },
@@ -454,6 +512,11 @@
     "kor_lee1993"
    ],
    "rows": [
+    {
+     "phoneme": "s",
+     "allophones": "s ɕʰ",
+     "marginal": "FALSE"
+    },
     {
      "phoneme": "s͉",
      "allophones": "s͉ z ɕ",
@@ -480,6 +543,11 @@
     {
      "phoneme": "z",
      "allophones": "z",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "ʃ",
+     "allophones": "ʃ",
      "marginal": "FALSE"
     },
     {
@@ -520,6 +588,16 @@
    "rows": [
     {
      "phoneme": "s",
+     "allophones": "NA",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "z",
+     "allophones": "NA",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "ɕː",
      "allophones": "NA",
      "marginal": "FALSE"
     },

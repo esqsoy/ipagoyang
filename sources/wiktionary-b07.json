@@ -225,6 +225,123 @@
    "other_diff": [
     "/ˈdʒɔr.no/"
    ]
+  },
+  {
+   "word": "zh-zao",
+   "ours": "[tsau˨˩˦]",
+   "wiktionary": [
+    "/tsɑʊ̯²¹⁴/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/tsɑʊ̯²¹⁴/"
+   ]
+  },
+  {
+   "word": "zh-cai",
+   "ours": "[tsʰai˥˩]",
+   "wiktionary": [
+    "/tsʰaɪ̯⁵¹/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/tsʰaɪ̯⁵¹/"
+   ]
+  },
+  {
+   "word": "zh-ji",
+   "ours": "[tɕi˥]",
+   "wiktionary": [
+    "/tɕi⁵⁵/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/tɕi⁵⁵/"
+   ]
+  },
+  {
+   "word": "zh-qi",
+   "ours": "[tɕʰi˥]",
+   "wiktionary": [
+    "/tɕʰi⁵⁵/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/tɕʰi⁵⁵/"
+   ]
+  },
+  {
+   "word": "zh-zhong",
+   "ours": "[tʂʊŋ˥]",
+   "wiktionary": [
+    "/ʈʂʊŋ⁵⁵/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ʈʂʊŋ⁵⁵/"
+   ]
+  },
+  {
+   "word": "zh-cha",
+   "ours": "[tʂʰa˧˥]",
+   "wiktionary": [
+    "/ʈʂʰä³⁵/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ʈʂʰä³⁵/"
+   ]
+  },
+  {
+   "word": "ja-kutsu",
+   "ours": "[kɯtsɯ]",
+   "wiktionary": [
+    "/kutu/",
+    "/kutsu/",
+    "[kɯ̟̊tsɨ]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/kutu/",
+    "/kutsu/",
+    "[kɯ̟̊tsɨ]"
+   ]
+  },
+  {
+   "word": "ja-jishin",
+   "ours": "[dʑiɕiɴ]",
+   "wiktionary": [
+    "/di tɕin/",
+    "/dʑiɕiɴ/",
+    "[dʑiɕĩɴ]",
+    "/nawi/",
+    "/nawʲi/",
+    "/naji/",
+    "/nai/",
+    "[na̠i]",
+    "/naje/",
+    "/nae/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/di tɕin/",
+    "[dʑiɕĩɴ]",
+    "/nawi/",
+    "/nawʲi/",
+    "/naji/",
+    "/nai/",
+    "[na̠i]",
+    "/naje/",
+    "/nae/"
+   ]
   }
  ]
 }

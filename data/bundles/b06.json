@@ -91,7 +91,7 @@
   ]
  },
  "absent_about": "한국어 2197에 ʃ·ʒ·ʂ·ʐ가 없어야 '한국어에 없다'가 맞다. z는 2197이 ㅅ의 변이음으로 적어 두어 넣지 않았다.",
- "audio_plan": "",
+ "audio_plan": "모두 Commons·Lingua Libre·Shtooka 녹음(PRINCIPLES 8-10). 중국어는 베이징 화자 Wei Gao(Shtooka)를 첫 목소리로 둔다. 영어 [ʒ]와 이탈리아어 [z]는 아직 낱말이 없다(녹음 찾는 중).",
  "words": [
   {
    "id": "ko-so",
@@ -282,7 +282,7 @@
     "seg": "s",
     "allo": "ɕ"
    },
-   "note": "し의 자음은 [ɕ]다(PHOIBLE 2196은 /s/의 변이음). 녹음은 관서 억양 화자다.",
+   "note": "し의 자음은 [ɕ]다(PHOIBLE 2196은 /s/의 변이음). 녹음은 간사이 억양 화자다.",
    "status": "확인",
    "status_why": "PHOIBLE 2196 /s/의 변이음 ɕ",
    "audio": "ja-shima-wanikani-female"
@@ -305,10 +305,12 @@
    },
    "status": "확인",
    "status_why": "PHOIBLE 1047 /s/",
-   "audio": "zh-si4-luilui6666",
+   "audio": "zh-si4-weigao",
    "audio_more": [
+    "zh-si4-luilui6666",
     "zh-si4-yunjiao"
-   ]
+   ],
+   "note": "첫 녹음은 베이징 화자다."
   },
   {
    "id": "zh-xiao",
@@ -326,10 +328,13 @@
     "inv": 1047,
     "seg": "ɕ"
    },
-   "note": "병음 x는 [ɕ]다.",
+   "note": "병음 x는 [ɕ]다. 첫 녹음은 베이징 화자다.",
    "status": "확인",
    "status_why": "PHOIBLE 1047 /ɕ/",
-   "audio": "zh-xiao3-yunjiao"
+   "audio": "zh-xiao3-weigao",
+   "audio_more": [
+    "zh-xiao3-yunjiao"
+   ]
   },
   {
    "id": "zh-shu",
@@ -347,10 +352,13 @@
     "inv": 1047,
     "seg": "ʃ̺"
    },
-   "note": "PHOIBLE 1047은 중국어 권설음을 혀끝 후치경음([ʃ̺])로 적는다. 이 게임은 [ʂ]로 쓴다.",
+   "note": "PHOIBLE 1047은 중국어 권설음을 혀끝 후치경음([ʃ̺])로 적는다. 이 게임은 [ʂ]로 쓴다. 첫 녹음은 베이징 화자다.",
    "status": "확인",
    "status_why": "PHOIBLE 1047 /ʃ̺/",
-   "audio": "zh-shu1-luilui6666"
+   "audio": "zh-shu1-weigao",
+   "audio_more": [
+    "zh-shu1-luilui6666"
+   ]
   },
   {
    "id": "fr-sac",
@@ -733,6 +741,144 @@
    "status": "확인",
    "status_why": "PHOIBLE 2157 /ʃ/",
    "audio": "ar-shams-fenakhay"
+  },
+  {
+   "id": "ko-sseuda",
+   "lang": "kor",
+   "text": "쓰다",
+   "roman": "sseuda",
+   "ko": "쓰다(글을)",
+   "ipa": [
+    "",
+    "s͈",
+    "ɯda"
+   ],
+   "target": "s͈",
+   "phoible": {
+    "inv": 2197,
+    "seg": "s"
+   },
+   "note": "ㅆ. PHOIBLE 2197(Lee 1993)은 ㅆ을 표시 없는 /s/로, ㅅ을 약한 /s͉/로 적는다. ㅣ 앞(씨)에서는 [ɕ͈]가 되어 ㅡ 앞의 쓰다를 골랐다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2197 /s/",
+   "audio": "ko-sseuda-horojo",
+   "audio_more": [
+    "ko-sseuda-happymidnight"
+   ]
+  },
+  {
+   "id": "pt-acho",
+   "lang": "por",
+   "text": "acho",
+   "roman": "acho",
+   "ko": "(나는) 생각한다",
+   "ipa": [
+    "a",
+    "ʃ",
+    "u"
+   ],
+   "target": "ʃ",
+   "phoible": {
+    "inv": 2207,
+    "seg": "ʃ"
+   },
+   "note": "포르투갈어 ch는 [ʃ]다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2207 /ʃ/",
+   "audio": "pt-acho-sillim",
+   "audio_more": [
+    "pt-acho-jjunho"
+   ]
+  },
+  {
+   "id": "ru-vaza",
+   "lang": "rus",
+   "text": "ваза",
+   "roman": "vaza",
+   "ko": "꽃병",
+   "ipa": [
+    "va",
+    "z",
+    "ə"
+   ],
+   "target": "z",
+   "phoible": {
+    "inv": 2261,
+    "seg": "z"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2261 /z/",
+   "audio": "ru-vaza-kerbush"
+  },
+  {
+   "id": "ru-veshch",
+   "lang": "rus",
+   "text": "вещь",
+   "roman": "veshch",
+   "ko": "물건",
+   "ipa": [
+    "vʲe",
+    "ɕː",
+    ""
+   ],
+   "target": "ɕ",
+   "accept": [
+    "ɕ",
+    "ɕː"
+   ],
+   "phoible": {
+    "inv": 2261,
+    "seg": "ɕː"
+   },
+   "note": "щ는 길게 끄는 [ɕː]다. PHOIBLE 2261도 /ɕː/로 적는다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2261 /ɕː/",
+   "audio": "ru-veshch-kerbush"
+  },
+  {
+   "id": "ja-muzukashii",
+   "lang": "jpn",
+   "text": "難しい",
+   "roman": "muzukashii",
+   "ko": "어렵다",
+   "ipa": [
+    "mɯ",
+    "z",
+    "ɯkaɕiː"
+   ],
+   "target": "z",
+   "phoible": {
+    "inv": 2196,
+    "seg": "z"
+   },
+   "note": "녹음은 간사이 억양 화자다. PHOIBLE 2196은 /z/의 변이음으로 [dz]·[ʑ]·[dʑ]도 적는다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2196 /z/",
+   "audio": "ja-muzukashii-wanikani-female"
+  },
+  {
+   "id": "ar-zar",
+   "lang": "arb",
+   "text": "زار",
+   "roman": "zāra",
+   "ko": "방문했다",
+   "ipa": [
+    "",
+    "z",
+    "aːra"
+   ],
+   "target": "z",
+   "phoible": {
+    "inv": 2157,
+    "seg": "z"
+   },
+   "note": "첫 녹음은 라바트 화자의 아랍어 낱말 모음(Shtooka), 둘째는 모로코 아랍어(다리자)로 올라온 녹음이다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2157 /z/",
+   "audio": "ar-zaara-zannane",
+   "audio_more": [
+    "ar-zaara-fenakhay"
+   ]
   }
  ]
 }

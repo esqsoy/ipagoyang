@@ -152,54 +152,36 @@
    "word": "zh-si",
    "ours": "[sɹ̩˥˩]",
    "wiktionary": [
-    "/sɹ̩⁵¹/",
-    "/sɹ̩²¹³/",
-    "/sɹ̩⁵⁵/",
-    "/sɹ̩⁴⁴/, /sɹ̩³¹/, /ʂɻ̩⁴⁴/"
+    "/sɹ̩⁵¹/"
    ],
    "target_ok": true,
    "via": "",
    "other_diff": [
-    "/sɹ̩⁵¹/",
-    "/sɹ̩²¹³/",
-    "/sɹ̩⁵⁵/",
-    "/sɹ̩⁴⁴/, /sɹ̩³¹/, /ʂɻ̩⁴⁴/"
+    "/sɹ̩⁵¹/"
    ]
   },
   {
    "word": "zh-xiao",
    "ours": "[ɕjau˨˩˦]",
    "wiktionary": [
-    "/ɕi̯ɑʊ̯²¹⁴/",
-    "/ɕiau⁵³/",
-    "/siɔ¹¹/",
-    "/ɕiɔː⁵¹/"
+    "/ɕi̯ɑʊ̯²¹⁴/"
    ],
    "target_ok": true,
    "via": "",
    "other_diff": [
-    "/ɕi̯ɑʊ̯²¹⁴/",
-    "/ɕiau⁵³/",
-    "/siɔ¹¹/",
-    "/ɕiɔː⁵¹/"
+    "/ɕi̯ɑʊ̯²¹⁴/"
    ]
   },
   {
    "word": "zh-shu",
    "ours": "[ʂu˥]",
    "wiktionary": [
-    "/ʂu⁵⁵/",
-    "/su⁵⁵/",
-    "/fu²¹/",
-    "/ʂu³¹/"
+    "/ʂu⁵⁵/"
    ],
    "target_ok": true,
    "via": "",
    "other_diff": [
-    "/ʂu⁵⁵/",
-    "/su⁵⁵/",
-    "/fu²¹/",
-    "/ʂu³¹/"
+    "/ʂu⁵⁵/"
    ]
   },
   {
@@ -405,6 +387,71 @@
     "/ʃam.ma.sa/",
     "/ʃa.mas/"
    ]
+  },
+  {
+   "word": "ko-sseuda",
+   "ours": "[s͈ɯda]",
+   "wiktionary": [
+    "[s͈ɯda̠]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "pt-acho",
+   "ours": "[aʃu]",
+   "wiktionary": [
+    "/ˈa.ʃu/",
+    "/ˈat.ʃu/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ˈat.ʃu/"
+   ]
+  },
+  {
+   "word": "ru-vaza",
+   "ours": "[vazə]",
+   "wiktionary": [
+    "[ˈvazə]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "ru-veshch",
+   "ours": "[vʲeɕː]",
+   "wiktionary": [
+    "[vʲeɕː]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "ja-muzukashii",
+   "ours": "[mɯzɯkaɕiː]",
+   "wiktionary": [
+    "[mɯ̟zɨka̠ɕii]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[mɯ̟zɨka̠ɕii]"
+   ]
+  },
+  {
+   "word": "ar-zar",
+   "ours": "[zaːra]",
+   "wiktionary": [
+    "/zaː.ra/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
   }
  ]
 }

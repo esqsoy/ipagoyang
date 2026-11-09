@@ -137,6 +137,70 @@
    "allo": null,
    "ok": true,
    "why": ""
+  },
+  {
+   "word": "zh-zao",
+   "inv": 1047,
+   "seg": "ts",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "zh-cai",
+   "inv": 1047,
+   "seg": "tsʰ",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "zh-ji",
+   "inv": 1047,
+   "seg": "tɕ",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "zh-qi",
+   "inv": 1047,
+   "seg": "tɕʰ",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "zh-zhong",
+   "inv": 1047,
+   "seg": "t̠ʃ",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "zh-cha",
+   "inv": 1047,
+   "seg": "t̠ʃ̺ʰ",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "ja-kutsu",
+   "inv": 2196,
+   "seg": "ts",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "ja-jishin",
+   "inv": 2196,
+   "seg": "z",
+   "allo": "dʑ",
+   "ok": true,
+   "why": ""
   }
  ],
  "absent": [
@@ -166,6 +230,49 @@
   }
  ],
  "inventories": {
+  "1047": {
+   "meta": {
+    "iso": "cmn",
+    "name": "Standard Chinese; Mandarin",
+    "dialect": "Beijing",
+    "source": "ph"
+   },
+   "bibtex": [
+    "cmn_lee2003_phon"
+   ],
+   "rows": [
+    {
+     "phoneme": "ts",
+     "allophones": "ts",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "tsʰ",
+     "allophones": "tsʰ",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "tɕ",
+     "allophones": "tɕ",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "tɕʰ",
+     "allophones": "tɕʰ",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "t̠ʃ",
+     "allophones": "t̠ʃ",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "t̠ʃ̺ʰ",
+     "allophones": "t̠ʃ̺ʰ",
+     "marginal": "FALSE"
+    }
+   ]
+  },
   "1145": {
    "meta": {
     "iso": "ita",
@@ -236,6 +343,11 @@
     {
      "phoneme": "ts",
      "allophones": "ts tːs tɕ",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "z",
+     "allophones": "z ʑ dz dʑ",
      "marginal": "FALSE"
     }
    ]

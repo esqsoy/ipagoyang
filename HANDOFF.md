@@ -13,7 +13,7 @@
   - **한자·낱말 뜻 풀이**([2-5](PRINCIPLES.md#2-5-발음-용어는-한글한자영어를-함께-쓴다)): 한자와 예시 낱말 철자에 커서를 올리거나 누르면 '벌리다'처럼 뜻이 뜬다.
   - **배색 넷**: 먹물(기본, 영신 확정)·밤바다·칠판·보카고양.
   - **표 밖 줄**(26.11.09, [8-9](PRINCIPLES.md#8-9-ipa-지도-주기율표-게임에서-가져온-것)): IPA 자음표에 칸이 없는 ɕ와 파찰음은 지도 아래 '표 밖' 줄에 켠다.
-- **시제품(공개 배포 안 함):** `index.html`, 강 일곱, 카드 444, 녹음 366. 묶음마다 그 소리가 있는 언어는 11개 가운데 다 넣는다([8-7](PRINCIPLES.md#8-7-언어-풀)).
+- **시제품(공개 배포 안 함):** `index.html`, 강 일곱, 카드 472, 녹음 386. 묶음마다 그 소리가 있는 언어는 11개 가운데 다 넣는다([8-7](PRINCIPLES.md#8-7-언어-풀)).
 
 | 강 | 묶음 | 기호 | 낱말 | 녹음 없는 낱말 |
 |---|---|---|---|---|
@@ -22,8 +22,8 @@
 | 3 | 혀뒤 파열음 | [k] [ɡ] [kʰ] [k͈] (+[ɣ]) | 26 | 아랍어 غرب |
 | 4 | 흐름소리(유음) | [l] [ɾ] [r] [ɹ] [ʁ] | 22 | 아랍어 ليل |
 | 5 | 갈이소리(마찰음) | [f] [v] [ɸ] [h] [x] [ç] [θ] | 33 | 포르투갈어 faca·rato, 러시아어 флаг, 아랍어 ثلج |
-| 6 | 치찰음 | [s] [s͈] [z] [ʃ] [ʒ] [ɕ] [ʂ] [ʐ] | 29 | 없음. 빈 자리(찾는 중): 한국어 [s͈], 중국어 Wei Gao 추가, 브라질 [ʃ], 러시아어 [z]·[ɕː], 일본어 [z], 아랍어 [z] |
-| 7 | 파찰음 | [ts] [tsʰ] [dz] [tʃ] [dʒ] [tɕ] [tɕʰ] [t͈ɕ] [dʑ] [tʂ] [tʂʰ] | 17 | 없음. 빈 자리(찾는 중): 중국어 여섯(Wei Gao 녹음 받음), 일본어 [ts]·[dʑ], 아랍어 [dʒ] |
+| 6 | 치찰음 | [s] [s͈] [z] [ʃ] [ʒ] [ɕ] [ʂ] [ʐ] | 35 | 없음. 낱말이 아직 없는 자리: 영어 [ʒ], 이탈리아어 [z](녹음 찾는 중) |
+| 7 | 파찰음 | [ts] [tsʰ] [dz] [tʃ] [dʒ] [tɕ] [tɕʰ] [t͈ɕ] [dʑ] [tʂ] [tʂʰ] | 25 | 없음. 낱말이 없는 자리: 아랍어 [dʒ](ج를 [dʒ]로 내는 지역의 원어민 녹음을 못 찾음) |
 
 - **녹음**은 모두 Commons·Lingua Libre·Shtooka이고, WebFetch로 받아 SHA-1을 대조했다([8-10](PRINCIPLES.md#8-10-녹음-출처)). 원어민이고 지역을 알 수 있는 화자만 쓴다. Shtooka는 파일에 지역이 적혀 있으면 받는다(26.11.09). 사람이 들어 본 녹음은 아직 없다(`listened: null`).
 - **한국어 한 목소리 최소대립**(불·풀·뿔, 달·탈·딸)은 영신초이 녹음이 오면 채울 빈칸이다. 달·탈·딸은 Amanda1970 계정 녹음뿐이라 뺐다.
@@ -31,7 +31,7 @@
   - PHOIBLE 기호 × 11개 언어 표: `data/phoible-matrix.json`(`pipeline/phoible_matrix.py`). 알려진 빈틈: 스페인어 2210에 /k/가 없다(2308로 대조), 독일어 2184에 파찰음이 없다(2398로 대조).
   - 묶음마다 `sources/phoible-bNN.json`(대조한 음소 줄)과 `sources/wiktionary-bNN.json`(Wiktionary 전사와 대조 결과).
 - **미리보기(비공개 Artifact):** https://claude.ai/artifact/3QPEUivENNJjCLp4vcTcJo (`python3 pipeline/build.py --artifact <파일>`).
-- **영신 직검수 페이지(줄 댓글):** 묶음 1 https://claude.ai/artifact/11cSUJ2Paoo2hgvctNgtH8 · 묶음 2 https://claude.ai/artifact/GJznGeTaPsSKPeBkUg9tFf
+- **영신 직검수 페이지(줄 댓글):** 묶음 1 https://claude.ai/artifact/11cSUJ2Paoo2hgvctNgtH8 · 묶음 2 https://claude.ai/artifact/GJznGeTaPsSKPeBkUg9tFf · 묶음 3 https://claude.ai/artifact/YMVYAAUEuVWj6x7F59BiCF · 묶음 4 https://claude.ai/artifact/AZ4uaCBKEZrZ19SQj5VhkV · 묶음 5 https://claude.ai/artifact/JJL5cMwS41cKaSfBFSemFy · 묶음 6 https://claude.ai/artifact/NrN3hy6oqRk8ot9TijSzpp · 묶음 7 https://claude.ai/artifact/Vik3LicZT9urTyEoScr9wa
   - 만드는 법: `python3 pipeline/review_page.py bNN --out <파일>`
   - 26.11.07에 실수로 만든 묶음 1 페이지 사본(https://claude.ai/artifact/MMoNoim7eeZGY2w3mXgMet)은 영신이 지우라고 하면 지운다.
 - **영신에게 남은 것:** 녹음 듣기(청취 검수), 묶음 3~7 낱말과 인정하는 이름 검토, 원하면 한국어 한 목소리 녹음과 그 공개 조건.
@@ -40,7 +40,7 @@
 
 - `node pipeline/tests/prototype.test.cjs`: 처음 화면(강 타일 수) → 마지막 강 → 연습 넷을 끝까지 풀고(일부러 한 번 틀려 따라 치기, 맞힘 그림) → 처음 화면 IPA 지도에 칸이 켜지는지 → 언어 고르기(한국어만, 한국어+영어, 전체)를 390px로 본다. 통과. 콘솔 오류 0, 가로 넘침 0, 저장 키는 전부 `ipagoyang-`. Chromium만 봤고 실제 폰은 못 봤다.
 - `python3 pipeline/phoible_check.py <phoible.csv> <InventoryID-Bibtex.csv>`: 일곱 묶음 어긋남 0(없어야 할 소리 포함).
-- `python3 pipeline/wikt_compare.py <받은 전사.json> bNN`: 일곱 묶음 다름 0. 대상 밖 차이는 결과 파일에 남겼다.
+- `python3 pipeline/wikt_compare.py <받은 전사.json> bNN`: 일곱 묶음 다름 0. 대상 밖 차이는 결과 파일에 남겼다. 중국어는 번체 문서의 Sinological IPA 첫 줄(표준 중국어)만 받아 대조한다. 둘째 줄부터는 다른 방언이다.
 - `python3 pipeline/build.py --check`: index.html이 원본(frame.html + 덧붙임 + 데이터)과 맞는지 본다.
 
 ## 확인한 것과 못 한 것
