@@ -354,6 +354,320 @@
     }
    ],
    "sound": "ipa-eth"
+  },
+  "k": {
+   "name": "무성 연구개 파열음",
+   "name_hanja": "無聲 軟口蓋 破裂音",
+   "name_en": "voiceless velar plosive",
+   "answers": [
+    {
+     "ko": "무성 연구개 파열음",
+     "en": "voiceless velar plosive"
+    }
+   ],
+   "how": "혀의 뒤쪽을 여린입천장(연구개)에 붙여 막았다가 터뜨린다. 목청은 울리지 않고, 터뜨리자마자 모음이 나온다. 바람이 거의 새지 않는다.",
+   "ko": "이 게임은 한국어 ㄱ도 [k]로 적는다(묶음 1·2와 같은 관례). 하지만 낱말 첫 ㄱ은 바람이 조금 새서 프랑스어·스페인어 [k]와 똑같지 않다.",
+   "other": "한국어 ㄱ을 [k͉]·[ɡ̊]로 적는 문헌도 있다(PHOIBLE 2197 /k͉/, 2287 /ɡ̊/).",
+   "place": "velar",
+   "lips": null,
+   "glottis": "open",
+   "vot": "short",
+   "sagittal": "k",
+   "sound": "ipa-k",
+   "evidence": [
+    {
+     "src": "phoible",
+     "note": "프랑스어 2182 /k/, 일본어 2196 /k/, 이탈리아어 1145 /k/, 중국어 1047 /k/. 스페인어 2210에는 /k/가 빠져 있어 2308(카스티야, Frías 2001) /k/로 대조"
+    },
+    {
+     "src": "phoible",
+     "note": "한국어 ㄱ: 2197 /k͉/(변이음 ɡ), 1 /k/(변이음 ɡ), 2287 /ɡ̊/"
+    }
+   ],
+   "status": "확인 필요",
+   "status_why": "'낱말 첫 ㄱ은 바람이 조금 샌다'는 1차 출처 본문을 이 세션에서 읽지 못함(묶음 1·2와 같은 사정)"
+  },
+  "kʰ": {
+   "name": "무성 유기 연구개 파열음",
+   "name_hanja": "無聲 有氣 軟口蓋 破裂音",
+   "name_en": "voiceless aspirated velar plosive",
+   "answers": [
+    {
+     "ko": "무성 유기 연구개 파열음",
+     "en": "voiceless aspirated velar plosive"
+    }
+   ],
+   "how": "[k]처럼 터뜨린 다음, 모음 전에 '흐' 하는 바람이 샌다.",
+   "ko": "한국어 ㅋ. 영어·독일어 낱말 첫 k도 이 소리다(cat, Kuh). 영어도 s 뒤의 k(sky)는 바람이 없다. 중국어 병음 k도 이 소리다(可 kě).",
+   "place": "velar",
+   "lips": null,
+   "glottis": "wide",
+   "vot": "long",
+   "sagittal": "k",
+   "evidence": [
+    {
+     "src": "phoible",
+     "note": "한국어 2197 /kʰ/, 영어 2176 /kʰ/(변이음 kʰ·k), 독일어 2184 /kʰ/(변이음 kʰ·k), 중국어 1047 /kʰ/, 아랍어 2157 /kʰ/"
+    }
+   ],
+   "status": "확인 필요",
+   "status_why": "영어 k가 s 뒤에서 기식이 없다는 조건은 PHOIBLE에 없다(변이음 k만 있음). Hillenbrand 2003 본문 미열람"
+  },
+  "k͈": {
+   "name": "무성 경음 연구개 파열음",
+   "name_hanja": "無聲 硬音 軟口蓋 破裂音",
+   "name_en": "voiceless tense (fortis) velar plosive",
+   "answers": [
+    {
+     "ko": "무성 경음 연구개 파열음",
+     "en": "voiceless tense velar plosive"
+    }
+   ],
+   "how": "목청을 조이고 혀 뒤를 꽉 붙였다가, 바람 없이 터뜨린다.",
+   "ko": "한국어 ㄲ. 밑의 ͈ 표시는 묶음 1·2의 p͈·t͈와 같다.",
+   "other": "[kˀ]·[k*]로 적는 문헌도 있다. PHOIBLE 1은 [kˀ], 2197(Lee 1993)은 그냥 [k]로 적는다.",
+   "place": "velar",
+   "lips": null,
+   "glottis": "tight",
+   "vot": "short",
+   "sagittal": "k",
+   "evidence": [
+    {
+     "src": "phoible",
+     "note": "한국어 1 /kˀ/, 2197 /k/"
+    }
+   ],
+   "status": "확인 필요",
+   "status_why": "묶음 1의 p͈와 같은 사정"
+  },
+  "ɡ": {
+   "name": "유성 연구개 파열음",
+   "name_hanja": "有聲 軟口蓋 破裂音",
+   "name_en": "voiced velar plosive",
+   "answers": [
+    {
+     "ko": "유성 연구개 파열음",
+     "en": "voiced velar plosive"
+    }
+   ],
+   "how": "혀 뒤를 붙이고, 터뜨리기 전부터 목청을 울린다.",
+   "ko": "한국어 ㄱ은 모음 사이에서만 이 소리가 난다(아기 [aɡi]의 ㄱ). 낱말 첫머리 [ɡ]는 한국어에 없어서 [k]와 헷갈리기 쉽다.",
+   "other": "영어 낱말 첫 g는 흔히 덜 울린다(PHOIBLE 2176 변이음 ɡ̥̊). 일본어 가운데 g는 [ŋ]·[ɣ]로도 난다(PHOIBLE 2196). IPA의 ɡ는 고리 없는 g 모양을 쓴다.",
+   "place": "velar",
+   "lips": null,
+   "glottis": "voiced",
+   "vot": "lead",
+   "sagittal": "g",
+   "sound": "ipa-g",
+   "evidence": [
+    {
+     "src": "phoible",
+     "note": "한국어 2197 /k͉/의 변이음 ɡ"
+    },
+    {
+     "src": "phoible",
+     "note": "프랑스어 2182 /ɡ/, 스페인어 2210 /ɡ/(변이음 ɡ·ɣ̞·ɰ), 일본어 2196 /ɡ/(변이음 ɡ·ŋ·ɣ), 영어 2176 /ɡ/(변이음 ɡ·ɡ̥̊)"
+    }
+   ],
+   "status": "확인 필요",
+   "status_why": "'낱말 첫 [ɡ]를 [k]와 헷갈리기 쉽다'는 지각 연구 본문을 읽지 못함(묶음 1의 [b]와 같은 사정)"
+  },
+  "ɣ": {
+   "name": "유성 연구개 마찰음 [ɣ] · 접근음 [ɣ̞]",
+   "name_hanja": "有聲 軟口蓋 摩擦音 · 接近音",
+   "name_en": "voiced velar fricative [ɣ] · approximant [ɣ̞]",
+   "answers": [
+    {
+     "ko": "유성 연구개 마찰음",
+     "en": "voiced velar fricative"
+    },
+    {
+     "ko": "유성 연구개 접근음",
+     "en": "voiced velar approximant"
+    }
+   ],
+   "how": "혀 뒤를 여린입천장에 가까이 대고, 막지 않은 채 목청을 울린다. 밑의 ˕ 표시(ɣ̞)는 더 벌려서 마찰이 거의 없다는 뜻이다.",
+   "ko": "한국어에 없다. 스페인어 g는 모음 사이에서 이 소리다(lago). 아랍어 غ는 따로 된 음소다.",
+   "place": "velar",
+   "lips": "near",
+   "glottis": "voiced",
+   "vot": null,
+   "sagittal": "g",
+   "sound": "ipa-gamma",
+   "evidence": [
+    {
+     "src": "phoible",
+     "note": "스페인어 2210 /ɡ/ 변이음 ɣ̞, 아랍어 2157 /ɣ/, 일본어 2196 /ɡ/ 변이음 ɣ"
+    }
+   ],
+   "status": "확인",
+   "status_why": "PHOIBLE(Martínez-Celdrán 외 2003, Thelwall·Sa'Adeddin 1990)과 대조"
+  },
+  "l": {
+   "name": "유성 치경 설측 접근음",
+   "name_hanja": "有聲 齒莖 舌側接近音",
+   "name_en": "voiced alveolar lateral approximant",
+   "answers": [
+    {
+     "ko": "유성 치경 설측 접근음",
+     "en": "voiced alveolar lateral approximant"
+    },
+    {
+     "ko": "유성 치경 설측음",
+     "en": "voiced alveolar lateral approximant"
+    },
+    {
+     "ko": "유성 치 설측 접근음",
+     "en": "voiced dental lateral approximant"
+    }
+   ],
+   "how": "혀끝을 윗잇몸에 붙인 채 혀 양옆으로 소리를 흘리며 목청을 울린다. 입 옆모습으로는 [d]와 비슷하게 보이지만 막지 않고 옆으로 흘린다.",
+   "ko": "한국어 ㄹ은 받침이나 겹친 ㄹ(달라)에서 이 소리다(물 [mul]). 모음 사이 ㄹ은 [ɾ]로 난다.",
+   "other": "영어 낱말 끝 l은 혀 뒤를 들어 [ɫ](어두운 l)로 난다(PHOIBLE 2176 변이음 ɫ). 프랑스어 l은 치음 [l̪](PHOIBLE 2182).",
+   "place": "alveolar",
+   "lips": null,
+   "glottis": "voiced",
+   "vot": null,
+   "sagittal": "d",
+   "steps": [
+    "혀끝을 잇몸에 붙이기",
+    "목청 울림",
+    "혀 양옆으로 소리"
+   ],
+   "evidence": [
+    {
+     "src": "phoible",
+     "note": "한국어 2197 /l/(변이음 ɾ·ɭ·ʎ), 영어 2176 /l/(변이음 ɫ), 스페인어 2210 /l/, 중국어 1047 /l/, 독일어 2184 /l/, 이탈리아어 1145 /l/, 아랍어 2157 /l/, 프랑스어 2182 /l̪/"
+    }
+   ],
+   "status": "확인",
+   "status_why": "PHOIBLE과 대조"
+  },
+  "ɾ": {
+   "name": "유성 치경 탄음",
+   "name_hanja": "有聲 齒莖 彈音",
+   "name_en": "voiced alveolar tap",
+   "answers": [
+    {
+     "ko": "유성 치경 탄음",
+     "en": "voiced alveolar tap"
+    }
+   ],
+   "how": "혀끝으로 윗잇몸을 한 번 툭 친다. 목청은 울린다.",
+   "ko": "한국어 ㄹ은 모음 사이에서 이 소리다(다리 [taɾi]). 일본어 ら행, 스페인어·포르투갈어 r 하나(pero, caro)도 이 소리다.",
+   "other": "미국 영어 water의 t도 이 소리로 난다(PHOIBLE 2176 /tʰ/의 변이음 ɾ). 일본어 ら행을 PHOIBLE 2196은 /d̠/의 변이음 ɾ로 적는다.",
+   "place": "alveolar",
+   "lips": null,
+   "glottis": "voiced",
+   "vot": null,
+   "sagittal": "d",
+   "steps": [
+    "혀끝을 잇몸 가까이",
+    "목청 울림",
+    "한 번 툭 치기"
+   ],
+   "evidence": [
+    {
+     "src": "phoible",
+     "note": "한국어 2197 /l/ 변이음 ɾ, 스페인어 2210 /ɾ/, 포르투갈어 2207 /ɾ/, 일본어 2196 /d̠/ 변이음 ɾ, 이탈리아어 1145 /r/ 변이음 ɾ"
+    }
+   ],
+   "status": "확인",
+   "status_why": "PHOIBLE과 대조"
+  },
+  "r": {
+   "name": "유성 치경 전동음",
+   "name_hanja": "有聲 齒莖 顫動音",
+   "name_en": "voiced alveolar trill",
+   "answers": [
+    {
+     "ko": "유성 치경 전동음",
+     "en": "voiced alveolar trill"
+    }
+   ],
+   "how": "혀끝을 윗잇몸 가까이 대고, 바람으로 혀끝을 여러 번 떨게 한다. 목청은 울린다.",
+   "ko": "한국어에 없다(흔히 \"혀를 굴린다\"고 하는 소리). 스페인어 rr(perro), 이탈리아어·러시아어·아랍어 r.",
+   "place": "alveolar",
+   "lips": null,
+   "glottis": "voiced",
+   "vot": null,
+   "sagittal": "d",
+   "steps": [
+    "혀끝을 잇몸 가까이",
+    "목청 울림",
+    "혀끝이 여러 번 떨림"
+   ],
+   "evidence": [
+    {
+     "src": "phoible",
+     "note": "스페인어 2210 /r/, 이탈리아어 1145 /r/, 러시아어 2261 /r/, 아랍어 2157 /r/, 포르투갈어 2207 /r/"
+    }
+   ],
+   "status": "확인",
+   "status_why": "PHOIBLE과 대조"
+  },
+  "ɹ": {
+   "name": "유성 치경 접근음",
+   "name_hanja": "有聲 齒莖 接近音",
+   "name_en": "voiced alveolar approximant",
+   "answers": [
+    {
+     "ko": "유성 치경 접근음",
+     "en": "voiced alveolar approximant"
+    }
+   ],
+   "how": "혀끝을 잇몸 쪽으로 들되 닿지 않게 하고 목청을 울린다. 미국 영어 r은 혀끝을 말거나 혀 몸통을 뭉쳐서 내기도 한다.",
+   "ko": "한국어에 없다. 영어 red의 r. 중국어 병음 r(人)도 PHOIBLE 1047은 [ɹ]로 적는다.",
+   "other": "중국어 r은 문헌마다 [ʐ]·[ɻ]로도 적는다. IPA로 영어 r을 넓게 적을 때 흔히 /r/를 쓰지만 소리는 [ɹ]다.",
+   "place": "alveolar",
+   "lips": null,
+   "glottis": "voiced",
+   "vot": null,
+   "sagittal": "r_retroflex",
+   "steps": [
+    "혀끝을 들되 닿지 않게",
+    "목청 울림",
+    "틈으로 소리"
+   ],
+   "evidence": [
+    {
+     "src": "phoible",
+     "note": "영어 2176 /ɹ/, 중국어 1047 /ɹ/"
+    }
+   ],
+   "status": "확인 필요",
+   "status_why": "입 옆모습은 권설 r 그림(r_retroflex)을 빌렸다. 미국 영어 r은 혀를 뭉쳐 내는 사람도 있어 하나로 그릴 수 없다. 중국어 r의 표기는 문헌마다 다르다"
+  },
+  "ʁ": {
+   "name": "유성 구개수 마찰음",
+   "name_hanja": "有聲 口蓋垂 摩擦音",
+   "name_en": "voiced uvular fricative",
+   "answers": [
+    {
+     "ko": "유성 구개수 마찰음",
+     "en": "voiced uvular fricative"
+    },
+    {
+     "ko": "유성 구개수 접근음",
+     "en": "voiced uvular approximant"
+    }
+   ],
+   "how": "혀 뒤를 목젖(구개수) 가까이 들고, 막지 않은 채 목청을 울린다.",
+   "ko": "한국어에 없다. 프랑스어 r(rouge), 독일어 r(rot).",
+   "other": "프랑스어 r은 마찰이 약한 [ʁ̞]나 떨리는 [ʀ]로도 난다(PHOIBLE 2182 /ʁ/ 변이음 ʁ̞·ʁ̥·ʀ·r). 독일어도 /ʁ/(PHOIBLE 2184).",
+   "place": "uvular",
+   "lips": null,
+   "glottis": "voiced",
+   "vot": null,
+   "sagittal": "uvular_fric",
+   "evidence": [
+    {
+     "src": "phoible",
+     "note": "프랑스어 2182 /ʁ/, 독일어 2184 /ʁ/"
+    }
+   ],
+   "status": "확인",
+   "status_why": "PHOIBLE과 대조"
   }
  },
  "glottis": {

@@ -1,0 +1,686 @@
+{
+ "id": "b03",
+ "title": "혀뒤 파열음",
+ "symbols_title": "[k] [ɡ] [kʰ] [k͈]",
+ "about": "묶음 3 원본(PRINCIPLES 8-5: [p…]·[t…] 다음). 그 소리가 있는 언어는 11개 가운데 다 넣는다(8-7). 짜는 법은 b01·b02와 같다.",
+ "place": "velar",
+ "learn": [
+  "k",
+  "kʰ",
+  "k͈",
+  "ɡ",
+  "ɣ"
+ ],
+ "lit": [
+  "k",
+  "ɡ",
+  "ɣ"
+ ],
+ "keyboard": [
+  [
+   "k",
+   "kʰ",
+   "k͈",
+   "ɡ"
+  ],
+  [
+   "ŋ"
+  ],
+  [
+   "x",
+   "ɣ"
+  ]
+ ],
+ "shortcuts": {},
+ "compare": [],
+ "lines": {
+  "correct": [
+   "혀뒤가 제대로 붙었다고양.",
+   "ㄱ·ㅋ·ㄲ도 셋이라고양. 이건 한국 귀가 잘한다고양."
+  ],
+  "wrong": [
+   "혀뒤로 다시 막아 보라고양.",
+   "목에 손 대 보라고양. 떨리면 [ɡ]라고양."
+  ],
+  "by_word": {
+   "ko-gogi": "고기의 두 ㄱ은 소리가 다르다고양. 고기도 앞뒤가 다르다고양.",
+   "en-sky": "s 뒤 k도 바람이 빠진다고양. spin·stop이랑 같은 수법이라고양.",
+   "es-lago": "모음 사이 g는 혀뒤가 닿을락 말락이라고양.",
+   "fr-gout": "cou와 goût는 목이 떨리느냐만 다르다고양. 맛있으면 떨린다고양.",
+   "zh-gao": "병음 g는 [k]라고양. 철자에 속지 말라고양."
+  },
+  "end": "입 안쪽 칸까지 왔다고양. 이제 목구멍 앞이라고양. ㅎㅎ"
+ },
+ "feel": [
+  {
+   "for": [
+    "kʰ",
+    "k",
+    "k͈"
+   ],
+   "text": "입 앞에 휴지 한 장을 대고 '개', '코', '꽃'을 말해 본다. 휴지가 가장 크게 펄럭이는 것이 [kʰ]다."
+  },
+  {
+   "for": [
+    "ɡ",
+    "k"
+   ],
+   "text": "목울대에 손가락을 대고 '고기'를 말해 본다. 둘째 ㄱ에서 떨림이 끊기지 않으면 [ɡ]다."
+  }
+ ],
+ "absent": {
+  "2197": [
+   "ɣ"
+  ],
+  "1": [
+   "ɣ"
+  ],
+  "2287": [
+   "ɣ"
+  ]
+ },
+ "absent_about": "한국어 목록 셋에 ɣ가 없어야 symbols ɣ의 '한국어에 없다'가 맞다.",
+ "audio_plan": "모두 Commons·Lingua Libre 녹음(PRINCIPLES 8-10). 한국어 개·코·꽃·고기는 한 화자(호로조, 경기).",
+ "words": [
+  {
+   "id": "ko-gae",
+   "lang": "kor",
+   "text": "개",
+   "roman": "gae",
+   "ko": "개(동물)",
+   "ipa": [
+    "",
+    "k",
+    "ɛ"
+   ],
+   "target": "k",
+   "phoible": {
+    "inv": 2197,
+    "seg": "k͉"
+   },
+   "note": "낱말 첫 ㄱ. 좁게 적으면 [k͉]로 적는 문헌도 있다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2197 /k͉/. 이 게임은 [k]로 적는다(PRINCIPLES 2-4)",
+   "audio": "ko-gae-horojo",
+   "audio_more": [
+    "ko-gae-happymidnight"
+   ]
+  },
+  {
+   "id": "ko-kho",
+   "lang": "kor",
+   "text": "코",
+   "roman": "ko",
+   "ko": "코",
+   "ipa": [
+    "",
+    "kʰ",
+    "o"
+   ],
+   "target": "kʰ",
+   "phoible": {
+    "inv": 2197,
+    "seg": "kʰ"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2197 /kʰ/",
+   "audio": "ko-ko-horojo"
+  },
+  {
+   "id": "ko-kkot",
+   "lang": "kor",
+   "text": "꽃",
+   "roman": "kkot",
+   "ko": "꽃",
+   "ipa": [
+    "",
+    "k͈",
+    "ot̚"
+   ],
+   "target": "k͈",
+   "phoible": {
+    "inv": 2197,
+    "seg": "k"
+   },
+   "note": "PHOIBLE 2197은 ㄲ을 그냥 [k]로 적는다. 이 게임은 [k͈]. 끝 ㅊ 받침은 [t̚]로 난다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2197 /k/(된소리 줄)",
+   "audio": "ko-kkot-horojo"
+  },
+  {
+   "id": "ko-gogi",
+   "lang": "kor",
+   "text": "고기",
+   "roman": "gogi",
+   "ko": "고기",
+   "ipa": [
+    "ko",
+    "ɡ",
+    "i"
+   ],
+   "target": "ɡ",
+   "phoible": {
+    "inv": 2197,
+    "seg": "k͉",
+    "allo": "ɡ"
+   },
+   "note": "같은 ㄱ인데 앞은 [k], 모음 사이 뒤는 [ɡ]다. 개·코·꽃·고기를 한 사람(호로조)이 녹음했다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2197 /k͉/의 변이음 ɡ",
+   "audio": "ko-gogi-horojo"
+  },
+  {
+   "id": "en-cat",
+   "lang": "eng",
+   "text": "cat",
+   "roman": "cat",
+   "ko": "고양이",
+   "ipa": [
+    "",
+    "kʰ",
+    "æt"
+   ],
+   "target": "kʰ",
+   "phoible": {
+    "inv": 2176,
+    "seg": "kʰ",
+    "allo": "kʰ"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2176 /kʰ/",
+   "audio": "en-cat-grendelkhan",
+   "audio_more": [
+    "en-cat-wodencafe",
+    "en-cat-muldoonsamuel55"
+   ]
+  },
+  {
+   "id": "en-sky",
+   "lang": "eng",
+   "text": "sky",
+   "roman": "sky",
+   "ko": "하늘",
+   "ipa": [
+    "s",
+    "k",
+    "aɪ"
+   ],
+   "target": "k",
+   "phoible": {
+    "inv": 2176,
+    "seg": "kʰ",
+    "allo": "k"
+   },
+   "note": "s 뒤 k는 기식이 없다.",
+   "status": "확인 필요",
+   "status_why": "PHOIBLE은 /kʰ/의 변이음 k만 적고 조건(s 뒤)은 없다",
+   "audio": "en-sky-grendelkhan",
+   "audio_more": [
+    "en-sky-wodencafe",
+    "en-sky-muldoonsamuel55"
+   ]
+  },
+  {
+   "id": "en-go",
+   "lang": "eng",
+   "text": "go",
+   "roman": "go",
+   "ko": "가다",
+   "ipa": [
+    "",
+    "ɡ",
+    "oʊ"
+   ],
+   "target": "ɡ",
+   "phoible": {
+    "inv": 2176,
+    "seg": "ɡ"
+   },
+   "note": "낱말 첫 g는 흔히 덜 울린다([ɡ̥̊]). 그래서 듣고 고르기에는 내지 않는다(PRINCIPLES 2-4).",
+   "listen": false,
+   "status": "확인",
+   "status_why": "PHOIBLE 2176 /ɡ/(변이음 ɡ·ɡ̥̊)",
+   "audio": "en-go-grendelkhan",
+   "audio_more": [
+    "en-go-wodencafe",
+    "en-go-muldoonsamuel55"
+   ]
+  },
+  {
+   "id": "es-casa",
+   "lang": "spa",
+   "text": "casa",
+   "roman": "casa",
+   "ko": "집",
+   "ipa": [
+    "ˈ",
+    "k",
+    "asa"
+   ],
+   "target": "k",
+   "phoible": {
+    "inv": 2308,
+    "seg": "k"
+   },
+   "note": "PHOIBLE 2210에는 /k/가 빠져 있어 2308(카스티야)로 대조했다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2308 /k/(2210은 목록 빠짐, phoible-matrix KNOWN_GAPS)",
+   "audio": "es-casa-glyphenjoyer",
+   "audio_more": [
+    "es-casa-precision27",
+    "es-casa-alhen"
+   ]
+  },
+  {
+   "id": "es-goma",
+   "lang": "spa",
+   "text": "goma",
+   "roman": "goma",
+   "ko": "고무",
+   "ipa": [
+    "ˈ",
+    "ɡ",
+    "oma"
+   ],
+   "target": "ɡ",
+   "phoible": {
+    "inv": 2210,
+    "seg": "ɡ",
+    "allo": "ɡ"
+   },
+   "note": "쉰 다음 첫머리에서는 [ɡ].",
+   "status": "확인",
+   "status_why": "PHOIBLE 2210 /ɡ/(변이음 ɡ·ɣ̞·ɰ)",
+   "audio": "es-goma-marreromarco",
+   "audio_more": [
+    "es-goma-rubyn"
+   ]
+  },
+  {
+   "id": "es-lago",
+   "lang": "spa",
+   "text": "lago",
+   "roman": "lago",
+   "ko": "호수",
+   "ipa": [
+    "ˈla",
+    "ɣ̞",
+    "o"
+   ],
+   "target": "ɣ",
+   "accept": [
+    "ɣ",
+    "ɣ̞"
+   ],
+   "phoible": {
+    "inv": 2210,
+    "seg": "ɡ",
+    "allo": "ɣ̞"
+   },
+   "note": "모음 사이 g는 혀 뒤로 막지 않는다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2210 /ɡ/의 변이음 ɣ̞",
+   "audio": "es-lago-rodelar",
+   "audio_more": [
+    "es-lago-sinaloa"
+   ]
+  },
+  {
+   "id": "ja-kao",
+   "lang": "jpn",
+   "text": "顔",
+   "roman": "kao",
+   "ko": "얼굴",
+   "ipa": [
+    "",
+    "k",
+    "ao"
+   ],
+   "target": "k",
+   "phoible": {
+    "inv": 2196,
+    "seg": "k"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2196 /k/",
+   "audio": "ja-kao-wanikani-male"
+  },
+  {
+   "id": "ja-gamu",
+   "lang": "jpn",
+   "text": "ガム",
+   "roman": "gamu",
+   "ko": "껌",
+   "ipa": [
+    "",
+    "ɡ",
+    "amɯ"
+   ],
+   "target": "ɡ",
+   "phoible": {
+    "inv": 2196,
+    "seg": "ɡ"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2196 /ɡ/",
+   "audio": "ja-gamu-aoi"
+  },
+  {
+   "id": "fr-cou",
+   "lang": "fra",
+   "text": "cou",
+   "roman": "cou",
+   "ko": "목",
+   "ipa": [
+    "",
+    "k",
+    "u"
+   ],
+   "target": "k",
+   "phoible": {
+    "inv": 2182,
+    "seg": "k"
+   },
+   "note": "goût와 첫소리만 다르다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2182 /k/",
+   "audio": "fr-cou-poslovitch",
+   "audio_more": [
+    "fr-cou-loquaxfr",
+    "fr-cou-sartus85"
+   ]
+  },
+  {
+   "id": "fr-gout",
+   "lang": "fra",
+   "text": "goût",
+   "roman": "goût",
+   "ko": "맛",
+   "ipa": [
+    "",
+    "ɡ",
+    "u"
+   ],
+   "target": "ɡ",
+   "phoible": {
+    "inv": 2182,
+    "seg": "ɡ"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2182 /ɡ/",
+   "audio": "fr-gout-poslovitch",
+   "audio_more": [
+    "fr-gout-loquaxfr",
+    "fr-gout-sartus85"
+   ]
+  },
+  {
+   "id": "pt-casa",
+   "lang": "por",
+   "text": "casa",
+   "roman": "casa",
+   "ko": "집",
+   "ipa": [
+    "ˈ",
+    "k",
+    "azɐ"
+   ],
+   "target": "k",
+   "phoible": {
+    "inv": 2207,
+    "seg": "k"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2207 /k/",
+   "audio": "pt-casa-sillim",
+   "audio_more": [
+    "pt-casa-manandez"
+   ]
+  },
+  {
+   "id": "pt-gato",
+   "lang": "por",
+   "text": "gato",
+   "roman": "gato",
+   "ko": "고양이",
+   "ipa": [
+    "ˈ",
+    "ɡ",
+    "atu"
+   ],
+   "target": "ɡ",
+   "phoible": {
+    "inv": 2207,
+    "seg": "ɡ"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2207 /ɡ/",
+   "audio": "pt-gato-medk1"
+  },
+  {
+   "id": "zh-gao",
+   "lang": "cmn",
+   "text": "高",
+   "roman": "gāo",
+   "ko": "높다",
+   "ipa": [
+    "",
+    "k",
+    "au˥"
+   ],
+   "target": "k",
+   "phoible": {
+    "inv": 1047,
+    "seg": "k"
+   },
+   "note": "병음 g는 기식 없는 [k], k는 기식 있는 [kʰ]다(口 kǒu).",
+   "status": "확인",
+   "status_why": "PHOIBLE 1047 /k/",
+   "audio": "zh-gao1-weigao"
+  },
+  {
+   "id": "zh-kou",
+   "lang": "cmn",
+   "text": "口",
+   "roman": "kǒu",
+   "ko": "입",
+   "ipa": [
+    "",
+    "kʰ",
+    "ou˨˩˦"
+   ],
+   "target": "kʰ",
+   "phoible": {
+    "inv": 1047,
+    "seg": "kʰ"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 1047 /kʰ/",
+   "audio": "zh-kou3-weigao",
+   "audio_more": [
+    "zh-kou3-yunjiao"
+   ]
+  },
+  {
+   "id": "ru-kot",
+   "lang": "rus",
+   "text": "кот",
+   "roman": "kot",
+   "ko": "수고양이",
+   "ipa": [
+    "",
+    "k",
+    "ot"
+   ],
+   "target": "k",
+   "phoible": {
+    "inv": 2261,
+    "seg": "k"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2261 /k/",
+   "audio": "ru-kot-lvova"
+  },
+  {
+   "id": "ru-god",
+   "lang": "rus",
+   "text": "год",
+   "roman": "god",
+   "ko": "해(年)",
+   "ipa": [
+    "",
+    "ɡ",
+    "ot"
+   ],
+   "target": "ɡ",
+   "phoible": {
+    "inv": 2261,
+    "seg": "ɡ"
+   },
+   "note": "낱말 끝 д는 [t]로 난다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2261 /ɡ/",
+   "audio": "ru-god-tatianakerbush"
+  },
+  {
+   "id": "de-kuh",
+   "lang": "deu",
+   "text": "Kuh",
+   "roman": "Kuh",
+   "ko": "암소",
+   "ipa": [
+    "",
+    "kʰ",
+    "uː"
+   ],
+   "target": "kʰ",
+   "phoible": {
+    "inv": 2184,
+    "seg": "kʰ",
+    "allo": "kʰ"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2184 /kʰ/",
+   "audio": "de-kuh-wallroth",
+   "audio_more": [
+    "de-kuh-jeuwre"
+   ]
+  },
+  {
+   "id": "de-geld",
+   "lang": "deu",
+   "text": "Geld",
+   "roman": "Geld",
+   "ko": "돈",
+   "ipa": [
+    "",
+    "ɡ",
+    "ɛlt"
+   ],
+   "target": "ɡ",
+   "phoible": {
+    "inv": 2184,
+    "seg": "ɡ"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2184 /ɡ/",
+   "audio": "de-geld-wallroth",
+   "audio_more": [
+    "de-geld-jeuwre"
+   ]
+  },
+  {
+   "id": "it-cane",
+   "lang": "ita",
+   "text": "cane",
+   "roman": "cane",
+   "ko": "개",
+   "ipa": [
+    "ˈ",
+    "k",
+    "ane"
+   ],
+   "target": "k",
+   "phoible": {
+    "inv": 1145,
+    "seg": "k"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 1145 /k/",
+   "audio": "it-cane-langpao",
+   "audio_more": [
+    "it-cane-xana000",
+    "it-cane-ciampix"
+   ]
+  },
+  {
+   "id": "it-gatto",
+   "lang": "ita",
+   "text": "gatto",
+   "roman": "gatto",
+   "ko": "고양이",
+   "ipa": [
+    "ˈ",
+    "ɡ",
+    "atto"
+   ],
+   "target": "ɡ",
+   "phoible": {
+    "inv": 1145,
+    "seg": "ɡ"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 1145 /ɡ/",
+   "audio": "it-gatto-xana000",
+   "audio_more": [
+    "it-gatto-langpao",
+    "it-gatto-ciampix"
+   ]
+  },
+  {
+   "id": "ar-kalb",
+   "lang": "arb",
+   "text": "كلب",
+   "roman": "kalb",
+   "ko": "개",
+   "ipa": [
+    "",
+    "kʰ",
+    "alb"
+   ],
+   "target": "kʰ",
+   "phoible": {
+    "inv": 2157,
+    "seg": "kʰ"
+   },
+   "note": "PHOIBLE 2157은 아랍어 k를 기식 있는 [kʰ]로 적는다. 아랍어에는 [ɡ]가 없다.",
+   "status": "확인 필요",
+   "status_why": "녹음 화자는 모로코 출신이고, 현대 표준 아랍어 녹음은 Commons에서 찾지 못했다. PHOIBLE 2157도 방언 화자 목록이다",
+   "audio": "ar-kalb-nhaily",
+   "audio_more": [
+    "ar-kalb-fenakhay"
+   ]
+  },
+  {
+   "id": "ar-gharb",
+   "lang": "arb",
+   "text": "غرب",
+   "roman": "ɣarb",
+   "ko": "서쪽",
+   "ipa": [
+    "",
+    "ɣ",
+    "arb"
+   ],
+   "target": "ɣ",
+   "phoible": {
+    "inv": 2157,
+    "seg": "ɣ"
+   },
+   "note": "아랍어 [ɣ]는 음소다(스페인어처럼 g의 변이음이 아니다).",
+   "status": "확인 필요",
+   "status_why": "녹음 화자는 모로코 출신이고, 현대 표준 아랍어 녹음은 Commons에서 찾지 못했다. PHOIBLE 2157도 방언 화자 목록이다",
+   "audio": "ar-gharb-nhaily"
+  }
+ ]
+}

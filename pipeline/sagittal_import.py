@@ -14,7 +14,8 @@ import json, os, re, sys
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # 게임 이름 → 원본 파일 이름
 FILES = {'neutral': 'neutral', 'p': 'p', 'b': 'b', 'm': 'm', 't': 't', 'd': 'd', 'n': 'n', 'eth': 'eth', 'theta': 'θ',
-         'k': 'k', 'g': 'g', 'f': 'f', 'v': 'v'}
+         'k': 'k', 'g': 'g', 'f': 'f', 'v': 'v', 'uvular_fric': 'ʁ', 'r_retroflex': 'r_retroflex', 's': 's_apical', 'z': 'z_apical',
+         'sh': 'ʃ_apical', 'zh': 'ʒ_apical', 'x_uvular': 'χ', 'c_pal': 'ç', 'jj': 'ʝ', 'ng': 'ŋ'}
 ROLES = ['larynx', 'head', 'glottis', 'upper', 'tongue']
 
 

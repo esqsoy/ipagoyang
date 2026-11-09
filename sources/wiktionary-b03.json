@@ -1,0 +1,333 @@
+{
+ "about": "pipeline/wikt_compare.py 결과. Wiktionary(en.wiktionary.org, CC BY-SA 4.0) 낱말 문서의 전사와 대조만 했다. 우리 전사는 data/bundles에 있고 Wiktionary에서 가져오지 않았다.",
+ "fetched": "2026-11-06",
+ "bundle": "b03",
+ "rows": [
+  {
+   "word": "ko-gae",
+   "ours": "[kɛ]",
+   "wiktionary": [
+    "[kɛ(ː)] ~ [ke̞(ː)]",
+    "[kɛ] ~ [ke̞]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[kɛ(ː)] ~ [ke̞(ː)]",
+    "[kɛ] ~ [ke̞]"
+   ]
+  },
+  {
+   "word": "ko-kho",
+   "ours": "[kʰo]",
+   "wiktionary": [
+    "[kʰo̞]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "ko-kkot",
+   "ours": "[k͈ot̚]",
+   "wiktionary": [
+    "[k͈o̞t̚]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "ko-gogi",
+   "ours": "[koɡi]",
+   "wiktionary": [
+    "[ko̞ɡi]",
+    "[ˈko̞(ː)ɡi]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[ˈko̞(ː)ɡi]"
+   ]
+  },
+  {
+   "word": "en-cat",
+   "ours": "[kʰæt]",
+   "wiktionary": [
+    "/ˈkæt/",
+    "[ˈkʰæt]",
+    "[ˈkʰeə̯t]",
+    "[ˈkʰɛə̯t]",
+    "/ˈkɛt/",
+    "[ˈkʰɛt]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ˈkæt/",
+    "[ˈkʰeə̯t]",
+    "[ˈkʰɛə̯t]",
+    "/ˈkɛt/",
+    "[ˈkʰɛt]"
+   ]
+  },
+  {
+   "word": "en-sky",
+   "ours": "[skaɪ]",
+   "wiktionary": [
+    "/skaɪ/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "en-go",
+   "ours": "[ɡoʊ]",
+   "wiktionary": [
+    "/ɡəʊ/",
+    "/ɡə/",
+    "/ɡu/ [ɡʊw]",
+    "/ɡæn/",
+    "/ɡo/",
+    "/ɡoː/",
+    "/ɡoʊ/",
+    "[ɡoː]",
+    "[ɡəʉ]",
+    "[ɡɐʉ]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ɡəʊ/",
+    "/ɡə/",
+    "/ɡu/ [ɡʊw]",
+    "/ɡæn/",
+    "/ɡo/",
+    "/ɡoː/",
+    "[ɡoː]",
+    "[ɡəʉ]",
+    "[ɡɐʉ]"
+   ]
+  },
+  {
+   "word": "es-casa",
+   "ours": "[ˈkasa]",
+   "wiktionary": [
+    "/ˈkasa/",
+    "[ˈka.sa]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "es-goma",
+   "ours": "[ˈɡoma]",
+   "wiktionary": [
+    "/ˈɡoma/",
+    "[ˈɡo.ma]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "es-lago",
+   "ours": "[ˈlaɣ̞o]",
+   "wiktionary": [
+    "/ˈlaɡo/",
+    "[ˈla.ɣ̞o]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ˈlaɡo/"
+   ]
+  },
+  {
+   "word": "ja-kao",
+   "ours": "[kao]",
+   "wiktionary": [
+    "[ka̠o̞]",
+    "[ɡã̠ɴ]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[ɡã̠ɴ]"
+   ]
+  },
+  {
+   "word": "ja-gamu",
+   "ours": "[ɡamɯ]",
+   "wiktionary": [
+    "[ɡa̠mɯ̟]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[ɡa̠mɯ̟]"
+   ]
+  },
+  {
+   "word": "fr-cou",
+   "ours": "[ku]",
+   "wiktionary": [
+    "/ku/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "fr-gout",
+   "ours": "[ɡu]",
+   "wiktionary": [
+    "/ɡu/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "pt-casa",
+   "ours": "[ˈkazɐ]",
+   "wiktionary": [
+    "/ˈka.zɐ/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "pt-gato",
+   "ours": "[ˈɡatu]",
+   "wiktionary": [
+    "/ˈɡa.tu/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "zh-gao",
+   "ours": "[kau˥]",
+   "wiktionary": [
+    "/kɑʊ̯⁵⁵/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/kɑʊ̯⁵⁵/"
+   ]
+  },
+  {
+   "word": "zh-kou",
+   "ours": "[kʰou˨˩˦]",
+   "wiktionary": [
+    "/kʰoʊ̯²¹⁴/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/kʰoʊ̯²¹⁴/"
+   ]
+  },
+  {
+   "word": "ru-kot",
+   "ours": "[kot]",
+   "wiktionary": [
+    "[kot]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "ru-god",
+   "ours": "[ɡot]",
+   "wiktionary": [
+    "[ɡot]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "de-kuh",
+   "ours": "[kʰuː]",
+   "wiktionary": [
+    "/kuː/"
+   ],
+   "target_ok": true,
+   "via": "음소 표기만 있음: 기식은 PHOIBLE로 대조",
+   "other_diff": [
+    "/kuː/"
+   ]
+  },
+  {
+   "word": "de-geld",
+   "ours": "[ɡɛlt]",
+   "wiktionary": [
+    "/ɡɛlt/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "it-cane",
+   "ours": "[ˈkane]",
+   "wiktionary": [
+    "/ˈka.ne/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "it-gatto",
+   "ours": "[ˈɡatto]",
+   "wiktionary": [
+    "/ˈɡat.to/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "ar-kalb",
+   "ours": "[kʰalb]",
+   "wiktionary": [
+    "/kalb/"
+   ],
+   "target_ok": true,
+   "via": "음소 표기만 있음: 기식은 PHOIBLE로 대조",
+   "other_diff": [
+    "/kalb/"
+   ]
+  },
+  {
+   "word": "ar-gharb",
+   "ours": "[ɣarb]",
+   "wiktionary": [
+    "/ɣa.ra.ba/",
+    "/ɣa.ru.ba/",
+    "/ɣar.ra.ba/",
+    "/ɣarb/",
+    "/ɣa.rab/",
+    "/ɣurb/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ɣa.ra.ba/",
+    "/ɣa.ru.ba/",
+    "/ɣar.ra.ba/",
+    "/ɣa.rab/",
+    "/ɣurb/"
+   ]
+  }
+ ]
+}

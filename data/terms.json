@@ -384,6 +384,19 @@
     "ref": "vot-ko"
    },
    "status": "사전 표제어 없음: 한국어 음성학 논문의 용어. 한자는 구성 낱말(성대 181027 등)로 맞춤"
+  },
+  "설측음": {
+   "ko": "설측음",
+   "hanja": "舌側音",
+   "en": "lateral",
+   "group": "manner",
+   "short": "설측",
+   "short_hanja": "舌側",
+   "source": {
+    "ref": "stdict",
+    "word_no": "444424"
+   },
+   "status": "확인"
   }
  }
 }
