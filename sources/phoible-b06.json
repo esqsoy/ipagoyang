@@ -281,6 +281,22 @@
    "allo": null,
    "ok": true,
    "why": ""
+  },
+  {
+   "word": "en-pleasure",
+   "inv": 2176,
+   "seg": "ʒ",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "it-sbagliare",
+   "inv": 1145,
+   "seg": "z",
+   "allo": null,
+   "ok": true,
+   "why": ""
   }
  ],
  "absent": [
@@ -355,6 +371,11 @@
      "marginal": "FALSE"
     },
     {
+     "phoneme": "z",
+     "allophones": "z",
+     "marginal": "FALSE"
+    },
+    {
      "phoneme": "ʃ",
      "allophones": "ʃ",
      "marginal": "FALSE"
@@ -413,6 +434,11 @@
     {
      "phoneme": "ʃ",
      "allophones": "ʃ",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "ʒ",
+     "allophones": "ʒ",
      "marginal": "FALSE"
     }
    ]

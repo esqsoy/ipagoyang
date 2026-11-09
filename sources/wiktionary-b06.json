@@ -452,6 +452,29 @@
    "target_ok": true,
    "via": "",
    "other_diff": []
+  },
+  {
+   "word": "en-pleasure",
+   "ours": "[plɛʒɚ]",
+   "wiktionary": [
+    "/ˈplɛʒə/",
+    "/ˈplɛʒɚ/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ˈplɛʒə/"
+   ]
+  },
+  {
+   "word": "it-sbagliare",
+   "ours": "[zbaʎʎare]",
+   "wiktionary": [
+    "/zbaʎˈʎa.re/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
   }
  ]
 }

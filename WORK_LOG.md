@@ -410,4 +410,9 @@
 - **Wiktionary 대조 자료:** 중국어는 번체 문서의 Sinological IPA 첫 줄(표준 중국어)만 남겼다. 둘째 줄부터는 다른 방언이라 대조에 섞이면 안 된다. 일곱 묶음을 다시 돌려 모두 다름 0이다. 묶음 4·5 결과 파일은 지난번 잇는 줄(͡) 떼기가 반영돼 다시 만들어졌다.
 - **대조·검사:** PHOIBLE 일곱 묶음 어긋남 0, Wiktionary 일곱 묶음 다름 0, `build.py --check` 맞음, prototype.test.cjs 통과. 카드 472, 녹음 386. 묶음 7 첫 카드([ts]: 靴·早·цвет·Zeit·grazie)를 390px로 확인했다.
 - **직검수 페이지:** 묶음 3~7을 새로 만들어 올렸다(줄 댓글). 링크는 HANDOFF.
-- **남은 것:** 영어 [ʒ]·이탈리아어 [z] 녹음 찾는 중(점검하다 새로 찾은 빈칸). 아랍어 [dʒ]는 빈칸.
+- **점검하다 찾은 빈칸 둘을 채웠다(녹음 4개, SHA-1 같음):** 영어 pleasure [ʒ](Grendelkhan 코네티컷·Wodencafe 텍사스·NaomiAmethyst 노스캐롤라이나), 이탈리아어 sbagliare [z](LangPao).
+  - NaomiAmethyst는 새 화자다. Commons 사용자 문서에 영어 모어(en-N), fr.wiktionary의 다른 녹음 표시가 모두 노스캐롤라이나다.
+  - 이탈리아어는 모음 사이의 s가 지역마다 [s]·[z]로 갈려, 유성 자음 앞이라 어디서나 [z]인 sbagliare를 골랐다. 지역을 알 수 있는 화자는 LangPao뿐이다(Happypheasant는 fr.wiktionary의 '이탈리아'를 편집자가 손으로 넣어서 뺐다).
+  - 영어 En-us-pleasure.ogg(Dvortygirl)는 파일 페이지에 주 이름이 없어 뺐다.
+  - 마지막 상태: 카드 476, 녹음 390. PHOIBLE 어긋남 0, Wiktionary 묶음 6 다름 0, prototype.test.cjs 통과.
+- **남은 것:** 아랍어 [dʒ]는 빈칸.

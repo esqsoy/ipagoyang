@@ -91,7 +91,7 @@
   ]
  },
  "absent_about": "한국어 2197에 ʃ·ʒ·ʂ·ʐ가 없어야 '한국어에 없다'가 맞다. z는 2197이 ㅅ의 변이음으로 적어 두어 넣지 않았다.",
- "audio_plan": "모두 Commons·Lingua Libre·Shtooka 녹음(PRINCIPLES 8-10). 중국어는 베이징 화자 Wei Gao(Shtooka)를 첫 목소리로 둔다. 영어 [ʒ]와 이탈리아어 [z]는 아직 낱말이 없다(녹음 찾는 중).",
+ "audio_plan": "모두 Commons·Lingua Libre·Shtooka 녹음(PRINCIPLES 8-10). 중국어는 베이징 화자 Wei Gao(Shtooka)를 첫 목소리로 둔다. 이탈리아어 sbagliare는 지역을 알 수 있는 화자가 한 사람뿐이다.",
  "words": [
   {
    "id": "ko-so",
@@ -879,6 +879,52 @@
    "audio_more": [
     "ar-zaara-fenakhay"
    ]
+  },
+  {
+   "id": "en-pleasure",
+   "lang": "eng",
+   "text": "pleasure",
+   "roman": "pleasure",
+   "ko": "기쁨",
+   "ipa": [
+    "plɛ",
+    "ʒ",
+    "ɚ"
+   ],
+   "target": "ʒ",
+   "phoible": {
+    "inv": 2176,
+    "seg": "ʒ"
+   },
+   "note": "철자 s가 [ʒ]로 나는 낱말이다(measure·usual도 같다).",
+   "status": "확인",
+   "status_why": "PHOIBLE 2176 /ʒ/",
+   "audio": "en-pleasure-grendelkhan",
+   "audio_more": [
+    "en-pleasure-wodencafe",
+    "en-pleasure-naomiamethyst"
+   ]
+  },
+  {
+   "id": "it-sbagliare",
+   "lang": "ita",
+   "text": "sbagliare",
+   "roman": "sbagliare",
+   "ko": "틀리다",
+   "ipa": [
+    "",
+    "z",
+    "baʎʎare"
+   ],
+   "target": "z",
+   "phoible": {
+    "inv": 1145,
+    "seg": "z"
+   },
+   "note": "유성 자음(b·d·g·v·m·n·l·r) 앞의 s는 [z]로 난다. 모음 사이의 s는 지역마다 [s]·[z]가 갈려 이 낱말을 골랐다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 1145 /z/",
+   "audio": "it-sbagliare-langpao"
   }
  ]
 }
