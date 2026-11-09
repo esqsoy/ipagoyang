@@ -396,6 +396,19 @@
     "/ða.ha.ba/",
     "/ðah.ha.ba/"
    ]
+  },
+  {
+   "word": "en-this",
+   "ours": "[ðɪs]",
+   "wiktionary": [
+    "/ðɪs/",
+    "/ðəs/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ðəs/"
+   ]
   }
  ]
 }

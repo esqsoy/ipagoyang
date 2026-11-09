@@ -1,0 +1,458 @@
+{
+ "about": "pipeline/wikt_compare.py 결과. Wiktionary(en.wiktionary.org, CC BY-SA 4.0) 낱말 문서의 전사와 대조만 했다. 우리 전사는 data/bundles에 있고 Wiktionary에서 가져오지 않았다.",
+ "fetched": "2026-11-06",
+ "bundle": "b05",
+ "rows": [
+  {
+   "word": "en-fan",
+   "ours": "[fæn]",
+   "wiktionary": [
+    "/fæn/",
+    "/fan/",
+    "/faːn/",
+    "/fæːn/",
+    "[fɛən]",
+    "[feən]",
+    "[fɛːn]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/fan/",
+    "/faːn/",
+    "/fæːn/",
+    "[fɛən]",
+    "[feən]",
+    "[fɛːn]"
+   ]
+  },
+  {
+   "word": "en-van",
+   "ours": "[væn]",
+   "wiktionary": [
+    "/væn/",
+    "/van/",
+    "/vaːn/",
+    "/væːn/",
+    "/vɛn/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/van/",
+    "/vaːn/",
+    "/væːn/",
+    "/vɛn/"
+   ]
+  },
+  {
+   "word": "en-hat",
+   "ours": "[hæt]",
+   "wiktionary": [
+    "/hæt/",
+    "/hat/",
+    "/hæ̞ʔ/",
+    "/hɛt/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/hat/",
+    "/hæ̞ʔ/",
+    "/hɛt/"
+   ]
+  },
+  {
+   "word": "en-thin",
+   "ours": "[θɪn]",
+   "wiktionary": [
+    "/ˈθɪn/",
+    "/ˈθən/",
+    "/ˈfɪn/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ˈθən/",
+    "/ˈfɪn/"
+   ]
+  },
+  {
+   "word": "es-foca",
+   "ours": "[ˈfoka]",
+   "wiktionary": [
+    "/ˈfoka/",
+    "[ˈfo.ka]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "es-jugo",
+   "ours": "[ˈxuɣo]",
+   "wiktionary": [
+    "/ˈxuɡo/",
+    "[ˈxu.ɣ̞o]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ˈxuɡo/"
+   ]
+  },
+  {
+   "word": "es-cinco",
+   "ours": "[ˈθinko]",
+   "wiktionary": [
+    "/ˈθinko/",
+    "[ˈθĩŋ.ko]",
+    "/ˈsinko/",
+    "[ˈsĩŋ.ko]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[ˈθĩŋ.ko]",
+    "/ˈsinko/",
+    "[ˈsĩŋ.ko]"
+   ]
+  },
+  {
+   "word": "ja-fune",
+   "ours": "[ɸɯne]",
+   "wiktionary": [
+    "[ɸɯ̟ne̞]",
+    "[sẽ̞ɴ]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[ɸɯ̟ne̞]",
+    "[sẽ̞ɴ]"
+   ]
+  },
+  {
+   "word": "ja-hoshi",
+   "ours": "[hoɕi]",
+   "wiktionary": [
+    "/posi/",
+    "/ɸoɕi/",
+    "/hoɕi/",
+    "[ho̞ɕi]",
+    "[se̞ː]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/posi/",
+    "/ɸoɕi/",
+    "[se̞ː]"
+   ]
+  },
+  {
+   "word": "ja-hito",
+   "ours": "[çito]",
+   "wiktionary": [
+    "/fito/",
+    "/hito/",
+    "/çito/",
+    "[çi̥to̞]",
+    "[ɲ̟ĩɴ]",
+    "[d͡ʑĩɴ]",
+    "[ta̠ɾʲi]",
+    "[ɾʲi]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/fito/",
+    "/hito/",
+    "[çi̥to̞]",
+    "[ɲ̟ĩɴ]",
+    "[d͡ʑĩɴ]",
+    "[ta̠ɾʲi]",
+    "[ɾʲi]"
+   ]
+  },
+  {
+   "word": "ko-hana",
+   "ours": "[hana]",
+   "wiktionary": [
+    "[ha̠na̠]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "ko-him",
+   "ours": "[çim]",
+   "wiktionary": [
+    "[çim]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "fr-feu",
+   "ours": "[fø]",
+   "wiktionary": [
+    "/fø/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "fr-vin",
+   "ours": "[vɛ̃]",
+   "wiktionary": [
+    "/vɛ̃/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "pt-faca",
+   "ours": "[ˈfakɐ]",
+   "wiktionary": [
+    "/ˈfa.kɐ/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "pt-vida",
+   "ours": "[ˈvidɐ]",
+   "wiktionary": [
+    "/ˈvi.dɐ/",
+    "[ˈvi.ðɐ]",
+    "/ˈbi.dɐ/",
+    "[ˈbi.ðɐ]",
+    "/ˈvi.da/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[ˈvi.ðɐ]",
+    "/ˈbi.dɐ/",
+    "[ˈbi.ðɐ]",
+    "/ˈvi.da/"
+   ]
+  },
+  {
+   "word": "pt-rato",
+   "ours": "[ˈhatu]",
+   "wiktionary": [
+    "/ˈʁa.tu/",
+    "[ˈha.tu]",
+    "[ˈχa.tu]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ˈʁa.tu/",
+    "[ˈχa.tu]"
+   ]
+  },
+  {
+   "word": "zh-fa",
+   "ours": "[fa˥]",
+   "wiktionary": [
+    "/fä⁵⁵/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/fä⁵⁵/"
+   ]
+  },
+  {
+   "word": "zh-hao",
+   "ours": "[xau˨˩˦]",
+   "wiktionary": [
+    "/xɑʊ̯²¹⁴/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/xɑʊ̯²¹⁴/"
+   ]
+  },
+  {
+   "word": "ru-flag",
+   "ours": "[fɫak]",
+   "wiktionary": [
+    "[fɫak]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "ru-voda",
+   "ours": "[vɐˈda]",
+   "wiktionary": [
+    "[vɐˈda]",
+    "[ˈvodə]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[ˈvodə]"
+   ]
+  },
+  {
+   "word": "ru-khleb",
+   "ours": "[xlʲep]",
+   "wiktionary": [
+    "[xlʲep]",
+    "[ˈxlʲeb]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[ˈxlʲeb]"
+   ]
+  },
+  {
+   "word": "de-fisch",
+   "ours": "[fɪʃ]",
+   "wiktionary": [
+    "/fɪʃ/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "de-wasser",
+   "ours": "[ˈvasɐ]",
+   "wiktionary": [
+    "/ˈvasər/",
+    "[ˈva.sɐ]",
+    "[ˈva.səʁ]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ˈvasər/",
+    "[ˈva.səʁ]"
+   ]
+  },
+  {
+   "word": "de-hand",
+   "ours": "[hant]",
+   "wiktionary": [
+    "/hant/",
+    "[hɑnd̥]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[hɑnd̥]"
+   ]
+  },
+  {
+   "word": "de-buch",
+   "ours": "[buːx]",
+   "wiktionary": [
+    "/buːx/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "de-ich",
+   "ours": "[ɪç]",
+   "wiktionary": [
+    "/ɪç/",
+    "[ʔɪç]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[ʔɪç]"
+   ]
+  },
+  {
+   "word": "it-fiore",
+   "ours": "[ˈfjore]",
+   "wiktionary": [
+    "/ˈfjo.re/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "it-vino",
+   "ours": "[ˈvino]",
+   "wiktionary": [
+    "/ˈvi.no/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "ar-fam",
+   "ours": "[fam]",
+   "wiktionary": [
+    "/fam/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "ar-huna",
+   "ours": "[hunaː]",
+   "wiktionary": [
+    "/hu.naː/",
+    "/hun.naː/",
+    "/han.naː/",
+    "/hin.naː/",
+    "/hi.naː/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/hun.naː/",
+    "/han.naː/",
+    "/hin.naː/",
+    "/hi.naː/"
+   ]
+  },
+  {
+   "word": "ar-khubz",
+   "ours": "[xubz]",
+   "wiktionary": [
+    "/xa.ba.za/",
+    "/xubz/",
+    "/xabz/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/xa.ba.za/",
+    "/xabz/"
+   ]
+  },
+  {
+   "word": "ar-thalj",
+   "ours": "[θaldʒ]",
+   "wiktionary": [
+    "/θald͡ʒ/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  }
+ ]
+}

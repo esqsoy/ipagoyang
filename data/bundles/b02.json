@@ -686,6 +686,31 @@
    "status": "확인 필요",
    "status_why": "녹음 화자는 모로코·알제리·남레반트 출신이고, 현대 표준 아랍어 녹음은 Commons에서 찾지 못했다. PHOIBLE 2157도 방언 화자 목록이다",
    "audio": "ar-dhahab-kadimihasna"
+  },
+  {
+   "id": "en-this",
+   "lang": "eng",
+   "text": "this",
+   "roman": "this",
+   "ko": "이것",
+   "ipa": [
+    "",
+    "ð",
+    "ɪs"
+   ],
+   "target": "ð",
+   "phoible": {
+    "inv": 2176,
+    "seg": "ð"
+   },
+   "note": "영어 th는 이 소리 [ð]와 thin의 [θ] 둘이다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2176 /ð/",
+   "audio": "en-this-grendelkhan",
+   "audio_more": [
+    "en-this-wodencafe",
+    "en-this-muldoonsamuel55"
+   ]
   }
  ],
  "compare": [

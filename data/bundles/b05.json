@@ -1,0 +1,838 @@
+{
+ "id": "b05",
+ "title": "갈이소리(마찰음)",
+ "symbols_title": "[f] [v] [ɸ] [h] [x] [ç] [θ]",
+ "about": "묶음 5 원본(PRINCIPLES 8-5: f/ɸ/h). 한국어에 없는 f·v·θ·x와, 한국어 ㅎ의 세 소리([h]·[ç]·[ɦ] 가운데 둘). 그 소리가 있는 언어는 다 넣는다(8-7). β·ð는 묶음 1·2에 있다.",
+ "place": "labiodental",
+ "learn": [
+  "f",
+  "v",
+  "ɸ",
+  "h",
+  "x",
+  "ç",
+  "θ"
+ ],
+ "lit": [
+  "f",
+  "v",
+  "ɸ",
+  "h",
+  "x",
+  "ç",
+  "θ"
+ ],
+ "keyboard": [
+  [
+   "ɸ",
+   "f",
+   "v",
+   "θ"
+  ],
+  [
+   "ç",
+   "x",
+   "h"
+  ]
+ ],
+ "shortcuts": {},
+ "compare": [],
+ "lines": {
+  "correct": [
+   "바람이 제자리로 샜다고양.",
+   "ㅎ 하나로 세 군데서 바람이 나온다고양. 알았냐고양?"
+  ],
+  "wrong": [
+   "어디서 바람이 새는지 다시 보라고양. 입술이냐, 이냐, 혀뒤냐.",
+   "f는 ㅍ이 아니라고양. 아랫입술을 물어 보라고양."
+  ],
+  "by_word": {
+   "ja-fune": "ふ는 ㅎ도 ㅍ도 아니라고양. 촛불 끄듯 입술로 분다고양.",
+   "ko-him": "힘의 ㅎ은 하나의 ㅎ보다 혀가 높다고양. 힘을 주면 혀도 올라간다고양.",
+   "zh-hao": "好의 h는 목 안쪽에서 긁는다고양. 좋으면 긁는다고양.",
+   "es-cinco": "스페인 사람만 혀를 문다고양. 중남미는 그냥 s라고양.",
+   "en-thin": "th는 혀를 이에 대고 바람만 낸다고양. 혀 깨물지는 말라고양."
+  },
+  "end": "바람 칸이 켜졌다고양. 표 가운데 줄이 꽤 밝아졌다고양."
+ },
+ "feel": [
+  {
+   "for": [
+    "f",
+    "v"
+   ],
+   "text": "아랫입술을 윗니에 대고 바람을 내 본다(f). 그대로 목을 울리면 [v]다. 손가락을 목울대에 대면 v에서만 떨린다."
+  },
+  {
+   "for": [
+    "h",
+    "ç",
+    "x"
+   ],
+   "text": "'하', '히'를 속삭이듯 말해 본다. '히'에서 혀 가운데가 입천장에 가까워지는 것이 [ç]다. 혀 뒤를 더 뒤로 당겨 '흐' 하면 [x]에 가까워진다."
+  }
+ ],
+ "absent": {
+  "2197": [
+   "f",
+   "v",
+   "θ"
+  ]
+ },
+ "absent_about": "한국어 2197에 f·v·θ가 없어야 '한국어에 없다'가 맞다.",
+ "audio_plan": "모두 Commons·Lingua Libre 녹음(PRINCIPLES 8-10). 포르투갈어 faca·rato와 러시아어 флаг, 아랍어 ثلج는 쓸 수 있는 녹음이 없다.",
+ "words": [
+  {
+   "id": "en-fan",
+   "lang": "eng",
+   "text": "fan",
+   "roman": "fan",
+   "ko": "선풍기·팬",
+   "ipa": [
+    "",
+    "f",
+    "æn"
+   ],
+   "target": "f",
+   "phoible": {
+    "inv": 2176,
+    "seg": "f"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2176 /f/",
+   "audio": "en-fan-grendelkhan",
+   "audio_more": [
+    "en-fan-wodencafe"
+   ]
+  },
+  {
+   "id": "en-van",
+   "lang": "eng",
+   "text": "van",
+   "roman": "van",
+   "ko": "승합차",
+   "ipa": [
+    "",
+    "v",
+    "æn"
+   ],
+   "target": "v",
+   "phoible": {
+    "inv": 2176,
+    "seg": "v"
+   },
+   "note": "fan과 첫소리만 다르다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2176 /v/",
+   "audio": "en-van-grendelkhan",
+   "audio_more": [
+    "en-van-wodencafe"
+   ]
+  },
+  {
+   "id": "en-hat",
+   "lang": "eng",
+   "text": "hat",
+   "roman": "hat",
+   "ko": "모자",
+   "ipa": [
+    "",
+    "h",
+    "æt"
+   ],
+   "target": "h",
+   "phoible": {
+    "inv": 2176,
+    "seg": "h"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2176 /h/",
+   "audio": "en-hat-grendelkhan",
+   "audio_more": [
+    "en-hat-wodencafe"
+   ]
+  },
+  {
+   "id": "en-thin",
+   "lang": "eng",
+   "text": "thin",
+   "roman": "thin",
+   "ko": "얇은",
+   "ipa": [
+    "",
+    "θ",
+    "ɪn"
+   ],
+   "target": "θ",
+   "phoible": {
+    "inv": 2176,
+    "seg": "θ"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2176 /θ/",
+   "audio": "en-thin-grendelkhan",
+   "audio_more": [
+    "en-thin-wodencafe",
+    "en-thin-muldoonsamuel55"
+   ]
+  },
+  {
+   "id": "es-foca",
+   "lang": "spa",
+   "text": "foca",
+   "roman": "foca",
+   "ko": "물개",
+   "ipa": [
+    "ˈ",
+    "f",
+    "oka"
+   ],
+   "target": "f",
+   "phoible": {
+    "inv": 2210,
+    "seg": "f"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2210 /f/",
+   "audio": "es-foca-adrianabdulbaha",
+   "audio_more": [
+    "es-foca-rubyn"
+   ]
+  },
+  {
+   "id": "es-jugo",
+   "lang": "spa",
+   "text": "jugo",
+   "roman": "jugo",
+   "ko": "즙·주스",
+   "ipa": [
+    "ˈ",
+    "x",
+    "uɣo"
+   ],
+   "target": "x",
+   "phoible": {
+    "inv": 2210,
+    "seg": "x"
+   },
+   "note": "스페인어 j는 [x]다(한국어 화자는 ㅎ으로 듣기 쉽다).",
+   "status": "확인",
+   "status_why": "PHOIBLE 2210 /x/",
+   "audio": "es-jugo-rodrigo5260"
+  },
+  {
+   "id": "es-cinco",
+   "lang": "spa",
+   "text": "cinco",
+   "roman": "cinco",
+   "ko": "다섯",
+   "ipa": [
+    "ˈ",
+    "θ",
+    "inko"
+   ],
+   "target": "θ",
+   "phoible": {
+    "inv": 2210,
+    "seg": "θ"
+   },
+   "note": "스페인(카스티야) 발음이다. 중남미 스페인어는 [ˈsinko]로 [s]를 쓴다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2210(카스티야) /θ/. 기본 변종(중남미)과 다름을 밝힘",
+   "audio": "es-cinco-rodelar"
+  },
+  {
+   "id": "ja-fune",
+   "lang": "jpn",
+   "text": "船",
+   "roman": "fune",
+   "ko": "배",
+   "ipa": [
+    "",
+    "ɸ",
+    "ɯne"
+   ],
+   "target": "ɸ",
+   "phoible": {
+    "inv": 2196,
+    "seg": "h",
+    "allo": "ɸ"
+   },
+   "note": "ふ의 자음은 두 입술 사이로 내는 [ɸ]다(PHOIBLE 2196은 /h/의 변이음).",
+   "status": "확인",
+   "status_why": "PHOIBLE 2196 /h/의 변이음 ɸ, Wiktionary [ɸɯ̟ne̞]",
+   "audio": "ja-fune-wanikani-male",
+   "audio_more": [
+    "ja-fune-wanikani-female"
+   ]
+  },
+  {
+   "id": "ja-hoshi",
+   "lang": "jpn",
+   "text": "星",
+   "roman": "hoshi",
+   "ko": "별",
+   "ipa": [
+    "",
+    "h",
+    "oɕi"
+   ],
+   "target": "h",
+   "phoible": {
+    "inv": 2196,
+    "seg": "h"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2196 /h/",
+   "audio": "ja-hoshi-wanikani-male"
+  },
+  {
+   "id": "ja-hito",
+   "lang": "jpn",
+   "text": "人",
+   "roman": "hito",
+   "ko": "사람",
+   "ipa": [
+    "",
+    "ç",
+    "ito"
+   ],
+   "target": "ç",
+   "phoible": {
+    "inv": 2196,
+    "seg": "h",
+    "allo": "ç"
+   },
+   "note": "ひ의 자음은 [ç]다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2196 /h/의 변이음 ç",
+   "audio": "ja-hito-wanikani-male"
+  },
+  {
+   "id": "ko-hana",
+   "lang": "kor",
+   "text": "하나",
+   "roman": "hana",
+   "ko": "하나(1)",
+   "ipa": [
+    "",
+    "h",
+    "ana"
+   ],
+   "target": "h",
+   "phoible": {
+    "inv": 2197,
+    "seg": "h"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2197 /h/",
+   "audio": "ko-hana-horojo"
+  },
+  {
+   "id": "ko-him",
+   "lang": "kor",
+   "text": "힘",
+   "roman": "him",
+   "ko": "힘",
+   "ipa": [
+    "",
+    "ç",
+    "im"
+   ],
+   "target": "ç",
+   "phoible": {
+    "inv": 2197,
+    "seg": "h",
+    "allo": "ç"
+   },
+   "note": "i 앞의 ㅎ은 [ç]로 난다(하나의 ㅎ과 견준다).",
+   "status": "확인",
+   "status_why": "PHOIBLE 2197 /h/의 변이음 ç, Wiktionary [çim]",
+   "audio": "ko-him-happymidnight"
+  },
+  {
+   "id": "fr-feu",
+   "lang": "fra",
+   "text": "feu",
+   "roman": "feu",
+   "ko": "불",
+   "ipa": [
+    "",
+    "f",
+    "ø"
+   ],
+   "target": "f",
+   "phoible": {
+    "inv": 2182,
+    "seg": "f"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2182 /f/",
+   "audio": "fr-feu-poslovitch",
+   "audio_more": [
+    "fr-feu-loquaxfr",
+    "fr-feu-sartus85"
+   ]
+  },
+  {
+   "id": "fr-vin",
+   "lang": "fra",
+   "text": "vin",
+   "roman": "vin",
+   "ko": "포도주",
+   "ipa": [
+    "",
+    "v",
+    "ɛ̃"
+   ],
+   "target": "v",
+   "phoible": {
+    "inv": 2182,
+    "seg": "v"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2182 /v/",
+   "audio": "fr-vin-poslovitch",
+   "audio_more": [
+    "fr-vin-loquaxfr",
+    "fr-vin-sartus85"
+   ]
+  },
+  {
+   "id": "pt-faca",
+   "lang": "por",
+   "text": "faca",
+   "roman": "faca",
+   "ko": "칼",
+   "ipa": [
+    "ˈ",
+    "f",
+    "akɐ"
+   ],
+   "target": "f",
+   "phoible": {
+    "inv": 2207,
+    "seg": "f"
+   },
+   "note": "쓸 수 있는 브라질 화자 녹음이 없다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2207 /f/",
+   "audio": "pt-faca"
+  },
+  {
+   "id": "pt-vida",
+   "lang": "por",
+   "text": "vida",
+   "roman": "vida",
+   "ko": "삶",
+   "ipa": [
+    "ˈ",
+    "v",
+    "idɐ"
+   ],
+   "target": "v",
+   "phoible": {
+    "inv": 2207,
+    "seg": "v"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2207 /v/",
+   "audio": "pt-vida-sillim"
+  },
+  {
+   "id": "pt-rato",
+   "lang": "por",
+   "text": "rato",
+   "roman": "rato",
+   "ko": "쥐",
+   "ipa": [
+    "ˈ",
+    "h",
+    "atu"
+   ],
+   "target": "h",
+   "phoible": {
+    "inv": 2207,
+    "seg": "r",
+    "allo": "h"
+   },
+   "note": "브라질 포르투갈어는 낱말 첫 r을 [h]·[x]·[χ]로 낸다(지역에 따라 다르다). 쓸 수 있는 브라질 화자 녹음이 없다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2207 /r/의 변이음 h, Wiktionary [ˈha.tu]",
+   "audio": "pt-rato"
+  },
+  {
+   "id": "zh-fa",
+   "lang": "cmn",
+   "text": "发",
+   "roman": "fā",
+   "ko": "보내다",
+   "ipa": [
+    "",
+    "f",
+    "a˥"
+   ],
+   "target": "f",
+   "phoible": {
+    "inv": 1047,
+    "seg": "f"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 1047 /f/",
+   "audio": "zh-fa1-weigao",
+   "audio_more": [
+    "zh-fa1-yunjiao"
+   ]
+  },
+  {
+   "id": "zh-hao",
+   "lang": "cmn",
+   "text": "好",
+   "roman": "hǎo",
+   "ko": "좋다",
+   "ipa": [
+    "",
+    "x",
+    "au˨˩˦"
+   ],
+   "target": "x",
+   "phoible": {
+    "inv": 1047,
+    "seg": "x"
+   },
+   "note": "병음 h는 [h]가 아니라 혀 뒤로 내는 [x]다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 1047 /x/",
+   "audio": "zh-hao3-weigao",
+   "audio_more": [
+    "zh-hao3-luilui6666"
+   ]
+  },
+  {
+   "id": "ru-flag",
+   "lang": "rus",
+   "text": "флаг",
+   "roman": "flag",
+   "ko": "깃발",
+   "ipa": [
+    "",
+    "f",
+    "ɫak"
+   ],
+   "target": "f",
+   "phoible": {
+    "inv": 2261,
+    "seg": "f"
+   },
+   "note": "쓸 수 있는 녹음이 없다. 낱말 끝 г는 [k]로 난다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2261 /f/",
+   "audio": "ru-flag"
+  },
+  {
+   "id": "ru-voda",
+   "lang": "rus",
+   "text": "вода",
+   "roman": "voda",
+   "ko": "물",
+   "ipa": [
+    "",
+    "v",
+    "ɐˈda"
+   ],
+   "target": "v",
+   "phoible": {
+    "inv": 2261,
+    "seg": "v"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2261 /v/",
+   "audio": "ru-voda-lvova",
+   "audio_more": [
+    "ru-voda-infovarius",
+    "ru-voda-tatianakerbush"
+   ]
+  },
+  {
+   "id": "ru-khleb",
+   "lang": "rus",
+   "text": "хлеб",
+   "roman": "khleb",
+   "ko": "빵",
+   "ipa": [
+    "",
+    "x",
+    "lʲep"
+   ],
+   "target": "x",
+   "phoible": {
+    "inv": 2261,
+    "seg": "x"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2261 /x/",
+   "audio": "ru-khleb-tatianakerbush"
+  },
+  {
+   "id": "de-fisch",
+   "lang": "deu",
+   "text": "Fisch",
+   "roman": "Fisch",
+   "ko": "물고기",
+   "ipa": [
+    "",
+    "f",
+    "ɪʃ"
+   ],
+   "target": "f",
+   "phoible": {
+    "inv": 2184,
+    "seg": "f"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2184 /f/",
+   "audio": "de-fisch-wallroth",
+   "audio_more": [
+    "de-fisch-jeuwre",
+    "de-fisch-lucaswerkmeister"
+   ]
+  },
+  {
+   "id": "de-wasser",
+   "lang": "deu",
+   "text": "Wasser",
+   "roman": "Wasser",
+   "ko": "물",
+   "ipa": [
+    "ˈ",
+    "v",
+    "asɐ"
+   ],
+   "target": "v",
+   "phoible": {
+    "inv": 2184,
+    "seg": "v"
+   },
+   "note": "독일어 w는 [v]다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2184 /v/",
+   "audio": "de-wasser-wallroth",
+   "audio_more": [
+    "de-wasser-jeuwre",
+    "de-wasser-ionenlaser"
+   ]
+  },
+  {
+   "id": "de-hand",
+   "lang": "deu",
+   "text": "Hand",
+   "roman": "Hand",
+   "ko": "손",
+   "ipa": [
+    "",
+    "h",
+    "ant"
+   ],
+   "target": "h",
+   "phoible": {
+    "inv": 2184,
+    "seg": "h"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2184 /h/",
+   "audio": "de-hand-wallroth",
+   "audio_more": [
+    "de-hand-ionenlaser",
+    "de-hand-lucaswerkmeister"
+   ]
+  },
+  {
+   "id": "de-buch",
+   "lang": "deu",
+   "text": "Buch",
+   "roman": "Buch",
+   "ko": "책",
+   "ipa": [
+    "buː",
+    "x",
+    ""
+   ],
+   "target": "x",
+   "phoible": {
+    "inv": 2184,
+    "seg": "x",
+    "allo": "x"
+   },
+   "note": "u·o·a 뒤의 ch는 [x], i·e 뒤는 [ç](ich).",
+   "status": "확인",
+   "status_why": "PHOIBLE 2184 /x/(변이음 x·ç·χ)",
+   "audio": "de-buch-wallroth",
+   "audio_more": [
+    "de-buch-jeuwre"
+   ]
+  },
+  {
+   "id": "de-ich",
+   "lang": "deu",
+   "text": "ich",
+   "roman": "ich",
+   "ko": "나",
+   "ipa": [
+    "ɪ",
+    "ç",
+    ""
+   ],
+   "target": "ç",
+   "phoible": {
+    "inv": 2184,
+    "seg": "x",
+    "allo": "ç"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2184 /x/의 변이음 ç",
+   "audio": "de-ich-wallroth",
+   "audio_more": [
+    "de-ich-lucaswerkmeister"
+   ]
+  },
+  {
+   "id": "it-fiore",
+   "lang": "ita",
+   "text": "fiore",
+   "roman": "fiore",
+   "ko": "꽃",
+   "ipa": [
+    "ˈ",
+    "f",
+    "jore"
+   ],
+   "target": "f",
+   "phoible": {
+    "inv": 1145,
+    "seg": "f"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 1145 /f/",
+   "audio": "it-fiore-langpao",
+   "audio_more": [
+    "it-fiore-ciampix",
+    "it-fiore-xana000"
+   ]
+  },
+  {
+   "id": "it-vino",
+   "lang": "ita",
+   "text": "vino",
+   "roman": "vino",
+   "ko": "포도주",
+   "ipa": [
+    "ˈ",
+    "v",
+    "ino"
+   ],
+   "target": "v",
+   "phoible": {
+    "inv": 1145,
+    "seg": "v"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 1145 /v/",
+   "audio": "it-vino-langpao",
+   "audio_more": [
+    "it-vino-xana000",
+    "it-vino-ciampix"
+   ]
+  },
+  {
+   "id": "ar-fam",
+   "lang": "arb",
+   "text": "فم",
+   "roman": "fam",
+   "ko": "입",
+   "ipa": [
+    "",
+    "f",
+    "am"
+   ],
+   "target": "f",
+   "phoible": {
+    "inv": 2157,
+    "seg": "f"
+   },
+   "status": "확인 필요",
+   "status_why": "녹음 화자는 모로코·수단 출신이고, 현대 표준 아랍어 녹음은 Commons에서 찾지 못했다. PHOIBLE 2157도 방언 화자 목록이다",
+   "audio": "ar-fam-anasssedrati",
+   "audio_more": [
+    "ar-fam-fenakhay"
+   ]
+  },
+  {
+   "id": "ar-huna",
+   "lang": "arb",
+   "text": "هنا",
+   "roman": "hunā",
+   "ko": "여기",
+   "ipa": [
+    "",
+    "h",
+    "unaː"
+   ],
+   "target": "h",
+   "phoible": {
+    "inv": 2157,
+    "seg": "h"
+   },
+   "status": "확인 필요",
+   "status_why": "녹음 화자는 모로코·수단 출신이고, 현대 표준 아랍어 녹음은 Commons에서 찾지 못했다. PHOIBLE 2157도 방언 화자 목록이다",
+   "audio": "ar-huna-zannane",
+   "audio_more": [
+    "ar-huna-alaaasim"
+   ]
+  },
+  {
+   "id": "ar-khubz",
+   "lang": "arb",
+   "text": "خبز",
+   "roman": "xubz",
+   "ko": "빵",
+   "ipa": [
+    "",
+    "x",
+    "ubz"
+   ],
+   "target": "x",
+   "phoible": {
+    "inv": 2157,
+    "seg": "xʀ̥"
+   },
+   "note": "PHOIBLE 2157은 이 소리를 [xʀ̥]로 적는다(다른 문헌은 대개 [x]나 [χ]).",
+   "status": "확인 필요",
+   "status_why": "녹음 화자는 모로코·수단 출신이고, 현대 표준 아랍어 녹음은 Commons에서 찾지 못했다. PHOIBLE 2157도 방언 화자 목록이다. 표기도 문헌마다 다르다",
+   "audio": "ar-khubz-anasssedrati",
+   "audio_more": [
+    "ar-khubz-fenakhay"
+   ]
+  },
+  {
+   "id": "ar-thalj",
+   "lang": "arb",
+   "text": "ثلج",
+   "roman": "θalj",
+   "ko": "눈(雪)",
+   "ipa": [
+    "",
+    "θ",
+    "aldʒ"
+   ],
+   "target": "θ",
+   "phoible": {
+    "inv": 2157,
+    "seg": "θ̪"
+   },
+   "note": "쓸 수 있는 녹음이 없다(모어 화자인지 적힌 녹음이 없음).",
+   "status": "확인 필요",
+   "status_why": "녹음 화자는 모로코·수단 출신이고, 현대 표준 아랍어 녹음은 Commons에서 찾지 못했다. PHOIBLE 2157도 방언 화자 목록이다",
+   "audio": "ar-thalj"
+  }
+ ]
+}

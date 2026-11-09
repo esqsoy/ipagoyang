@@ -716,7 +716,8 @@
     }
    ],
    "status": "확인",
-   "status_why": "PHOIBLE과 대조"
+   "status_why": "PHOIBLE과 대조",
+   "sound": "ipa-f"
   },
   "v": {
    "name": "유성 순치 마찰음",
@@ -747,7 +748,8 @@
     }
    ],
    "status": "확인",
-   "status_why": "PHOIBLE과 대조"
+   "status_why": "PHOIBLE과 대조",
+   "sound": "ipa-v"
   },
   "h": {
    "name": "무성 성문 마찰음",
@@ -778,7 +780,8 @@
     }
    ],
    "status": "확인",
-   "status_why": "PHOIBLE과 대조"
+   "status_why": "PHOIBLE과 대조",
+   "sound": "ipa-h"
   },
   "x": {
    "name": "무성 연구개 마찰음",
@@ -809,7 +812,8 @@
     }
    ],
    "status": "확인 필요",
-   "status_why": "'한국어 화자는 ㅎ으로 듣기 쉽다'는 원문 미대조. 아랍어 خ를 PHOIBLE 2157은 [xʀ̥]로 적어 다른 목록과 다르다"
+   "status_why": "'한국어 화자는 ㅎ으로 듣기 쉽다'는 원문 미대조. 아랍어 خ를 PHOIBLE 2157은 [xʀ̥]로 적어 다른 목록과 다르다",
+   "sound": "ipa-x"
   },
   "ç": {
    "name": "무성 경구개 마찰음",
@@ -840,7 +844,8 @@
     }
    ],
    "status": "확인",
-   "status_why": "PHOIBLE과 대조"
+   "status_why": "PHOIBLE과 대조",
+   "sound": "ipa-c-cedilla"
   },
   "θ": {
    "name": "무성 치 마찰음",
@@ -871,7 +876,8 @@
     }
    ],
    "status": "확인",
-   "status_why": "PHOIBLE과 대조"
+   "status_why": "PHOIBLE과 대조",
+   "sound": "ipa-theta"
   }
  },
  "glottis": {
