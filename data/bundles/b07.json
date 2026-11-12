@@ -273,7 +273,7 @@
     "seg": "t̪",
     "allo": "t̪ʃ̟"
    },
-   "note": "브라질에서는 t가 i 앞에서 [tʃ]로 난다. 포르투갈에서는 [t]다.",
+   "note": "브라질 대부분 지역에서는 t가 i 앞에서 [tʃ]로 난다. [t] 그대로 내는 지역도 있다. 포르투갈에서는 [t]다.",
    "status": "확인",
    "status_why": "PHOIBLE 2207 /t̪/의 변이음 t̪ʃ̟",
    "audio": "pt-tipo-sillim",
@@ -298,7 +298,7 @@
     "seg": "d̪",
     "allo": "d̪ʒ̟"
    },
-   "note": "브라질에서는 d가 i 앞에서 [dʒ]로 난다.",
+   "note": "브라질 대부분 지역에서는 d가 i 앞에서 [dʒ]로 난다. 그대로 [d]로 내는 지역도 있다.",
    "status": "확인",
    "status_why": "PHOIBLE 2207 /d̪/의 변이음 d̪ʒ̟",
    "audio": "pt-dia-sillim",
