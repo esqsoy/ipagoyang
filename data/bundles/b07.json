@@ -94,7 +94,7 @@
   ]
  },
  "absent_about": "한국어 2197에 ts·dz·tʃ·dʒ가 없어야 '한국어에 없다'가 맞다(PHOIBLE은 tʃ·dʒ를 t̠ʃ·d̠ʒ로 적는다).",
- "audio_plan": "모두 Commons·Lingua Libre·Shtooka 녹음(PRINCIPLES 8-10). 한국어 자다·차·짜다는 한 화자(호로조, 경기), 중국어 여섯 낱말은 베이징 화자 Wei Gao(Shtooka). 아랍어 [dʒ](ج)는 빈칸이다. 찾은 녹음의 화자가 ج를 [ʒ]로 흔히 내는 지역(모로코 등) 출신이거나 지역을 알 수 없었다.",
+ "audio_plan": "모두 Commons·Lingua Libre·Shtooka 녹음(PRINCIPLES 8-10). 한국어 자다·차·짜다는 한 화자(호로조, 경기), 중국어 여섯 낱말은 베이징 화자 Wei Gao(Shtooka). 아랍어 [dʒ](ج)는 빈칸이다. 찾은 녹음의 화자가 ج를 [ʒ]로 흔히 내는 지역(모로코 등) 출신이거나 지역을 알 수 없었다. 독일어 Jeans의 비엔나 화자(Shtooka) 녹음은 오스트리아에서 [tʃ]로 내는 사람이 많아 귀로 확인하기 전까지 넣지 않았다.",
  "words": [
   {
    "id": "ko-jada",
@@ -669,6 +669,49 @@
    "status": "확인",
    "status_why": "PHOIBLE 2196 /z/의 변이음 dʑ",
    "audio": "ja-jishin-earthquake-wanikani-female"
+  },
+  {
+   "id": "de-jeans",
+   "lang": "deu",
+   "text": "Jeans",
+   "roman": "Jeans",
+   "ko": "청바지",
+   "ipa": [
+    "",
+    "dʒ",
+    "iːns"
+   ],
+   "target": "dʒ",
+   "phoible": {
+    "inv": 2398,
+    "seg": "d̠ʒ"
+   },
+   "note": "영어에서 온 낱말이다. [ʒiːns]로 내는 사람도 있다(Wiktionary). 녹음 화자는 파일 설명에 /dʒiːns/로 적었다. PHOIBLE 2398(Hall 2000)로 대조했다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2398 /d̠ʒ/",
+   "audio": "de-jeans-jeuwre"
+  },
+  {
+   "id": "ja-zannen",
+   "lang": "jpn",
+   "text": "残念",
+   "roman": "zannen",
+   "ko": "아쉽다",
+   "ipa": [
+    "",
+    "dz",
+    "anneɴ"
+   ],
+   "target": "dz",
+   "phoible": {
+    "inv": 2196,
+    "seg": "z",
+    "allo": "dz"
+   },
+   "note": "낱말 첫머리의 ざ는 [dz]로 난다(Wiktionary [dzã̠nːẽ̞ɴ]; PHOIBLE 2196은 /z/의 변이음 dz). 묶음 6의 難しい는 모음 사이라 [z]다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2196 /z/의 변이음 dz",
+   "audio": "ja-zannen-tofugumale"
   }
  ]
 }

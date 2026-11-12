@@ -201,6 +201,22 @@
    "allo": "dʑ",
    "ok": true,
    "why": ""
+  },
+  {
+   "word": "de-jeans",
+   "inv": 2398,
+   "seg": "d̠ʒ",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "ja-zannen",
+   "inv": 2196,
+   "seg": "z",
+   "allo": "dz",
+   "ok": true,
+   "why": ""
   }
  ],
  "absent": [
@@ -461,6 +477,11 @@
     "hall2000phonologie"
    ],
    "rows": [
+    {
+     "phoneme": "d̠ʒ",
+     "allophones": "NA",
+     "marginal": "FALSE"
+    },
     {
      "phoneme": "ts",
      "allophones": "NA",

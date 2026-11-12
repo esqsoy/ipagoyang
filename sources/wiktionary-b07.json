@@ -342,6 +342,47 @@
     "/naje/",
     "/nae/"
    ]
+  },
+  {
+   "word": "de-jeans",
+   "ours": "[dʒiːns]",
+   "wiktionary": [
+    "/(d)ʒiːns/",
+    "[dʒiːns]",
+    "[dʒiːnts]",
+    "[ʒiːns]",
+    "[ʒiːnts]",
+    "/tʃiːns/",
+    "/ʒãːs/",
+    "/ʒɔ̃ːs/",
+    "/ʒaŋs/",
+    "/ʒɔŋs/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/(d)ʒiːns/",
+    "[dʒiːnts]",
+    "[ʒiːns]",
+    "[ʒiːnts]",
+    "/tʃiːns/",
+    "/ʒãːs/",
+    "/ʒɔ̃ːs/",
+    "/ʒaŋs/",
+    "/ʒɔŋs/"
+   ]
+  },
+  {
+   "word": "ja-zannen",
+   "ours": "[dzanneɴ]",
+   "wiktionary": [
+    "[dzã̠nːẽ̞ɴ]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[dzã̠nːẽ̞ɴ]"
+   ]
   }
  ]
 }

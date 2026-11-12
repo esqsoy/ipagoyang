@@ -475,6 +475,30 @@
    "target_ok": true,
    "via": "",
    "other_diff": []
+  },
+  {
+   "word": "de-journalist",
+   "ours": "[ʒɔʁnalɪst]",
+   "wiktionary": [
+    "/ˌʒʊʁnaˈlɪst/",
+    "/ˌʒɔʁnaˈlɪst/",
+    "[ˌʒɔɐ̯-]",
+    "[ˌdʒɔɐ̯-]",
+    "/ˌʃɔʁnaˈlɪst/",
+    "[ˌʃoɐ̯-]",
+    "[ˌtʃoɐ̯-]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ˌʒʊʁnaˈlɪst/",
+    "/ˌʒɔʁnaˈlɪst/",
+    "[ˌʒɔɐ̯-]",
+    "[ˌdʒɔɐ̯-]",
+    "/ˌʃɔʁnaˈlɪst/",
+    "[ˌʃoɐ̯-]",
+    "[ˌtʃoɐ̯-]"
+   ]
   }
  ]
 }

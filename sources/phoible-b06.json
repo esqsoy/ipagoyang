@@ -297,6 +297,14 @@
    "allo": null,
    "ok": true,
    "why": ""
+  },
+  {
+   "word": "de-journalist",
+   "inv": 2184,
+   "seg": "ʒ",
+   "allo": null,
+   "ok": true,
+   "why": ""
   }
  ],
  "absent": [
@@ -500,6 +508,11 @@
     {
      "phoneme": "ʃ",
      "allophones": "ʃ",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "ʒ",
+     "allophones": "ʒ",
      "marginal": "FALSE"
     }
    ]

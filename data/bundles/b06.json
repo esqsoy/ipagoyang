@@ -918,6 +918,31 @@
    "status": "확인",
    "status_why": "PHOIBLE 1145 /z/",
    "audio": "it-sbagliare-langpao"
+  },
+  {
+   "id": "de-journalist",
+   "lang": "deu",
+   "text": "Journalist",
+   "roman": "Journalist",
+   "ko": "기자",
+   "ipa": [
+    "",
+    "ʒ",
+    "ɔʁnalɪst"
+   ],
+   "target": "ʒ",
+   "phoible": {
+    "inv": 2184,
+    "seg": "ʒ"
+   },
+   "note": "프랑스어에서 온 낱말이라 첫 j가 [ʒ]다. Wiktionary는 독일에서 [dʒ]로 내는 사람도 있다고 적는다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2184 /ʒ/",
+   "audio": "de-journalist-wallroth",
+   "audio_more": [
+    "de-journalist-jeuwre",
+    "de-journalist-kampy"
+   ]
   }
  ]
 }
