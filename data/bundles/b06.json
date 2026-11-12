@@ -47,7 +47,7 @@
    "혀끝 자리를 잘 짚었다고양. 쉿소리는 혀가 다 한다고양."
   ],
   "wrong": [
-   "혀가 어디 붙는지 다시 보라고양. 잇몸이냐, 그 뒤냐, 말아 올렸냐.",
+   "혀가 어디 붙는지 다시 보라고양. 잇몸이냐, 그 뒤냐, 혀끝을 들었냐.",
    "ㅅ이라고 다 같은 ㅅ이 아니라고양. 시의 ㅅ은 혀가 넓게 닿는다고양."
   ],
   "by_word": {
@@ -55,7 +55,7 @@
    "ko-si": "시의 ㅅ은 소의 ㅅ과 다르다고양. 혀 앞이 넓게 붙는다고양.",
    "en-zero": "z는 s에 목 울림을 얹은 거라고양. 목에 손을 대 보라고양.",
    "ru-zhuk": "ж는 혀끝을 들고 목을 울린다고양. 벌레 날갯소리 같다고양.",
-   "zh-shu": "书의 sh는 혀끝을 말아 올린다고양. 영어 sh랑 다르다고양."
+   "zh-shu": "书의 sh는 혀끝을 들어 잇몸 뒤에 댄다고양. 영어 sh랑 다르다고양."
   },
   "end": "쉿소리 칸이 켜졌다고양. 표 밖 줄에도 하나 켜졌다고양."
  },
@@ -352,13 +352,10 @@
     "inv": 1047,
     "seg": "ʃ̺"
    },
-   "note": "PHOIBLE 1047은 중국어 권설음을 혀끝 후치경음([ʃ̺])로 적는다. 이 게임은 [ʂ]로 쓴다. 첫 녹음은 베이징 화자다.",
-   "status": "확인",
-   "status_why": "PHOIBLE 1047 /ʃ̺/",
-   "audio": "zh-shu1-weigao",
-   "audio_more": [
-    "zh-shu1-luilui6666"
-   ]
+   "note": "PHOIBLE 1047은 중국어 권설음을 혀끝 후치경음([ʃ̺])로 적는다. 이 게임은 [ʂ]로 쓴다.",
+   "status": "확인 필요",
+   "status_why": "PHOIBLE 1047은 [ʃ̺](혀끝 후치경음)로 적어 이 게임의 [ʂ]와 표기가 다르다",
+   "audio": "zh-shu1-weigao"
   },
   {
    "id": "fr-sac",
@@ -621,12 +618,11 @@
     "inv": 2184,
     "seg": "z"
    },
-   "note": "독일어 s는 모음 앞 첫소리에서 [z]다.",
+   "note": "표준 독일어 s는 모음 앞 첫소리에서 [z]다. 남부 독일·오스트리아·스위스에서는 [s]로 내는 사람이 많다.",
    "status": "확인",
    "status_why": "PHOIBLE 2184 /z/",
    "audio": "de-sonne-wallroth",
    "audio_more": [
-    "de-sonne-ionenlaser",
     "de-sonne-lucaswerkmeister"
    ]
   },
@@ -717,8 +713,8 @@
     "seg": "s"
    },
    "note": "녹음은 모로코 아랍어 화자다.",
-   "status": "확인",
-   "status_why": "PHOIBLE 2157 /s/",
+   "status": "확인 필요",
+   "status_why": "녹음 화자는 모로코 출신이고, 현대 표준 아랍어 녹음은 Commons에서 찾지 못했다. PHOIBLE 2157도 방언 화자 목록이다",
    "audio": "ar-suq-fenakhay"
   },
   {
@@ -738,8 +734,8 @@
     "seg": "ʃ"
    },
    "note": "녹음은 모로코 아랍어 화자다.",
-   "status": "확인",
-   "status_why": "PHOIBLE 2157 /ʃ/",
+   "status": "확인 필요",
+   "status_why": "녹음 화자는 모로코 출신이고, 현대 표준 아랍어 녹음은 Commons에서 찾지 못했다. PHOIBLE 2157도 방언 화자 목록이다",
    "audio": "ar-shams-fenakhay"
   },
   {
@@ -872,13 +868,10 @@
     "inv": 2157,
     "seg": "z"
    },
-   "note": "첫 녹음은 라바트 화자의 아랍어 낱말 모음(Shtooka), 둘째는 모로코 아랍어(다리자)로 올라온 녹음이다.",
-   "status": "확인",
-   "status_why": "PHOIBLE 2157 /z/",
-   "audio": "ar-zaara-zannane",
-   "audio_more": [
-    "ar-zaara-fenakhay"
-   ]
+   "note": "녹음은 라바트 화자의 아랍어 낱말 모음(Shtooka)이다.",
+   "status": "확인 필요",
+   "status_why": "녹음 화자는 모로코 출신이고, 현대 표준 아랍어 녹음은 Commons에서 찾지 못했다. PHOIBLE 2157도 방언 화자 목록이다",
+   "audio": "ar-zaara-zannane"
   },
   {
    "id": "en-pleasure",

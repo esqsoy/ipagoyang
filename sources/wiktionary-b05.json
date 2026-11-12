@@ -90,7 +90,7 @@
   },
   {
    "word": "es-jugo",
-   "ours": "[ˈxuɣo]",
+   "ours": "[ˈxuɣ̞o]",
    "wiktionary": [
     "/ˈxuɡo/",
     "[ˈxu.ɣ̞o]"
@@ -103,7 +103,7 @@
   },
   {
    "word": "es-cinco",
-   "ours": "[ˈθinko]",
+   "ours": "[ˈθiŋko]",
    "wiktionary": [
     "/ˈθinko/",
     "[ˈθĩŋ.ko]",
@@ -113,6 +113,7 @@
    "target_ok": true,
    "via": "",
    "other_diff": [
+    "/ˈθinko/",
     "[ˈθĩŋ.ko]",
     "/ˈsinko/",
     "[ˈsĩŋ.ko]"

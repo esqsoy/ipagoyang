@@ -62,7 +62,7 @@
    "ko-jjada": "짜다의 ㅉ은 목을 조인다고양. 짜게 먹으면 목이 조인다고양.",
    "it-ciao": "ciao의 c는 [tʃ]라고양. 인사는 짧게 하라고양.",
    "de-zeit": "Zeit의 z는 [ts]라고양. 독일 z는 ㅈ이 아니라고양.",
-   "pt-tipo": "브라질에서는 ti가 [tʃi]라고양. 찌뽀라고 들린다고양."
+   "pt-tipo": "브라질에서는 ti가 [tʃi]라고양. 찌뿌라고 들린다고양."
   },
   "end": "표 밖 줄이 켜졌다고양. 파찰음은 칸이 없어도 배운 거라고양."
  },
@@ -89,7 +89,8 @@
    "ts",
    "dz",
    "t̠ʃ",
-   "d̠ʒ"
+   "d̠ʒ",
+   "ʈʂ"
   ]
  },
  "absent_about": "한국어 2197에 ts·dz·tʃ·dʒ가 없어야 '한국어에 없다'가 맞다(PHOIBLE은 tʃ·dʒ를 t̠ʃ·d̠ʒ로 적는다).",
@@ -141,7 +142,7 @@
    "lang": "kor",
    "text": "짜다",
    "roman": "jjada",
-   "ko": "짜다",
+   "ko": "짜다(맛이)",
    "ipa": [
     "",
     "t͈ɕ",
@@ -206,7 +207,9 @@
    "audio": "en-jam-grendelkhan",
    "audio_more": [
     "en-jam-dvortygirl"
-   ]
+   ],
+   "listen": false,
+   "note": "낱말 첫 j는 d처럼 흔히 덜 울린다. 그래서 듣고 고르기에는 내지 않는다(PRINCIPLES 2-4)."
   },
   {
    "id": "es-chocolate",
@@ -594,9 +597,9 @@
     "inv": 1047,
     "seg": "t̠ʃ"
    },
-   "note": "PHOIBLE 1047은 중국어 권설음을 혀끝 후치경음([t̠ʃ])로 적는다. 이 게임은 [tʂ]로 쓴다. Wiktionary는 [ʈʂ]로 적는다.",
-   "status": "확인",
-   "status_why": "PHOIBLE 1047 /t̠ʃ/",
+   "note": "PHOIBLE 1047은 병음 zh를 후치경 파찰음 [t̠ʃ](영어 ch와 같은 기호)로 적는다. 이 게임은 흔히 쓰는 권설 기호 [tʂ]로 쓴다. Wiktionary는 [ʈʂ]로 적는다.",
+   "status": "확인 필요",
+   "status_why": "PHOIBLE 1047은 [t̠ʃ](영어 ch와 같은 기호)로 적어 이 게임의 [tʂ]와 표기가 다르다",
    "audio": "zh-zhong1-weigao"
   },
   {
@@ -620,8 +623,8 @@
     "seg": "t̠ʃ̺ʰ"
    },
    "note": "PHOIBLE 1047은 중국어 권설음을 혀끝 후치경음([t̠ʃ̺ʰ])로 적는다. 이 게임은 [tʂʰ]로 쓴다. Wiktionary는 [ʈʂʰ]로 적는다.",
-   "status": "확인",
-   "status_why": "PHOIBLE 1047 /t̠ʃ̺ʰ/",
+   "status": "확인 필요",
+   "status_why": "PHOIBLE 1047은 [t̠ʃ̺ʰ](혀끝 후치경음)로 적어 이 게임의 [tʂʰ]와 표기가 다르다",
    "audio": "zh-cha2-weigao"
   },
   {

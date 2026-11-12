@@ -173,6 +173,8 @@ function ipaBase(sym) { return String(sym || '').normalize('NFD').replace(/[\u03
 const IPA_OFF = ['ɕ', 'ts', 'dz', 'tʃ', 'dʒ', 'tɕ', 'dʑ', 'tʂ'];
 const IPA_OFF_HEAD = '<span class="ipa-rowh ipa-offh" title="IPA 표에 칸이 없는 기호"><span>표 밖</span><small class="h">기타·파찰</small></span>';
 function ipaKey(sym) { const k = String(sym || '').normalize('NFD').replace(/[\u0300-\u036f\u02b0-\u02ff]/g, ''); return IPA_OFF.includes(k) ? k : k.slice(0, 1); }
+// 목청 설명: 기호마다 따로 적은 글(마찰음·파찰음)이 있으면 그것, 없으면 상태별 글(파열음 기준)
+function ipaGlottisText(s) { return s.glottis_text || (IPA.glottis || {})[s.glottis] || ''; }
 function ipaGlottis(st) {
   const g = {open: [24, 46], wide: [12, 58], voiced: [33, 37], tight: [34, 36]}[st] || [24, 46];
   const w = st === 'tight' ? 6 : 5;
@@ -260,7 +262,7 @@ function ipaTapBind(root, canvasFor) {
 /* 배우기를 뺐으므로(26.11.08 영신 "배우기 빼자") 틀렸을 때 따라 치는 동안 그 기호의 풀이를 짧게 보인다 */
 function ipaLearnMini(sym) {
   const s = IPA.symbols[sym]; if (!s) return '';
-  return `<div class="ipa-lmini">${ipaNameHtml(s)}<div class="ipa-pair"><div>${ipaSagittal(ipaSagOpts(s))}<i>입 옆모습</i></div><div>${ipaGlottis(s.glottis)}<i>목청: ${ipaEsc((IPA.glottis || {})[s.glottis] || '')}</i></div></div><p>${ipaEsc(s.how)}</p></div>`;
+  return `<div class="ipa-lmini">${ipaNameHtml(s)}<div class="ipa-pair"><div>${ipaSagittal(ipaSagOpts(s))}<i>입 옆모습</i></div><div>${ipaGlottis(s.glottis)}<i>목청: ${ipaEsc(ipaGlottisText(s))}</i></div></div><p>${ipaEsc(s.how)}</p></div>`;
 }
 function ipaBeforeCard(w) {
   if (!w) return '';
@@ -275,7 +277,7 @@ function ipaBeforeCard(w) {
       ${symTap ? '<div class="ipa-symhint">기호를 누르면 소리(시범 녹음)</div>' : '<div class="ipa-symhint">이 기호 하나의 녹음은 아직 없다. 아래 낱말 전사를 누르면 낱말 소리</div>'}
       ${ipaNameHtml(s)}
       ${ipaMiniMap(w)}
-      <div class="ipa-pair"><div>${ipaSagittal(ipaSagOpts(s))}<i>입 옆모습${s.lips === 'near' ? ' · 틈은 덧그림' : ''}</i></div><div>${ipaGlottis(s.glottis)}<i>목청 = ${ipaTermInline('성대')}: ${ipaEsc((IPA.glottis || {})[s.glottis] || '')}</i></div></div>
+      <div class="ipa-pair"><div>${ipaSagittal(ipaSagOpts(s))}<i>입 옆모습${s.lips === 'near' ? ' · 틈은 덧그림' : ''}</i></div><div>${ipaGlottis(s.glottis)}<i>목청 = ${ipaTermInline('성대')}: ${ipaEsc(ipaGlottisText(s))}</i></div></div>
       ${s.vot ? `<div class="ipa-vot">${ipaVot(s.vot)}<i>소리 시작 띠 = ${ipaTermInline('성대 진동 개시 시간')}: ${ipaEsc((IPA.vot || {})[s.vot] || '')}</i></div>` : ''}
       <p>${ipaEsc(s.how)}</p><p><b>한국어와</b> ${ipaEsc(s.ko)}</p>${s.other ? `<p class="ipa-other">다른 표기: ${ipaEsc(s.other)}</p>` : ''}
       ${ex ? `<div class="ipa-exs">${ex}</div>` : ''}
@@ -443,8 +445,8 @@ function ipaOnCorrect(w) {
   const mini = root.querySelector('.ipa-mini'); if (mini) mini.outerHTML = ipaMiniMap(w, sym);
   const bw = (IPA.byWord || {})[w.wid], sp = document.getElementById('catSpeech');
   if (bw && sp && !w.learn) { sp.textContent = bw; sp.hidden = false; }
-  const where = {bilabial: '입술', alveolar: '혀끝·잇몸', dental: '혀끝·이', velar: '혀뒤·여린입천장', uvular: '혀뒤·목젖', labiodental: '아랫입술·윗니', palatal: '혀 몸통·입천장', postalveolar: '혀·잇몸 뒤', alveolopalatal: '혀 앞면·입천장 앞', retroflex: '말아 올린 혀끝', glottal: '목청'}[s.place] || '입';
-  const gl = (IPA.glottis || {})[s.glottis] || '';
+  const where = {bilabial: '입술', alveolar: '혀끝·잇몸', dental: '혀끝·이', velar: '혀뒤·여린입천장', uvular: '혀뒤·목젖', labiodental: '아랫입술·윗니', palatal: '혀 몸통·입천장', postalveolar: '혀·잇몸 뒤', alveolopalatal: '혀 앞면·입천장 앞', retroflex: '혀끝·잇몸 뒤', glottal: '목청'}[s.place] || '입';
+  const gl = ipaGlottisText(s);
   const steps = s.steps ? s.steps : s.vot
     ? [`${where} 닫기`, `목청: ${gl}`, /파찰음/.test(s.name) ? '천천히 떼며 갈이(마찰)' : '터뜨림', {lead: '울림(닫을 때부터)', short: '울림(바로)', long: '바람 뒤 울림'}[s.vot]]
     : [`${where} 좁히기`, '목청 울림', '틈으로 바람'];

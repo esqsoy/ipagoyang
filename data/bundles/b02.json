@@ -661,10 +661,7 @@
    },
    "status": "확인 필요",
    "status_why": "녹음 화자는 모로코·알제리·남레반트 출신이고, 현대 표준 아랍어 녹음은 Commons에서 찾지 못했다. PHOIBLE 2157도 방언 화자 목록이다",
-   "audio": "ar-dar-zinou2go",
-   "audio_more": [
-    "ar-dar-fenakhay"
-   ]
+   "audio": "ar-dar-fenakhay"
   },
   {
    "id": "ar-dhahab",
@@ -785,7 +782,7 @@
   ],
   "by_word": {
    "ja-denki": "天気는 날씨, 電気는 전기라고양. 목이 떨리면 電気라고양.",
-   "en-stop": "s 뒤 t도 바람이 빠진다고양. spin이랑 같은 수법이라고양.",
+   "en-stop": "s 뒤 t도 바람이 없다고양. spin이랑 같은 수법이라고양.",
    "es-nada": "모음 사이 d는 혀가 이에 닿을락 말락이라고양. nada, 아무것도 아니라고양.",
    "ko-bada": "바다의 ㄷ은 목이 울린다고양. 바다는 원래 시끄럽다고양.",
    "fr-the": "표기는 테, 귀는 떼라고양. 파리랑 같은 사정이라고양."
