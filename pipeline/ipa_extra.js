@@ -572,3 +572,11 @@ function ipaShowTerm(k) {
   const extra = [t.note ? ipaEsc(t.note) : ''].filter(Boolean).join(' · ');
   box.innerHTML = `<div class="ipa-dex-in ipa-term"><b class="ipa-dex-sym ipa-term-h">${ipaHanjaHtml(t.hanja || '')}</b><span><b>${ipaEsc(t.native || t.ko)}</b>${t.native ? ` · ${ipaEsc(t.ko)}` : ''}<span class="ipa-en">${ipaEsc(t.en || '')}</span>${extra ? `<br><small>${extra}</small>` : ''}</span></div>`;
 }
+
+/* 기록 옮기기(고양 시리즈 공통, pipeline/record-transfer): 발음고양은 처음 화면과 게임이 한 장이라, 합친 뒤 다시 열어
+   메모리에 남은 옛 진도가 합친 기록을 덮어쓰지 않게 한다(공통 코드는 고치지 않고 여기서 덧붙임) */
+document.addEventListener('DOMContentLoaded', () => {
+  const b = document.getElementById('rtMerge'), st = document.getElementById('rtStatus');
+  if (!b || !st) return;
+  b.addEventListener('click', () => setTimeout(() => { if (st.classList.contains('ok')) location.replace(location.pathname + location.search); }, 1600));
+});

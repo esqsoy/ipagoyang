@@ -1,0 +1,17 @@
+{
+  "about": "발음고양 값. merge.js·runtime.js·ui.html·style.css·test.cjs는 보카고양 pipeline/record-transfer(a35dfbd)를 그대로 복사했고 이 파일만 고친다(보카고양 SHARED.md '같이 쓰는 파일'). 넣는 곳은 build.py(index.html 처음 화면 아래).",
+  "game": "발음고양",
+  "app": "ipagoyang-records",
+  "prefix": "ipagoyang-",
+  "skip": [],
+  "target": "index.html",
+  "kinds": {
+    "progress": "^ipagoyang-seoul-v1$",
+    "saved": "-saved-cards-v1$",
+    "learned": "^ipagoyang-learned-words-v1$",
+    "missed": "^ipagoyang-missed-words-v1$",
+    "milestone": "^ipagoyang-milestone-v1$",
+    "paceMeta": "^ipagoyang-pace-meta-",
+    "pace": "^ipagoyang-pace-"
+  }
+}

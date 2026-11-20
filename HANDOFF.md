@@ -44,6 +44,7 @@
 - `python3 pipeline/phoible_check.py <phoible.csv> <InventoryID-Bibtex.csv>`: 일곱 묶음 어긋남 0(없어야 할 소리 포함).
 - `python3 pipeline/wikt_compare.py <받은 전사.json> bNN`: 일곱 묶음 다름 0. 대상 밖 차이는 결과 파일에 남겼다. 중국어는 번체 문서의 Sinological IPA 첫 줄(표준 중국어)만 받아 대조한다. 둘째 줄부터는 다른 방언이다.
 - `python3 pipeline/build.py --check`: index.html이 원본(frame.html + 덧붙임 + 데이터)과 맞는지 본다.
+- `node pipeline/tests/record-transfer.test.cjs`: 기록 옮기기 공통 검사 + 발음고양 저장 키 12개가 맞는 종류로 가는지. 통과. 두 브라우저 사이 내보내기 → 합치기도 Chromium으로 해 봤다.
 
 ## 확인한 것과 못 한 것
 
@@ -71,8 +72,8 @@
 
 - 고양공유: [palagoyang goyang-common](https://github.com/esqsoy/palagoyang/blob/main/goyang-common/README.md), [탄고고양 PRINCIPLES 0](https://github.com/esqsoy/tangogoyang/blob/main/PRINCIPLES.md#0-목적). 기본 변종 기준(포르투갈어 브라질, 스페인어 중남미, 영어 미국)은 palagoyang HANDOFF의 26.11.07 영신 결정이다.
 - 탄고고양 五十音 [gojuon_sound.py](https://github.com/esqsoy/tangogoyang/blob/main/pipeline/jlpt/gojuon_sound.py): 기호 설명 형식의 씨앗이다.
-- 보카고양: 공통 기능의 본가다([SHARED.md](https://github.com/esqsoy/vocagoyang/blob/main/SHARED.md)). 직검수 페이지의 줄 댓글 방식을 보카고양 review-page.py에서 가져왔다. 기록 옮기기는 아직 가져오지 않았다. **esqsoy/vocagoyang은 건드리지 않는다**(영신).
-- 읽은 판: palagoyang `957f413`, tangogoyang `f652afe`, vocagoyang `d7e077d`.
+- 보카고양: 공통 기능의 본가다([SHARED.md](https://github.com/esqsoy/vocagoyang/blob/main/SHARED.md)). 직검수 페이지의 줄 댓글 방식을 보카고양 review-page.py에서 가져왔다. 기록 옮기기(다른 기기로)는 26.11.20 보카고양 `a35dfbd`의 `pipeline/record-transfer`를 그대로 복사해 넣었다(설정만 `config.json`, 넣는 곳은 build.py, [README](pipeline/record-transfer/README.md)). 본가가 바뀌면 다시 복사한다. **esqsoy/vocagoyang은 건드리지 않는다**(영신).
+- 읽은 판: palagoyang `957f413`, tangogoyang `f652afe`, vocagoyang `d7e077d`(틀), `a35dfbd`(기록 옮기기).
 
 ## 작업 환경
 

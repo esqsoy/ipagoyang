@@ -231,6 +231,17 @@ def build(inline=False):
     for k, v in fills.items():
         assert html.count(k) == 1, k
         html = html.replace(k, v)
+    # 기록 옮기기(고양 시리즈 공통, 보카고양 pipeline/record-transfer를 복사): 처음 화면 맨 아래에 단추, 창, 코드
+    rt = os.path.join(ROOT, 'pipeline', 'record-transfer')
+    rt_src = lambda n: open(os.path.join(rt, n), encoding='utf-8').read().replace('\r\n', '\n').strip()
+    rt_cfg = {k: v for k, v in json.load(open(os.path.join(rt, 'config.json'), encoding='utf-8')).items() if k != 'about'}
+    rt_js = ('<script id="record-transfer">\n/* RECORD_TRANSFER_START */\nvar RT_CONFIG=' + json.dumps(rt_cfg, ensure_ascii=False, separators=(',', ':')) + ';\n'
+             + re.sub(r'\nif\(typeof module[^\n]*$', '', rt_src('merge.js')) + '\n' + rt_src('runtime.js') + '\n/* RECORD_TRANSFER_END */\n</script>')
+    for at, piece in (('</head>', '<style id="record-transfer-style">\n' + rt_src('style.css') + '\n</style>\n</head>'),
+                      ('<div class="grid" id="lessonGrid" style="padding:0 13px 13px;"></div>\n      </div>\n', '<div class="grid" id="lessonGrid" style="padding:0 13px 13px;"></div>\n      </div>\n      <!-- RECORD_TRANSFER_UI_START -->\n' + rt_src('ui.html') + '\n      <!-- RECORD_TRANSFER_UI_END -->\n'),
+                      ('</body>', rt_js.replace('</script', '<\\/script', rt_js.count('</script') - 1) + '\n</body>')):
+        assert html.count(at) == 1, at
+        html = html.replace(at, piece)
     if inline:
         for name in ('BalumIPA-Regular', 'BalumIPA-Bold'):
             b64 = base64.b64encode(open(os.path.join(ROOT, 'assets', 'fonts', name + '.woff2'), 'rb').read()).decode()
