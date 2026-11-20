@@ -49,6 +49,9 @@
 .ipa-grid{display:grid;grid-template-columns:50px repeat(11,minmax(24px,1fr));gap:2px;min-width:336px}
 .ipa-col{font:inherit;font-size:.62rem;font-weight:900;color:var(--muted);text-align:center;line-height:1.1;background:none;border:0;padding:0;cursor:pointer}
 .ipa-col small{display:block;font-size:.5rem;font-weight:700;opacity:.8;white-space:nowrap}
+/* 순우리말 머리 칸(센입천장·여린입천장)은 칸이 좁아 두 줄로 접는다. 한자 줄도 칸 안에서 접는다 */
+.ipa-col small:not(.h){white-space:nowrap;min-height:2.2em;display:flex;align-items:flex-end;justify-content:center}
+.ipa-col small.h{white-space:normal;word-break:break-all}
 .ipa-rowh{font:inherit;font-size:.56rem;font-weight:800;color:var(--muted);display:flex;flex-direction:column;justify-content:center;align-items:flex-start;line-height:1.1;background:none;border:0;padding:0;text-align:left;cursor:pointer}
 .ipa-col small.h,.ipa-rowh small.h{font-size:.5rem;font-weight:600;opacity:.75;letter-spacing:0;white-space:nowrap}
 .ipa-cell{display:flex;align-items:center;justify-content:center;gap:1px;min-height:26px;border-radius:5px;background:rgba(255,255,255,.04);border:1px solid rgba(111,60,149,.55)}

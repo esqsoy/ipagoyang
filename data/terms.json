@@ -14,7 +14,12 @@
     "ref": "stdict",
     "word_no": "460123"
    },
-   "status": "확인"
+   "status": "확인",
+   "native_short": "입술",
+   "native_source": {
+    "ref": "stdict",
+    "word_no": "275127"
+   }
   },
   "순치음": {
    "ko": "순치음",
@@ -40,7 +45,13 @@
     "ref": "stdict",
     "word_no": "490756"
    },
-   "status": "확인"
+   "status": "확인",
+   "native": "잇소리",
+   "native_short": "이",
+   "native_source": {
+    "ref": "stdict",
+    "word_no": "274483"
+   }
   },
   "치경음": {
    "ko": "치경음",
@@ -53,7 +64,13 @@
     "ref": "stdict",
     "word_no": "333062"
    },
-   "status": "확인"
+   "status": "확인",
+   "native": "잇몸소리",
+   "native_short": "잇몸",
+   "native_source": {
+    "ref": "stdict",
+    "word_no": "274475"
+   }
   },
   "후치경음": {
    "ko": "후치경음",
@@ -95,7 +112,13 @@
     "ref": "stdict",
     "word_no": "19815"
    },
-   "status": "확인"
+   "status": "확인",
+   "native": "센입천장소리",
+   "native_short": "센입|천장",
+   "native_source": {
+    "ref": "stdict",
+    "word_no": "184771"
+   }
   },
   "연구개음": {
    "ko": "연구개음",
@@ -108,7 +131,13 @@
     "ref": "stdict",
     "word_no": "459921"
    },
-   "status": "확인"
+   "status": "확인",
+   "native": "여린입천장소리",
+   "native_short": "여린|입천장",
+   "native_source": {
+    "ref": "stdict",
+    "word_no": "230364"
+   }
   },
   "구개수음": {
    "ko": "구개수음",
@@ -121,7 +150,13 @@
     "ref": "stdict",
     "word_no": "34996"
    },
-   "status": "확인"
+   "status": "확인",
+   "native": "목젖소리",
+   "native_short": "목젖",
+   "native_source": {
+    "ref": "stdict",
+    "word_no": "119787"
+   }
   },
   "인두음": {
    "ko": "인두음",
@@ -134,7 +169,13 @@
     "ref": "stdict",
     "word_no": "269062"
    },
-   "status": "확인"
+   "status": "확인",
+   "native": "목안소리",
+   "native_short": "목안",
+   "native_source": {
+    "ref": "opendict",
+    "note": "우리말샘: 북한어(‘인두음’의 북한어). 표준국어대사전에는 순우리말 이름이 없다"
+   }
   },
   "성문음": {
    "ko": "성문음",
@@ -147,7 +188,13 @@
     "ref": "stdict",
     "word_no": "185848"
    },
-   "status": "확인"
+   "status": "확인",
+   "native": "목청소리",
+   "native_short": "목청",
+   "native_source": {
+    "ref": "stdict",
+    "word_no": "119111"
+   }
   },
   "파열음": {
    "ko": "파열음",
@@ -159,7 +206,12 @@
     "word_no": "497698"
    },
    "status": "확인",
-   "note": "폐쇄음(閉鎖音, 표준국어대사전 355775)이라고도 한다"
+   "note": "폐쇄음(閉鎖音, 표준국어대사전 355775)이라고도 한다",
+   "native": "터짐소리",
+   "native_source": {
+    "ref": "stdict",
+    "word_no": "341180"
+   }
   },
   "비음": {
    "ko": "비음",
@@ -170,7 +222,12 @@
     "ref": "stdict",
     "word_no": "436259"
    },
-   "status": "확인"
+   "status": "확인",
+   "native": "콧소리",
+   "native_source": {
+    "ref": "stdict",
+    "word_no": "334012"
+   }
   },
   "전동음": {
    "ko": "전동음",
@@ -181,7 +238,12 @@
     "ref": "stdict",
     "word_no": "296406"
    },
-   "status": "확인"
+   "status": "확인",
+   "native": "떨음소리",
+   "native_source": {
+    "ref": "stdict",
+    "word_no": "98062"
+   }
   },
   "탄음": {
    "ko": "탄음",
@@ -193,7 +255,12 @@
     "word_no": "489751"
    },
    "status": "확인",
-   "note": "탄설음(彈舌音, 표준국어대사전 342895)이라고도 한다"
+   "note": "탄설음(彈舌音, 표준국어대사전 342895)이라고도 한다",
+   "native": "두들김소리",
+   "native_source": {
+    "ref": "stdict",
+    "word_no": "90869"
+   }
   },
   "마찰음": {
    "ko": "마찰음",
@@ -204,7 +271,12 @@
     "ref": "stdict",
     "word_no": "422606"
    },
-   "status": "확인"
+   "status": "확인",
+   "native": "갈이소리",
+   "native_source": {
+    "ref": "stdict",
+    "word_no": "6472"
+   }
   },
   "설측 마찰음": {
    "ko": "설측 마찰음",
@@ -251,7 +323,12 @@
      "음(音)"
     ]
    },
-   "status": "사전 표제어 없음: 구성 요소의 사전 한자로 맞춤"
+   "status": "사전 표제어 없음: 구성 요소의 사전 한자로 맞춤",
+   "native": "혀옆소리",
+   "native_source": {
+    "ref": "stdict",
+    "word_no": "370734"
+   }
   },
   "무성음": {
    "ko": "무성음",
@@ -407,7 +484,12 @@
     "ref": "stdict",
     "word_no": "353622"
    },
-   "status": "확인"
+   "status": "확인",
+   "native": "붙갈이소리",
+   "native_source": {
+    "ref": "stdict",
+    "word_no": "158329"
+   }
   },
   "치경구개음": {
    "ko": "치경구개음",
@@ -425,5 +507,6 @@
    },
    "status": "사전 표제어 없음: 구성 요소의 사전 한자로 맞춤"
   }
- }
+ },
+ "native_about": "IPA 지도 머리 칸의 순우리말 이름(26.11.20 영신 요청). 표준국어대사전에서 그 한자어와 같은 말(=)로 오른 것만 쓴다. 사전 정의의 짝: 잇몸소리=치조음(치경음과 같은 말), 센입천장소리=구개음, 목청소리=후음, 떨음소리=설전음, 두들김소리=탄설음, 혀옆소리=설측음, 콧소리는 「2」『언어』 뜻. 인두음의 목안소리는 우리말샘의 북한어. 순치음·후치경음·권설음·접근음·설측 마찰음은 사전에 순우리말 이름이 없어 한자어 그대로 둔다. native_short는 칸이 좁아 소리를 뗀 줄임(사전 표제어 아님). |는 칸 안 줄바꿈 자리"
 }
