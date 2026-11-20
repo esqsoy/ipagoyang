@@ -67,19 +67,13 @@ function ipaNameState(raw, w) {
   const hit = mode === 'ko' ? koHit : mode === 'en' ? enHit : mode === 'any' ? (koHit || enHit) : both;
   return {koHit, enHit, both, hit, pass: !!hit};
 }
-const IPA_MODE_ASK = {ko: '한국어 이름을 친다', en: '영어 이름을 친다', any: '한국어나 영어 이름을 친다', both: '한국어 + 영어 이름을 친다'};
+/* 26.11.20 영신: 친 이름은 글자 칸에만 보인다(따로 된 입력줄·'한국어 이름을 친다' 같은 설명·세 이름 줄을 없앰).
+   한국어 이름이 맞으면 같은 자리의 칸이 한자로 바뀌고, 한자에 커서를 올리면(폰은 누르면) 뜻이 뜬다(ipaHanjaInPlace). */
 function ipaNameLive() {
-  const el = document.getElementById('ipaNameCheck'), w = ipaCurWord(), s = state.session;
-  if (!el || !w || !w.names) return;
+  const w = ipaCurWord(), s = state.session;
+  if (!w || !w.names) return;
   const raw = (document.getElementById('ainput') || {}).value || '';
   const st = ipaNameState(raw, w);
-  const ty = document.getElementById('ipaTyped');
-  if (ty) ty.innerHTML = raw ? ipaEsc(raw) + (s.answered && !s.copyMode ? '' : '<span class="caret"></span>') : '';
-  // 맞으면 세 이름(한국어·한자·영어)을 다 보인다
-  el.innerHTML = st.hit
-    ? `<span class="ok trio"><b>${ipaEsc(st.hit.ko)}</b><em>${ipaHanjaHtml(st.hit.hanja)}</em><i>${ipaEsc(st.hit.en)}</i></span>`
-    : '';
-  if (ty) ty.dataset.ask = IPA_MODE_ASK[w.mode || 'both'];
   // 맞으면 Enter 없이 넘긴다(틀린 답은 Enter로만 낸다)
   if (st.pass && !s.answered && !s.copyMode && !state.composing) {
     clearTimeout(ipaNameLive.t);
@@ -98,13 +92,23 @@ function ipaCardLimit(w) {
 function ipaIsMark(c) { return /[ʰ-ˇˉ-ˋˍ-ˏˑ-˿̀-ͯ᷀-᷿]/.test(c); }
 function ipaIsBase(c) { return /[A-Za-zÀ-ɏɐ-ʯͰ-Ͽᴀ-ᵿ0-9=&ᄀ-ᇿ㄰-㆏가-힯]/.test(c); }
 function blankParts(value) {
-  // 명칭 카드는 칸 수로 답이 새지 않게(유기·경음이 붙으면 낱말이 하나 는다) 친 글자 + 빈칸 하나만 보인다
+  // 명칭 카드(26.11.20 영신 "보카고양 참조해서 글자당 칸 하나씩"): 이름 글자마다 칸 하나.
+  // 인정하는 이름이 여럿이면 지금까지 친 글자와 가장 길게 겹치는 이름에 칸 수를 맞춘다(한글을 치면 한국어 이름, 로마자를 치면 영어 이름)
   const w = ipaCurWord(), ss = (typeof state !== 'undefined') ? state.session : null;
   if (w && w.names && ss && !ss.copyMode && !ss.answered && value === w.term) {
     const typed = (document.getElementById('ainput') || {}).value || '';
-    return ipaBlankPartsRaw(typed + 'x');
+    return ipaBlankPartsRaw(ipaNameTarget(w, typed));
   }
   return ipaBlankPartsRaw(value);
+}
+function ipaNameTarget(w, typed) {
+  const latin = /[a-z]/i.test(typed), mode = w.mode || 'both';
+  const lang = mode === 'en' || (mode !== 'ko' && latin) ? 'en' : 'ko';
+  const cands = w.names.map(n => n[lang]), flat = x => String(x).toLowerCase().replace(/\s/g, '');
+  const t = flat(typed);
+  let best = cands[0], bestN = -1;
+  for (const c of cands) { const f = flat(c); let n = 0; while (n < t.length && n < f.length && t[n] === f[n]) n++; if (n > bestN) { best = c; bestN = n; } }
+  return best;
 }
 function ipaBlankPartsRaw(value) {
   const src = String(value || ''); const chars = []; const breaks = new Set(); let pending = false;
@@ -209,7 +213,30 @@ document.addEventListener('click', e => {
   const g = e.target.closest && e.target.closest('.ipa-gl');
   document.querySelectorAll('.ipa-gl.show').forEach(x => { if (x !== g) x.classList.remove('show'); });
   if (g) g.classList.toggle('show');
+  // 정답 자리의 한자를 누르면 뜻만 보이고 다음 카드로 넘어가지 않는다(카드 누르기 = 다음 카드인 틀과 겹치지 않게)
+  if (g && g.closest('#hoeCtx .blanks')) { e.stopPropagation(); if (typeof cancelPendingAdvance === 'function') cancelPendingAdvance(); }
 }, true);
+// 한자에 커서를 올려 뜻을 보는 동안은 저절로 넘어가지 않는다(Enter나 카드 누르기로 넘어간다)
+document.addEventListener('mouseover', e => {
+  if (e.target.closest && e.target.closest('#hoeCtx .ipa-hz-ans') && typeof cancelPendingAdvance === 'function') cancelPendingAdvance();
+});
+/* 26.11.20 영신: "한글 다 치고나면 한자를 밑에 따로 띄우는게 아니라 아예 한자로 뜨게". 이름 대기에서 한국어 이름이 맞으면
+   (처음 맞힐 때도, 틀려서 따라 친 뒤에도) 글자 칸 자리가 한자로 바뀐다. 영어로 친 경우는 친 이름 그대로 둔다 */
+function ipaHanjaInPlace() {
+  const w = ipaCurWord(); if (!w || !w.nameq || !w.names) return;
+  const wrap = document.querySelector('#hoeCtx .blanks'); if (!wrap) return;
+  const raw = (document.getElementById('ainput') || {}).value || '';
+  if (w.mode === 'en' || (w.mode !== 'ko' && /[a-z]/i.test(raw))) return;
+  const st = ipaNameState(raw, w), pr = st.koHit || st.hit || w.names[0];
+  if (!pr || !pr.hanja) return;
+  wrap.innerHTML = `<span class="ipa-hz-ans">${ipaHanjaHtml(pr.hanja)}</span>`;
+  wrap.setAttribute('aria-label', `${pr.ko} ${pr.hanja}`);
+}
+document.addEventListener('DOMContentLoaded', () => {
+  if (typeof revealInPlace !== 'function') return;
+  const orig = revealInPlace;
+  revealInPlace = function (term) { orig(term); try { ipaHanjaInPlace(); } catch (e) {} };
+});
 /* 발음 용어는 한글·한자·영어를 함께 보인다(영신 26.11.07, PRINCIPLES 2-5). 용어 자료는 data/terms.json */
 function ipaT(k) { return (IPA.terms || {})[k] || {ko: k}; }
 function ipaTermInline(k, label) {
@@ -234,14 +261,15 @@ function ipaTapAttrs(ids, label, start) {
 }
 function ipaSpkHtml(ids) {
   const l = (Array.isArray(ids) ? ids : [ids]).filter(ipaHasAudio);
-  return l.length > 1 ? `<span class="ipa-spk" aria-live="polite">목소리 ${l.length}명 · 기호를 누를 때마다 바뀐다</span>` : (l.length ? '<span class="ipa-spk">기호를 누르면 소리</span>' : '<span class="ipa-soon">녹음 준비 중</span>');
+  // 조작 설명은 두지 않는다(26.11.20 영신). 소리를 낸 뒤에만 몇 번째 목소리·화자를 적는다
+  return l.length ? '<span class="ipa-spk" aria-live="polite"></span>' : '<span class="ipa-soon">녹음 준비 중</span>';
 }
 function ipaBtnNext(b) {
   const l = b.dataset.list.split('|'); let i = +b.dataset.i || 0; const id = l[i % l.length];
   b.dataset.i = (i + 1) % l.length;
   const card = b.closest('#hoeCtx, .ipa-dex') || document;
   const sp = b.closest('.ipa-ex') ? null : card.querySelector('.ipa-cardplay .ipa-spk');
-  if (sp && l.length > 1) sp.textContent = `목소리 ${(i % l.length) + 1}/${l.length}` + ((IPA.audio[id] || {}).speaker ? ` · ${IPA.audio[id].speaker}` : '');
+  if (sp) sp.textContent = (l.length > 1 ? `목소리 ${(i % l.length) + 1}/${l.length}` : '') + ((IPA.audio[id] || {}).speaker ? `${l.length > 1 ? ' · ' : ''}${IPA.audio[id].speaker}` : '');
   return id;
 }
 function ipaTapBind(root, canvasFor) {
@@ -262,7 +290,7 @@ function ipaTapBind(root, canvasFor) {
 /* 배우기를 뺐으므로(26.11.08 영신 "배우기 빼자") 틀렸을 때 따라 치는 동안 그 기호의 풀이를 짧게 보인다 */
 function ipaLearnMini(sym) {
   const s = IPA.symbols[sym]; if (!s) return '';
-  return `<div class="ipa-lmini">${ipaNameHtml(s)}<div class="ipa-pair"><div>${ipaSagittal(ipaSagOpts(s))}<i>입 옆모습</i></div><div>${ipaGlottis(s.glottis)}<i>목청: ${ipaEsc(ipaGlottisText(s))}</i></div></div><p>${ipaEsc(s.how)}</p></div>`;
+  return `<div class="ipa-lmini"><div class="ipa-pair"><div>${ipaSagittal(ipaSagOpts(s))}<i>입 옆모습</i></div><div>${ipaGlottis(s.glottis)}<i>목청: ${ipaEsc(ipaGlottisText(s))}</i></div></div><p>${ipaEsc(s.how)}</p></div>`;
 }
 function ipaBeforeCard(w) {
   if (!w) return '';
@@ -281,8 +309,6 @@ function ipaBeforeCard(w) {
       ${s.vot ? `<div class="ipa-vot">${ipaVot(s.vot)}<i>소리 시작 띠 = ${ipaTermInline('성대 진동 개시 시간')}: ${ipaEsc((IPA.vot || {})[s.vot] || '')}</i></div>` : ''}
       <p>${ipaEsc(s.how)}</p><p><b>한국어와</b> ${ipaEsc(s.ko)}</p>${s.other ? `<p class="ipa-other">다른 표기: ${ipaEsc(s.other)}</p>` : ''}
       ${ex ? `<div class="ipa-exs">${ex}</div>` : ''}
-      <p class="ipa-code">치는 것: 한글 이름과 영어 이름 둘 다(순서·띄어쓰기 자유). 한글이 맞으면 한자가 뜬다.</p>
-      <div class="ipa-typed" id="ipaTyped" aria-live="polite"></div><div class="ipa-namecheck" id="ipaNameCheck"></div>
     </div>`;
   }
   if (w.nameq) {
@@ -290,13 +316,13 @@ function ipaBeforeCard(w) {
     const rows = (w.reps || []).map(e => { const l = ipaAudioList(e.wid); return `<div class="ipa-rep"><span class="ipa-lang">${ipaEsc(e.lang)}</span><span class="ipa-word">${ipaWordHtml(e.text, e.ko)}</span><span class="ipa-tr"${ipaTapAttrs(l, e.text + ' 듣기')}>[${ipaEsc(e.a)}<b>${ipaEsc(e.t)}</b>${ipaEsc(e.b)}]</span></div>`; }).join('');
     const s = IPA.symbols[w.sym] || {};
     const symTap = s.sound && ipaHasAudio(s.sound) ? ipaTapAttrs(s.sound, w.sym + ' 기호 소리 듣기') : '';
-    return `${lm}<div class="ipa-nameq"><div class="ipa-big"><span${symTap}>${ipaEsc(w.sym)}</span></div>${ipaMiniMap(w)}<div class="ipa-reps">${rows || '<div class="ipa-soon">대표 낱말 없음</div>'}</div><div class="ipa-symhint">전사를 누르면 낱말 소리${symTap ? ', 기호를 누르면 기호 소리' : ''}</div></div><div class="ipa-typed" id="ipaTyped" aria-live="polite"></div><div class="ipa-namecheck" id="ipaNameCheck"></div>`;
+    return `${lm}<div class="ipa-nameq ipa-qtop"><div class="ipa-big"><span${symTap}>${ipaEsc(w.sym)}</span></div>${ipaMiniMap(w)}</div><div class="ipa-nameq ipa-repsbox"><div class="ipa-reps">${rows || '<div class="ipa-soon">대표 낱말 없음</div>'}</div></div>`;
   }
   if (w.audio !== undefined) {
     const l = ipaAudioList(w.wid, w.audio);
-    return `${lm}<div class="ipa-cardplay" data-start="${Math.floor(Math.random() * Math.max(1, l.length))}">${ipaMiniMap(w)}${l.length ? '<canvas class="ipa-wave"></canvas>' : ''}${ipaSpkHtml(l)}</div>${w.names ? '<div class="ipa-typed" id="ipaTyped" aria-live="polite"></div><div class="ipa-namecheck" id="ipaNameCheck"></div>' : ''}`;
+    return `${lm}<div class="ipa-cardplay" data-start="${Math.floor(Math.random() * Math.max(1, l.length))}">${ipaMiniMap(w)}${l.length ? '<canvas class="ipa-wave"></canvas>' : ''}${ipaSpkHtml(l)}</div>`;
   }
-  return ipaMiniMap(w) + (w.names ? '<div class="ipa-typed" id="ipaTyped" aria-live="polite"></div><div class="ipa-namecheck" id="ipaNameCheck"></div>' : '');
+  return ipaMiniMap(w);
 }
 function ipaAfterCard(w, noAuto) {
   const root = document.getElementById('hoeCtx'); if (!root || !w) return;
@@ -320,9 +346,15 @@ function ipaAfterCard(w, noAuto) {
   if (cv && cv.dataset.list) { const l = cv.dataset.list.split('|'); requestAnimationFrame(() => ipaWave(cv, l[(+cv.dataset.i || 0) % l.length], 0)); }
   const main = taps[0];
   if (!noAuto && w.listen && main) setTimeout(() => { ipaPlay(ipaBtnNext(main), cv); taps.forEach(o => { if (o !== main) o.dataset.i = main.dataset.i; }); }, 350);
-  // 친 이름 줄과 맞음 표시는 원문 줄(전사) 아래로
-  const ty = root.querySelector('#ipaTyped'), nc = root.querySelector('#ipaNameCheck');
-  if (ty && nc && !root.querySelector('.ipa-learn')) root.append(ty, nc);
+  // 26.11.20 영신: 이름 대기는 '[기호] 한국어 이름은?' 줄과 '[기호] = ?'를 없애고, 글자 칸을 기호·작은 지도 바로 밑에 둔다.
+  // 듣고 고르기는 '듣고 빈칸 소리의 이름을 친다' 같은 설명을 빼고 언어만 보인다(카드 자료의 뜻 줄은 발음 찾기 열쇠라 그대로 둔다)
+  const mEl = document.getElementById('meaning');
+  if (mEl) {
+    mEl.style.display = w.nameq ? 'none' : '';
+    if (w.listen) mEl.textContent = String(w.meaning || '').split(' · ')[0];
+  }
+  const src = root.querySelector('.mt-source'), reps = root.querySelector('.ipa-repsbox');
+  if (w.nameq && src && reps) { src.classList.add('ipa-nameans'); root.insertBefore(src, reps); }
   ipaNameLive();
   setTimeout(ipaNameLive, 0);  // 따라 치기로 들어갈 때 틀이 입력칸을 비운 뒤 다시 그린다
 }

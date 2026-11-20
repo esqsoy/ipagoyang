@@ -136,8 +136,8 @@ def build(inline=False):
                 _, names = names_for(k)
                 term = names[0][mode]
                 w = {'en': term, 'ko': f'[{k}] {ask}', 'nameq': True, 'mode': mode, 'sym': k, 'names': names, 'reps': rep_list(k)}
-                ctx = {**ctx0, 'example': f'[{k}] = {term}', 'surfaceParts': [term],
-                       'translation': f'{names[0]["ko"]} · {names[0]["hanja"]} · {names[0]["en"]}'}
+                # 26.11.20 영신: '[기호] = ?' 줄과 정답 뒤 세 이름 줄을 없앤다(기호는 위에 있고, 한자는 칸 자리에 뜬다)
+                ctx = {**ctx0, 'example': term, 'surfaceParts': [term], 'translation': ''}
                 cards.append((w, ctx, k, sy['symbols'][k].get('sound')))
             add_ex(title, cards)
 
@@ -173,9 +173,10 @@ def build(inline=False):
             roman = f' ({wd["roman"]})' if wd['roman'] != wd['text'] else ''
             _, names = names_for(wd['target'], t, wd.get('accept'))
             term = names[0]['ko']
-            w = {'en': term, 'ko': f'{lg} {wd["text"]}{roman} · {wd["ko"]}', 'audio': wd['audio'], 'lang': wd['lang'], 'wid': wd['id'], 'names': names, 'mode': 'any'}
-            ctx = {**ctx0, 'example': example, 'surfaceParts': [t],
-                   'translation': f'[{t}] {names[0]["ko"]} · {names[0]["hanja"]} · {names[0]["en"]}' + (f' · {wd["note"]}' if wd.get('note') else '')}
+            gloss = f' · {wd["ko"]}' if wd['ko'] != wd['text'] else ''
+            w = {'en': term, 'ko': f'{lg} {wd["text"]}{roman}{gloss}', 'audio': wd['audio'], 'lang': wd['lang'], 'wid': wd['id'], 'names': names, 'mode': 'any'}
+            # 정답 뒤에는 이름 줄을 따로 두지 않는다(26.11.20 영신). 낱말 풀이(note)만
+            ctx = {**ctx0, 'example': example, 'surfaceParts': [t], 'translation': wd.get('note') or ''}
             bl.append((w, ctx, a + t + z, wd['audio']))
         add_ex('전사 빈칸', bl)
 
