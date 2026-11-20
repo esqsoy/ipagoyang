@@ -2650,7 +2650,7 @@ function finishExercise(){
   $("#sumErr").textContent=s.errors;$("#sumFirst").textContent=first+"%";$("#sumHint").textContent=s.hints||0;
   let line=pick(LINES.exerciseDone),expr='evil';
   if(s.lesson.kind==="saved"){$("#sumTitle").textContent="모아둔 카드 복습 끝 ✦";}
-  else if(allCleared){line=pick(LINES.allDone);expr='win';$("#sumTitle").textContent="묶음 완주! 지도에 칸이 켜졌다 ✦";}
+  else if(allCleared){line=pick(LINES.allDone);expr='win';$("#sumTitle").textContent="강 완주! 지도에 칸이 켜졌다 ✦";}
   else if(lessonCleared){const _cnt=visEx(s.lesson).reduce((a,e)=>a+e.words.length,0);line=_cnt+"개 단어를 다 확인했다고양! "+(LESSONCLEAR[s.lesson.lesson]||"한 강을 통째로 정복했다고양!");expr='win';$("#sumTitle").textContent=s.lesson.id+" 완전 정복!";}
   else $("#sumTitle").textContent="연습 클리어 ✦";
   const perfectRun=completePerfectRun(s,first);if(!allCleared&&perfectRun>0)showRoar(perfectRun);

@@ -436,7 +436,7 @@ function ipaMiniMap(w, hit) {
   return `<div class="ipa-mini" role="button" tabindex="0" data-zoom="${w.b}" data-hit="${ipaEsc(hit || '')}" aria-label="IPA 표 크게 보기">${g}</div>`;
 }
 /* 작은 지도를 누르면 실제 IPA 자음표를 크게(26.11.08 영신: "해당 부분을 누르면 실제 ipa표를 확대해서 볼 수 있게").
-   기호는 다 보인다(답을 가리지 않음: 묶음 칸 전체를 함께 표시). 배운 칸 금빛, 지금 묶음 칸 청록, 맞힌 답 칸 테두리. 기호를 누르면 기호 소리. */
+   기호는 다 보인다(답을 가리지 않음: 묶음 칸 전체를 함께 표시). 배운 칸 금빛, 이번 강 칸 청록, 맞힌 답 칸 테두리. 기호를 누르면 기호 소리. */
 function ipaZoomOpen(lesson, hit) {
   const bd = (IPA.bundles || []).find(b => b.lesson === +lesson);
   const cur = new Set(bd ? bd.lit : []), {set} = ipaLearned(), h = hit ? ipaKey(hit) : '';
@@ -457,7 +457,7 @@ function ipaZoomOpen(lesson, hit) {
   ov.className = 'ipa-zoom'; ov.setAttribute('role', 'dialog'); ov.setAttribute('aria-label', 'IPA 자음표');
   ov.innerHTML = `<div class="ipa-zoom-in"><div class="ipa-zoom-h"><b>IPA 자음표(폐 기류)</b><button type="button" class="ipa-zoom-x" aria-label="닫기">✕</button></div>
     <div class="ipa-map-wrap">${g}</div>
-    <p class="ipa-zoom-k"><span class="on">배운 칸</span><span class="cur">지금 묶음</span>${h ? '<span class="hit">맞힌 답</span>' : ''} · 가로는 입 앞(1 입술)에서 목 안(11 성문), 세로는 소리 내는 방법. 칸에 둘이면 앞(왼쪽·위)이 무성, 뒤(오른쪽·아래)가 유성. 표 밖 줄은 IPA 표에 칸이 없는 기호: ɕ는 '기타 기호'에 있고, 파찰음은 두 기호를 이어 적는다. 국제음성학회 IPA 표(2020, CC BY-SA 4.0)</p></div>`;
+    <p class="ipa-zoom-k"><span class="on">배운 칸</span><span class="cur">이번 강</span>${h ? '<span class="hit">맞힌 답</span>' : ''} · 가로는 입 앞(1 입술)에서 목 안(11 성문), 세로는 소리 내는 방법. 칸에 둘이면 앞(왼쪽·위)이 무성, 뒤(오른쪽·아래)가 유성. 표 밖 줄은 IPA 표에 칸이 없는 기호: ɕ는 '기타 기호'에 있고, 파찰음은 두 기호를 이어 적는다. 국제음성학회 IPA 표(2020, CC BY-SA 4.0)</p></div>`;
   const close = () => { ov.remove(); document.removeEventListener('keydown', esc, true); if (typeof focusAnswerInput === 'function') focusAnswerInput(); };
   const esc = e => { if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); close(); } };
   ov.addEventListener('click', e => { if (e.target === ov || e.target.closest('.ipa-zoom-x')) close(); });
@@ -518,6 +518,10 @@ let ipaPick = null;
 /* IPA 지도 머리 칸: 한자어 이름, 그 밑에 한자. 순우리말 이름이 사전에 있으면 한자어 이름에 커서를 올리거나 누르면 뜬다
    (26.11.20 영신: 순우리말을 머리 칸에 바로 쓴 것을 되돌리고 "커서 놓으면 순우리말 표기가 있는경우 순우리말표기가 뜨는식으로").
    순우리말 이름과 출처는 data/terms.json native·native_source */
+function ipaLessonOf(v) {
+  const b = (IPA.bundles || []).find(x => (x.lit || []).includes(v) || (x.lit || []).includes(ipaKey(v)));
+  return b ? `${b.lesson}강에서 배우는 기호(아직 다 익히지 않음)` : '아직 다 익히지 않은 기호';
+}
 function ipaColLabel(t) { return t.short || t.ko.replace(/음$/, ''); }
 function ipaRowLabel(t) { return t.ko; }
 function ipaHeadAria(t) { return [t.ko, t.hanja, t.en, t.native].filter(Boolean).join(' '); }
@@ -561,12 +565,12 @@ function ipaShowDex() {
   if (!v) { box.innerHTML = ''; return; }
   const s = IPA.symbols[v];
   if (!(set.has(v) || current.has(v)) || !s) {
-    box.innerHTML = `<div class="ipa-dex-in"><b class="ipa-dex-sym">??</b><span><span class="nm">고양고양이</span> 아직 잠긴 칸이라고양. 묶음에서 만나면 열린다고양.</span></div>`;
+    box.innerHTML = `<div class="ipa-dex-in"><b class="ipa-dex-sym">??</b><span><span class="nm">고양고양이</span> 아직 잠긴 칸이라고양. 강에서 만나면 열린다고양.</span></div>`;
     return;
   }
   const words = (IPA.examples[v] || []).map(e => `<span class="ipa-chip">${ipaEsc(e.lang)} ${ipaWordHtml(e.text, e.ko)}</span>`).join('');
   const snd = s.sound && ipaHasAudio(s.sound) ? ipaTapAttrs(s.sound, v + ' 기호 소리 듣기') : '';
-  box.innerHTML = `<div class="ipa-dex-in"><b class="ipa-dex-sym"${snd}>${ipaEsc(v)}</b><span>${ipaNameHtml(s)}${set.has(v) ? '' : '<em>지금 묶음</em><br>'}${ipaEsc(s.how)}</span></div>${words ? `<div class="ipa-chips">${words}</div>` : ''}`;
+  box.innerHTML = `<div class="ipa-dex-in"><b class="ipa-dex-sym"${snd}>${ipaEsc(v)}</b><span>${ipaNameHtml(s)}${set.has(v) ? '' : `<em>${ipaEsc(ipaLessonOf(v))}</em><br>`}${ipaEsc(s.how)}</span></div>${words ? `<div class="ipa-chips">${words}</div>` : ''}`;
   ipaTapBind(box);
 }
 function ipaShowTerm(k) {

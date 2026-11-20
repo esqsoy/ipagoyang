@@ -489,7 +489,7 @@
     "inv": 2207,
     "seg": "z"
    },
-   "note": "모음 사이의 s는 [z]로 난다. 묶음 3에서는 첫소리 [k]를 들었다.",
+   "note": "모음 사이의 s는 [z]로 난다. 3강에서는 첫소리 [k]를 들었다.",
    "status": "확인",
    "status_why": "PHOIBLE 2207 /z/",
    "audio": "pt-casa-sillim"
