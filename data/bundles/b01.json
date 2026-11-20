@@ -134,7 +134,7 @@
     "ɪn"
    ],
    "target": "pʰ",
-   "audio": "en-pin",
+   "audio": "en-pin-grendelkhan",
    "phoible": {
     "inv": 2176,
     "seg": "pʰ",
@@ -143,7 +143,6 @@
    "status": "확인",
    "status_why": "PHOIBLE 2176(Hillenbrand 2003) /pʰ/",
    "audio_more": [
-    "en-pin-grendelkhan",
     "en-pin-wodencafe"
    ]
   },
@@ -184,7 +183,7 @@
     "ɪn"
    ],
    "target": "b",
-   "audio": "en-bin",
+   "audio": "en-bin-none",
    "phoible": {
     "inv": 2176,
     "seg": "b"
@@ -206,7 +205,7 @@
     "an"
    ],
    "target": "p",
-   "audio": "es-pan",
+   "audio": "es-pan-none",
    "phoible": {
     "inv": 2210,
     "seg": "p"
@@ -298,7 +297,7 @@
     "asɯ"
    ],
    "target": "b",
-   "audio": "ja-basu",
+   "audio": "ja-basu-none",
    "phoible": {
     "inv": 2196,
     "seg": "b"
@@ -576,7 +575,9 @@
    "audio": "de-ball-wallroth",
    "audio_more": [
     "de-ball-jeuwre"
-   ]
+   ],
+   "listen": false,
+   "note": "독일어 낱말 첫 b는 흔히 목청이 덜 울린다. 그래서 듣고 고르기에는 내지 않는다(PRINCIPLES 2-4)."
   },
   {
    "id": "it-pane",
@@ -643,7 +644,7 @@
    },
    "note": "아랍어에는 [p]가 없다(PHOIBLE 2157).",
    "status": "확인 필요",
-   "status_why": "녹음 화자는 모로코·알제리·남레반트 출신이고, 현대 표준 아랍어 녹음은 Commons에서 찾지 못했다. PHOIBLE 2157도 방언 화자 목록이다",
+   "status_why": "녹음 화자는 모로코(둘)·남레반트(하나) 출신이고, 현대 표준 아랍어 녹음은 Commons에서 찾지 못했다. PHOIBLE 2157도 방언 화자 목록이다",
    "audio": "ar-bab-anasssedrati",
    "audio_more": [
     "ar-bab-khalilrantissi",
@@ -749,7 +750,7 @@
     "p",
     "p͈"
    ],
-   "text": "입 앞에 휴지 한 장을 대고 '불', '풀', '뿔'을 말해 본다. 휴지가 가장 크게 펄럭이는 것이 [pʰ]다."
+   "text": "입 앞에 휴지 한 장을 대고 '불', '풀', '뿔'을 말해 본다. [pʰ]는 휴지가 크게 펄럭이고, [p͈]는 거의 안 펄럭인다. 요즘 서울말은 첫소리 ㅂ도 꽤 펄럭여서 높낮이로 가르기도 한다."
   },
   {
    "for": [

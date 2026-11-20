@@ -66,23 +66,6 @@
    "listened": null
   },
   {
-   "id": "en-pin",
-   "lang": "eng",
-   "commons_file": "En-us-pin.ogg",
-   "page": "https://commons.wikimedia.org/wiki/File:En-us-pin.ogg",
-   "original": "https://upload.wikimedia.org/wikipedia/commons/c/cc/En-us-pin.ogg",
-   "author": "Muke",
-   "license": "퍼블릭 도메인(저작권자 공개)",
-   "speaker": "파일 이름 en-us(미국 영어). 화자 정보 없음",
-   "checked": "2026-11-06",
-   "listened": null,
-   "original_sha256": "8a8b13a80620ee20c054740ad232aab0110291283231e589882e75c0eedb69c8",
-   "mp3": "assets/audio/en-pin.mp3",
-   "mp3_sha256": "f2a424f41f8d0091b6fa0273835682ccc94967bb32e7a229c896f54317b070de",
-   "duration": 1.068,
-   "speaker_short": "Muke"
-  },
-  {
    "id": "en-spin",
    "lang": "eng",
    "commons_file": "en-us-spin.ogg",
@@ -100,42 +83,6 @@
    "speaker_short": "Dvortygirl"
   },
   {
-   "id": "en-bin",
-   "lang": "eng",
-   "commons_file": "en-us-bin.ogg",
-   "page": "https://commons.wikimedia.org/wiki/File:en-us-bin.ogg",
-   "original": "https://upload.wikimedia.org/wikipedia/commons/8/80/En-us-bin.ogg",
-   "author": "Muke",
-   "license": "퍼블릭 도메인(저작권자 공개)",
-   "speaker": "파일 이름 en-us(미국 영어). 화자 정보 없음",
-   "checked": "2026-11-06",
-   "listened": null,
-   "original_sha256": "3cf4d20c9f86ea8eee9087c417266dca677d03feb8731828f9639cb3c1437443",
-   "mp3": "assets/audio/en-bin.mp3",
-   "mp3_sha256": "d9a698c4952daeb7b06c7d07e284c226b5f8b178b23062f52b862402ee84596c",
-   "duration": 1.149,
-   "speaker_short": "Muke"
-  },
-  {
-   "id": "es-pan",
-   "lang": "spa",
-   "commons_file": "LL-Q1321 (spa)-Eavqwiki-pan.wav",
-   "page": "https://commons.wikimedia.org/wiki/File:LL-Q1321_(spa)-Eavqwiki-pan.wav",
-   "original": "https://upload.wikimedia.org/wikipedia/commons/2/2f/LL-Q1321_%28spa%29-Eavqwiki-pan.wav",
-   "author": "Eavqwiki",
-   "license": "CC BY-SA 4.0",
-   "speaker": "Lingua Libre 화자 Eavqwiki(나라·지역 확인 필요)",
-   "checked": "2026-11-06",
-   "listened": null,
-   "original_sha256": "1242197ead1305ceefeff2fe432e56d806824877f463039990b06a0b77dfc14c",
-   "mp3": "assets/audio/es-pan.mp3",
-   "mp3_sha256": "ec92e9eade6cd98e8ac7f82c81d6c85d57be6818bbc9bb7fd6cf3a1ebac756e5",
-   "duration": 0.943,
-   "original_sha1_matches_commons": "213b37cc6353c885be6a7b3d6f0a334117ca91c8",
-   "retrieved": "2026-11-07 WebFetch(이 환경의 직접 연결은 429)",
-   "speaker_short": "Eavqwiki"
-  },
-  {
    "id": "es-vaca",
    "lang": "spa",
    "commons_file": "LL-Q1321 (spa)-Millars-vaca.wav",
@@ -143,7 +90,7 @@
    "original": "https://upload.wikimedia.org/wikipedia/commons/5/58/LL-Q1321_%28spa%29-Millars-vaca.wav",
    "author": "Millars",
    "license": "CC BY-SA 4.0",
-   "speaker": "Lingua Libre 화자 Millars(나라·지역 확인 필요)",
+   "speaker": "Lingua Libre 화자 Millars(스페인 비야레알) · 지역 출처: fr.wiktionary Lingua Libre 표시",
    "checked": "2026-11-06",
    "listened": null,
    "original_sha256": "ba11e882a410f22837bffb953a44ba06080e828ccadf5f0193f0168c0e81545f",
@@ -152,7 +99,7 @@
    "duration": 0.883,
    "original_sha1_matches_commons": "72596a19546cb627c42ab0287848a44e4fedf520",
    "retrieved": "2026-11-07 WebFetch(이 환경의 직접 연결은 429)",
-   "speaker_short": "Millars"
+   "speaker_short": "Millars · 스페인 비야레알"
   },
   {
    "id": "es-lobo",
@@ -162,7 +109,7 @@
    "original": "https://upload.wikimedia.org/wikipedia/commons/6/6f/LL-Q1321_%28spa%29-Millars-lobo.wav",
    "author": "Millars",
    "license": "CC BY-SA 4.0",
-   "speaker": "Lingua Libre 화자 Millars(나라·지역 확인 필요)",
+   "speaker": "Lingua Libre 화자 Millars(스페인 비야레알) · 지역 출처: fr.wiktionary Lingua Libre 표시",
    "checked": "2026-11-06",
    "listened": null,
    "original_sha256": "d626d36631a92ce56cf61f2f2252c7fdbf6b4528f85fedee9677240943f1cbb2",
@@ -171,7 +118,7 @@
    "duration": 0.968,
    "original_sha1_matches_commons": "5b44043eaa8f0df72c160e5d9fd6537e365b00a2",
    "retrieved": "2026-11-07 WebFetch(이 환경의 직접 연결은 429)",
-   "speaker_short": "Millars"
+   "speaker_short": "Millars · 스페인 비야레알"
   },
   {
    "id": "ja-pan",
@@ -181,7 +128,7 @@
    "original": "https://upload.wikimedia.org/wikipedia/commons/8/85/LL-Q5287_%28jpn%29-%E8%91%B5%E5%BF%83-%E3%83%91%E3%83%B3.wav",
    "author": "葵心",
    "license": "CC0 1.0",
-   "speaker": "Lingua Libre 화자 葵心(지역 확인 필요)",
+   "speaker": "Lingua Libre 화자 葵心(가나가와) · 지역 출처: fr.wiktionary Lingua Libre 표시",
    "checked": "2026-11-06",
    "listened": null,
    "original_sha256": "ddcbaf28b039d9f35de6023bb45ccc41937e05ac48c2d1c6ca8ce88b8a41d7af",
@@ -190,26 +137,7 @@
    "duration": 0.599,
    "original_sha1_matches_commons": "d7d9975705c8e12ba35145b3a0bb2d232155b5f1",
    "retrieved": "2026-11-07 WebFetch(이 환경의 직접 연결은 429)",
-   "speaker_short": "葵心"
-  },
-  {
-   "id": "ja-basu",
-   "lang": "jpn",
-   "commons_file": "LL-Q5287 (jpn)-Fukujinzuke-バス.wav",
-   "page": "https://commons.wikimedia.org/wiki/File:LL-Q5287_(jpn)-Fukujinzuke-バス.wav",
-   "original": "https://upload.wikimedia.org/wikipedia/commons/1/1f/LL-Q5287_%28jpn%29-Fukujinzuke-%E3%83%90%E3%82%B9.wav",
-   "author": "Fukujinzuke",
-   "license": "CC BY 4.0",
-   "speaker": "Lingua Libre 화자 Fukujinzuke(지역 확인 필요)",
-   "checked": "2026-11-06",
-   "listened": null,
-   "original_sha256": "0c741080716142de9382f777528e59b262ed92bca08edd0d7c39b9bcec66be84",
-   "mp3": "assets/audio/ja-basu.mp3",
-   "mp3_sha256": "2aaf06395266a698511d2baa00d4fca9c1dde3afe00c46d1088c418575488575",
-   "duration": 0.899,
-   "original_sha1_matches_commons": "158e599340835c05d2cc8ae01dfc9cd9450f9b6f",
-   "retrieved": "2026-11-07 WebFetch(이 환경의 직접 연결은 429)",
-   "speaker_short": "Fukujinzuke"
+   "speaker_short": "葵心 · 가나가와"
   },
   {
    "id": "fr-pain",
@@ -219,7 +147,7 @@
    "original": "https://upload.wikimedia.org/wikipedia/commons/4/47/LL-Q150_%28fra%29-Poslovitch-pain.wav",
    "author": "Poslovitch",
    "license": "CC0 1.0",
-   "speaker": "Lingua Libre 화자 Poslovitch(지역 확인 필요)",
+   "speaker": "Lingua Libre 화자 Poslovitch(프랑스 보주) · 지역 출처: fr.wiktionary Lingua Libre 표시",
    "checked": "2026-11-06",
    "listened": null,
    "original_sha256": "93fb97bcf14d19d292f676c0f8bb3665cf7aaee8036be99c385578da06e19f8d",
@@ -228,7 +156,7 @@
    "duration": 0.786,
    "original_sha1_matches_commons": "00f98172f4c53aefaeedecb5416c2d7eb4e3d537",
    "retrieved": "2026-11-07 WebFetch(이 환경의 직접 연결은 429)",
-   "speaker_short": "Poslovitch"
+   "speaker_short": "Poslovitch · 프랑스 보주"
   },
   {
    "id": "fr-bain",
@@ -238,7 +166,7 @@
    "original": "https://upload.wikimedia.org/wikipedia/commons/3/3b/LL-Q150_%28fra%29-Poslovitch-bain.wav",
    "author": "Poslovitch",
    "license": "CC0 1.0",
-   "speaker": "Lingua Libre 화자 Poslovitch(지역 확인 필요)",
+   "speaker": "Lingua Libre 화자 Poslovitch(프랑스 보주) · 지역 출처: fr.wiktionary Lingua Libre 표시",
    "checked": "2026-11-06",
    "listened": null,
    "original_sha256": "dc32e0992f713789dafbe246a2dd029e813ac78c82d331d700f547a55299da40",
@@ -247,7 +175,7 @@
    "duration": 0.883,
    "original_sha1_matches_commons": "a3544ac140ff80ff9c61e91d1fe537d244b4ae61",
    "retrieved": "2026-11-07 WebFetch(이 환경의 직접 연결은 429)",
-   "speaker_short": "Poslovitch"
+   "speaker_short": "Poslovitch · 프랑스 보주"
   },
   {
    "id": "fr-paris",
@@ -257,7 +185,7 @@
    "original": "https://upload.wikimedia.org/wikipedia/commons/4/46/LL-Q150_%28fra%29-Poslovitch-Paris.wav",
    "author": "Poslovitch",
    "license": "CC0 1.0",
-   "speaker": "Lingua Libre 화자 Poslovitch(지역 확인 필요)",
+   "speaker": "Lingua Libre 화자 Poslovitch(프랑스 보주) · 지역 출처: fr.wiktionary Lingua Libre 표시",
    "checked": "2026-11-06",
    "listened": null,
    "original_sha256": "85ec6068b32d61ccd0408dcb5c80797e79755c7d05ded90db925fd4519b4a1e5",
@@ -266,7 +194,7 @@
    "duration": 0.879,
    "original_sha1_matches_commons": "22cb57ca42263bf5e34a5baa9748699a3a0836db",
    "retrieved": "2026-11-07 WebFetch(이 환경의 직접 연결은 429)",
-   "speaker_short": "Poslovitch"
+   "speaker_short": "Poslovitch · 프랑스 보주"
   },
   {
    "id": "ipa-p",
@@ -879,26 +807,6 @@
    "mp3": "assets/audio/ja-tenki-wanikani-male.mp3",
    "mp3_sha256": "053aefd9bd84418cea01f5ac618534323a294f805e021a04986efb1d58b7f2d1",
    "duration": 0.771
-  },
-  {
-   "id": "ja-denki-kanji-fukujinzuke",
-   "lang": "jpn",
-   "commons_file": "LL-Q5287 (jpn)-Fukujinzuke-電気.wav",
-   "page": "https://commons.wikimedia.org/wiki/File:LL-Q5287_(jpn)-Fukujinzuke-%E9%9B%BB%E6%B0%97.wav",
-   "original": "https://upload.wikimedia.org/wikipedia/commons/b/b4/LL-Q5287_%28jpn%29-Fukujinzuke-%E9%9B%BB%E6%B0%97.wav",
-   "author": "Fukujinzuke",
-   "license": "CC BY 4.0",
-   "speaker": "Lingua Libre 화자 Fukujinzuke",
-   "speaker_short": "Fukujinzuke",
-   "checked": "2026-11-08",
-   "listened": null,
-   "original_sha1_matches_commons": "864672e9cc8d5fdf06b8298d11a6ab84501433d5",
-   "retrieved": "2026-11-08 WebFetch(이 환경의 직접 연결은 429)",
-   "note": "Only speaker found for 電気/でんき. Same speaker as existing Fukujinzuke-バス.",
-   "original_sha256": "290fd03db5bd4d761daa64c5cd039f94c5b756a59be243587c4063f492ee8f11",
-   "mp3": "assets/audio/ja-denki-kanji-fukujinzuke.mp3",
-   "mp3_sha256": "2be6a63bab1e14b3e574571c5010eea99048fffc73d14a80a49e2232a8fc8e37",
-   "duration": 1.101
   },
   {
    "id": "fr-the-poslovitch",
@@ -1542,8 +1450,8 @@
    "original": "https://upload.wikimedia.org/wikipedia/commons/7/7c/LL-Q55633582_%28ajp%29-Khalil.rantissi-%D8%A8%D8%A7%D8%A8.wav",
    "author": "Khalil.rantissi",
    "license": "CC BY-SA 4.0",
-   "speaker": "Lingua Libre 화자 Khalil.rantissi(남레반트 아랍어)",
-   "speaker_short": "Khalil.rantissi · 남레반트 아랍어",
+   "speaker": "Lingua Libre 화자 Khalil.rantissi(남레반트 아랍어, 알리드) · 지역 출처: en.wiktionary 녹음 표시",
+   "speaker_short": "Khalil.rantissi · 남레반트 아랍어, 알리드",
    "checked": "2026-11-08",
    "listened": null,
    "original_sha1_matches_commons": "92152c7fedbf7ffeb6257d7626a428f28e3c5e29",
@@ -1568,7 +1476,7 @@
    "listened": null,
    "original_sha1_matches_commons": "95cfa21f871f420efaf9eb4f08e951cfa7963aad",
    "retrieved": "2026-11-08 WebFetch(이 환경의 직접 연결은 429)",
-   "note": "[b] chosen (first candidate; no eligible \"ara\"-coded speaker: Ov3for is level \"moyen\", Annisa Tiara Ramadhani ar-2). MOROCCAN ARABIC (ary) per file code; no user page found.",
+   "note": "[b] chosen (first candidate; no eligible \"ara\"-coded speaker: Ov3for is level \"moyen\", Annisa Tiara Ramadhani ar-2). MOROCCAN ARABIC (ary) per file code; (26.11.20 바로잡음: en.wikipedia User:Fenakhay babel ar·ary 모어, 모로코 국적).",
    "original_sha256": "c612f7fa733605a7ad23fe45f80aa11daccfd02d509811cc5900e64629fac732",
    "mp3": "assets/audio/ar-bab-fenakhay.mp3",
    "mp3_sha256": "d81ab97e035ddc5eaf11a470001dcea76c2df55de881b8817451dbfbef905021",
@@ -2022,8 +1930,8 @@
    "original": "https://upload.wikimedia.org/wikipedia/commons/b/b7/LL-Q55633582_%28ajp%29-IbrahimZ_%28AdrianAbdulBaha%29-%D8%AA%D9%85%D8%B1.wav",
    "author": "IbrahimZ",
    "license": "CC BY-SA 4.0",
-   "speaker": "Lingua Libre 화자 IbrahimZ(남레반트 아랍어)",
-   "speaker_short": "IbrahimZ · 남레반트 아랍어",
+   "speaker": "Lingua Libre 화자 IbrahimZ(남레반트 아랍어, 베들레헴) · 지역 출처: en.wiktionary 녹음 표시",
+   "speaker_short": "IbrahimZ · 남레반트 아랍어, 베들레헴",
    "checked": "2026-11-08",
    "listened": null,
    "original_sha1_matches_commons": "29e23864e3a0ffbb001a26b8a2fa8d5d3c8ed804",
@@ -2053,26 +1961,6 @@
    "mp3": "assets/audio/ar-dar-fenakhay.mp3",
    "mp3_sha256": "d590782df6e73f18d9eb7885f96c2bd1fcc6991290f9c54299108a56be7d590a",
    "duration": 1.036
-  },
-  {
-   "id": "ar-dhahab-kadimihasna",
-   "lang": "arb",
-   "commons_file": "LL-Q13955 (ara)-Kadimi hasna-ذهب.wav",
-   "page": "https://commons.wikimedia.org/wiki/File:LL-Q13955_(ara)-Kadimi_hasna-%D8%B0%D9%87%D8%A8.wav",
-   "original": "https://upload.wikimedia.org/wikipedia/commons/6/62/LL-Q13955_%28ara%29-Kadimi_hasna-%D8%B0%D9%87%D8%A8.wav",
-   "author": "Kadimi hasna",
-   "license": "CC BY 4.0",
-   "speaker": "Lingua Libre 화자 Kadimi hasna(모로코)",
-   "speaker_short": "Kadimi hasna · 모로코",
-   "checked": "2026-11-08",
-   "listened": null,
-   "original_sha1_matches_commons": "bc5dbd4ae7458ef9f048ff969ba316b13ff6fa6c",
-   "retrieved": "2026-11-08 WebFetch(이 환경의 직접 연결은 429)",
-   "note": "[ð] chosen (ذيل, ذكر: none). Coded \"ara\". Meta babel: ary (no level), ar-5, Morocco. Only ð recording found (ذيل, ذكر: none).",
-   "original_sha256": "917280b17c10cd6370ed09fe3bab5d2679ac9c32e37c88424b6a22d7b70bc399",
-   "mp3": "assets/audio/ar-dhahab-kadimihasna.mp3",
-   "mp3_sha256": "5ff4daa63b19cf9012dd3997dd044ffb0d68f2d192325ee4a7570489393fe04a",
-   "duration": 1.007
   },
   {
    "id": "ko-gae-horojo",

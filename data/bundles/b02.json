@@ -216,7 +216,7 @@
     "seg": "t̻",
     "allo": "t̪"
    },
-   "note": "혀끝이 윗니 뒤에 닿는다([t̪]). té(차)는 Commons에 원어민 녹음이 하나뿐이라 tú로 바꿨다.",
+   "note": "혀끝이 윗니 뒤에 닿는다([t̪]).",
    "status": "확인",
    "status_why": "PHOIBLE 2210 /t̻/(변이음 t̪)",
    "audio_more": [
@@ -241,7 +241,7 @@
     "seg": "d̻",
     "allo": "d̪"
    },
-   "note": "쉰 다음 첫머리에서는 [d].",
+   "note": "쉰 다음 첫머리에서는 [d]. 혀끝이 윗니 뒤에 닿는다([d̪]).",
    "status": "확인",
    "status_why": "PHOIBLE 2210 /d̻/(변이음 d̪·ð̞)",
    "audio_more": [
@@ -310,7 +310,7 @@
     "eŋki"
    ],
    "target": "d",
-   "audio": "ja-denki-kanji-fukujinzuke",
+   "audio": "ja-denki",
    "phoible": {
     "inv": 2196,
     "seg": "d"
@@ -366,7 +366,8 @@
    "audio_more": [
     "fr-de-loquaxfr",
     "fr-de-sartus85"
-   ]
+   ],
+   "note": "혀끝이 윗니 뒤에 닿는다([d̪])."
   },
   {
    "id": "pt-tudo",
@@ -407,7 +408,8 @@
    },
    "status": "확인",
    "status_why": "PHOIBLE 2207 /d̪/",
-   "audio": "pt-dois-sillim"
+   "audio": "pt-dois-sillim",
+   "note": "혀끝이 윗니 뒤에 닿는다([d̪])."
   },
   {
    "id": "zh-da",
@@ -498,7 +500,8 @@
    "audio": "ru-dom-tatianakerbush",
    "audio_more": [
     "ru-dom-infovarius"
-   ]
+   ],
+   "note": "혀끝이 윗니 뒤에 닿는다([d̪])."
   },
   {
    "id": "de-tag",
@@ -572,7 +575,9 @@
    "audio": "de-dach-wallroth",
    "audio_more": [
     "de-dach-jeuwre"
-   ]
+   ],
+   "listen": false,
+   "note": "독일어 낱말 첫 d는 흔히 목청이 덜 울린다. 그래서 듣고 고르기에는 내지 않는다(PRINCIPLES 2-4)."
   },
   {
    "id": "it-tu",
@@ -627,7 +632,7 @@
    "lang": "arb",
    "text": "تمر",
    "roman": "tamr",
-   "ko": "대추야자",
+   "ko": "대추야자 열매",
    "ipa": [
     "",
     "tʰ",
@@ -640,7 +645,7 @@
    },
    "note": "PHOIBLE 2157은 아랍어 t를 기식 있는 치음 [t̪ʰ]로 적는다.",
    "status": "확인 필요",
-   "status_why": "녹음 화자는 모로코·알제리·남레반트 출신이고, 현대 표준 아랍어 녹음은 Commons에서 찾지 못했다. PHOIBLE 2157도 방언 화자 목록이다. 현대 표준 아랍어의 t에 기식이 있는지도 확인 필요",
+   "status_why": "녹음 화자는 남레반트(베들레헴) 출신이고, 현대 표준 아랍어 녹음은 Commons에서 찾지 못했다. PHOIBLE 2157도 방언 화자 목록이다. 현대 표준 아랍어의 t에 기식이 있는지도 확인 필요",
    "audio": "ar-tamr-ibrahimz"
   },
   {
@@ -660,14 +665,15 @@
     "seg": "d̪"
    },
    "status": "확인 필요",
-   "status_why": "녹음 화자는 모로코·알제리·남레반트 출신이고, 현대 표준 아랍어 녹음은 Commons에서 찾지 못했다. PHOIBLE 2157도 방언 화자 목록이다",
-   "audio": "ar-dar-fenakhay"
+   "status_why": "녹음 화자는 모로코 출신이고, 현대 표준 아랍어 녹음은 Commons에서 찾지 못했다. PHOIBLE 2157도 방언 화자 목록이다",
+   "audio": "ar-dar-fenakhay",
+   "note": "혀끝이 윗니 뒤에 닿는다([d̪])."
   },
   {
    "id": "ar-dhahab",
    "lang": "arb",
    "text": "ذهب",
-   "roman": "ðahab",
+   "roman": "dhahab",
    "ko": "금(金)",
    "ipa": [
     "",
@@ -681,8 +687,8 @@
    },
    "note": "아랍어 [ð]는 음소다(스페인어처럼 d의 변이음이 아니다).",
    "status": "확인 필요",
-   "status_why": "녹음 화자는 모로코·알제리·남레반트 출신이고, 현대 표준 아랍어 녹음은 Commons에서 찾지 못했다. PHOIBLE 2157도 방언 화자 목록이다",
-   "audio": "ar-dhahab-kadimihasna"
+   "status_why": "녹음 없음. 현대 표준 아랍어 녹음은 Commons에서 찾지 못했다. PHOIBLE 2157도 방언 화자 목록이다",
+   "audio": "ar-dhahab"
   },
   {
    "id": "en-this",
@@ -796,14 +802,14 @@
     "t",
     "t͈"
    ],
-   "text": "입 앞에 휴지 한 장을 대고 '달', '탈', '딸'을 말해 본다. 휴지가 가장 크게 펄럭이는 것이 [tʰ]다."
+   "text": "입 앞에 휴지 한 장을 대고 '달', '탈', '딸'을 말해 본다. [tʰ]는 휴지가 크게 펄럭이고, [t͈]는 거의 안 펄럭인다. 요즘 서울말은 첫소리 ㄷ도 꽤 펄럭여서 높낮이로 가르기도 한다."
   },
   {
    "for": [
     "d",
     "t"
    ],
-   "text": "목울대에 손가락을 대고 '바다'를 말해 본다. 둘째 ㄷ에서 떨림이 끊기지 않으면 [d]다."
+   "text": "목울대에 손가락을 대고 '바다'를 말해 본다. ㄷ에서 떨림이 끊기지 않으면 [d]다."
   }
  ],
  "absent": {
