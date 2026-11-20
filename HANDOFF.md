@@ -84,4 +84,4 @@
 ## 열린 질문 (설계안 밖)
 
 - 게임 안 제목: 지금은 '발음고양'.
-- 공개(GitHub Pages) 여부와 시기.
+- 공개(GitHub Pages) 여부와 시기. 26.11.20 영신이 esqsoy.github.io/ipagoyang을 열어 봤는데 404였다. 저장소는 공개지만 Pages가 꺼져 있다(GitHub API `has_pages: false`). 켜는 것은 저장소 설정이라 영신이 한다: Settings → Pages → Build and deployment → Source 'Deploy from a branch' → Branch `main`, 폴더 `/ (root)` → Save. 켜면 main에 푸시할 때마다 바로 공개되므로, 그때부터 배포마다 DEPLOYMENT.md에 적는다(PRINCIPLES 1-6 류). 공개 전에 필요한 녹음·자료 출처 화면은 26.11.20에 넣었다(처음 화면 '자료·녹음 출처').

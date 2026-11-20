@@ -544,7 +544,8 @@ function ipaRenderMap() {
     <div class="ipa-map-wrap">${grid}</div>
     <div class="ipa-dex" id="ipaDex"></div>
     ${ipaLangPanel()}
-    <div class="ipa-pal">배색 ${IPA_PALS.map(([k, n]) => `<button type="button" data-pal="${k}" aria-label="${n}" title="${n}" aria-pressed="${ipaPalGet() === k}"></button>`).join('')}</div>`;
+    <div class="ipa-pal">배색 ${IPA_PALS.map(([k, n]) => `<button type="button" data-pal="${k}" aria-label="${n}" title="${n}" aria-pressed="${ipaPalGet() === k}"></button>`).join('')}</div>
+    <button type="button" class="ipa-credits-btn" id="ipaCreditsBtn">자료·녹음 출처</button>`;
   el.querySelectorAll('.ipa-pal button').forEach(b => b.onclick = () => ipaPalSet(b.dataset.pal));
   el.querySelectorAll('.ipa-langs button').forEach(b => b.onclick = () => ipaLangClick(b.dataset.lang));
   el.querySelectorAll('.ipa-cell-s').forEach(b => b.onclick = () => { ipaPick = b.dataset.s; ipaShowDex(); const sy = IPA.symbols[ipaPick]; if (sy && sy.sound && ipaHasAudio(sy.sound) && b.classList.contains('on')) ipaPlay(sy.sound); });
@@ -580,3 +581,30 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!b || !st) return;
   b.addEventListener('click', () => setTimeout(() => { if (st.classList.contains('ok')) location.replace(location.pathname + location.search); }, 1600));
 });
+
+/* 자료·녹음 출처(공개 배포 전 필수, PRINCIPLES 3): 처음 화면 맨 아래 단추로 연다. 녹음은 파일마다 만든 사람·라이선스·Commons 파일 페이지 */
+const IPA_CREDITS_FIXED = [
+  ['녹음', 'Wikimedia Commons·Lingua Libre·Shtooka. 아래 파일마다 만든 사람과 라이선스. mp3로 형식만 바꿨고 자르거나 다듬지 않았다.'],
+  ['IPA 표', '국제음성학회(International Phonetic Association) IPA 표(IPA Kiel), CC BY-SA 4.0. 표의 한국어 이름은 IPA 표 한국어판(Benzenekim 번역, Wikimedia Commons), CC BY-SA 3.0.'],
+  ['음소 목록', 'Steven Moran·Daniel McCloy 엮음, PHOIBLE 2.0(phoible.org), CC BY-SA 3.0. 언어마다 소리가 있는지 견줄 때 썼다.'],
+  ['한자 뜻', '한국어 위키낱말사전(ko.wiktionary), CC BY-SA 4.0. 일부는 Unicode Unihan.'],
+  ['발음 용어', '한자와 순우리말 이름은 표준국어대사전 표제어로 대조했다(뜻풀이는 옮기지 않음). 목안소리는 우리말샘.'],
+  ['입 옆모습', 'Daniel McCloy, phonetics-teaching-assets, CC0 1.0. 좌우로 뒤집고 자리 점·바람·틈을 덧그렸다.'],
+  ['글꼴', 'Balum IPA: Charis SIL 7.000(SIL Global)을 줄이고 이름을 바꾼 것, SIL Open Font License 1.1.'],
+  ['게임 틀·고양고양이', '보카고양(STUDY1)에서 가져왔다.'],
+];
+function ipaCreditsOpen() {
+  const groups = {};
+  for (const c of IPA.credits || []) (groups[c.g] = groups[c.g] || []).push(c);
+  const fixed = IPA_CREDITS_FIXED.map(([k, v]) => `<p><b>${ipaEsc(k)}</b> ${ipaEsc(v)}</p>`).join('');
+  const recs = Object.entries(groups).map(([g, l]) => `<h4>${ipaEsc(g)} <small>${l.length}</small></h4><ul>${l.map(c => `<li><a href="${ipaEsc(c.p)}" target="_blank" rel="noopener">${ipaEsc(c.f)}</a> · ${ipaEsc(c.a)} · ${ipaEsc(c.l)}</li>`).join('')}</ul>`).join('');
+  const ov = document.createElement('div');
+  ov.className = 'ipa-zoom ipa-credits'; ov.setAttribute('role', 'dialog'); ov.setAttribute('aria-label', '자료·녹음 출처');
+  ov.innerHTML = `<div class="ipa-zoom-in"><div class="ipa-zoom-top"><b>자료·녹음 출처</b><button type="button" class="ipa-zoom-x" aria-label="닫기">✕</button></div>${fixed}<p class="ipa-cr-n">녹음 ${(IPA.credits || []).length}개</p>${recs}</div>`;
+  const esc = e => { if (e.key === 'Escape') close(); };
+  const close = () => { ov.remove(); document.removeEventListener('keydown', esc, true); };
+  ov.addEventListener('click', e => { if (e.target === ov || e.target.closest('.ipa-zoom-x')) close(); });
+  document.addEventListener('keydown', esc, true);
+  document.body.append(ov);
+}
+document.addEventListener('click', e => { if (e.target.closest && e.target.closest('#ipaCreditsBtn')) ipaCreditsOpen(); });

@@ -200,4 +200,16 @@ html[data-pal="chalk"]{--panel-rgb:18,37,28;--bg1-rgb:14,28,22;--bg1:#0e1c16;--b
 .ipa-gl-w{border-bottom-color:rgba(var(--cyan-rgb),.6)}
 .ipa-map-wrap .ipa-gl::after{bottom:auto;top:calc(100% + 4px)}
 .ipa-rowh .ipa-gl::after{left:0;transform:none}
+/* 자료·녹음 출처 */
+.ipa-credits-btn{display:block;margin:10px auto 0;padding:6px 14px;border:1.5px solid var(--line);border-radius:99px;background:transparent;color:var(--muted);font:inherit;font-size:.78rem;font-weight:800;cursor:pointer}
+.ipa-credits .ipa-zoom-in{font-size:.8rem;line-height:1.55;text-align:left;word-break:keep-all;overflow-wrap:anywhere}
+.ipa-credits .ipa-zoom-top{display:flex;justify-content:space-between;align-items:center;margin-bottom:6px}
+.ipa-credits p{margin:4px 0}
+.ipa-credits p b{color:var(--gold)}
+.ipa-credits h4{margin:12px 0 4px;font-size:.86rem;color:var(--cyan)}
+.ipa-credits h4 small{color:var(--muted);font-weight:700}
+.ipa-credits ul{margin:0;padding-left:1.1em}
+.ipa-credits li{margin:2px 0;color:var(--muted)}
+.ipa-credits a{color:var(--ink)}
+.ipa-cr-n{color:var(--muted);margin-top:10px!important}
 

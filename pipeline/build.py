@@ -212,6 +212,12 @@ def build(inline=False):
         'langs': [{'id': l, 'ko': langs[l]['ko']} for l in lang_order if any(wd['lang'] == l for b in bundles for wd in b['words'])],
         'bundles': bundles_lit,
         'sagittal': rd('assets', 'sagittal', 'sagittal.json'),
+        # 녹음 출처(공개 배포 전 필수: CC BY·CC BY-SA는 만든 사람·라이선스·출처를 보여야 한다). 처음 화면 '자료·녹음 출처'
+        'credits': [{'g': langs[audio_src[aid]['lang']]['ko'] if audio_src[aid]['lang'] in langs else '기호 시범 녹음',
+                     'f': audio_src[aid]['commons_file'], 'a': audio_src[aid].get('author', ''), 'l': audio_src[aid].get('license', ''),
+                     'p': audio_src[aid].get('page', '')}
+                    for aid in sorted((a for a in used_audio if a and audio_ok(a)),
+                                      key=lambda x: ((lang_order.index(audio_src[x]['lang']) if audio_src[x]['lang'] in lang_order else 99), x))],
     }
     del ipa_data['sagittal']['about']
     extra_js = open(os.path.join(ROOT, 'pipeline', 'ipa_extra.js'), encoding='utf-8').read().replace('/*__IPA_DATA__*/{}', js(ipa_data))
