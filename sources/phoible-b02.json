@@ -91,14 +91,6 @@
    "why": ""
   },
   {
-   "word": "ja-denki",
-   "inv": 2196,
-   "seg": "d",
-   "allo": null,
-   "ok": true,
-   "why": ""
-  },
-  {
    "word": "fr-the",
    "inv": 2182,
    "seg": "t̪",
@@ -142,14 +134,6 @@
    "word": "zh-ta",
    "inv": 1047,
    "seg": "tʰ",
-   "allo": null,
-   "ok": true,
-   "why": ""
-  },
-  {
-   "word": "ru-ty",
-   "inv": 2261,
-   "seg": "t̪",
    "allo": null,
    "ok": true,
    "why": ""
@@ -230,6 +214,22 @@
    "word": "en-this",
    "inv": 2176,
    "seg": "ð",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "ja-densha",
+   "inv": 2196,
+   "seg": "d",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "ru-tok",
+   "inv": 2261,
+   "seg": "t̪",
    "allo": null,
    "ok": true,
    "why": ""

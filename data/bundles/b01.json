@@ -172,48 +172,6 @@
    ]
   },
   {
-   "id": "en-bin",
-   "lang": "eng",
-   "text": "bin",
-   "roman": "bin",
-   "ko": "통",
-   "ipa": [
-    "",
-    "b",
-    "ɪn"
-   ],
-   "target": "b",
-   "audio": "en-bin-none",
-   "phoible": {
-    "inv": 2176,
-    "seg": "b"
-   },
-   "note": "낱말 첫 b는 흔히 덜 울린다([b̥]). 그래서 듣고 고르기에는 내지 않는다(PRINCIPLES 2-4).",
-   "listen": false,
-   "status": "확인",
-   "status_why": "PHOIBLE 2176 /b/(변이음 b·b̥)"
-  },
-  {
-   "id": "es-pan",
-   "lang": "spa",
-   "text": "pan",
-   "roman": "pan",
-   "ko": "빵",
-   "ipa": [
-    "",
-    "p",
-    "an"
-   ],
-   "target": "p",
-   "audio": "es-pan-none",
-   "phoible": {
-    "inv": 2210,
-    "seg": "p"
-   },
-   "status": "확인",
-   "status_why": "PHOIBLE 2210 /p/"
-  },
-  {
    "id": "es-vaca",
    "lang": "spa",
    "text": "vaca",
@@ -284,27 +242,6 @@
    },
    "status": "확인",
    "status_why": "PHOIBLE 2196(Okada 1991) /p/"
-  },
-  {
-   "id": "ja-basu",
-   "lang": "jpn",
-   "text": "バス",
-   "roman": "basu",
-   "ko": "버스",
-   "ipa": [
-    "",
-    "b",
-    "asɯ"
-   ],
-   "target": "b",
-   "audio": "ja-basu-none",
-   "phoible": {
-    "inv": 2196,
-    "seg": "b"
-   },
-   "note": "끝 ス의 모음은 흔히 소리가 약해진다.",
-   "status": "확인",
-   "status_why": "PHOIBLE 2196 /b/"
   },
   {
    "id": "fr-pain",
@@ -649,6 +586,77 @@
    "audio_more": [
     "ar-bab-khalilrantissi",
     "ar-bab-fenakhay"
+   ]
+  },
+  {
+   "id": "es-perro",
+   "lang": "spa",
+   "text": "perro",
+   "roman": "perro",
+   "ko": "개",
+   "ipa": [
+    "ˈ",
+    "p",
+    "ero"
+   ],
+   "target": "p",
+   "phoible": {
+    "inv": 2210,
+    "seg": "p"
+   },
+   "note": "rr는 혀끝을 여러 번 떠는 [r]다(4강).",
+   "status": "확인",
+   "status_why": "PHOIBLE 2210 /p/",
+   "audio": "es-perro-rodelar",
+   "audio_more": [
+    "es-perro-rodrigo5260",
+    "es-perro-millars"
+   ]
+  },
+  {
+   "id": "ja-botan",
+   "lang": "jpn",
+   "text": "ボタン",
+   "roman": "botan",
+   "ko": "단추",
+   "ipa": [
+    "",
+    "b",
+    "otaɴ"
+   ],
+   "target": "b",
+   "phoible": {
+    "inv": 2196,
+    "seg": "b"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2196 /b/",
+   "audio": "ja-botan-aoi"
+  },
+  {
+   "id": "en-bed",
+   "lang": "eng",
+   "text": "bed",
+   "roman": "bed",
+   "ko": "침대",
+   "ipa": [
+    "",
+    "b",
+    "ɛd"
+   ],
+   "target": "b",
+   "phoible": {
+    "inv": 2176,
+    "seg": "b"
+   },
+   "note": "낱말 첫 b는 흔히 덜 울린다([b̥]). 그래서 듣고 고르기에는 내지 않는다(PRINCIPLES 2-4).",
+   "status": "확인",
+   "status_why": "PHOIBLE 2176 /b/(변이음 b·b̥)",
+   "listen": false,
+   "audio": "en-bed-grendelkhan",
+   "audio_more": [
+    "en-bed-wodencafe",
+    "en-bed-naomiamethyst"
    ]
   }
  ],

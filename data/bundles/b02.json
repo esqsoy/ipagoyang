@@ -299,27 +299,6 @@
    "status_why": "PHOIBLE 2196(Okada 1991) /t/"
   },
   {
-   "id": "ja-denki",
-   "lang": "jpn",
-   "text": "電気",
-   "roman": "denki",
-   "ko": "전기",
-   "ipa": [
-    "",
-    "d",
-    "eŋki"
-   ],
-   "target": "d",
-   "audio": "ja-denki",
-   "phoible": {
-    "inv": 2196,
-    "seg": "d"
-   },
-   "note": "天気와 첫소리만 다르다(목이 울리느냐).",
-   "status": "확인",
-   "status_why": "PHOIBLE 2196 /d/"
-  },
-  {
    "id": "fr-the",
    "lang": "fra",
    "text": "thé",
@@ -457,27 +436,6 @@
    "audio_more": [
     "zh-ta1-wangcheng"
    ]
-  },
-  {
-   "id": "ru-ty",
-   "lang": "rus",
-   "text": "ты",
-   "roman": "ty",
-   "ko": "너",
-   "ipa": [
-    "",
-    "t",
-    "ɨ"
-   ],
-   "target": "t",
-   "phoible": {
-    "inv": 2261,
-    "seg": "t̪"
-   },
-   "note": "혀끝이 윗니 뒤에 닿는다([t̪]).",
-   "status": "확인",
-   "status_why": "PHOIBLE 2261 /t̪/",
-   "audio": "ru-ty"
   },
   {
    "id": "ru-dom",
@@ -714,6 +672,51 @@
     "en-this-wodencafe",
     "en-this-muldoonsamuel55"
    ]
+  },
+  {
+   "id": "ja-densha",
+   "lang": "jpn",
+   "text": "電車",
+   "roman": "densha",
+   "ko": "전철",
+   "ipa": [
+    "",
+    "d",
+    "eɴɕa"
+   ],
+   "target": "d",
+   "phoible": {
+    "inv": 2196,
+    "seg": "d"
+   },
+   "note": "で는 天気(てんき)의 て와 목 울림만 다르다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2196 /d/",
+   "audio": "ja-densha-lerk-1",
+   "audio_more": [
+    "ja-densha-lerk-2"
+   ]
+  },
+  {
+   "id": "ru-tok",
+   "lang": "rus",
+   "text": "ток",
+   "roman": "tok",
+   "ko": "전류",
+   "ipa": [
+    "",
+    "t",
+    "ok"
+   ],
+   "target": "t",
+   "phoible": {
+    "inv": 2261,
+    "seg": "t̪"
+   },
+   "note": "혀끝이 윗니 뒤에 닿는다([t̪]).",
+   "status": "확인",
+   "status_why": "PHOIBLE 2261 /t̪/",
+   "audio": "ru-tok-kerbush"
   }
  ],
  "compare": [
@@ -787,11 +790,11 @@
    "목에 손 대 보라고양. 떨리면 [d]라고양."
   ],
   "by_word": {
-   "ja-denki": "天気는 날씨, 電気는 전기라고양. 목이 떨리면 電気라고양.",
    "en-stop": "s 뒤 t도 바람이 없다고양. spin이랑 같은 수법이라고양.",
    "es-nada": "모음 사이 d는 혀가 이에 닿을락 말락이라고양. nada, 아무것도 아니라고양.",
    "ko-bada": "바다의 ㄷ은 목이 울린다고양. 바다는 원래 시끄럽다고양.",
-   "fr-the": "표기는 테, 귀는 떼라고양. 파리랑 같은 사정이라고양."
+   "fr-the": "표기는 테, 귀는 떼라고양. 파리랑 같은 사정이라고양.",
+   "ja-densha": "天気는 날씨, 電車는 전철이라고양. 첫소리에 목이 떨리면 で라고양."
   },
   "end": "혀끝 칸까지 켰다고양. 입 앞쪽은 좀 안다고 쳐 주겠다고양. ㅎㅎ"
  },

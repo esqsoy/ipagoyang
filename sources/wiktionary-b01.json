@@ -77,32 +77,6 @@
    "other_diff": []
   },
   {
-   "word": "en-bin",
-   "ours": "[bɪn]",
-   "wiktionary": [
-    "/bɪn/",
-    "/bən/"
-   ],
-   "target_ok": true,
-   "via": "",
-   "other_diff": [
-    "/bən/"
-   ]
-  },
-  {
-   "word": "es-pan",
-   "ours": "[pan]",
-   "wiktionary": [
-    "/ˈpan/",
-    "[ˈpãn]"
-   ],
-   "target_ok": true,
-   "via": "",
-   "other_diff": [
-    "[ˈpãn]"
-   ]
-  },
-  {
    "word": "es-vaca",
    "ours": "[ˈbaka]",
    "wiktionary": [
@@ -136,18 +110,6 @@
    "via": "",
    "other_diff": [
     "[pã̠ɴ]"
-   ]
-  },
-  {
-   "word": "ja-basu",
-   "ours": "[basɯ]",
-   "wiktionary": [
-    "[ba̠sɨ]"
-   ],
-   "target_ok": true,
-   "via": "",
-   "other_diff": [
-    "[ba̠sɨ]"
    ]
   },
   {
@@ -321,6 +283,48 @@
    "target_ok": true,
    "via": "",
    "other_diff": []
+  },
+  {
+   "word": "es-perro",
+   "ours": "[ˈpero]",
+   "wiktionary": [
+    "/ˈpero/",
+    "[ˈpe.ro]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": []
+  },
+  {
+   "word": "ja-botan",
+   "ours": "[botaɴ]",
+   "wiktionary": [
+    "[bo̞tã̠ɴ]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[bo̞tã̠ɴ]"
+   ]
+  },
+  {
+   "word": "en-bed",
+   "ours": "[bɛd]",
+   "wiktionary": [
+    "/bɛd/",
+    "[beː]",
+    "/bed/",
+    "/be̝d/",
+    "/bɪd/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[beː]",
+    "/bed/",
+    "/be̝d/",
+    "/bɪd/"
+   ]
   }
  ]
 }

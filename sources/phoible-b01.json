@@ -51,22 +51,6 @@
    "why": ""
   },
   {
-   "word": "en-bin",
-   "inv": 2176,
-   "seg": "b",
-   "allo": null,
-   "ok": true,
-   "why": ""
-  },
-  {
-   "word": "es-pan",
-   "inv": 2210,
-   "seg": "p",
-   "allo": null,
-   "ok": true,
-   "why": ""
-  },
-  {
    "word": "es-vaca",
    "inv": 2210,
    "seg": "b",
@@ -86,14 +70,6 @@
    "word": "ja-pan",
    "inv": 2196,
    "seg": "p",
-   "allo": null,
-   "ok": true,
-   "why": ""
-  },
-  {
-   "word": "ja-basu",
-   "inv": 2196,
-   "seg": "b",
    "allo": null,
    "ok": true,
    "why": ""
@@ -213,6 +189,30 @@
   {
    "word": "ar-bab",
    "inv": 2157,
+   "seg": "b",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "es-perro",
+   "inv": 2210,
+   "seg": "p",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "ja-botan",
+   "inv": 2196,
+   "seg": "b",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "en-bed",
+   "inv": 2176,
    "seg": "b",
    "allo": null,
    "ok": true,
