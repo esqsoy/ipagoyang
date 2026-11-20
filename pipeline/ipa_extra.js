@@ -440,12 +440,12 @@ function ipaMiniMap(w, hit) {
 function ipaZoomOpen(lesson, hit) {
   const bd = (IPA.bundles || []).find(b => b.lesson === +lesson);
   const cur = new Set(bd ? bd.lit : []), {set} = ipaLearned(), h = hit ? ipaKey(hit) : '';
-  const colh = (k, i) => { const t = ipaT(k); return `<span class="ipa-col">${i + 1}<small>${ipaEsc(ipaColLabel(t)).replace('|', '<br>')}</small><small class="h">${ipaHanjaHtml(t.short_hanja || t.hanja || '')}</small></span>`; };
+  const colh = (k, i) => { const t = ipaT(k); return `<span class="ipa-col">${i + 1}<small>${ipaHeadText(t, ipaColLabel(t))}</small><small class="h">${ipaHanjaHtml(t.short_hanja || t.hanja || '')}</small></span>`; };
   const zs = x => { const sy = IPA.symbols[x], snd = sy && sy.sound && ipaHasAudio(sy.sound) ? ipaTapAttrs(sy.sound, x + ' 소리') : ''; return `<span class="ipa-zs${set.has(x) ? ' on' : ''}${cur.has(x) ? ' cur' : ''}${x === h ? ' hit' : ''}"${snd}>${ipaEsc(x)}</span>`; };
   let g = `<div class="ipa-grid ipa-zoom-grid"><span></span>${IPA_COLS.map(colh).join('')}`;
   for (const r of IPA_ROWS) {
     const t = ipaT(r.ko);
-    g += `<span class="ipa-rowh"><span>${ipaEsc(ipaRowLabel(t))}</span><small class="h">${ipaHanjaHtml(t.hanja || '')}</small></span>`;
+    g += `<span class="ipa-rowh"><span>${ipaHeadText(t, ipaRowLabel(t))}</span><small class="h">${ipaHanjaHtml(t.hanja || '')}</small></span>`;
     for (const c of r.cells) {
       if (c === null) { g += `<span class="ipa-cell empty"></span>`; continue; }
       const span = c.span || 1, v = c.v || c;
@@ -515,11 +515,13 @@ function ipaLearned() {
   return {set, current};
 }
 let ipaPick = null;
-/* IPA 지도 머리 칸(26.11.20 영신 "한자병기말고 순우리말이름과 그 밑에 한자만"): 순우리말 이름, 그 밑에 한자.
-   순우리말 이름이 사전에 없는 칸(순치·후치경·권설·접근·설측 마찰)은 한자어 이름 그대로(data/terms.json native_about) */
-function ipaColLabel(t) { return t.native_short || t.short || t.ko.replace(/음$/, ''); }
-function ipaRowLabel(t) { return t.native || t.ko; }
-function ipaHeadAria(t) { return [t.native, t.ko, t.hanja, t.en].filter(Boolean).join(' '); }
+/* IPA 지도 머리 칸: 한자어 이름, 그 밑에 한자. 순우리말 이름이 사전에 있으면 한자어 이름에 커서를 올리거나 누르면 뜬다
+   (26.11.20 영신: 순우리말을 머리 칸에 바로 쓴 것을 되돌리고 "커서 놓으면 순우리말 표기가 있는경우 순우리말표기가 뜨는식으로").
+   순우리말 이름과 출처는 data/terms.json native·native_source */
+function ipaColLabel(t) { return t.short || t.ko.replace(/음$/, ''); }
+function ipaRowLabel(t) { return t.ko; }
+function ipaHeadAria(t) { return [t.ko, t.hanja, t.en, t.native].filter(Boolean).join(' '); }
+function ipaHeadText(t, label) { return t.native ? `<span class="ipa-gl ipa-gl-w" tabindex="0" data-g="${ipaEsc(t.native)}">${ipaEsc(label)}</span>` : ipaEsc(label); }
 function ipaRenderMap() {
   const el = document.getElementById('ipaMap'); if (!el) return;
   const {set, current} = ipaLearned();
@@ -527,8 +529,8 @@ function ipaRenderMap() {
     const on = set.has(v), cur = current.has(v);
     return `<button type="button" class="ipa-cell-s${on ? ' on' : ''}${cur ? ' cur' : ''}" data-s="${ipaEsc(v)}" aria-label="${ipaEsc(on ? v : '잠긴 칸')}">${on || cur ? ipaEsc(v) : '·'}</button>`;
   };
-  const colh = (k, i) => { const t = ipaT(k); return `<button type="button" class="ipa-col" data-term="${ipaEsc(k)}" aria-label="${ipaEsc(ipaHeadAria(t))}">${i + 1}<small>${ipaEsc(ipaColLabel(t)).replace('|', '<br>')}</small><small class="h">${ipaHanjaHtml(t.short_hanja || t.hanja || '')}</small></button>`; };
-  const rowh = k => { const t = ipaT(k); return `<button type="button" class="ipa-rowh" data-term="${ipaEsc(k)}" aria-label="${ipaEsc(ipaHeadAria(t))}"><span>${ipaEsc(ipaRowLabel(t))}</span><small class="h">${ipaHanjaHtml(t.hanja || '')}</small></button>`; };
+  const colh = (k, i) => { const t = ipaT(k); return `<button type="button" class="ipa-col" data-term="${ipaEsc(k)}" aria-label="${ipaEsc(ipaHeadAria(t))}">${i + 1}<small>${ipaHeadText(t, ipaColLabel(t))}</small><small class="h">${ipaHanjaHtml(t.short_hanja || t.hanja || '')}</small></button>`; };
+  const rowh = k => { const t = ipaT(k); return `<button type="button" class="ipa-rowh" data-term="${ipaEsc(k)}" aria-label="${ipaEsc(ipaHeadAria(t))}"><span>${ipaHeadText(t, ipaRowLabel(t))}</span><small class="h">${ipaHanjaHtml(t.hanja || '')}</small></button>`; };
   let grid = `<div class="ipa-grid"><span></span>${IPA_COLS.map(colh).join('')}`;
   for (const r of IPA_ROWS) {
     grid += rowh(r.ko);
@@ -570,8 +572,8 @@ function ipaShowDex() {
 function ipaShowTerm(k) {
   const box = document.getElementById('ipaDex'); if (!box) return;
   const t = ipaT(k);
-  const extra = [t.note ? ipaEsc(t.note) : ''].filter(Boolean).join(' · ');
-  box.innerHTML = `<div class="ipa-dex-in ipa-term"><b class="ipa-dex-sym ipa-term-h">${ipaHanjaHtml(t.hanja || '')}</b><span><b>${ipaEsc(t.native || t.ko)}</b>${t.native ? ` · ${ipaEsc(t.ko)}` : ''}<span class="ipa-en">${ipaEsc(t.en || '')}</span>${extra ? `<br><small>${extra}</small>` : ''}</span></div>`;
+  const extra = [t.native ? `순우리말 ${ipaEsc(t.native)}` : '', t.note ? ipaEsc(t.note) : ''].filter(Boolean).join(' · ');
+  box.innerHTML = `<div class="ipa-dex-in ipa-term"><b class="ipa-dex-sym ipa-term-h">${ipaHanjaHtml(t.hanja || '')}</b><span><b>${ipaEsc(t.ko)}</b><span class="ipa-en">${ipaEsc(t.en || '')}</span>${extra ? `<br><small>${extra}</small>` : ''}</span></div>`;
 }
 
 /* 기록 옮기기(고양 시리즈 공통, pipeline/record-transfer): 발음고양은 처음 화면과 게임이 한 장이라, 합친 뒤 다시 열어
