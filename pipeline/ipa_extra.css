@@ -211,4 +211,9 @@ html[data-pal="chalk"]{--panel-rgb:18,37,28;--bg1-rgb:14,28,22;--bg1:#0e1c16;--b
 .ipa-credits li{margin:2px 0;color:var(--muted)}
 .ipa-credits a{color:var(--ink)}
 .ipa-cr-n{color:var(--muted);margin-top:10px!important}
+/* 전사 속 빈칸이 맞아서 기호로 드러나면 칸 폭 없이 전사에 붙인다([ p ul] → [pul], 26.11.20 검토) */
+#hoeCtx .mt-source:not(.ipa-nameans) .blanks.revealed{margin:0}
+#hoeCtx .mt-source:not(.ipa-nameans) .blanks.revealed .slot{min-width:0}
+#hoeCtx .mt-source:not(.ipa-nameans) .blanks.revealed .slot::before{content:none}
+#hoeCtx .mt-source:not(.ipa-nameans) .blanks.revealed .slot-glyph{position:static}
 

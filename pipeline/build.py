@@ -159,7 +159,7 @@ def build(inline=False):
             term = names[0]['ko']
             # 게임 중에는 앞부분('영어 낱말')만 보이고(ipa_extra.js), 결과 목록·검색에서는 어느 낱말이었는지 보인다
             w = {'en': term, 'ko': f'{lg} 낱말 · {wd["text"]} [{a}{t}{z}]', 'audio': wd['audio'], 'listen': True, 'lang': wd['lang'], 'wid': wd['id'], 'names': names, 'mode': 'any'}
-            ctx = {**ctx0, 'example': example, 'surfaceParts': [t], 'translation': f'{wd["text"]} · {wd["ko"]}'}
+            ctx = {**ctx0, 'example': example, 'surfaceParts': [t], 'translation': wd['text'] + (f' · {wd["ko"]}' if wd['ko'] != wd['text'] else '')}
             lis.append((w, ctx, ''.join(wd['ipa']), wd['audio']))
         # 같은 '뜻' 줄이 여럿이면 틀의 발음 찾기가 섞인다: 낱말이 들어가 있어 겹치지 않는다
         assert len({item[0]['ko'] for item in lis}) == len(lis), '듣고 고르기 뜻 줄이 겹친다'

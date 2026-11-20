@@ -366,6 +366,7 @@ function ipaAfterCard(w, noAuto) {
     if (w.listen) mEl.textContent = String(w.meaning || '').split(' · ')[0];
   }
   const src = root.querySelector('.mt-source'), reps = root.querySelector('.ipa-repsbox');
+  if (src) src.removeAttribute('title');
   if (w.nameq && src && reps) { src.classList.add('ipa-nameans'); root.insertBefore(src, reps); }
   ipaNameLive();
   setTimeout(ipaNameLive, 0);  // 따라 치기로 들어갈 때 틀이 입력칸을 비운 뒤 다시 그린다
@@ -470,7 +471,10 @@ function ipaZoomOpen(lesson, hit) {
   ov.innerHTML = `<div class="ipa-zoom-in"><div class="ipa-zoom-h"><b>IPA 자음표(폐 기류)</b><button type="button" class="ipa-zoom-x" aria-label="닫기">✕</button></div>
     <div class="ipa-map-wrap">${g}</div>
     <p class="ipa-zoom-k"><span class="on">배운 칸</span><span class="cur">이번 강</span>${h ? '<span class="hit">맞힌 답</span>' : ''} · 가로는 입 앞(1 입술)에서 목 안(11 성문), 세로는 소리 내는 방법. 칸에 둘이면 앞(왼쪽·위)이 무성, 뒤(오른쪽·아래)가 유성. 표 밖 줄은 IPA 표에 칸이 없는 기호: ɕ는 '기타 기호'에 있고, 파찰음은 두 기호를 이어 적는다. 국제음성학회 IPA 표(2020, CC BY-SA 4.0)</p></div>`;
-  const close = () => { ov.remove(); document.removeEventListener('keydown', esc, true); if (typeof focusAnswerInput === 'function') focusAnswerInput(); };
+  // 큰 표를 보는 동안은 카드 시간이 가지 않는다(표를 보는 것이 공부라서, 26.11.20 검토)
+  const ss = (typeof state !== 'undefined') ? state.session : null;
+  const hold = ss && !ss.answered ? setInterval(() => { if (state.session === ss && !ss.answered) ss.cardStart += 250; }, 250) : 0;
+  const close = () => { clearInterval(hold); ov.remove(); document.removeEventListener('keydown', esc, true); if (typeof focusAnswerInput === 'function') focusAnswerInput(); };
   const esc = e => { if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); close(); } };
   ov.addEventListener('click', e => { if (e.target === ov || e.target.closest('.ipa-zoom-x')) close(); });
   document.addEventListener('keydown', esc, true);
@@ -497,7 +501,9 @@ function ipaOnCorrect(w) {
   const el = document.createElement('div');
   el.className = `ipa-anim vot-${s.vot || 'cont'}`;
   el.innerHTML = `<div class="ipa-anim-fig">${ipaSagittal({...ipaSagOpts(s), anim: true})}</div><ol class="ipa-steps">${steps.map(t => `<li>${ipaEsc(t)}</li>`).join('')}</ol>`;
-  root.prepend(el);
+  // 기호와 답 칸은 제자리에 두고 그 아래에 띄운다(26.11.20 검토: 위에 끼우면 152px 밀렸다)
+  const ans = root.querySelector('.ipa-nameans') || root.querySelector('.mt-source');
+  if (ans) ans.after(el); else root.prepend(el);
 }
 
 /* ---------- 처음 화면: IPA 지도(주기율표 게임처럼 잠긴 칸이 다 보이고, 익힌 칸에 불이 들어온다) ---------- */
