@@ -104,6 +104,7 @@ def build(inline=False):
     lessonclear, examples, word_audio_map, word_target, by_word, bundles_lit = {}, {}, {}, {}, {}, []
     used_audio = set()
     bundle_lines = {k: [] for k in ['welcome', 'correct', 'correctStreak', 'wrong', 'timeout', 'exerciseDone', 'allDone']}
+    lesson_lines = {}
 
     for L, b in enumerate(bundles, start=1):  # 묶음 n = 강 n
         exercises = []
@@ -130,12 +131,13 @@ def build(inline=False):
         def rep_list(k):
             return [{'wid': wd['id'], 'lid': wd['lang'], 'lang': langs[wd['lang']]['ko'], 'text': wd['text'], 'ko': wd['ko'], 'a': wd['ipa'][0], 't': wd['ipa'][1], 'b': wd['ipa'][2]} for wd in rep_words(b, k)]
 
-        for mode, title, ask in (('ko', '이름 대기 · 한국어', '한국어 이름은?'), ('en', '이름 대기 · 영어', '영어 이름은?')):
+        for mode, title in (('ko', '이름 대기 · 한국어'), ('en', '이름 대기 · 영어')):
             cards = []
             for k in b['learn']:
                 _, names = names_for(k)
                 term = names[0][mode]
-                w = {'en': term, 'ko': f'[{k}] {ask}', 'nameq': True, 'mode': mode, 'sym': k, 'names': names, 'reps': rep_list(k)}
+                # 뜻 줄은 게임 중에는 숨기고(26.11.20), 결과 목록·검색·모아둔 카드에만 보인다: 기호만
+                w = {'en': term, 'ko': f'[{k}]', 'nameq': True, 'mode': mode, 'sym': k, 'names': names, 'reps': rep_list(k)}
                 # 26.11.20 영신: '[기호] = ?' 줄과 정답 뒤 세 이름 줄을 없앤다(기호는 위에 있고, 한자는 칸 자리에 뜬다)
                 ctx = {**ctx0, 'example': term, 'surfaceParts': [term], 'translation': ''}
                 cards.append((w, ctx, k, sy['symbols'][k].get('sound')))
@@ -155,12 +157,12 @@ def build(inline=False):
             assert example.find(t) == 1 + len(a), (wd['id'], '대상 기호가 앞에 또 나온다')
             _, names = names_for(ans, t, wd.get('accept'))
             term = names[0]['ko']
-            w = {'en': term, 'ko': f'{lg} 낱말 · 듣고 빈칸 소리의 이름을 친다', 'audio': wd['audio'], 'listen': True, 'lang': wd['lang'], 'wid': wd['id'], 'names': names, 'mode': 'any'}
+            # 게임 중에는 앞부분('영어 낱말')만 보이고(ipa_extra.js), 결과 목록·검색에서는 어느 낱말이었는지 보인다
+            w = {'en': term, 'ko': f'{lg} 낱말 · {wd["text"]} [{a}{t}{z}]', 'audio': wd['audio'], 'listen': True, 'lang': wd['lang'], 'wid': wd['id'], 'names': names, 'mode': 'any'}
             ctx = {**ctx0, 'example': example, 'surfaceParts': [t], 'translation': f'{wd["text"]} · {wd["ko"]}'}
             lis.append((w, ctx, ''.join(wd['ipa']), wd['audio']))
-        # 같은 '뜻' 줄이 여럿이면 틀의 발음 찾기가 섞이므로 번호를 붙여 가른다
-        for i, item in enumerate(lis):
-            item[0]['ko'] = f'{item[0]["ko"]} ({i + 1})'
+        # 같은 '뜻' 줄이 여럿이면 틀의 발음 찾기가 섞인다: 낱말이 들어가 있어 겹치지 않는다
+        assert len({item[0]['ko'] for item in lis}) == len(lis), '듣고 고르기 뜻 줄이 겹친다'
         add_ex('듣고 고르기', lis)
 
         # 4. 전사 빈칸: 원문 자리에 전사, 빈칸에 대상 기호
@@ -185,6 +187,9 @@ def build(inline=False):
         for k in bundle_lines:
             v = own.get(k) or []
             bundle_lines[k] += [v] if isinstance(v, str) else v
+            # 강마다의 대사(26.11.20 검수: 1강에서 틀렸는데 'ㅅ'·'[ɡ]' 대사가 나왔다). 처음 화면 인사만 강을 섞는다
+            if k != 'welcome':
+                lesson_lines.setdefault(L, {})[k] = [v] if isinstance(v, str) else list(v)
         lessonclear[str(L)] = own['end']
         by_word.update(own.get('by_word', {}))
         for wd in b['words']:
@@ -200,8 +205,9 @@ def build(inline=False):
         examples[k].sort(key=lambda e: e['o'])
     # 고양이 대사: 시리즈 공통 + 묶음들의 대사(묶음마다 다른 시작 대사는 넣지 않는다: 다른 강에서도 나오므로)
     lines = {k: list(series.get(k, [])) for k in ['welcome', 'start', 'correct', 'correctStreak', 'wrong', 'timeout', 'exerciseDone', 'lessonDone', 'allDone']}
-    for k, v in bundle_lines.items():
-        lines[k] = v + lines[k]
+    # 처음 화면 인사는 모든 강의 대사를 섞고, 카드·결과 대사는 시리즈 공통 + 그 강 것만(ipa_extra.js ipaLinesFor)
+    lines['welcome'] = bundle_lines['welcome'] + lines['welcome']
+    series_lines = {k: list(lines[k]) for k in bundle_lines if k != 'welcome'}
     used_audio |= {s.get('sound') for s in sy['symbols'].values()}
     ipa_data = {
         'short': short, 'terms': terms, 'hanja': hanja, 'symbols': sy['symbols'], 'glottis': sy['glottis'], 'vot': sy['vot'], 'examples': examples,
@@ -211,6 +217,7 @@ def build(inline=False):
         # 언어 고르기에 보일 언어: 묶음에 낱말이 있는 언어만, 한국어·영어·스페인어·그 밖 차례
         'langs': [{'id': l, 'ko': langs[l]['ko']} for l in lang_order if any(wd['lang'] == l for b in bundles for wd in b['words'])],
         'bundles': bundles_lit,
+        'seriesLines': series_lines, 'lessonLines': lesson_lines,
         'sagittal': rd('assets', 'sagittal', 'sagittal.json'),
         # 녹음 출처(공개 배포 전 필수: CC BY·CC BY-SA는 만든 사람·라이선스·출처를 보여야 한다). 처음 화면 '자료·녹음 출처'
         'credits': [{'g': langs[audio_src[aid]['lang']]['ko'] if audio_src[aid]['lang'] in langs else '기호 시범 녹음',

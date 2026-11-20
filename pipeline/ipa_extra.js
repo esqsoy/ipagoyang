@@ -292,8 +292,20 @@ function ipaLearnMini(sym) {
   const s = IPA.symbols[sym]; if (!s) return '';
   return `<div class="ipa-lmini"><div class="ipa-pair"><div>${ipaSagittal(ipaSagOpts(s))}<i>입 옆모습</i></div><div>${ipaGlottis(s.glottis)}<i>목청: ${ipaEsc(ipaGlottisText(s))}</i></div></div><p>${ipaEsc(s.how)}</p></div>`;
 }
+/* 고양이 대사는 시리즈 공통 + 지금 강의 대사만(26.11.20 검수: 모든 강 대사를 한 통에 섞어서 1강에서 'ㅅ'·'[ɡ]' 대사가 나왔다).
+   모아둔 카드처럼 여러 강이 섞인 판은 공통 대사만 */
+function ipaLinesFor() {
+  if (typeof LINES === 'undefined' || !IPA.seriesLines) return;
+  let L = null; try { const l = state.session && state.session.lesson; L = l && l.kind !== 'saved' ? l.lesson : null; } catch (e) {}
+  for (const [k, base] of Object.entries(IPA.seriesLines)) {
+    const own = (L !== null && (IPA.lessonLines || {})[L] || {})[k] || [];
+    if (!Array.isArray(LINES[k])) continue;
+    LINES[k].length = 0; LINES[k].push(...own, ...base);
+  }
+}
 function ipaBeforeCard(w) {
   if (!w) return '';
+  ipaLinesFor();
   const copying = (() => { try { return !!state.session.copyMode; } catch (e) { return false; } })();
   const lm = copying ? ipaLearnMini(ipaSymOf(w)) : '';
   if (w.learn) {
