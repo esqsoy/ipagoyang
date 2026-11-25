@@ -29,6 +29,8 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) fails++
   ok(await page.locator('#ipaMap .ipa-grid').count() === 1, 'IPA 지도');
   ok(await page.evaluate(async () => { await document.fonts.ready; return document.fonts.check('20px "Balum IPA"', 'pʰ'); }), 'IPA 글꼴 읽힘');
   await noH('처음'); await shot('t01-home');
+  // 26.11.25(PRINCIPLES 8-12): 처음 화면 위쪽에 늘 시작 단추(진도가 없으면 '1강 시작')
+  ok(await page.evaluate(() => { const b = document.getElementById('resumeBtn'); return !!b && !b.hidden && b.previousElementSibling && b.previousElementSibling.classList.contains('catrow') && b.textContent.includes('1강 시작'); }), '처음 화면 위쪽에 1강 시작 단추');
 
   const nB = fs.readdirSync(path.join(ROOT, 'data', 'bundles')).filter(f => /^b\d\d\.json$/.test(f)).length;
   ok(await page.locator('#lessonGrid .lessonbtn').count() === nB + 1, `강 타일 ${nB}개 + 모아둔 카드`);
@@ -36,6 +38,10 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) fails++
   const nEx = await page.locator('.exbtn').count();
   ok(nEx >= 3, `연습 ${nEx}개`);
   await page.locator('.exbtn').first().click(); await page.waitForTimeout(3000);
+  // 처음 한 번만 뜨는 안내(8-12): 뜨고, 닫으면 저장되어 다시 안 뜬다
+  ok(await page.locator('.ipa-guide').count() === 1, '처음 한 번 안내가 뜸');
+  await shot('t01b-guide'); await page.locator('.ipa-guide-ok').click(); await page.waitForTimeout(200);
+  ok(await page.locator('.ipa-guide').count() === 0 && await page.evaluate(() => localStorage.getItem('ipagoyang-guide-v1') === '1'), '안내를 닫으면 다시 안 뜸(저장)');
   ok(await page.locator('#hoeCtx .ipa-nameq .ipa-rep').count() >= 1, '이름 대기 카드: 기호와 대표 낱말');
   // 명칭 치기(26.11.20 영신): 질문 줄·'[기호] = ?'·설명 문구 없이 기호·작은 지도 밑에 글자 칸(글자마다 한 칸).
   // 한국어 단계에선 한국어 이름이 맞으면 칸 자리가 한자로 바뀌며 넘어간다(순서·띄어쓰기 자유)
@@ -65,7 +71,7 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) fails++
   await noH('이름 대기'); await shot('t02-name-ko');
 
   // 연습을 차례로 끝까지: 첫 카드 하나는 일부러 틀려 따라 치기를 본다
-  let wrongDone = false, finished = 0, guard = 0, sawCopy = false, sawAnim = false, enChecked = false, anyChecked = false;
+  let sawMine = false, wrongDone = false, finished = 0, guard = 0, sawCopy = false, sawAnim = false, enChecked = false, anyChecked = false;
   while (guard++ < 400) {
     const st = await page.evaluate(() => ({
       game: document.querySelector('#gameScreen')?.classList.contains('active'),
@@ -82,6 +88,7 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) fails++
     if (!st.game) { await page.waitForTimeout(200); continue; }
     if (st.copy) {
       sawCopy = sawCopy || ((await page.locator('#hoeCtx .ipa-lmini').count()) > 0 && (await page.locator('#hoeCtx .blanks .slot.gh').count()) > 0);
+      if (!sawMine) { const m = await page.locator('#hoeCtx .ipa-myans').innerText().catch(() => ''); sawMine = m.includes('내 답') && m.includes('따라 치면') && (await page.locator('#hoeCtx .ipa-myans .bad').count()) >= 1; }
       await shot('t03-copy'); await page.locator('#ainput').fill(st.term); await page.waitForTimeout(1900); continue;
     }
     if (st.answered) { sawAnim = sawAnim || (await page.locator('#hoeCtx .ipa-anim').count()) > 0; await page.keyboard.press('Enter'); await page.waitForTimeout(250); continue; }
@@ -97,7 +104,7 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) fails++
     if (wd.mode === 'any' && !anyChecked) {
       anyChecked = true;
       await page.locator('#ainput').fill(wd.names[0].en); await page.waitForTimeout(700);
-      ok(await page.evaluate(() => state.session.answered), '듣고 고르기·전사 빈칸: 영어 이름만 쳐도 맞음');
+      ok(await page.evaluate(() => state.session.answered), '듣고 이름 대기·전사 빈칸: 영어 이름만 쳐도 맞음');
       continue;
     }
     if (!wrongDone) { await page.locator('#ainput').fill('무성 양순 비음'); wrongDone = true; }
@@ -105,6 +112,8 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) fails++
     await page.locator('#ainput').press('Enter'); await page.waitForTimeout(300);
   }
   ok(sawCopy, '틀려서 따라 칠 때 희미한 정답 칸과 기호 풀이가 뜸');
+  ok(sawMine, '오답 카드에 내 답(틀린 낱말 표시)과 따라 치기 안내');
+  ok(await page.locator('.ipa-guide').count() === 0, '안내는 첫 카드 뒤로 다시 안 뜸');
   ok(enChecked && anyChecked, '영어 단계·아무 쪽 단계를 지나감');
   ok(sawAnim, '맞히면 소리 내는 차례 그림이 뜸');
   ok(finished === nEx, `연습 ${finished}/${nEx}개 끝`);

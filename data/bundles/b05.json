@@ -258,7 +258,7 @@
     "seg": "h",
     "allo": "ɸ"
    },
-   "note": "ふ의 자음은 두 입술 사이로 내는 [ɸ]다(PHOIBLE 2196은 /h/의 변이음). 둘째 녹음은 간사이 억양 화자다(舟로 올라온 같은 낱말 ふね).",
+   "note": "ふ의 자음은 두 입술 사이로 내는 [ɸ]다(음운 자료 PHOIBLE 2196은 /h/의 변이음). 둘째 녹음은 간사이 억양 화자다(舟로 올라온 같은 낱말 ふね).",
    "status": "확인",
    "status_why": "PHOIBLE 2196 /h/의 변이음 ɸ, Wiktionary [ɸɯ̟ne̞]",
    "audio": "ja-fune-wanikani-male",
@@ -800,7 +800,7 @@
     "inv": 2157,
     "seg": "xʀ̥"
    },
-   "note": "PHOIBLE 2157은 이 소리를 [xʀ̥]로 적는다(다른 문헌은 대개 [x]나 [χ]).",
+   "note": "음운 자료 PHOIBLE 2157은 이 소리를 [xʀ̥]로 적는다(다른 문헌은 대개 [x]나 [χ]).",
    "status": "확인 필요",
    "status_why": "녹음 화자는 모로코·수단 출신이고, 현대 표준 아랍어 녹음은 Commons에서 찾지 못했다. PHOIBLE 2157도 방언 화자 목록이다. 표기도 문헌마다 다르다",
    "audio": "ar-khubz-anasssedrati",

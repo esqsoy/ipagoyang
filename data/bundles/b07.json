@@ -112,7 +112,7 @@
     "inv": 2197,
     "seg": "t͉ɕ͉"
    },
-   "note": "ㅈ. 문헌마다 [tɕ]·[tʃ]·[ts]로 다르게 적는다. PHOIBLE 2197은 약한 [t͉ɕ͉]로 적는다.",
+   "note": "ㅈ. 문헌마다 [tɕ]·[tʃ]·[ts]로 다르게 적는다. 음운 자료 PHOIBLE 2197은 약한 [t͉ɕ͉]로 적는다.",
    "status": "확인",
    "status_why": "PHOIBLE 2197 /t͉ɕ͉/",
    "audio": "ko-jada-horojo"
@@ -153,7 +153,7 @@
     "inv": 2197,
     "seg": "tɕ"
    },
-   "note": "ㅉ. 자다·차·짜다는 같은 화자가 녹음했다. PHOIBLE 2197은 경음 줄을 표시 없이 [tɕ]로 적는다. Wiktionary는 ͈ 표시를 ɕ 밑에 두어 [tɕ͈]로 적는다.",
+   "note": "ㅉ. 자다·차·짜다는 같은 화자가 녹음했다. 음운 자료 PHOIBLE 2197은 경음 줄을 표시 없이 [tɕ]로 적는다. Wiktionary는 ͈ 표시를 ɕ 밑에 두어 [tɕ͈]로 적는다.",
    "status": "확인",
    "status_why": "PHOIBLE 2197 /tɕ/",
    "audio": "ko-jjada-horojo",
@@ -209,7 +209,7 @@
     "en-jam-dvortygirl"
    ],
    "listen": false,
-   "note": "낱말 첫 j는 d처럼 흔히 덜 울린다. 그래서 듣고 고르기에는 내지 않는다."
+   "note": "낱말 첫 j는 d처럼 흔히 덜 울린다. 그래서 듣고 이름 대기에는 내지 않는다."
   },
   {
    "id": "es-chocolate",
@@ -251,7 +251,7 @@
     "seg": "ts",
     "allo": "tɕ"
    },
-   "note": "ち의 자음은 [tɕ]다(PHOIBLE 2196은 /ts/의 변이음).",
+   "note": "ち의 자음은 [tɕ]다(음운 자료 PHOIBLE 2196은 /ts/의 변이음).",
    "status": "확인",
    "status_why": "PHOIBLE 2196 /ts/의 변이음 tɕ",
    "audio": "ja-chizu-aoi"
@@ -366,7 +366,7 @@
     "inv": 2398,
     "seg": "ts"
    },
-   "note": "독일어 z는 [ts]다. PHOIBLE 2184(Kohler 1990)에는 파찰음 칸이 따로 없어 2398(Hall 2000)로 대조했다.",
+   "note": "독일어 z는 [ts]다. 음운 자료 PHOIBLE 2184(Kohler 1990)에는 파찰음 칸이 따로 없어 2398(Hall 2000)로 대조했다.",
    "status": "확인",
    "status_why": "PHOIBLE 2398 /ts/",
    "audio": "de-zeit-wallroth",
@@ -390,7 +390,7 @@
     "inv": 2398,
     "seg": "t̠ʃ"
    },
-   "note": "PHOIBLE 2398(Hall 2000)로 대조했다.",
+   "note": "음운 자료 PHOIBLE 2398(Hall 2000)로 대조했다.",
    "status": "확인",
    "status_why": "PHOIBLE 2398 /t̠ʃ/",
    "audio": "de-tschuess-natschoba",
@@ -597,7 +597,7 @@
     "inv": 1047,
     "seg": "t̠ʃ"
    },
-   "note": "PHOIBLE 1047은 병음 zh를 후치경 파찰음 [t̠ʃ](영어 ch와 같은 기호)로 적는다. 이 게임은 흔히 쓰는 권설 기호 [tʂ]로 쓴다. Wiktionary는 [ʈʂ]로 적는다.",
+   "note": "음운 자료 PHOIBLE 1047은 병음 zh를 후치경 파찰음 [t̠ʃ](영어 ch와 같은 기호)로 적는다. 이 게임은 흔히 쓰는 권설 기호 [tʂ]로 쓴다. Wiktionary는 [ʈʂ]로 적는다.",
    "status": "확인 필요",
    "status_why": "PHOIBLE 1047은 [t̠ʃ](영어 ch와 같은 기호)로 적어 이 게임의 [tʂ]와 표기가 다르다",
    "audio": "zh-zhong1-weigao"
@@ -622,7 +622,7 @@
     "inv": 1047,
     "seg": "t̠ʃ̺ʰ"
    },
-   "note": "PHOIBLE 1047은 중국어 권설음을 혀끝 후치경음([t̠ʃ̺ʰ])로 적는다. 이 게임은 [tʂʰ]로 쓴다. Wiktionary는 [ʈʂʰ]로 적는다.",
+   "note": "음운 자료 PHOIBLE 1047은 중국어 권설음을 혀끝 후치경음([t̠ʃ̺ʰ])로 적는다. 이 게임은 [tʂʰ]로 쓴다. Wiktionary는 [ʈʂʰ]로 적는다.",
    "status": "확인 필요",
    "status_why": "PHOIBLE 1047은 [t̠ʃ̺ʰ](혀끝 후치경음)로 적어 이 게임의 [tʂʰ]와 표기가 다르다",
    "audio": "zh-cha2-weigao"
@@ -665,7 +665,7 @@
     "seg": "z",
     "allo": "dʑ"
    },
-   "note": "じ의 자음. PHOIBLE 2196은 /z/의 변이음으로 [dz]·[ʑ]·[dʑ]도 적는다. 녹음은 간사이 억양 화자다.",
+   "note": "じ의 자음. 음운 자료 PHOIBLE 2196은 /z/의 변이음으로 [dz]·[ʑ]·[dʑ]도 적는다. 녹음은 간사이 억양 화자다.",
    "status": "확인",
    "status_why": "PHOIBLE 2196 /z/의 변이음 dʑ",
    "audio": "ja-jishin-earthquake-wanikani-female"
@@ -686,7 +686,7 @@
     "inv": 2398,
     "seg": "d̠ʒ"
    },
-   "note": "영어에서 온 낱말이다. [ʒiːns]로 내는 사람도 있다(Wiktionary). 녹음 화자는 파일 설명에 /dʒiːns/로 적었다. PHOIBLE 2398(Hall 2000)로 대조했다.",
+   "note": "영어에서 온 낱말이다. [ʒiːns]로 내는 사람도 있다(Wiktionary). 녹음 화자는 파일 설명에 /dʒiːns/로 적었다. 음운 자료 PHOIBLE 2398(Hall 2000)로 대조했다.",
    "status": "확인",
    "status_why": "PHOIBLE 2398 /d̠ʒ/",
    "audio": "de-jeans-jeuwre"
@@ -708,7 +708,7 @@
     "seg": "z",
     "allo": "dz"
    },
-   "note": "낱말 첫머리의 ざ는 [dz]로 난다(Wiktionary [dzã̠nːẽ̞ɴ]; PHOIBLE 2196은 /z/의 변이음 dz). 6강의 難しい는 모음 사이라 [z]다.",
+   "note": "낱말 첫머리의 ざ는 [dz]로 난다(Wiktionary [dzã̠nːẽ̞ɴ]; 음운 자료 PHOIBLE 2196은 /z/의 변이음 dz). 6강의 難しい는 모음 사이라 [z]다.",
    "status": "확인",
    "status_why": "PHOIBLE 2196 /z/의 변이음 dz",
    "audio": "ja-zannen-tofugumale"

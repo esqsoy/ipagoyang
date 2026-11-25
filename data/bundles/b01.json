@@ -96,7 +96,7 @@
     "inv": 2197,
     "seg": "p"
    },
-   "note": "PHOIBLE 2197은 ㅃ을 그냥 [p]로 적는다. 이 게임은 [p͈].",
+   "note": "음운 자료 PHOIBLE 2197은 ㅃ을 그냥 [p]로 적는다. 이 게임은 [p͈].",
    "status": "확인",
    "status_why": "PHOIBLE 2197 /p/(된소리 줄). 표기 관례 차이는 symbols p͈"
   },
@@ -514,7 +514,7 @@
     "de-ball-jeuwre"
    ],
    "listen": false,
-   "note": "독일어 낱말 첫 b는 흔히 목청이 덜 울린다. 그래서 듣고 고르기에는 내지 않는다."
+   "note": "독일어 낱말 첫 b는 흔히 목청이 덜 울린다. 그래서 듣고 이름 대기에는 내지 않는다."
   },
   {
    "id": "it-pane",
@@ -579,7 +579,7 @@
     "inv": 2157,
     "seg": "b"
    },
-   "note": "아랍어에는 [p]가 없다(PHOIBLE 2157).",
+   "note": "아랍어에는 [p]가 없다(음운 자료 PHOIBLE 2157).",
    "status": "확인 필요",
    "status_why": "녹음 화자는 모로코(둘)·남레반트(하나) 출신이고, 현대 표준 아랍어 녹음은 Commons에서 찾지 못했다. PHOIBLE 2157도 방언 화자 목록이다",
    "audio": "ar-bab-anasssedrati",
@@ -649,7 +649,7 @@
     "inv": 2176,
     "seg": "b"
    },
-   "note": "낱말 첫 b는 흔히 덜 울린다([b̥]). 그래서 듣고 고르기에는 내지 않는다.",
+   "note": "낱말 첫 b는 흔히 덜 울린다([b̥]). 그래서 듣고 이름 대기에는 내지 않는다.",
    "status": "확인",
    "status_why": "PHOIBLE 2176 /b/(변이음 b·b̥)",
    "listen": false,

@@ -219,3 +219,17 @@ html[data-pal="chalk"]{--panel-rgb:18,37,28;--bg1-rgb:14,28,22;--bg1:#0e1c16;--b
 #hoeCtx .mt-source:not(.ipa-nameans) .blanks.revealed .slot::before{content:none}
 #hoeCtx .mt-source:not(.ipa-nameans) .blanks.revealed .slot-glyph{position:static}
 
+/* 26.11.25 플레이테스트 뒤(PRINCIPLES 8-12) */
+.ipa-myans{margin:6px auto 0;max-width:30rem;text-align:center;font-size:.82rem;color:var(--muted);line-height:1.5}
+.ipa-myans .k{font-weight:800;margin-right:4px}
+.ipa-myans .bad{color:var(--red,#ff6b6b);text-decoration:line-through;text-decoration-thickness:1px}
+.ipa-myans .ipa-copyhint{display:block;color:var(--cyan);font-weight:700}
+.ipa-guide-in{max-width:26rem;font-size:.92rem;line-height:1.6}
+.ipa-guide-in ol{margin:10px 0 14px;padding-left:1.2em;display:grid;gap:6px}
+.ipa-guide-ok{width:100%}
+.ipa-zoom-grid .en{display:block;font-size:.55rem;color:var(--muted);letter-spacing:.01em;font-family:system-ui,sans-serif;font-weight:500}
+.ipa-zoom-gl{margin-top:4px}
+#homeScreen .catrow + .resume{margin:0 13px 10px}
+/* 좁은 화면: 열 머리 영어는 쪼개져 읽기 어려워 숨기고 표 밑 한 줄(번호 · 영어)로 */
+.ipa-zoom-cols{display:none}
+@media (max-width:640px){.ipa-zoom-grid .ipa-col .en{display:none}.ipa-zoom-cols{display:block}}

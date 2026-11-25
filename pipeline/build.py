@@ -147,7 +147,7 @@ def build(inline=False):
                 cards.append((w, ctx, k, sy['symbols'][k].get('sound')))
             add_ex(title, cards)
 
-        # 3. 듣고 고르기(녹음이 있는 낱말만, 좁게 들으면 답이 둘인 낱말은 뺀다: PRINCIPLES 2-4)
+        # 3. 듣고 이름 대기(26.11.25 영신 '듣고 고르기'에서 이름 바꿈, PRINCIPLES 8-12). 녹음이 있는 낱말만, 좁게 들으면 답이 둘인 낱말은 뺀다(2-4)
         #    한국어 낱말도 Commons 녹음이 있으면 낸다(26.11.08 영신 "내 녹음 없이 최대한 진행해보자")
         lis = []
         for wd in b['words']:
@@ -166,8 +166,7 @@ def build(inline=False):
             ctx = {**ctx0, 'example': example, 'surfaceParts': [t], 'translation': wd['text'] + (f' · {wd["ko"]}' if wd['ko'] != wd['text'] else '')}
             lis.append((w, ctx, ''.join(wd['ipa']), wd['audio']))
         # 같은 '뜻' 줄이 여럿이면 틀의 발음 찾기가 섞인다: 낱말이 들어가 있어 겹치지 않는다
-        assert len({item[0]['ko'] for item in lis}) == len(lis), '듣고 고르기 뜻 줄이 겹친다'
-        add_ex('듣고 고르기', lis)
+        assert len({item[0]['ko'] for item in lis}) == len(lis), '듣고 이름 대기 뜻 줄이 겹친다'
 
         # 4. 전사 빈칸: 원문 자리에 전사, 빈칸에 대상 기호
         bl = []
@@ -184,7 +183,18 @@ def build(inline=False):
             # 정답 뒤에는 이름 줄을 따로 두지 않는다(26.11.20 영신). 낱말 풀이(note)만
             ctx = {**ctx0, 'example': example, 'surfaceParts': [t], 'translation': wd.get('note') or ''}
             bl.append((w, ctx, a + t + z, wd['audio']))
-        add_ex('전사 빈칸', bl)
+        # 26.11.25 플레이테스트(PRINCIPLES 8-12): 한 판이 24~38장이라 중간에 지쳤다. 이름은 끝까지 치되 한 판을 12장 안팎으로 나누고
+        # 듣기 1 → 전사 1 → 듣기 2 → 전사 2처럼 번갈아 둔다(3·4번 연습 자리가 그대로라 이미 끝낸 기록의 뜻이 크게 안 바뀐다).
+        # 나눌 때는 하나 건너 하나씩 담아(언어·기호가 판마다 고루) 섞는다
+        def parts(items, size=12):
+            k = max(1, round(len(items) / size)) if len(items) > size + 3 else 1
+            return [items[i::k] for i in range(k)]
+        lp, bp = parts(lis), parts(bl)
+        for i in range(max(len(lp), len(bp))):
+            if i < len(lp):
+                add_ex('듣고 이름 대기' + (f' {i + 1}/{len(lp)}' if len(lp) > 1 else ''), lp[i])
+            if i < len(bp):
+                add_ex('전사 빈칸' + (f' {i + 1}/{len(bp)}' if len(bp) > 1 else ''), bp[i])
 
         data.append({'lesson': L, 'name': f'{b["title"]} {b["symbols_title"]}', 'exercises': exercises})
         own = b['lines']

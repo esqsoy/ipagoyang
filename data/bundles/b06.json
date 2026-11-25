@@ -109,7 +109,7 @@
     "inv": 2197,
     "seg": "s͉"
    },
-   "note": "ㅅ은 숨이 조금 섞여 Wiktionary는 [sʰ]로, PHOIBLE 2197(Lee 1993)은 약한 [s͉]로 적는다. 이 게임은 ㅂ을 [p]로 쓰듯 ㅅ을 [s]로 쓴다.",
+   "note": "ㅅ은 숨이 조금 섞여 Wiktionary는 [sʰ]로, 음운 자료 PHOIBLE 2197(Lee 1993)은 약한 [s͉]로 적는다. 이 게임은 ㅂ을 [p]로 쓰듯 ㅅ을 [s]로 쓴다.",
    "status": "확인",
    "status_why": "PHOIBLE 2197 /s͉/",
    "audio": "ko-so-chk2605"
@@ -130,7 +130,7 @@
     "inv": 2197,
     "seg": "s͉"
    },
-   "note": "ㅅ은 숨이 조금 섞여 Wiktionary는 [sʰ]로, PHOIBLE 2197(Lee 1993)은 약한 [s͉]로 적는다. 이 게임은 ㅂ을 [p]로 쓰듯 ㅅ을 [s]로 쓴다.",
+   "note": "ㅅ은 숨이 조금 섞여 Wiktionary는 [sʰ]로, 음운 자료 PHOIBLE 2197(Lee 1993)은 약한 [s͉]로 적는다. 이 게임은 ㅂ을 [p]로 쓰듯 ㅅ을 [s]로 쓴다.",
    "status": "확인",
    "status_why": "PHOIBLE 2197 /s͉/",
    "audio": "ko-saram-happymidnight"
@@ -282,7 +282,7 @@
     "seg": "s",
     "allo": "ɕ"
    },
-   "note": "し의 자음은 [ɕ]다(PHOIBLE 2196은 /s/의 변이음). 녹음은 간사이 억양 화자다.",
+   "note": "し의 자음은 [ɕ]다(음운 자료 PHOIBLE 2196은 /s/의 변이음). 녹음은 간사이 억양 화자다.",
    "status": "확인",
    "status_why": "PHOIBLE 2196 /s/의 변이음 ɕ",
    "audio": "ja-shima-wanikani-female"
@@ -352,7 +352,7 @@
     "inv": 1047,
     "seg": "ʃ̺"
    },
-   "note": "PHOIBLE 1047은 중국어 권설음을 혀끝 후치경음([ʃ̺])로 적는다. 이 게임은 [ʂ]로 쓴다.",
+   "note": "음운 자료 PHOIBLE 1047은 중국어 권설음을 혀끝 후치경음([ʃ̺])로 적는다. 이 게임은 [ʂ]로 쓴다.",
    "status": "확인 필요",
    "status_why": "PHOIBLE 1047은 [ʃ̺](혀끝 후치경음)로 적어 이 게임의 [ʂ]와 표기가 다르다",
    "audio": "zh-shu1-weigao"
@@ -754,7 +754,7 @@
     "inv": 2197,
     "seg": "s"
    },
-   "note": "ㅆ. PHOIBLE 2197(Lee 1993)은 ㅆ을 표시 없는 /s/로, ㅅ을 약한 /s͉/로 적는다. ㅣ 앞(씨)에서는 [ɕ͈]가 되어 ㅡ 앞의 쓰다를 골랐다.",
+   "note": "ㅆ. 음운 자료 PHOIBLE 2197(Lee 1993)은 ㅆ을 표시 없는 /s/로, ㅅ을 약한 /s͉/로 적는다. ㅣ 앞(씨)에서는 [ɕ͈]가 되어 ㅡ 앞의 쓰다를 골랐다.",
    "status": "확인",
    "status_why": "PHOIBLE 2197 /s/",
    "audio": "ko-sseuda-horojo",
@@ -826,7 +826,7 @@
     "inv": 2261,
     "seg": "ɕː"
    },
-   "note": "щ는 길게 끄는 [ɕː]다. PHOIBLE 2261도 /ɕː/로 적는다.",
+   "note": "щ는 길게 끄는 [ɕː]다. 음운 자료 PHOIBLE 2261도 /ɕː/로 적는다.",
    "status": "확인",
    "status_why": "PHOIBLE 2261 /ɕː/",
    "audio": "ru-veshch-kerbush"
@@ -847,7 +847,7 @@
     "inv": 2196,
     "seg": "z"
    },
-   "note": "녹음은 간사이 억양 화자다. PHOIBLE 2196은 /z/의 변이음으로 [dz]·[ʑ]·[dʑ]도 적는다.",
+   "note": "녹음은 간사이 억양 화자다. 음운 자료 PHOIBLE 2196은 /z/의 변이음으로 [dz]·[ʑ]·[dʑ]도 적는다.",
    "status": "확인",
    "status_why": "PHOIBLE 2196 /z/",
    "audio": "ja-muzukashii-wanikani-female"

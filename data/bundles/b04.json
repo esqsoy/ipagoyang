@@ -91,7 +91,7 @@
     "inv": 2197,
     "seg": "l"
    },
-   "note": "받침 ㄹ은 [l]로 난다. Wiktionary는 [ɭ]로 적는다(PHOIBLE 2197도 /l/의 변이음으로 ɭ를 적는다).",
+   "note": "받침 ㄹ은 [l]로 난다. Wiktionary는 [ɭ]로 적는다(음운 자료 PHOIBLE 2197도 /l/의 변이음으로 ɭ를 적는다).",
    "status": "확인",
    "status_why": "PHOIBLE 2197 /l/",
    "audio": "ko-bal-horojo",
@@ -259,7 +259,7 @@
     "seg": "d̠",
     "allo": "ɾ"
    },
-   "note": "PHOIBLE 2196(Okada 1991)은 ら행 자음을 /d̠/의 변이음 ɾ로 적는다.",
+   "note": "음운 자료 PHOIBLE 2196(Okada 1991)은 ら행 자음을 /d̠/의 변이음 ɾ로 적는다.",
    "status": "확인",
    "status_why": "PHOIBLE 2196 /d̠/의 변이음 ɾ",
    "audio": "ja-iro-aoi",
@@ -405,7 +405,7 @@
     "inv": 1047,
     "seg": "ɹ"
    },
-   "note": "PHOIBLE 1047(Lee·Zee 2003)은 [ɹ], Wiktionary는 [ɻ]로 적는다. 문헌마다 [ʐ]로도 적는다.",
+   "note": "음운 자료 PHOIBLE 1047(Lee·Zee 2003)은 [ɹ], Wiktionary는 [ɻ]로 적는다. 문헌마다 [ʐ]로도 적는다.",
    "status": "확인 필요",
    "status_why": "중국어 병음 r의 표기가 출처마다 다르다(ɹ·ɻ·ʐ)",
    "audio": "zh-ren2-weigao",

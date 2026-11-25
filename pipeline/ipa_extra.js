@@ -27,7 +27,7 @@ function ipaIn(raw) {
 /* ---------- 명칭 치기(PRINCIPLES 8-3, 26.11.08 영신) ----------
    "pp를 치는데 그대신 무성 경음 양순 파열음이라고 치는거지", "이름대기는 일단 두단계로 나누나 한국어로 이름대기먼저. 한국어로 치면
    한자도 영어도 뜨게. 그리고 영어로 이름대기. 영어로 치면 한국어와 한자도 뜨게", "어느 경우든 발음명을 치는걸로만".
-   카드의 mode: ko(한국어 이름) · en(영어 이름) · any(어느 쪽이든, 듣고 고르기·전사 빈칸). 맞으면 나머지 둘(한자 포함)이 뜬다.
+   카드의 mode: ko(한국어 이름) · en(영어 이름) · any(어느 쪽이든, 듣고 이름 대기·전사 빈칸). 맞으면 나머지 둘(한자 포함)이 뜬다.
    낱말 순서·띄어쓰기는 묻지 않고, 사전 동의어는 인정한다. */
 // 26.11.25(외솔 플레이테스트): 치조(표준국어대사전 '치조음 ≒ 치경음'), 치조구개 = 치경구개, palato-alveolar = postalveolar(ʃ·ʒ의 옛 IPA 이름)
 const IPA_NAME_SYN = {'폐쇄음': '파열음', '된소리': '경음', '거센소리': '유기', '격음': '유기', '탄설음': '탄음', '치조구개': '치경구개', '치조': '치경', 'stop': 'plosive', 'fortis': 'tense', 'flap': 'tap', 'palatoalveolar': 'postalveolar'};
@@ -467,12 +467,13 @@ function ipaMiniMap(w, hit) {
 function ipaZoomOpen(lesson, hit) {
   const bd = (IPA.bundles || []).find(b => b.lesson === +lesson);
   const cur = new Set(bd ? bd.lit : []), {set} = ipaLearned(), h = hit ? ipaKey(hit) : '';
-  const colh = (k, i) => { const t = ipaT(k); return `<span class="ipa-col">${i + 1}<small>${ipaHeadText(t, ipaColLabel(t))}</small><small class="h">${ipaHanjaHtml(t.short_hanja || t.hanja || '')}</small></span>`; };
+  // 큰 표 머리 칸에 영어 낱말(26.11.25 PRINCIPLES 8-12: 이름 대기·영어를 배울 곳이 없었다)
+  const colh = (k, i) => { const t = ipaT(k); return `<span class="ipa-col">${i + 1}<small>${ipaHeadText(t, ipaColLabel(t))}</small><small class="h">${ipaHanjaHtml(t.short_hanja || t.hanja || '')}</small><small class="en">${ipaEsc(t.en || '')}</small></span>`; };
   const zs = x => { const sy = IPA.symbols[x], snd = sy && sy.sound && ipaHasAudio(sy.sound) ? ipaTapAttrs(sy.sound, x + ' 소리') : ''; return `<span class="ipa-zs${set.has(x) ? ' on' : ''}${cur.has(x) ? ' cur' : ''}${x === h ? ' hit' : ''}"${snd}>${ipaEsc(x)}</span>`; };
   let g = `<div class="ipa-grid ipa-zoom-grid"><span></span>${IPA_COLS.map(colh).join('')}`;
   for (const r of IPA_ROWS) {
     const t = ipaT(r.ko);
-    g += `<span class="ipa-rowh"><span>${ipaHeadText(t, ipaRowLabel(t))}</span><small class="h">${ipaHanjaHtml(t.hanja || '')}</small></span>`;
+    g += `<span class="ipa-rowh"><span>${ipaHeadText(t, ipaRowLabel(t))}</span><small class="h">${ipaHanjaHtml(t.hanja || '')}</small><small class="en">${ipaEsc(t.en || '')}</small></span>`;
     for (const c of r.cells) {
       if (c === null) { g += `<span class="ipa-cell empty"></span>`; continue; }
       const span = c.span || 1, v = c.v || c;
@@ -484,7 +485,7 @@ function ipaZoomOpen(lesson, hit) {
   ov.className = 'ipa-zoom'; ov.setAttribute('role', 'dialog'); ov.setAttribute('aria-label', 'IPA 자음표');
   ov.innerHTML = `<div class="ipa-zoom-in"><div class="ipa-zoom-h"><b>IPA 자음표(폐 기류)</b><button type="button" class="ipa-zoom-x" aria-label="닫기">✕</button></div>
     <div class="ipa-map-wrap">${g}</div>
-    <p class="ipa-zoom-k"><span class="on">배운 칸</span><span class="cur">이번 강</span>${h ? '<span class="hit">맞힌 답</span>' : ''} · 가로는 입 앞(1 입술)에서 목 안(11 성문), 세로는 소리 내는 방법. 칸에 둘이면 앞(왼쪽·위)이 무성, 뒤(오른쪽·아래)가 유성. 표 밖 줄은 IPA 표에 칸이 없는 기호(자리는 위 열과 같다): ɕ는 '기타 기호'에 있고, 파찰음은 두 기호를 이어 적는다. 국제음성학회 IPA 표(2020, CC BY-SA 4.0)</p></div>`;
+    <p class="ipa-zoom-k"><span class="on">배운 칸</span><span class="cur">이번 강</span>${h ? '<span class="hit">맞힌 답</span>' : ''} · 가로는 입 앞(1 입술)에서 목 안(11 성문), 세로는 소리 내는 방법. 칸에 둘이면 앞(왼쪽·위)이 무성, 뒤(오른쪽·아래)가 유성. 표 밖 줄은 IPA 표에 칸이 없는 기호(자리는 위 열과 같다): ɕ는 '기타 기호'에 있고, 파찰음은 두 기호를 이어 적는다. 국제음성학회 IPA 표(2020, CC BY-SA 4.0)</p><p class="ipa-zoom-k ipa-zoom-gl">목청 말: 무성 voiceless · 유성 voiced · 유기 aspirated · 경음 tense. 영어 이름은 [목청] [자리] [방법] 차례(예: voiceless bilabial plosive)</p><p class="ipa-zoom-k ipa-zoom-cols">${IPA_COLS.map((k, i) => `${i + 1} ${ipaEsc(ipaT(k).en || '')}`).join(' · ')}</p></div>`;
   // 큰 표를 보는 동안은 카드 시간이 가지 않는다(표를 보는 것이 공부라서, 26.11.20 검토)
   const ss = (typeof state !== 'undefined') ? state.session : null;
   const hold = ss && !ss.answered ? setInterval(() => { if (state.session === ss && !ss.answered) ss.cardStart += 250; }, 250) : 0;
@@ -649,3 +650,87 @@ function ipaCreditsOpen() {
   document.body.append(ov);
 }
 document.addEventListener('click', e => { if (e.target.closest && e.target.closest('#ipaCreditsBtn')) ipaCreditsOpen(); });
+
+/* ---------- 26.11.25 플레이테스트 뒤 고침(PRINCIPLES 8-12, 영신 "고칠것은 전부 추천대로!") ---------- */
+// 맞힌 뒤: 하트는 더 빨리·연하게(가리지 않게), 설명을 읽을 시간은 늘린다(틀 손잡이 FX와 mtRevealDelay)
+// 덧붙임 스크립트는 틀 스크립트보다 먼저 실린다: 틀 함수는 DOMContentLoaded 때 감싼다(revealInPlace와 같게)
+document.addEventListener('DOMContentLoaded', () => {
+try { FX.heartT = .55; FX.heartA = .7; } catch (e) {}
+if (typeof mtRevealDelay === 'function') {
+  mtRevealDelay = function (w) {
+    const c = w && w.context; if (!c) return 3000;
+    const chars = (c.translation || '').length + (c.note || '').length;
+    return Math.min(state.session && state.session.round >= 2 ? 5000 : 9000, Math.max(3000, 1500 + chars * 60));
+  };
+}
+});
+// 오답 카드: 내가 친 답을 정답 밑에 흐리게 남기고 틀린 낱말만 빨갛게, 따라 칠 때 한 줄 안내. 판정은 그대로 엄하다
+let ipaTyped = '';
+document.addEventListener('DOMContentLoaded', () => { if (typeof submit === 'function') {
+  const ipaOrigSubmit = submit;
+  submit = function (opt = {}) {
+    try { const s = state.session; if (s && !s.answered && !s.copyMode) ipaTyped = opt.timeout ? '' : String((document.getElementById('ainput') || {}).value || ''); } catch (e) {}
+    return ipaOrigSubmit(opt);
+  };
+} });
+function ipaMyAnswerHtml(w) {
+  const raw = ipaTyped.trim();
+  let mine = '';
+  if (raw && w && w.names) {
+    const ko = /[가-힣]/.test(raw), tok = x => ko ? (ipaKoTokens(x.replace(/[^가-힣]/g, '')) || []) : ipaEnTok(x);
+    // 친 글과 가장 많이 겹치는 정답 이름에 견준다
+    let best = null, bestN = -1;
+    for (const pr of w.names) { const ref = tok(ko ? pr.ko : pr.en), n = tok(raw).filter(t => ref.includes(t)).length; if (n > bestN) { best = ref; bestN = n; } }
+    mine = raw.split(/\s+/).map(word => { const t = tok(word), bad = !t.length || t.some(x => !(best || []).includes(x)); return `<span${bad ? ' class="bad"' : ''}>${ipaEsc(word)}</span>`; }).join(' ');
+  }
+  return `<div class="ipa-myans">${mine ? `<span class="k">내 답</span> ${mine}` : ''}<span class="ipa-copyhint">정답을 따라 치면 넘어간다</span></div>`;
+}
+document.addEventListener('ipa:aftercard', e => {
+  const s = state.session; if (!s || !s.copyMode) return;
+  const root = document.getElementById('hoeCtx'), bl = root && root.querySelector('.blanks');
+  if (bl && !root.querySelector('.ipa-myans')) bl.insertAdjacentHTML('afterend', ipaMyAnswerHtml(e.detail));
+});
+// 처음 한 번만 뜨는 안내 세 줄(카드 화면에 설명 문구를 다시 넣지 않고, 26.11.20 결정은 그대로)
+const IPA_GUIDE_KEY = 'ipagoyang-guide-v1';
+function ipaGuideOnce() {
+  try { if (localStorage.getItem(IPA_GUIDE_KEY)) return; } catch (e) { return; }
+  const s = state.session; if (!s || s.answered || s.copyMode || document.querySelector('.ipa-guide')) return;
+  const ov = document.createElement('div');
+  ov.className = 'ipa-zoom ipa-guide'; ov.setAttribute('role', 'dialog'); ov.setAttribute('aria-label', '처음 하는 법');
+  ov.innerHTML = `<div class="ipa-zoom-in ipa-guide-in"><b>처음이라면 세 가지만</b>
+    <ol><li>위 기호의 <b>이름</b>을 친다(예: 무성 양순 파열음). 다 맞으면 저절로 넘어간다.</li>
+    <li>모르면 기호 옆 <b>작은 지도</b>를 눌러 큰 표에서 찾는다.</li>
+    <li>틀리면 정답이 뜬다. <b>그대로 따라 치면</b> 넘어간다.</li></ol>
+    <button type="button" class="btn ipa-guide-ok">알겠다고양</button></div>`;
+  const hold = setInterval(() => { if (state.session === s && !s.answered) s.cardStart += 250; }, 250);
+  const close = () => { clearInterval(hold); ov.remove(); document.removeEventListener('keydown', key, true); try { localStorage.setItem(IPA_GUIDE_KEY, '1'); } catch (e) {} if (typeof focusAnswerInput === 'function') focusAnswerInput(); };
+  const key = e => { if (e.key === 'Enter' || e.key === 'Escape' || e.key === ' ') { e.preventDefault(); e.stopPropagation(); close(); } };
+  ov.addEventListener('click', e => { if (e.target === ov || e.target.closest('.ipa-guide-ok')) close(); });
+  document.addEventListener('keydown', key, true);
+  document.body.appendChild(ov);
+}
+document.addEventListener('ipa:aftercard', e => { const w = e.detail; if (w && w.names && !w.learn) setTimeout(ipaGuideOnce, 0); });
+// 처음 화면 위쪽에 늘 시작 단추: 진도가 없으면 '1강 시작', 있으면 틀의 '이어 하기'를 위로 올린다
+function ipaHomeTop() {
+    try {
+      const rb = document.getElementById('resumeBtn'), row = document.querySelector('#homeScreen .catrow');
+      if (rb && row && rb.previousElementSibling !== row) row.after(rb);
+      if (rb && rb.hidden && state.lessons && state.lessons.length) {
+        rb.hidden = false; rb.classList.add('ipa-start');
+        rb.querySelector('.resume-heading > span').textContent = '▶ 1강 시작';
+        const sub = document.getElementById('resumeSub'); if (sub) sub.textContent = `${state.lessons[0].id} · ${(state.lessons[0].exercises[0] || {}).title || ''}`;
+        rb.onclick = () => { state.li = 0; openLesson(0); startExercise(0); };
+      } else if (rb) { rb.classList.remove('ipa-start'); rb.querySelector('.resume-heading > span').textContent = '▶ 이어 하기'; }
+    } catch (e) {}
+}
+document.addEventListener('DOMContentLoaded', () => {
+  if (typeof renderHome !== 'function') return;
+  const ipaOrigRenderHome = renderHome;
+  renderHome = function () { const r = ipaOrigRenderHome.apply(this, arguments); ipaHomeTop(); return r; };
+  setTimeout(ipaHomeTop, 0);
+});
+// 카드를 그린 뒤 알림(오답 카드의 내 답 줄·처음 안내가 이것을 듣는다)
+if (typeof ipaAfterCard === 'function') {
+  const ipaOrigAfterCard = ipaAfterCard;
+  ipaAfterCard = function (w, noAuto) { const r = ipaOrigAfterCard(w, noAuto); try { document.dispatchEvent(new CustomEvent('ipa:aftercard', {detail: w})); } catch (e) {} return r; };
+}
