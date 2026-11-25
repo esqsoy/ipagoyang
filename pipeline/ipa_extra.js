@@ -734,3 +734,23 @@ if (typeof ipaAfterCard === 'function') {
   const ipaOrigAfterCard = ipaAfterCard;
   ipaAfterCard = function (w, noAuto) { const r = ipaOrigAfterCard(w, noAuto); try { document.dispatchEvent(new CustomEvent('ipa:aftercard', {detail: w})); } catch (e) {} return r; };
 }
+// 연습 기록은 제목으로 저장된다(틀 getRec(강, 제목)). 26.11.25에 '듣고 고르기' → '듣고 이름 대기', 긴 판을 '… 1/2'처럼 나눴으므로
+// 옛 제목으로 끝낸 기록을 새 판들에 옮긴다(옛 판 하나를 끝냈다 = 지금 그 판들을 다 끝냈다). 이미 하던 진도는 빼앗지 않는다.
+// 다른 기기에서 옛 기록을 옮겨 와도 열 때마다 다시 맞춘다
+function ipaMigrateTitles() {
+  if (typeof state === 'undefined' || !state.progress || !state.lessons) return false;
+  let changed = false;
+  for (const L of state.lessons) {
+    const rec = state.progress[L.id]; if (!rec) continue;
+    const titles = (L.exercises || []).map(e => e.title);
+    for (const [old, now] of [['듣고 고르기', '듣고 이름 대기'], ['전사 빈칸', '전사 빈칸']]) {
+      if (!rec[old] || !rec[old].completed) continue;
+      for (const t of titles) if (t !== old && t.startsWith(now) && !rec[t]) { rec[t] = {...rec[old]}; changed = true; }
+    }
+  }
+  if (changed) { try { saveProgress(); } catch (e) {} }
+  return changed;
+}
+document.addEventListener('DOMContentLoaded', () => setTimeout(() => {
+  if (ipaMigrateTitles() && document.getElementById('homeScreen')?.classList.contains('active') && typeof renderHome === 'function') renderHome();
+}, 0));
