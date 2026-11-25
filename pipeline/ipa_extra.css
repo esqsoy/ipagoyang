@@ -233,3 +233,29 @@ html[data-pal="chalk"]{--panel-rgb:18,37,28;--bg1-rgb:14,28,22;--bg1:#0e1c16;--b
 /* 좁은 화면: 열 머리 영어는 쪼개져 읽기 어려워 숨기고 표 밑 한 줄(번호 · 영어)로 */
 .ipa-zoom-cols{display:none}
 @media (max-width:640px){.ipa-zoom-grid .ipa-col .en{display:none}.ipa-zoom-cols{display:block}}
+/* 모음 지도(PRINCIPLES 8-11) */
+.ipa-vwrap{margin:12px 0 4px}
+.ipa-vwrap h3{font-size:.95rem;margin:0 0 6px}
+.ipa-vcols{position:relative;height:2.7rem;margin-left:3.4rem;font-size:.7rem}
+.ipa-vcols .ipa-vh{position:absolute;bottom:2px;transform:translateX(-50%);align-items:center;text-align:center}
+.ipa-vbody{display:grid;grid-template-columns:3.4rem 1fr;align-items:stretch}
+.ipa-vrows{position:relative;font-size:.68rem}
+.ipa-vrows .ipa-vh{position:absolute;left:0;transform:translateY(-50%)}
+.ipa-vh{display:flex;flex-direction:column;line-height:1.15;cursor:pointer;white-space:nowrap}
+.ipa-vh .en{font-size:.55rem;color:var(--muted)}
+.ipa-vmap{width:100%;height:auto;display:block}
+.ipa-vmap .ipa-vl{stroke:var(--line);stroke-width:1.2}
+.ipa-vmap .ipa-vdot{fill:var(--muted)}
+.ipa-vmap .ipa-vs text{font-family:"Balum IPA",serif;font-size:15px;fill:var(--muted)}
+.ipa-vmap .ipa-vs.on text{fill:var(--gold);font-weight:700}
+.ipa-vmap .ipa-vs.cur text{fill:var(--cyan)}
+.ipa-vmap .ipa-vs.hit text{fill:var(--gold);text-decoration:underline}
+.ipa-vmap .ipa-vhit{fill:transparent;cursor:pointer}
+.ipa-vmap .ipa-vko{font-size:13px;fill:var(--gold);opacity:.55}
+.ipa-vmap.sm .ipa-vl{stroke-width:2}
+.ipa-vmap .ipa-vm.cur{fill:var(--cyan);opacity:.55;animation:ipaBlink 1.2s steps(2) infinite}
+.ipa-vmap .ipa-vm.hit{fill:var(--gold)}
+.ipa-vmap .ipa-vm.on{fill:var(--gold);opacity:.6}
+.ipa-vmini{display:block;width:84px;padding:3px;border:1px solid var(--line);border-radius:8px;cursor:pointer}
+.ipa-vnote{display:block;color:var(--muted);font-size:.72rem;margin-top:4px}
+.ipa-lips{width:70px;height:50px}

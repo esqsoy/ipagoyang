@@ -213,7 +213,8 @@ def build(inline=False):
             used_audio |= {wd['audio'], *wd.get('audio_more', [])}
             examples.setdefault(wd['target'], []).append({'lang': langs[wd['lang']]['ko'], 'text': wd['text'], 'a': a, 't': t, 'b': z, 'audio': wd['audio'], 'wid': wd['id'], 'lid': wd['lang'], 'ko': wd['ko'], 'o': lang_order.index(wd['lang'])})
         # IPA 지도에서 켜는 칸: 표에 칸이 있는 기호만(pʰ·p͈는 p 칸의 부호라 따로 켜지 않는다)
-        bundles_lit.append({'lesson': L, 'id': b['id'], 'lit': b['lit']})
+        # 모음 묶음(PRINCIPLES 8-11)은 작은 지도·큰 표·처음 화면에서 모음 사다리꼴을 쓴다
+        bundles_lit.append({'lesson': L, 'id': b['id'], 'lit': b['lit'], 'vowel': any(sy['symbols'][k].get('height') for k in b['learn'])})
 
     for k in examples:
         examples[k].sort(key=lambda e: e['o'])

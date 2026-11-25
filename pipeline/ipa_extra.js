@@ -754,3 +754,115 @@ function ipaMigrateTitles() {
 document.addEventListener('DOMContentLoaded', () => setTimeout(() => {
   if (ipaMigrateTitles() && document.getElementById('homeScreen')?.classList.contains('active') && typeof renderHome === 'function') renderHome();
 }, 0));
+
+/* ---------- 모음(PRINCIPLES 8-11, 26.11.25) ----------
+   IPA 모음 사다리꼴. 높이 줄: 0 고 · 1 근고 · 2 중고 · 3 중 · 4 중저 · 5 근저 · 6 저. 앞뒤: f 전설 · nf 근전설 · c 중설 · nb 근후설 · b 후설.
+   점 왼쪽이 평순, 오른쪽이 원순(IPA 표·한국어판 그대로). 자음 화면은 건드리지 않고 모음 기호일 때만 다르게 그린다 */
+const IPA_VOWELS = [
+  ['i', 0, 'f', 0], ['y', 0, 'f', 1], ['ɨ', 0, 'c', 0], ['ʉ', 0, 'c', 1], ['ɯ', 0, 'b', 0], ['u', 0, 'b', 1],
+  ['ɪ', 1, 'nf', 0], ['ʏ', 1, 'nf', 1], ['ʊ', 1, 'nb', 1],
+  ['e', 2, 'f', 0], ['ø', 2, 'f', 1], ['ɘ', 2, 'c', 0], ['ɵ', 2, 'c', 1], ['ɤ', 2, 'b', 0], ['o', 2, 'b', 1],
+  ['ə', 3, 'c', -1],
+  ['ɛ', 4, 'f', 0], ['œ', 4, 'f', 1], ['ɜ', 4, 'c', 0], ['ɞ', 4, 'c', 1], ['ʌ', 4, 'b', 0], ['ɔ', 4, 'b', 1],
+  ['æ', 5, 'f', 0], ['ɐ', 5, 'c', -1],
+  ['a', 6, 'f', 0], ['ɶ', 6, 'f', 1], ['ɑ', 6, 'b', 0], ['ɒ', 6, 'b', 1]];
+const IPA_VSET = new Set(IPA_VOWELS.map(v => v[0]));
+// 한국어 기준점: '이 게임이 그 모음을 적는 기호의 자리'(실제 소리의 자리라고 하지 않는다, 8-11)
+const IPA_VKO = {i: 'ㅣ', 'ɯ': 'ㅡ', u: 'ㅜ'};
+function ipaIsVowel(sym) { return IPA_VSET.has(ipaBase(sym)) && !!(IPA.symbols[sym] || {}).height || IPA_VSET.has(sym); }
+function ipaVx(r, b) {
+  const f = r * .25, c = 1.5 + r * .125, back = 3;
+  return {f, c, b: back, nf: f + (c - f) * .35, nb: back - (back - c) * .35}[b];
+}
+const IPA_VG = {W: 100, H: 22, P: 26};
+function ipaVowelSvg(o = {}) {
+  const {W, H} = IPA_VG, P = o.small ? 6 : IPA_VG.P, X = x => P + x * W, Y = r => P + r * H;
+  const lit = o.lit || new Set(), cur = o.cur || new Set(), hit = o.hit || '', small = !!o.small;
+  let s = '';
+  const ln = (x1, y1, x2, y2) => `<line x1="${X(x1)}" y1="${Y(y1)}" x2="${X(x2)}" y2="${Y(y2)}" class="ipa-vl"/>`;
+  s += ln(0, 0, 3, 0) + ln(ipaVx(2, 'f'), 2, 3, 2) + ln(ipaVx(4, 'f'), 4, 3, 4) + ln(ipaVx(6, 'f'), 6, 3, 6);
+  s += ln(0, 0, ipaVx(6, 'f'), 6) + ln(1.5, 0, ipaVx(6, 'c'), 6) + ln(3, 0, 3, 6);
+  const off = small ? 9 : 14;
+  for (const [v, r, b, rd] of IPA_VOWELS) {
+    const cx = X(ipaVx(r, b)), cy = Y(r), on = lit.has(v), cu = cur.has(v), h = v === hit;
+    if (rd !== -1 && !(rd === 1 && IPA_VOWELS.some(z => z[1] === r && z[2] === b && z[3] === 0)) && !(b === 'nf' || b === 'nb')) s += '';
+    const tx = rd === -1 ? cx : rd === 0 ? cx - off : cx + off;
+    if (rd !== -1 && (b !== 'nf' && b !== 'nb')) s += `<circle cx="${cx}" cy="${cy}" r="${small ? 1.6 : 2.4}" class="ipa-vdot"/>`;
+    if (small) { if (on || cu || h) s += `<circle cx="${tx}" cy="${cy}" r="${h ? 6 : 4.5}" class="ipa-vm${h ? ' hit' : cu ? ' cur' : ' on'}"/>`; continue; }
+    const cls = `ipa-vs${on ? ' on' : ''}${cu ? ' cur' : ''}${h ? ' hit' : ''}`;
+    const show = o.all || on || cu;
+    s += `<g class="${cls}" data-s="${ipaEsc(v)}" role="button" tabindex="0" aria-label="${ipaEsc(show ? v : '잠긴 칸')}"><circle cx="${tx}" cy="${cy}" r="11" class="ipa-vhit"/><text x="${tx}" y="${cy + 5}" text-anchor="middle">${ipaEsc(show ? v : '·')}</text></g>`;
+    if (!small && IPA_VKO[v] && o.ko !== false) s += `<text x="${tx}" y="${cy - 12}" text-anchor="middle" class="ipa-vko">${IPA_VKO[v]}</text>`;
+  }
+  const w = P * 2 + 3 * W, hgt = P * 2 + 6 * H;
+  return `<svg class="ipa-vmap${small ? ' sm' : ''}" viewBox="0 0 ${w} ${hgt}" role="img" aria-label="IPA 모음 사다리꼴">${s}</svg>`;
+}
+function ipaVowelHeads() {
+  // 머리 칸을 사다리꼴 선의 실제 자리에 맞춘다(그림 크기에 따라 %로)
+  const {W, H, P} = IPA_VG, tw = 2 * P + 3 * W, th6 = 2 * P + 6 * H;
+  const colPos = [P, P + 1.5 * W, P + 3 * W].map(x => x / tw * 100), rowPos = [0, 2, 4, 6].map(r => (P + r * H) / th6 * 100);
+  const th = (k, style) => { const t = ipaT(k); return `<span class="ipa-vh" style="${style}" data-term="${ipaEsc(k)}">${ipaHeadText(t, t.short || t.ko.replace(/ ?모음$/, ''))}<small class="h">${ipaHanjaHtml(t.short_hanja || t.hanja || '')}</small><small class="en">${ipaEsc(t.en || '')}</small></span>`; };
+  return {cols: ['전설 모음', '중설 모음', '후설 모음'].map((k, i) => th(k, `left:${colPos[i].toFixed(1)}%`)).join(''), rows: ['고모음', '중고모음', '중저모음', '저모음'].map((k, i) => th(k, `top:${rowPos[i].toFixed(1)}%`)).join('')};
+}
+function ipaVowelPanel(set, current, all) {
+  const h = ipaVowelHeads();
+  return `<div class="ipa-vwrap"><h3>모음 지도</h3><div class="ipa-vcols">${h.cols}</div><div class="ipa-vbody"><div class="ipa-vrows">${h.rows}</div>${ipaVowelSvg({lit: set, cur: current, all})}</div>
+    <small class="ipa-vnote">점 왼쪽 평순, 오른쪽 원순. 옅은 한글은 이 게임이 한국어 ㅣ·ㅡ·ㅜ를 적는 기호의 자리(실제 소리의 자리를 잰 것은 아니다).</small></div>`;
+}
+// 그림: 혀 옆모습(모음은 자리 점·바람 없이), 입술 앞모습(Claude 모식도: 편·둥글게 내민·위아래로 좁힌)
+function ipaLips(kind) {
+  const k = kind || 'spread';
+  const shape = {spread: 'M8,25 Q35,13 62,25 Q35,37 8,25 Z', rounded: 'M22,25 Q35,8 48,25 Q35,42 22,25 Z', compressed: 'M14,25 Q35,19 56,25 Q35,31 14,25 Z'}[k] || '';
+  const hole = {spread: 'M16,25 Q35,21 54,25 Q35,29 16,25 Z', rounded: 'M29,25 Q35,17 41,25 Q35,33 29,25 Z', compressed: 'M22,25 Q35,24 48,25 Q35,26 22,25 Z'}[k] || '';
+  const label = {spread: '편 입술', rounded: '둥글게 내민 입술', compressed: '위아래로 좁힌 입술'}[k];
+  return `<svg class="ipa-lips" viewBox="0 0 70 50" role="img" aria-label="입술 앞모습(모식도): ${label}"><rect x="1" y="1" width="68" height="48" rx="8" fill="var(--ipa-cav)" stroke="var(--line)"/><path d="${shape}" fill="var(--ipa-tongue)"/><path d="${hole}" fill="#0b0b16"/></svg>`;
+}
+function ipaLipsKind(s) { return s.lips_front || (s.rounded ? 'rounded' : 'spread'); }
+const IPA_LIPS_KO = {spread: '편 입술', rounded: '둥글게 내민 입술', compressed: '위아래로 좁힌 입술'};
+{
+  const origSag = ipaSagOpts;
+  ipaSagOpts = function (s) { return s && s.height ? {shape: s.sagittal || 'neutral', place: null, near: false, voiced: true, puff: false} : origSag(s); };
+  const origMini = ipaLearnMini;
+  ipaLearnMini = function (sym) {
+    const s = IPA.symbols[sym]; if (!s || !s.height) return origMini(sym);
+    const note = s.sagittal === 'v_barred_i' ? ' · 혀는 [i]와 [u] 사이로 그린 것' : '';
+    return `<div class="ipa-lmini"><div class="ipa-pair"><div>${ipaSagittal(ipaSagOpts(s))}<i>혀 옆모습${note}</i></div><div>${ipaLips(ipaLipsKind(s))}<i>입술 앞모습(모식도): ${ipaEsc(IPA_LIPS_KO[ipaLipsKind(s)] || '')}</i></div></div><p>${ipaEsc(s.how)}</p></div>`;
+  };
+  const origMiniMap = ipaMiniMap;
+  ipaMiniMap = function (w, hit) {
+    const bd = (IPA.bundles || []).find(b => b.lesson === w.b);
+    if (!bd || !bd.vowel) return origMiniMap(w, hit);
+    return `<div class="ipa-mini ipa-vmini" role="button" tabindex="0" data-zoom="${w.b}" data-hit="${ipaEsc(hit || '')}" aria-label="IPA 모음표 크게 보기">${ipaVowelSvg({small: true, cur: new Set(bd.lit), hit: hit || ''})}</div>`;
+  };
+  const origZoom = ipaZoomOpen;
+  ipaZoomOpen = function (lesson, hit) {
+    const bd = (IPA.bundles || []).find(b => b.lesson === +lesson);
+    if (!bd || !bd.vowel) return origZoom(lesson, hit);
+    const {set} = ipaLearned();
+    const ov = document.createElement('div');
+    ov.className = 'ipa-zoom'; ov.setAttribute('role', 'dialog'); ov.setAttribute('aria-label', 'IPA 모음표');
+    const h = ipaVowelHeads();
+    ov.innerHTML = `<div class="ipa-zoom-in"><div class="ipa-zoom-h"><b>IPA 모음표</b><button type="button" class="ipa-zoom-x" aria-label="닫기">✕</button></div>
+      <div class="ipa-vwrap"><div class="ipa-vcols">${h.cols}</div><div class="ipa-vbody"><div class="ipa-vrows">${h.rows}</div>${ipaVowelSvg({lit: set, cur: new Set(bd.lit), hit: hit || '', all: true})}</div></div>
+      <p class="ipa-zoom-k"><span class="on">배운 칸</span><span class="cur">이번 강</span>${hit ? '<span class="hit">맞힌 답</span>' : ''} · 가로는 혀의 높은 곳이 앞(전설)에서 뒤(후설)로, 세로는 혀 높이(고모음에서 저모음). 점 왼쪽이 평순, 오른쪽이 원순. 옅은 한글은 이 게임이 한국어 모음을 적는 기호의 자리. 국제음성학회 IPA 표(2020, CC BY-SA 4.0), 한국어 이름은 IPA 표 한국어판</p>
+      <p class="ipa-zoom-k ipa-zoom-gl">영어 이름은 [높이] [앞뒤] [입술] 차례: close · close-mid · open-mid · open / front · central · back / unrounded · rounded + vowel(예: close front unrounded vowel)</p></div>`;
+    const ss = (typeof state !== 'undefined') ? state.session : null;
+    const hold = ss && !ss.answered ? setInterval(() => { if (state.session === ss && !ss.answered) ss.cardStart += 250; }, 250) : 0;
+    const close = () => { clearInterval(hold); ov.remove(); document.removeEventListener('keydown', esc, true); if (typeof focusAnswerInput === 'function') focusAnswerInput(); };
+    const esc = e => { if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); close(); } };
+    ov.addEventListener('click', e => { if (e.target === ov || e.target.closest('.ipa-zoom-x')) close(); });
+    document.addEventListener('keydown', esc, true);
+    document.body.appendChild(ov);
+    ov.querySelectorAll('.ipa-vs').forEach(g => { const sy = IPA.symbols[g.dataset.s]; if (sy && sy.sound && ipaHasAudio(sy.sound)) g.onclick = () => ipaPlay(sy.sound); });
+  };
+  const origRender = ipaRenderMap;
+  ipaRenderMap = function () {
+    origRender();
+    const el = document.getElementById('ipaMap'); if (!el || !(IPA.bundles || []).some(b => b.vowel)) return;
+    const {set, current} = ipaLearned();
+    const wrap = el.querySelector('.ipa-map-wrap'); if (!wrap) return;
+    wrap.insertAdjacentHTML('afterend', ipaVowelPanel(set, current));
+    el.querySelectorAll('.ipa-vs').forEach(g => { const pick = () => { ipaPick = g.dataset.s; ipaShowDex(); const sy = IPA.symbols[ipaPick]; if (sy && sy.sound && ipaHasAudio(sy.sound) && g.classList.contains('on')) ipaPlay(sy.sound); }; g.onclick = pick; g.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(); } }; });
+    el.querySelectorAll('.ipa-vwrap [data-term]').forEach(b => b.onclick = () => ipaShowTerm(b.dataset.term));
+  };
+}

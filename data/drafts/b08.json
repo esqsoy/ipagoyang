@@ -1,0 +1,896 @@
+{
+ "id": "b08",
+ "title": "고모음",
+ "symbols_title": "[i] [y] [ɨ] [ɯ] [u]",
+ "about": "묶음 8 원본 초안(PRINCIPLES 8-11: 고모음). 귀로 가르는 대립은 [ɯ]/[u](글/굴), [i]/[y]·[u]/[y](vie/vu/vous, 力/绿/路, Biene/Bühne). [ɯ]/[ɨ]는 11개 언어 어느 것도 음소로 가르지 않는 적기 관례라 이름 대기·전사 빈칸에서만 가르친다(글·梅·海 listen: false. 그래서 [ɯ]는 듣고 이름 대기 카드가 없다). 장모음은 가운데 칸에 ː까지 적고 판정은 기호로 한다(target은 기호, accept에 둘 다). 일본어 う는 가운데 칸 ɯ̟, target ɯ. 독일어 모음은 PHOIBLE 2398(Hall 2000)로 대조한다. 강세표는 여러 음절 낱말의 1차 강세 자리에만 쓴다(아랍어는 쓰지 않음). 8-7 예외(그 소리가 있는 언어는 다 넣는다의 예외): ① 한국어 [y]: 표준 발음법은 ㅟ를 단모음으로 내는 것이 원칙이지만 한국어 낱말 카드는 두지 않고 도감 설명에만 적는다(영신 26.11.25). ② 일본어 [u]: PHOIBLE 2196은 う를 음소 /u/로 두지만 이 게임은 변이음 ɯ로 적어([ɯ] 카드) [u] 카드가 없다. ③ 일본어 [ɨ]: 2196은 ɨ를 /i/의 변이음으로 적는데 환경을 알 수 없고, す·つ·ず의 모음은 Okada 1991(2196)이 ɯ̈, Wiktionary가 [ɨ]로 적어 바탕 기호가 갈린다. 6·7강 카드는 [ɯ] 그대로 두고 일본어 [ɨ] 카드는 만들지 않는다. ④ 아랍어 [ɨ]: 2157(레반트·쿠웨이트 화자)의 /i/·/ii̯/ 변이음 ɨ는 현대 표준 아랍어 근거가 없어 카드로 내지 않는다(/u/의 변이음 ʊ도 같다. [ʊ]는 8-1강). ⑤ 포르투갈어 [ɨ]: 기본 변종(브라질)에는 없고 유럽 포르투갈어 카드(pequeno)를 변이로 넣었다(2-2). 견주기 카드([ɪ ʊ ʏ]: sit·Mitte·Miete·pull·Mutter·Mütter)는 8-1강으로 넘겼다(b08-1-later.json). 낱말 id가 앞 강과 겹치는 것은 대상 기호를 붙여 따로 했다(es-tu-u, pt-vida-i, it-vino-i, de-buch-u, it-luna-u: 6강 pt-casa-z 선례).",
+ "learn": [
+  "i",
+  "y",
+  "ɨ",
+  "ɯ",
+  "u"
+ ],
+ "lit": [
+  "i",
+  "y",
+  "ɨ",
+  "ɯ",
+  "u"
+ ],
+ "keyboard": [
+  [
+   "i",
+   "y"
+  ],
+  [
+   "ɨ"
+  ],
+  [
+   "ɯ",
+   "u"
+  ]
+ ],
+ "shortcuts": {},
+ "compare": [],
+ "lines": {
+  "start": "혀는 높이, 입은 조금만 연다고양. 오늘은 '이·으·우' 동네라고양.",
+  "learn_done": "다섯 개 다 봤냐고양? 이제 혀랑 입술로 증명하라고양.",
+  "correct": [
+   "혀가 제 높이에 올라갔다고양.",
+   "앞뒤랑 입술까지 맞혔다고양. 모음 이름은 세 조각이라고양.",
+   "입술 모양을 놓치지 않았다고양. 제법이라고양."
+  ],
+  "wrong": [
+   "두 가지만 보라고양. 혀가 앞이냐 가운데냐 뒤냐, 입술이 둥그냐 펴졌냐.",
+   "다섯 개 다 고모음이라고양. 높이는 같고 앞뒤랑 입술만 다르다고양.",
+   "입술부터 보라고양. 둥글면 [y] 아니면 [u]라고양.",
+   "[y]는 혀는 [i], 입술은 [u]라고양. 섞어 놓은 소리라고양."
+  ],
+  "by_word": {
+   "ko-gil": "길·글·굴은 가운데 모음만 바뀐다고양. 이건 한국 귀가 잘한다고양.",
+   "ko-geul": "ㅡ는 [ɯ]로 적는다고양. 사전은 혀 가운데라 하고 엑스레이는 혀 뒤라 한다고양.",
+   "ko-gul": "글이랑 굴은 입술이 가장 다르다고양. 굴 먹을 땐 입이 둥글어진다고양.",
+   "en-see": "미국은 [si], 영국은 [siː]로 적는다고양. 이름은 같은 [i]라고양.",
+   "en-pool": "영어 [u]는 동네에 따라 혀가 앞으로 나온다고양. 그래서 [ʉ]로 적는 데도 있다고양.",
+   "es-si": "스페인어 홑모음은 다섯뿐이라고양. 높은 건 [i]랑 [u] 둘이라고양.",
+   "ja-ume": "う는 ㅡ랑 같은 기호지만 같은 소리는 아니라고양. 한글로는 '우'라고 적는다고양.",
+   "fr-vu": "vu는 혀는 '이', 입술은 '우'라고양. 끝까지 입술을 풀지 말라고양.",
+   "fr-vous": "프랑스어는 ou가 [u]고 u가 [y]라고양. 철자에 속지 말라고양.",
+   "pt-uva": "브라질에서는 끝의 o도 [u]로 낸다고양. tudo가 [ˈtudu]인 까닭이라고양.",
+   "pt-pequeno-pt": "포르투갈에서는 약한 e가 [ɨ]라고양. 책마다 기호가 갈리는 소리라고양.",
+   "zh-li": "병음 i가 다 [i]는 아니라고양. 四의 i는 6강에서 딴 소리였다고양.",
+   "zh-lv": "병음 ü의 점 두 개가 [y]라고양. 路랑 绿은 그 점 차이라고양.",
+   "ru-ty": "ы는 [ɨ]라고양. ㅡ랑 비슷하게 들려도 기호는 가운데 칸이라고양.",
+   "ru-byt": "быть랑 бить는 모음만 다른 게 아니라고양. 앞 자음도 굳고 여리다고양.",
+   "de-biene": "ː는 길다는 표시라고양. 길어도 이름은 [i] 그대로라고양.",
+   "de-buehne": "Biene랑 Bühne는 입술만 다르다고양. 벌이 무대에 오르면 입술이 둥글어진다고양."
+  },
+  "end": "사다리꼴 맨 윗줄이 켜졌다고양. 모음 지도는 이제 시작이라고양.",
+  "perfect": "다 맞혔다고양…! 혀가 올라간 만큼 콧대도 올라가겠다고양.",
+  "welcome": [
+   "모음은 혀 높이, 혀 앞뒤, 입술 세 가지로 이름을 짓는다고양.",
+   "오늘은 입을 조금만 여는 모음들이라고양. 이·으·우에 둘이 더 있다고양."
+  ],
+  "allDone": [
+   "고모음 다섯 칸 정복이라고양…! 아래 줄들이 기다린다고양. ㅎㅎ"
+  ]
+ },
+ "feel": [
+  {
+   "for": [
+    "i",
+    "y"
+   ],
+   "text": "'이—'를 길게 내면서 혀는 그대로 두고 입술만 '우'처럼 둥글게 오므린다. 소리가 [y]로 바뀐다. 오므리는 동안 혀가 뒤로 물러나면 '우'가 되고, 끝에 입술을 풀면 '위'가 되어 버린다. 끝까지 혀와 입술을 그대로 둔다."
+  },
+  {
+   "for": [
+    "u",
+    "y"
+   ],
+   "text": "거꾸로도 해 본다. '우—'에서 입술은 둥근 채로 두고 혀만 '이' 자리로 내민다. [u]에서 [y]로 가는 다른 길이다."
+  },
+  {
+   "for": [
+    "ɯ",
+    "u"
+   ],
+   "text": "거울을 보며 '으—우—으—우'를 번갈아 낸다. 가장 크게 움직이는 것은 입술이다. '우'에서 둥글게 모이고 '으'에서 펴진다."
+  },
+  {
+   "for": [
+    "i",
+    "ɨ",
+    "ɯ"
+   ],
+   "text": "'이—으'를 천천히 이어 내면 혀의 높은 곳이 앞에서 뒤로 옮겨 간다. [ɨ]는 이름으로는 그 길의 가운데다. 다만 한국어 ㅡ와 러시아어 ы를 귀로 가르는 연습은 하지 않는다. 두 소리를 서로 다른 음소로 가르는 언어가 이 게임의 11개 언어에 없기 때문이다."
+  }
+ ],
+ "absent": {
+  "2197": [
+   "y",
+   "ɨ"
+  ],
+  "2207": [
+   "ɨ"
+  ]
+ },
+ "absent_about": "한국어 2197(Lee 1993을 옮긴 목록)에 /y/·/ɨ/가 없어야 도감의 '한국어 음운 자료(PHOIBLE 2197)에는 없다'가 맞다. 단 [y]는 '한국어에 없다'고 쓰지 않는다: 한국어 ㅟ는 표준 발음법 제4항에서 단모음으로 발음하는 것이 원칙이고(이중 모음 허용) 표준국어대사전 '단모음' 풀이도 ㅟ를 단모음에 넣는다. PHOIBLE의 다른 한국어 목록 1·423에는 /y/가 있고, 2197에서 ㅟ는 이중모음 줄 ui다. 실제로 단모음으로 내는 화자는 소수다(국립국어연구원 해설 2003). 브라질 포르투갈어 2207에 ɨ가 없어야 pequeno 카드의 '유럽 발음'이 맞다. 한국어 목록 2287에는 이중모음 줄 ɨi가 있어 넣지 않았다(1·423에는 ɨ 없음).",
+ "audio_plan": "녹음은 아직 붙이지 않았다(audio 칸 빔, 다른 팀원이 찾는다). 기준은 PRINCIPLES 8-10. 굴은 조개 뜻이 적힌 녹음만(동굴은 [ku(ː)ɭ]). pequeno는 포르투갈 화자의, [ɨ]가 들리는 녹음만. 글·梅·海는 녹음이 있어도 듣고 이름 대기에 내지 않는다.",
+ "words": [
+  {
+   "id": "ko-gil",
+   "lang": "kor",
+   "text": "길",
+   "roman": "gil",
+   "ko": "길(도로)",
+   "ipa": [
+    "k",
+    "i",
+    "l"
+   ],
+   "target": "i",
+   "phoible": {
+    "inv": 2197,
+    "seg": "i"
+   },
+   "note": "길·글·굴은 가운데 모음만 다르다([i]·[ɯ]·[u]).",
+   "status": "확인",
+   "status_why": "PHOIBLE 2197 /i/, Wiktionary [kiɭ](받침 ㄹ은 4강 관례대로 l)",
+   "audio": ""
+  },
+  {
+   "id": "ko-geul",
+   "lang": "kor",
+   "text": "글",
+   "roman": "geul",
+   "ko": "글",
+   "ipa": [
+    "k",
+    "ɯ",
+    "l"
+   ],
+   "target": "ɯ",
+   "phoible": {
+    "inv": 2197,
+    "seg": "ɯ"
+   },
+   "note": "ㅡ. 굴 [kul]과는 입술 모양이 가장 크게 다르다. 이 게임은 [ɯ]로 적고, [ɨ]로 적는 문헌도 있다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2197 /ɯ/, Wiktionary [kɯɭ], 국립국어연구원 해설(김선철 2003) 표의 후설 비원순 고. 표준국어대사전은 ㅡ를 중설 모음 보기로 든다(8-11). 좁게 들으면 [ɯ]·[ɨ] 답이 둘이라 듣고 이름 대기에서 뺌(2-4)",
+   "listen": false,
+   "audio": ""
+  },
+  {
+   "id": "ko-gul",
+   "lang": "kor",
+   "text": "굴",
+   "roman": "gul",
+   "ko": "굴(조개)",
+   "ipa": [
+    "k",
+    "u",
+    "l"
+   ],
+   "target": "u",
+   "phoible": {
+    "inv": 2197,
+    "seg": "u"
+   },
+   "note": "입술을 둥글게 오므린다. 글 [kɯl]과는 입술 모양이 가장 크게 다르다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2197 /u/, Wiktionary [kuɭ](어원 2 굴=조개. 굴=동굴은 [ku(ː)ɭ]이라 녹음은 뜻이 적힌 것만 쓸 것)",
+   "audio": ""
+  },
+  {
+   "id": "en-see",
+   "lang": "eng",
+   "text": "see",
+   "roman": "see",
+   "ko": "보다",
+   "ipa": [
+    "s",
+    "i",
+    ""
+   ],
+   "target": "i",
+   "accept": [
+    "i",
+    "iː"
+   ],
+   "phoible": {
+    "inv": 2176,
+    "seg": "i"
+   },
+   "note": "미국 영어는 길이표 없이 [si]로, 영국 발음은 [siː]로 적는다. 기호 이름은 같다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2176 /i/, Wiktionary (General American) /si/, (Received Pronunciation) /siː/",
+   "audio": ""
+  },
+  {
+   "id": "en-pool",
+   "lang": "eng",
+   "text": "pool",
+   "roman": "pool",
+   "ko": "수영장·웅덩이",
+   "ipa": [
+    "pʰ",
+    "u",
+    "l"
+   ],
+   "target": "u",
+   "accept": [
+    "u",
+    "uː"
+   ],
+   "phoible": {
+    "inv": 2176,
+    "seg": "u"
+   },
+   "note": "영어 [u]는 지역에 따라 혀가 앞으로 나와 [ʉ]로도 적는다. 첫소리 p는 바람이 섞인 [pʰ]다(1강).",
+   "status": "확인",
+   "status_why": "PHOIBLE 2176 /u/, Wiktionary (US, Canada) /pul/. 첫소리는 Wiktionary 음소 표기 /p/를 1강 관례(en-pin [pʰɪn])대로 pʰ로 적음: 지난 초안은 p였다(외솔 C-14, 파시·이언 확인 바람)",
+   "audio": ""
+  },
+  {
+   "id": "es-si",
+   "lang": "spa",
+   "text": "sí",
+   "roman": "sí",
+   "ko": "네(yes)",
+   "ipa": [
+    "s",
+    "i",
+    ""
+   ],
+   "target": "i",
+   "phoible": {
+    "inv": 2210,
+    "seg": "i"
+   },
+   "note": "스페인어 홑모음은 a·e·i·o·u 다섯이다. 그 가운데 고모음이 [i]와 [u]다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2210 /i/(카스티야 목록. 중남미 목록은 PHOIBLE에 없음), Wiktionary /ˈsi/. 한 음절이라 강세표를 뗌(8-11, 외솔 C-01)",
+   "audio": ""
+  },
+  {
+   "id": "es-tu-u",
+   "lang": "spa",
+   "text": "tú",
+   "roman": "tú",
+   "ko": "너",
+   "ipa": [
+    "t",
+    "u",
+    ""
+   ],
+   "target": "u",
+   "phoible": {
+    "inv": 2210,
+    "seg": "u"
+   },
+   "note": "2강에서는 첫소리 [t]를 들었다. 이번에는 모음 [u]다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2210 /u/, Wiktionary /ˈtu/ [ˈt̪u]. 한 음절이라 강세표를 뗌(2강 es-tu [tu]와 같게). id는 2강 es-tu와 겹치지 않게 -u를 붙임",
+   "audio": ""
+  },
+  {
+   "id": "ja-i",
+   "lang": "jpn",
+   "text": "胃",
+   "roman": "i",
+   "ko": "위(밥통)",
+   "ipa": [
+    "",
+    "i",
+    ""
+   ],
+   "target": "i",
+   "phoible": {
+    "inv": 2196,
+    "seg": "i"
+   },
+   "note": "い 한 글자, 모음 하나로 된 낱말이다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2196 /i/, Wiktionary [i]",
+   "audio": ""
+  },
+  {
+   "id": "ja-ume",
+   "lang": "jpn",
+   "text": "梅",
+   "roman": "ume",
+   "ko": "매실·매화",
+   "ipa": [
+    "",
+    "ɯ̟",
+    "me"
+   ],
+   "target": "ɯ",
+   "accept": [
+    "ɯ",
+    "ɯ̟"
+   ],
+   "phoible": {
+    "inv": 2196,
+    "seg": "u",
+    "allo": "ɯ"
+   },
+   "note": "한국어 ㅡ와 같은 기호로 적지만 같은 소리는 아니다. 입술을 내밀지 않고 위아래로 좁힌다고 적는 문헌이 있고, 외래어 표기법은 う를 ‘우’로 적는다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2196 /u/의 변이음 ɯ, Wiktionary [ɯ̟me̞]. 가운데 칸 ɯ̟·target ɯ(8-11, 4강 лук 선례). 입술 압착 설명은 영어 위키백과가 옮긴 Okada 1999·Vance 2008로만 확인(1차 미열람). 좁게 들으면 답이 둘이라 듣고 이름 대기에서 뺌",
+   "listen": false,
+   "audio": ""
+  },
+  {
+   "id": "ja-umi",
+   "lang": "jpn",
+   "text": "海",
+   "roman": "umi",
+   "ko": "바다",
+   "ipa": [
+    "",
+    "ɯ̟",
+    "mi"
+   ],
+   "target": "ɯ",
+   "accept": [
+    "ɯ",
+    "ɯ̟"
+   ],
+   "phoible": {
+    "inv": 2196,
+    "seg": "u",
+    "allo": "ɯ"
+   },
+   "note": "밑의 ̟ 표시는 혀가 조금 앞이라는 뜻이다. 기호 이름은 [ɯ]와 같다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2196 /u/의 변이음 ɯ, Wiktionary [ɯ̟mʲi](mʲ는 대상 밖이라 m으로 넓게 적음: 이름이 바뀌지 않는 부호). 듣고 이름 대기에서 뺌",
+   "listen": false,
+   "audio": ""
+  },
+  {
+   "id": "fr-vie",
+   "lang": "fra",
+   "text": "vie",
+   "roman": "vie",
+   "ko": "삶",
+   "ipa": [
+    "v",
+    "i",
+    ""
+   ],
+   "target": "i",
+   "phoible": {
+    "inv": 2182,
+    "seg": "i"
+   },
+   "note": "vie·vu·vous는 모음만 다르다([i]·[y]·[u]).",
+   "status": "확인",
+   "status_why": "PHOIBLE 2182 /i/, Wiktionary /vi/",
+   "audio": ""
+  },
+  {
+   "id": "fr-vu",
+   "lang": "fra",
+   "text": "vu",
+   "roman": "vu",
+   "ko": "본(voir의 과거분사)",
+   "ipa": [
+    "v",
+    "y",
+    ""
+   ],
+   "target": "y",
+   "phoible": {
+    "inv": 2182,
+    "seg": "y"
+   },
+   "note": "혀는 [i] 자리에 두고 입술만 [u]처럼 둥글게 한다. vie [vi]와는 입술이, vous [vu]와는 혀 자리가 다르다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2182 /y/, Wiktionary /vy/",
+   "audio": ""
+  },
+  {
+   "id": "fr-vous",
+   "lang": "fra",
+   "text": "vous",
+   "roman": "vous",
+   "ko": "당신(들)",
+   "ipa": [
+    "v",
+    "u",
+    ""
+   ],
+   "target": "u",
+   "phoible": {
+    "inv": 2182,
+    "seg": "u"
+   },
+   "note": "프랑스어 철자 ou는 [u], u는 [y]다(vu [vy]).",
+   "status": "확인",
+   "status_why": "PHOIBLE 2182 /u/, Wiktionary /vu/",
+   "audio": ""
+  },
+  {
+   "id": "pt-vida-i",
+   "lang": "por",
+   "text": "vida",
+   "roman": "vida",
+   "ko": "삶",
+   "ipa": [
+    "ˈv",
+    "i",
+    "dɐ"
+   ],
+   "target": "i",
+   "phoible": {
+    "inv": 2207,
+    "seg": "i"
+   },
+   "note": "5강에서는 첫소리 [v]를 들었다. 이번에는 모음 [i]다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2207 /i/, Wiktionary (Brazil) /ˈvi.dɐ/. id는 5강 pt-vida와 겹치지 않게 -i를 붙임",
+   "audio": ""
+  },
+  {
+   "id": "pt-uva",
+   "lang": "por",
+   "text": "uva",
+   "roman": "uva",
+   "ko": "포도",
+   "ipa": [
+    "ˈ",
+    "u",
+    "vɐ"
+   ],
+   "target": "u",
+   "phoible": {
+    "inv": 2207,
+    "seg": "u"
+   },
+   "note": "브라질 포르투갈어는 강세 없는 끝 o도 [u]로 낸다(tudo [ˈtudu], 2강).",
+   "status": "확인",
+   "status_why": "PHOIBLE 2207 /u/, Wiktionary (Brazil) /ˈu.vɐ/",
+   "audio": ""
+  },
+  {
+   "id": "pt-pequeno-pt",
+   "lang": "por",
+   "text": "pequeno",
+   "roman": "pequeno",
+   "ko": "작은",
+   "ipa": [
+    "p",
+    "ɨ",
+    "ˈkenu"
+   ],
+   "target": "ɨ",
+   "phoible": {
+    "inv": 2206,
+    "seg": "ɯ"
+   },
+   "note": "포르투갈(유럽) 발음이고, 브라질에서는 [piˈkẽnu]나 [peˈkẽnu]로 낸다. 이 약한 e를 음운 자료(PHOIBLE)의 리스본 목록은 [ɯ]로 적어 문헌마다 기호가 갈린다.",
+   "status": "확인 필요",
+   "status_why": "Wiktionary (Portugal) /pɨˈke.nu/, (Brazil) /piˈkẽ.nu/·/peˈkẽ.nu/. PHOIBLE 리스본 목록 2206은 이 모음을 /ɯ/(변이음 ɯ ɯ̥)로 적어 기호가 다르다(관례 차이). 기본 변종(브라질 2207)에는 없는 소리(2-2로 넣음). accept에서 ɯ를 뺌(외솔 C-02). 2206이 무성 변이음 ɯ̥를 적으므로 녹음은 [ɨ]가 들리는 것만(8-10), 아니면 listen: false",
+   "audio": ""
+  },
+  {
+   "id": "zh-li",
+   "lang": "cmn",
+   "text": "力",
+   "roman": "lì",
+   "ko": "힘",
+   "ipa": [
+    "l",
+    "i",
+    "˥˩"
+   ],
+   "target": "i",
+   "phoible": {
+    "inv": 1047,
+    "seg": "i"
+   },
+   "note": "力·路·绿은 모음만 다르다([i]·[u]·[y]). 병음 i가 늘 [i]는 아니다(四 [sɹ̩], 6강).",
+   "status": "확인",
+   "status_why": "PHOIBLE 1047 /i/, Wiktionary /li⁵¹/",
+   "audio": ""
+  },
+  {
+   "id": "zh-lu",
+   "lang": "cmn",
+   "text": "路",
+   "roman": "lù",
+   "ko": "길",
+   "ipa": [
+    "l",
+    "u",
+    "˥˩"
+   ],
+   "target": "u",
+   "phoible": {
+    "inv": 1047,
+    "seg": "u"
+   },
+   "note": "绿 [ly˥˩]와 모음만 다르다. 병음으로는 lù와 lǜ, 점 두 개 차이다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 1047 /u/, Wiktionary /lu⁵¹/",
+   "audio": ""
+  },
+  {
+   "id": "zh-lv",
+   "lang": "cmn",
+   "text": "绿",
+   "roman": "lǜ",
+   "ko": "초록",
+   "ipa": [
+    "l",
+    "y",
+    "˥˩"
+   ],
+   "target": "y",
+   "phoible": {
+    "inv": 1047,
+    "seg": "y"
+   },
+   "note": "병음 ü가 [y]다. 鱼 yú [y˧˥]처럼 점 없이 u로 쓰고 [y]로 내는 낱말도 있다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 1047 /y/, Wiktionary 綠 /ly⁵¹/(문어 독음 lù /lu⁵¹/는 고유명사). 鱼는 Wiktionary 魚 yú /y³⁵/(지난 초안 때 엶)",
+   "audio": ""
+  },
+  {
+   "id": "ru-mir",
+   "lang": "rus",
+   "text": "мир",
+   "roman": "mir",
+   "ko": "평화·세계",
+   "ipa": [
+    "mʲ",
+    "i",
+    "r"
+   ],
+   "target": "i",
+   "phoible": {
+    "inv": 2261,
+    "seg": "i"
+   },
+   "note": "러시아어 и [i] 앞의 자음은 여린(구개음화한) 자음이다. 굳은 자음 뒤에는 ы [ɨ]가 온다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2261 /i/, Wiktionary [mʲir]",
+   "audio": ""
+  },
+  {
+   "id": "ru-bit",
+   "lang": "rus",
+   "text": "бить",
+   "roman": "bit'",
+   "ko": "때리다",
+   "ipa": [
+    "bʲ",
+    "i",
+    "tʲ"
+   ],
+   "target": "i",
+   "phoible": {
+    "inv": 2261,
+    "seg": "i"
+   },
+   "note": "быть [bɨtʲ](있다)와 견준다. 모음만이 아니라 앞 자음도 다르다([bʲ]·[b]).",
+   "status": "확인",
+   "status_why": "PHOIBLE 2261 /i/, Wiktionary [bʲitʲ]",
+   "audio": ""
+  },
+  {
+   "id": "ru-byt",
+   "lang": "rus",
+   "text": "быть",
+   "roman": "byt'",
+   "ko": "있다·이다",
+   "ipa": [
+    "b",
+    "ɨ",
+    "tʲ"
+   ],
+   "target": "ɨ",
+   "phoible": {
+    "inv": 2261,
+    "seg": "ɨ"
+   },
+   "note": "бить [bʲitʲ](때리다)와 견준다. 앞 자음이 굳으면 [ɨ], 여리면 [i]다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2261 /ɨ/, Wiktionary [bɨtʲ](벨라루스·우크라이나 줄은 러시아어 절 안의 지역 발음, 외솔 C-09)",
+   "audio": ""
+  },
+  {
+   "id": "ru-ty",
+   "lang": "rus",
+   "text": "ты",
+   "roman": "ty",
+   "ko": "너",
+   "ipa": [
+    "t",
+    "ɨ",
+    ""
+   ],
+   "target": "ɨ",
+   "phoible": {
+    "inv": 2261,
+    "seg": "ɨ"
+   },
+   "note": "러시아어 ы는 [ɨ]로 적는다. 한국어 ㅡ [ɯ]와 비슷하게 들리지만 기호가 다르고, 이름으로는 혀 가운데(중설)와 혀 뒤(후설)의 차이다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2261 /ɨ/, Wiktionary [tɨ]",
+   "audio": ""
+  },
+  {
+   "id": "ru-my",
+   "lang": "rus",
+   "text": "мы",
+   "roman": "my",
+   "ko": "우리",
+   "ipa": [
+    "m",
+    "ɨ",
+    ""
+   ],
+   "target": "ɨ",
+   "phoible": {
+    "inv": 2261,
+    "seg": "ɨ"
+   },
+   "note": "мы·ты·сын 모두 굳은 자음 뒤의 ы다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2261 /ɨ/, Wiktionary [mɨ]",
+   "audio": ""
+  },
+  {
+   "id": "ru-syn",
+   "lang": "rus",
+   "text": "сын",
+   "roman": "syn",
+   "ko": "아들",
+   "ipa": [
+    "s",
+    "ɨ",
+    "n"
+   ],
+   "target": "ɨ",
+   "phoible": {
+    "inv": 2261,
+    "seg": "ɨ"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2261 /ɨ/, Wiktionary [sɨn]",
+   "audio": ""
+  },
+  {
+   "id": "ru-um",
+   "lang": "rus",
+   "text": "ум",
+   "roman": "um",
+   "ko": "지성·머리",
+   "ipa": [
+    "",
+    "u",
+    "m"
+   ],
+   "target": "u",
+   "phoible": {
+    "inv": 2261,
+    "seg": "u"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 2261 /u/, Wiktionary [um]",
+   "audio": ""
+  },
+  {
+   "id": "de-biene",
+   "lang": "deu",
+   "text": "Biene",
+   "roman": "Biene",
+   "ko": "벌",
+   "ipa": [
+    "ˈb",
+    "iː",
+    "nə"
+   ],
+   "target": "i",
+   "accept": [
+    "i",
+    "iː"
+   ],
+   "phoible": {
+    "inv": 2398,
+    "seg": "iː"
+   },
+   "note": "독일어 ie는 긴 [iː]다. 길이표 ː가 붙어도 기호 이름은 [i]와 같다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2398(Hall 2000) /iː/, Wiktionary /ˈbiːnə/. 2184(Kohler 1990)도 /iː/",
+   "audio": ""
+  },
+  {
+   "id": "de-buehne",
+   "lang": "deu",
+   "text": "Bühne",
+   "roman": "Bühne",
+   "ko": "무대",
+   "ipa": [
+    "ˈb",
+    "yː",
+    "nə"
+   ],
+   "target": "y",
+   "accept": [
+    "y",
+    "yː"
+   ],
+   "phoible": {
+    "inv": 2398,
+    "seg": "yː"
+   },
+   "note": "Biene [ˈbiːnə](벌)와 입술만 다르다. 독일어 ü가 이 소리이고 여기서는 길다([yː]).",
+   "status": "확인",
+   "status_why": "PHOIBLE 2398(Hall 2000) /yː/, Wiktionary /ˈbyːnə/. 2184(Kohler 1990)는 짧은 /y/와 긴 /ʏː/로 적어 어긋나므로 독일어 모음은 2398로 대조한다(8-11). 그래서 지난 초안의 확인 필요를 확인으로 바꿈",
+   "audio": ""
+  },
+  {
+   "id": "de-buch-u",
+   "lang": "deu",
+   "text": "Buch",
+   "roman": "Buch",
+   "ko": "책",
+   "ipa": [
+    "b",
+    "uː",
+    "x"
+   ],
+   "target": "u",
+   "accept": [
+    "u",
+    "uː"
+   ],
+   "phoible": {
+    "inv": 2398,
+    "seg": "uː"
+   },
+   "note": "독일어 긴 [uː]다. 5강에서는 끝소리 [x]를 들었다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2398(Hall 2000) /uː/, Wiktionary /buːx/. id는 5강 de-buch와 겹치지 않게 -u를 붙임",
+   "audio": ""
+  },
+  {
+   "id": "it-vino-i",
+   "lang": "ita",
+   "text": "vino",
+   "roman": "vino",
+   "ko": "포도주",
+   "ipa": [
+    "ˈv",
+    "i",
+    "no"
+   ],
+   "target": "i",
+   "phoible": {
+    "inv": 1145,
+    "seg": "i"
+   },
+   "note": "5강에서는 첫소리 [v]를 들었다. 이번에는 모음 [i]다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 1145 /i/, Wiktionary /ˈvi.no/. id는 5강 it-vino와 겹치지 않게 -i를 붙임",
+   "audio": ""
+  },
+  {
+   "id": "it-luna-u",
+   "lang": "ita",
+   "text": "luna",
+   "roman": "luna",
+   "ko": "달",
+   "ipa": [
+    "ˈl",
+    "u",
+    "na"
+   ],
+   "target": "u",
+   "phoible": {
+    "inv": 1145,
+    "seg": "u"
+   },
+   "note": "4강에서는 첫소리 [l]을 들었다. 이번에는 모음 [u]다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 1145 /u/, Wiktionary /ˈlu.na/. id는 4강 it-luna와 겹치지 않게 -u를 붙임",
+   "audio": ""
+  },
+  {
+   "id": "ar-bint",
+   "lang": "arb",
+   "text": "بنت",
+   "roman": "bint",
+   "ko": "딸·소녀",
+   "ipa": [
+    "b",
+    "i",
+    "nt"
+   ],
+   "target": "i",
+   "phoible": {
+    "inv": 2157,
+    "seg": "i"
+   },
+   "note": "음운 자료(PHOIBLE)의 아랍어 목록은 짧은 i가 [ɨ]로도 난다고 적는다. 문헌마다 다르다.",
+   "status": "확인 필요",
+   "status_why": "Wiktionary는 음소 표기 /bint/뿐이다. PHOIBLE 2157(레반트·쿠웨이트 화자)은 /i/의 변이음으로 ɨ·i를 적어, 짧은 i의 실제 소리가 [i]인지 정하지 못했다. 현대 표준 아랍어 목록이 PHOIBLE에 없다",
+   "audio": ""
+  },
+  {
+   "id": "ar-fil",
+   "lang": "arb",
+   "text": "فيل",
+   "roman": "fīl",
+   "ko": "코끼리",
+   "ipa": [
+    "f",
+    "iː",
+    "l"
+   ],
+   "target": "i",
+   "accept": [
+    "i",
+    "iː"
+   ],
+   "phoible": {
+    "inv": 2157,
+    "seg": "ii̯"
+   },
+   "note": "긴 [iː]다. 길이표 ː가 붙어도 기호 이름은 [i]와 같다.",
+   "status": "확인 필요",
+   "status_why": "Wiktionary /fiːl/. PHOIBLE 2157은 긴 i를 /iː/가 아니라 /ii̯/로 적는다(적기 차이로 봄, 외솔 C-11). 가운데 칸 iː는 1강 باب [baːb] 선례",
+   "audio": ""
+  },
+  {
+   "id": "ar-umm",
+   "lang": "arb",
+   "text": "أم",
+   "roman": "ʔumm",
+   "ko": "어머니",
+   "ipa": [
+    "ʔ",
+    "u",
+    "mm"
+   ],
+   "target": "u",
+   "phoible": {
+    "inv": 2157,
+    "seg": "u"
+   },
+   "note": "음운 자료(PHOIBLE)의 아랍어 목록은 짧은 u가 [ʊ]로도 난다고 적는다. 문헌마다 다르다.",
+   "status": "확인 필요",
+   "status_why": "Wiktionary는 음소 표기 /ʔumm/뿐이다. PHOIBLE 2157은 /u/의 변이음으로 ʊ·u를 적어, 짧은 u의 실제 소리가 [u]인지 정하지 못했다. 현대 표준 아랍어 목록이 PHOIBLE에 없다",
+   "audio": ""
+  },
+  {
+   "id": "ar-nur",
+   "lang": "arb",
+   "text": "نور",
+   "roman": "nūr",
+   "ko": "빛",
+   "ipa": [
+    "n",
+    "uː",
+    "r"
+   ],
+   "target": "u",
+   "accept": [
+    "u",
+    "uː"
+   ],
+   "phoible": {
+    "inv": 2157,
+    "seg": "uu̯"
+   },
+   "note": "긴 [uː]다. 같은 철자를 모음 부호에 따라 다른 낱말(nawr)로도 읽는다.",
+   "status": "확인 필요",
+   "status_why": "Wiktionary /nuːr/(같은 철자의 다른 낱말 /nawr/). PHOIBLE 2157은 긴 u를 /uu̯/로 적고, 그 줄의 변이음 칸이 \"ɣ uu̯\"라 원자료 오류로 보인다",
+   "audio": ""
+  }
+ ]
+}
