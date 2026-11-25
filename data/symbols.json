@@ -926,10 +926,6 @@
    "answers": [
     {
      "ko": "무성 경음 치경 마찰음",
-     "en": "voiceless tense (fortis) alveolar fricative"
-    },
-    {
-     "ko": "무성 경음 치경 마찰음",
      "en": "voiceless tense alveolar fricative"
     }
    ],
@@ -1463,7 +1459,7 @@
   }
  },
  "glottis": {
-  "open": "목청이 살짝 열려 있다가 터뜨리자마자 울린다",
+  "open": "닫는 동안은 울리지 않고, 터뜨리자마자 모음에서 울린다",
   "wide": "목청이 크게 열려 있어 터뜨린 뒤 바람이 먼저 나온다",
   "voiced": "목청이 붙어 떨린다(울림)",
   "tight": "목청을 꽉 조인다"

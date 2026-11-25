@@ -395,6 +395,12 @@
     "ɹ",
     "ɻ"
    ],
+   "accept_names": [
+    {
+     "ko": "유성 권설 접근음",
+     "en": "voiced retroflex approximant"
+    }
+   ],
    "phoible": {
     "inv": 1047,
     "seg": "ɹ"

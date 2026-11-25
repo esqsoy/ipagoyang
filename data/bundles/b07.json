@@ -209,7 +209,7 @@
     "en-jam-dvortygirl"
    ],
    "listen": false,
-   "note": "낱말 첫 j는 d처럼 흔히 덜 울린다. 그래서 듣고 고르기에는 내지 않는다(PRINCIPLES 2-4)."
+   "note": "낱말 첫 j는 d처럼 흔히 덜 울린다. 그래서 듣고 고르기에는 내지 않는다."
   },
   {
    "id": "es-chocolate",
@@ -220,7 +220,7 @@
    "ipa": [
     "",
     "tʃ",
-    "okolate"
+    "okoˈlate"
    ],
    "target": "tʃ",
    "phoible": {
@@ -263,7 +263,7 @@
    "roman": "tipo",
    "ko": "종류",
    "ipa": [
-    "",
+    "ˈ",
     "tʃ",
     "ipu"
    ],
@@ -405,7 +405,7 @@
    "roman": "grazie",
    "ko": "고마워요",
    "ipa": [
-    "ɡrat",
+    "ˈɡrat",
     "ts",
     "je"
    ],
@@ -429,7 +429,7 @@
    "roman": "zero",
    "ko": "영(0)",
    "ipa": [
-    "",
+    "ˈ",
     "dz",
     "ɛro"
    ],
@@ -476,7 +476,7 @@
    "roman": "giorno",
    "ko": "날·낮",
    "ipa": [
-    "",
+    "ˈ",
     "dʒ",
     "orno"
    ],

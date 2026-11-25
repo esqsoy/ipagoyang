@@ -71,13 +71,17 @@ def build(inline=False):
             assert tk in tok_hanja, (pr['ko'], tk, 'data/terms.json에 없는 이름 낱말')
         return {'ko': pr['ko'], 'en': pr['en'], 'hanja': ' '.join(tok_hanja[tk] for tk in toks)}
 
-    def names_for(sym, shown=None, accept=None):
-        """카드의 정답 이름들. shown이 β̞·ð̞(접근음 표시)이면 접근음 짝이 대표"""
+    def names_for(sym, shown=None, accept=None, accept_names=None):
+        """카드의 정답 이름들. shown이 β̞·ð̞(접근음 표시)이면 접근음 짝이 대표.
+        accept_names: 게임이 가르치지 않는 기호의 이름도 맞다고 할 때(人의 [ɻ], 26.11.25 외솔: 출처가 갈리는 표기로 틀렸다 하지 않는다, 2-4)"""
         pairs = []
         for k in [x for x in (accept or [sym]) if x in sy['symbols']] or [sym]:
             for pr in sy['symbols'][k]['answers']:
                 if pr not in pairs:
                     pairs.append(pr)
+        for pr in accept_names or []:
+            if pr not in pairs:
+                pairs.append(pr)
         if shown and '\u031e' in shown:
             pairs.sort(key=lambda pr: '접근음' not in pr['ko'])
         full = [pair_full(pr) for pr in pairs]
@@ -155,7 +159,7 @@ def build(inline=False):
             # 대상 기호가 첫소리가 아닌 낱말(spin·lobo)이 있어 '첫소리'라 하지 않고 전사의 빈칸으로 묻는다. 낱말 글자는 답한 뒤에 보인다
             example = f'[{a}{t}{z}]'
             assert example.find(t) == 1 + len(a), (wd['id'], '대상 기호가 앞에 또 나온다')
-            _, names = names_for(ans, t, wd.get('accept'))
+            _, names = names_for(ans, t, wd.get('accept'), wd.get('accept_names'))
             term = names[0]['ko']
             # 게임 중에는 앞부분('영어 낱말')만 보이고(ipa_extra.js), 결과 목록·검색에서는 어느 낱말이었는지 보인다
             w = {'en': term, 'ko': f'{lg} 낱말 · {wd["text"]} [{a}{t}{z}]', 'audio': wd['audio'], 'listen': True, 'lang': wd['lang'], 'wid': wd['id'], 'names': names, 'mode': 'any'}
@@ -173,7 +177,7 @@ def build(inline=False):
             assert example.find(t) == 1 + len(a), (wd['id'], '대상 기호가 앞에 또 나온다')
             lg = langs[wd['lang']]['ko']
             roman = f' ({wd["roman"]})' if wd['roman'] != wd['text'] else ''
-            _, names = names_for(wd['target'], t, wd.get('accept'))
+            _, names = names_for(wd['target'], t, wd.get('accept'), wd.get('accept_names'))
             term = names[0]['ko']
             gloss = f' · {wd["ko"]}' if wd['ko'] != wd['text'] else ''
             w = {'en': term, 'ko': f'{lg} {wd["text"]}{roman}{gloss}', 'audio': wd['audio'], 'lang': wd['lang'], 'wid': wd['id'], 'names': names, 'mode': 'any'}

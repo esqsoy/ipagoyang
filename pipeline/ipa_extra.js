@@ -29,7 +29,10 @@ function ipaIn(raw) {
    한자도 영어도 뜨게. 그리고 영어로 이름대기. 영어로 치면 한국어와 한자도 뜨게", "어느 경우든 발음명을 치는걸로만".
    카드의 mode: ko(한국어 이름) · en(영어 이름) · any(어느 쪽이든, 듣고 고르기·전사 빈칸). 맞으면 나머지 둘(한자 포함)이 뜬다.
    낱말 순서·띄어쓰기는 묻지 않고, 사전 동의어는 인정한다. */
-const IPA_NAME_SYN = {'폐쇄음': '파열음', '된소리': '경음', '거센소리': '유기', '격음': '유기', '탄설음': '탄음', 'stop': 'plosive', 'fortis': 'tense', 'flap': 'tap'};
+// 26.11.25(외솔 플레이테스트): 치조(표준국어대사전 '치조음 ≒ 치경음'), 치조구개 = 치경구개, palato-alveolar = postalveolar(ʃ·ʒ의 옛 IPA 이름)
+const IPA_NAME_SYN = {'폐쇄음': '파열음', '된소리': '경음', '거센소리': '유기', '격음': '유기', '탄설음': '탄음', '치조구개': '치경구개', '치조': '치경', 'stop': 'plosive', 'fortis': 'tense', 'flap': 'tap', 'palatoalveolar': 'postalveolar'};
+// 영어 이름 낱말: 붙임표로 이은 말은 한 낱말로(post-alveolar = postalveolar, alveolo-palatal = alveolopalatal). 친 글과 정답에 똑같이 쓴다
+function ipaEnTok(str) { return (String(str || '').toLowerCase().replace(/([a-z])-(?=[a-z])/g, '$1').match(/[a-z]+/g) || []).map(x => IPA_NAME_SYN[x] || x); }
 // 붙은 용어는 낱말로 나눠 견준다(설측 접근음 = 설측 + 접근음): 순서를 바꿔 쳐도 같게
 const IPA_NAME_SPLIT = {'설측접근': ['설측', '접근음'], '설측마찰': ['설측', '마찰음']};
 let ipaKoVocab = null;
@@ -49,7 +52,7 @@ function ipaKoTokens(str) {
 }
 function ipaSplitName(raw) {
   const ko = (String(raw).match(/[가-힣ㄱ-ㅎㅏ-ㅣ]+/g) || []).join('');
-  const en = (String(raw).toLowerCase().match(/[a-z]+/g) || []).map(x => IPA_NAME_SYN[x] || x);
+  const en = ipaEnTok(raw);
   return {ko: ko ? ipaKoTokens(ko) : null, en};
 }
 function ipaSame(a, b) { return !!(a && b && a.length && a.length === b.length && [...a].sort().join(' ') === [...b].sort().join(' ')); }
@@ -58,7 +61,7 @@ function ipaNameState(raw, w) {
   let koHit = null, enHit = null, both = null;
   for (const pr of w.names || []) {
     // 정답 쪽도 친 글과 같은 방식으로 쪼갠다(설측 접근음 / 설측접근음이 같게 되도록)
-    const k = ipaSame(ko, ipaKoTokens(pr.ko)), e = ipaSame(en, pr.en.toLowerCase().match(/[a-z]+/g).map(x => IPA_NAME_SYN[x] || x));
+    const k = ipaSame(ko, ipaKoTokens(pr.ko)), e = ipaSame(en, ipaEnTok(pr.en));
     if (k && !koHit) koHit = pr;
     if (e && !enHit) enHit = pr;
     if (k && e) { both = pr; koHit = pr; enHit = pr; break; }
@@ -81,6 +84,13 @@ function ipaNameLive() {
   }
 }
 document.addEventListener('input', e => { if (e.target && e.target.id === 'ainput') ipaNameLive(); }, true);
+// 새 카드가 뜬 직후의 빈 Enter는 무시한다(26.11.25 이언 플레이테스트: 맞혀서 저절로 넘어간 뒤 습관으로 Enter를 누르면
+// 다음 문제가 빈 답 오답이 됐다. 틀의 막음은 0.4초뿐). 2초가 지난 뒤의 빈 Enter는 지금처럼 '모름'(정답 보고 따라 치기)이다.
+document.addEventListener('keydown', e => {
+  if (!e.target || e.target.id !== 'ainput' || e.isComposing || !(e.key === 'Enter' || e.keyCode === 13)) return;
+  const s = state.session;
+  if (s && !s.answered && !s.copyMode && !String(e.target.value || '').trim() && Date.now() - s.cardStart < 2000) { e.preventDefault(); e.stopImmediatePropagation(); }
+}, true);
 document.addEventListener('compositionend', e => { if (e.target && e.target.id === 'ainput') setTimeout(ipaNameLive, 0); }, true);
 /* 카드 시간: 이름이 길어서 틀의 낱말 기준(영문자 수)으로는 모자란다 */
 function ipaCardLimit(w) {
@@ -175,6 +185,10 @@ function ipaBase(sym) { return String(sym || '').normalize('NFD').replace(/[\u03
 /* IPA 자음표에 칸이 없는 기호(26.11.09, 묶음 6·7): ɕ는 IPA 표 '기타 기호'에 있고, 파찰음은 두 기호를 이어 적어 표에 줄이 없다.
    지도 아래 '표 밖' 줄에 둔다. 이 게임이 가르치는 것만(8-7). 기식(ʰ)·경음(͈) 표시는 떼고 칸을 찾는다(tsʰ → ts 칸). */
 const IPA_OFF = ['ɕ', 'ts', 'dz', 'tʃ', 'dʒ', 'tɕ', 'dʑ', 'tʂ'];
+// 표 밖 줄도 실제 자리 열 밑에 둔다(26.11.25 외솔 플레이테스트: 1~8열에 차례로 붙어 ɕ가 양순 밑에 보였다).
+// 4 치경 ts dz · 5 후치경 tʃ dʒ · 6 권설 tʂ · 7 경구개 쪽 ɕ tɕ dʑ(치경구개). 칸에 둘이면 왼쪽이 무성(표와 같음)
+const IPA_OFF_COLS = [null, null, null, ['ts', 'dz'], ['tʃ', 'dʒ'], ['tʂ'], ['ɕ', 'tɕ', 'dʑ'], null, null, null, null];
+function ipaOffRow(f) { return IPA_OFF_COLS.map(v => v ? `<span class="ipa-cell">${v.map(f).join('')}</span>` : '<span class="ipa-cell empty"></span>').join(''); }
 const IPA_OFF_HEAD = '<span class="ipa-rowh ipa-offh" title="IPA 표에 칸이 없는 기호"><span>표 밖</span><small class="h">기타·파찰</small></span>';
 function ipaKey(sym) { const k = String(sym || '').normalize('NFD').replace(/[\u0300-\u036f\u02b0-\u02ff]/g, ''); return IPA_OFF.includes(k) ? k : k.slice(0, 1); }
 // 목청 설명: 기호마다 따로 적은 글(마찰음·파찰음)이 있으면 그것, 없으면 상태별 글(파열음 기준)
@@ -412,7 +426,7 @@ function ipaLangClick(id) {
 /* ---------- 카드 위 작은 지도(PRINCIPLES 8-9 ②) ----------
    문제를 푸는 동안에는 그 묶음의 칸들을 깜박인다(답 칸만 깜박이면 β/b처럼 줄이 다른 답이 새므로). 맞히면 답 칸이 금빛이 된다. */
 function ipaCellOf(sym) {
-  const b = ipaKey(sym), off = IPA_OFF.indexOf(b);
+  const b = ipaKey(sym), off = IPA_OFF_COLS.findIndex(v => v && v.includes(b));
   if (off >= 0) return {r: IPA_ROWS.length, c: off, span: 1};
   for (let r = 0; r < IPA_ROWS.length; r++) {
     let c = 0;
@@ -445,7 +459,7 @@ function ipaMiniMap(w, hit) {
     }
   });
   const R = IPA_ROWS.length;
-  IPA_OFF.forEach((x, c) => { g += `<i class="off ${h && h.r === R && h.c === c ? 'hit' : cur.has(R + ':' + c) ? 'cur' : ''}" style="grid-column:${c + 1};grid-row:${R + 2}"></i>`; });
+  IPA_OFF_COLS.forEach((v, c) => { if (v) g += `<i class="off ${h && h.r === R && h.c === c ? 'hit' : cur.has(R + ':' + c) ? 'cur' : ''}" style="grid-column:${c + 1};grid-row:${R + 2}"></i>`; });
   return `<div class="ipa-mini" role="button" tabindex="0" data-zoom="${w.b}" data-hit="${ipaEsc(hit || '')}" aria-label="IPA 표 크게 보기">${g}</div>`;
 }
 /* 작은 지도를 누르면 실제 IPA 자음표를 크게(26.11.08 영신: "해당 부분을 누르면 실제 ipa표를 확대해서 볼 수 있게").
@@ -465,12 +479,12 @@ function ipaZoomOpen(lesson, hit) {
       g += `<span class="ipa-cell" style="grid-column:span ${span}">${v.map(zs).join('')}</span>`;
     }
   }
-  g += `${IPA_OFF_HEAD}${IPA_OFF.map(x => `<span class="ipa-cell">${zs(x)}</span>`).join('')}<span class="ipa-cell empty" style="grid-column:span ${11 - IPA_OFF.length}"></span></div>`;
+  g += `${IPA_OFF_HEAD}${ipaOffRow(zs)}</div>`;
   const ov = document.createElement('div');
   ov.className = 'ipa-zoom'; ov.setAttribute('role', 'dialog'); ov.setAttribute('aria-label', 'IPA 자음표');
   ov.innerHTML = `<div class="ipa-zoom-in"><div class="ipa-zoom-h"><b>IPA 자음표(폐 기류)</b><button type="button" class="ipa-zoom-x" aria-label="닫기">✕</button></div>
     <div class="ipa-map-wrap">${g}</div>
-    <p class="ipa-zoom-k"><span class="on">배운 칸</span><span class="cur">이번 강</span>${h ? '<span class="hit">맞힌 답</span>' : ''} · 가로는 입 앞(1 입술)에서 목 안(11 성문), 세로는 소리 내는 방법. 칸에 둘이면 앞(왼쪽·위)이 무성, 뒤(오른쪽·아래)가 유성. 표 밖 줄은 IPA 표에 칸이 없는 기호: ɕ는 '기타 기호'에 있고, 파찰음은 두 기호를 이어 적는다. 국제음성학회 IPA 표(2020, CC BY-SA 4.0)</p></div>`;
+    <p class="ipa-zoom-k"><span class="on">배운 칸</span><span class="cur">이번 강</span>${h ? '<span class="hit">맞힌 답</span>' : ''} · 가로는 입 앞(1 입술)에서 목 안(11 성문), 세로는 소리 내는 방법. 칸에 둘이면 앞(왼쪽·위)이 무성, 뒤(오른쪽·아래)가 유성. 표 밖 줄은 IPA 표에 칸이 없는 기호(자리는 위 열과 같다): ɕ는 '기타 기호'에 있고, 파찰음은 두 기호를 이어 적는다. 국제음성학회 IPA 표(2020, CC BY-SA 4.0)</p></div>`;
   // 큰 표를 보는 동안은 카드 시간이 가지 않는다(표를 보는 것이 공부라서, 26.11.20 검토)
   const ss = (typeof state !== 'undefined') ? state.session : null;
   const hold = ss && !ss.answered ? setInterval(() => { if (state.session === ss && !ss.answered) ss.cardStart += 250; }, 250) : 0;
@@ -562,7 +576,7 @@ function ipaRenderMap() {
       grid += `<span class="ipa-cell" style="grid-column:span ${span}">${v.map(sym).join('')}</span>`;
     }
   }
-  grid += `${IPA_OFF_HEAD}${IPA_OFF.map(x => `<span class="ipa-cell">${sym(x)}</span>`).join('')}<span class="ipa-cell empty" style="grid-column:span ${11 - IPA_OFF.length}"></span></div>`;
+  grid += `${IPA_OFF_HEAD}${ipaOffRow(sym)}</div>`;
   const lit = [...set].length, all = IPA_ROWS.reduce((a, r) => a + r.cells.filter(Boolean).reduce((b, c) => b + (c.v || c).length, 0), 0) + IPA_OFF.length;
   el.innerHTML = `<div class="phead"><div style="flex:1;min-width:0"><h2>IPA 입 지도</h2><small>입술(1)에서 목청(11)까지 · 켠 칸 ${lit}/${all} · 점은 잠긴 칸 · 머리 칸을 누르면 용어 풀이</small></div></div>
     <div class="ipa-map-wrap">${grid}</div>
