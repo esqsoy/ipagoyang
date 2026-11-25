@@ -602,7 +602,10 @@ function ipaShowDex() {
   }
   const words = (IPA.examples[v] || []).map(e => `<span class="ipa-chip">${ipaEsc(e.lang)} ${ipaWordHtml(e.text, e.ko)}</span>`).join('');
   const snd = s.sound && ipaHasAudio(s.sound) ? ipaTapAttrs(s.sound, v + ' 기호 소리 듣기') : '';
-  box.innerHTML = `<div class="ipa-dex-in"><b class="ipa-dex-sym"${snd}>${ipaEsc(v)}</b><span>${ipaNameHtml(s)}${set.has(v) ? '' : `<em>${ipaEsc(ipaLessonOf(v))}</em><br>`}${ipaEsc(s.how)}</span></div>${words ? `<div class="ipa-chips">${words}</div>` : ''}`;
+  // '한국어와'·'다른 표기'는 배우기 카드를 뺀(26.11.08) 뒤로 화면 어디에도 안 나왔다(26.11.25 외솔 검토). PRINCIPLES 2-4의
+  // '다른 관례는 다른 표기에 적는다'를 지키려고 지도 칸 설명(도감)에 되살린다. 카드 화면은 그대로(26.11.20 '레이아웃을 아껴씁시다')
+  const more = (s.ko ? `<p class="ipa-dex-ko"><b>한국어와</b> ${ipaEsc(s.ko)}</p>` : '') + (s.other ? `<p class="ipa-other">다른 표기: ${ipaEsc(s.other)}</p>` : '');
+  box.innerHTML = `<div class="ipa-dex-in"><b class="ipa-dex-sym"${snd}>${ipaEsc(v)}</b><span>${ipaNameHtml(s)}${set.has(v) ? '' : `<em>${ipaEsc(ipaLessonOf(v))}</em><br>`}${ipaEsc(s.how)}${more}</span></div>${words ? `<div class="ipa-chips">${words}</div>` : ''}`;
   ipaTapBind(box);
 }
 function ipaShowTerm(k) {

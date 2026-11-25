@@ -62,6 +62,8 @@
 .ipa-dex{padding:0 13px 13px}
 .ipa-dex-in{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:center;border:2px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--panel2);font-size:.82rem;line-height:1.5}
 .ipa-dex-in em{color:var(--cyan);font-style:normal;font-weight:800}
+.ipa-dex-in p{margin:6px 0 0}
+.ipa-dex-ko b{color:var(--gold)}
 .ipa-dex-sym{font-family:var(--ipa);font-size:2rem;color:var(--gold);min-width:1.6em;text-align:center}
 .ipa-chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
 .ipa-chip{font-size:.7rem;font-weight:800;border:1px solid var(--line);border-radius:999px;padding:2px 8px;color:var(--pinkpale)}
