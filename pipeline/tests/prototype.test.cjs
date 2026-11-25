@@ -57,7 +57,8 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) fails++
   ok(await page.evaluate(() => !!ipaAudioNow), '전사를 누르면 소리(재생 단추 없음)');
   ok(await page.locator('#hoeCtx .ipa-play').count() === 0, '따로 된 재생 단추 없음');
   await page.locator('#hoeCtx .ipa-mini').click(); await page.waitForTimeout(200);
-  ok(await page.locator('.ipa-zoom .ipa-zs').count() > 40, '작은 지도를 누르면 큰 IPA 표');
+  // 마지막 강이 모음 강이면 큰 표는 IPA 모음표(PRINCIPLES 8-11)
+  ok(await page.locator('.ipa-zoom .ipa-zs').count() > 40 || await page.locator('.ipa-zoom .ipa-vs').count() >= 20, '작은 지도를 누르면 큰 IPA 표');
   await shot('t02-zoom'); await page.keyboard.press('Escape'); await page.waitForTimeout(150);
   ok(await page.locator('.ipa-zoom').count() === 0, 'Esc로 큰 표 닫힘');
   await page.locator('#ainput').fill(cur.names[0].en); await page.waitForTimeout(600);
@@ -118,7 +119,8 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) fails++
   ok(sawAnim, '맞히면 소리 내는 차례 그림이 뜸');
   ok(finished === nEx, `연습 ${finished}/${nEx}개 끝`);
   await page.goto(base); await page.waitForTimeout(800);
-  const lit = await page.locator('#ipaMap .ipa-cell-s.on').count();
+  const lit = await page.locator('#ipaMap .ipa-cell-s.on').count() + await page.locator('#ipaMap .ipa-vs.on').count();
+  ok(await page.locator('#ipaMap .ipa-vwrap').count() === 1, '처음 화면에 모음 지도');
   ok(lit >= 3, `IPA 지도 켜진 칸 ${lit}`);
   await shot('t05-home-after');
   // 언어 고르기(26.11.08): 한국어만 고르면 한국어 낱말 카드만 남고, 한국어에 없는 기호(β·ð)는 이름 대기에서 빠진다

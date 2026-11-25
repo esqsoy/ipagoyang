@@ -1,0 +1,614 @@
+{
+ "about": "PHOIBLE 2.0(Moran·McCloy 엮음, CC BY-SA 3.0)에서 이 묶음이 대조한 음소 줄과 대조 결과. pipeline/phoible_check.py가 만든다. 손으로 고치지 않는다.",
+ "bundle": "b08",
+ "results": [
+  {
+   "word": "ko-gil",
+   "inv": 2197,
+   "seg": "i",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "ko-geul",
+   "inv": 2197,
+   "seg": "ɯ",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "ko-gul",
+   "inv": 2197,
+   "seg": "u",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "en-see",
+   "inv": 2176,
+   "seg": "i",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "en-pool",
+   "inv": 2176,
+   "seg": "u",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "es-si",
+   "inv": 2210,
+   "seg": "i",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "es-tu-u",
+   "inv": 2210,
+   "seg": "u",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "ja-i",
+   "inv": 2196,
+   "seg": "i",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "ja-ume",
+   "inv": 2196,
+   "seg": "u",
+   "allo": "ɯ",
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "ja-umi",
+   "inv": 2196,
+   "seg": "u",
+   "allo": "ɯ",
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "fr-vie",
+   "inv": 2182,
+   "seg": "i",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "fr-vu",
+   "inv": 2182,
+   "seg": "y",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "fr-vous",
+   "inv": 2182,
+   "seg": "u",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "pt-vida-i",
+   "inv": 2207,
+   "seg": "i",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "pt-uva",
+   "inv": 2207,
+   "seg": "u",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "pt-pequeno-pt",
+   "inv": 2206,
+   "seg": "ɯ",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "zh-li",
+   "inv": 1047,
+   "seg": "i",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "zh-lu",
+   "inv": 1047,
+   "seg": "u",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "zh-lv",
+   "inv": 1047,
+   "seg": "y",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "ru-mir",
+   "inv": 2261,
+   "seg": "i",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "ru-bit",
+   "inv": 2261,
+   "seg": "i",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "ru-byt",
+   "inv": 2261,
+   "seg": "ɨ",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "ru-ty",
+   "inv": 2261,
+   "seg": "ɨ",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "ru-my",
+   "inv": 2261,
+   "seg": "ɨ",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "ru-syn",
+   "inv": 2261,
+   "seg": "ɨ",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "ru-um",
+   "inv": 2261,
+   "seg": "u",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "de-biene",
+   "inv": 2398,
+   "seg": "iː",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "de-buehne",
+   "inv": 2398,
+   "seg": "yː",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "de-buch-u",
+   "inv": 2398,
+   "seg": "uː",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "it-vino-i",
+   "inv": 1145,
+   "seg": "i",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "it-luna-u",
+   "inv": 1145,
+   "seg": "u",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "ar-bint",
+   "inv": 2157,
+   "seg": "i",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "ar-fil",
+   "inv": 2157,
+   "seg": "ii̯",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "ar-umm",
+   "inv": 2157,
+   "seg": "u",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "ar-nur",
+   "inv": 2157,
+   "seg": "uu̯",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  }
+ ],
+ "absent": [
+  {
+   "inv": 2197,
+   "seg": "y",
+   "ok": true,
+   "found_in": []
+  },
+  {
+   "inv": 2197,
+   "seg": "ɨ",
+   "ok": true,
+   "found_in": []
+  },
+  {
+   "inv": 2207,
+   "seg": "ɨ",
+   "ok": true,
+   "found_in": []
+  }
+ ],
+ "inventories": {
+  "1047": {
+   "meta": {
+    "iso": "cmn",
+    "name": "Standard Chinese; Mandarin",
+    "dialect": "Beijing",
+    "source": "ph"
+   },
+   "bibtex": [
+    "cmn_lee2003_phon"
+   ],
+   "rows": [
+    {
+     "phoneme": "i",
+     "allophones": "i",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "u",
+     "allophones": "u",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "y",
+     "allophones": "y",
+     "marginal": "FALSE"
+    }
+   ]
+  },
+  "1145": {
+   "meta": {
+    "iso": "ita",
+    "name": "Italian",
+    "dialect": "Mainstream Italian'''",
+    "source": "ph"
+   },
+   "bibtex": [
+    "ita_rogers2004"
+   ],
+   "rows": [
+    {
+     "phoneme": "i",
+     "allophones": "i",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "u",
+     "allophones": "u",
+     "marginal": "FALSE"
+    }
+   ]
+  },
+  "2157": {
+   "meta": {
+    "iso": "arb",
+    "name": "Arabic",
+    "dialect": "Safad, Beirut, Damascus, Kuwait",
+    "source": "ph"
+   },
+   "bibtex": [
+    "arb_thelwall1990"
+   ],
+   "rows": [
+    {
+     "phoneme": "i",
+     "allophones": "ɨ i",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "ii̯",
+     "allophones": "ɨ ii̯",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "u",
+     "allophones": "ʊ u",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "uu̯",
+     "allophones": "ɣ uu̯",
+     "marginal": "FALSE"
+    }
+   ]
+  },
+  "2176": {
+   "meta": {
+    "iso": "eng",
+    "name": "American English",
+    "dialect": "Southeastern Michigan",
+    "source": "ph"
+   },
+   "bibtex": [
+    "eng_hillenbrand2003"
+   ],
+   "rows": [
+    {
+     "phoneme": "i",
+     "allophones": "i",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "u",
+     "allophones": "u",
+     "marginal": "FALSE"
+    }
+   ]
+  },
+  "2182": {
+   "meta": {
+    "iso": "fra",
+    "name": "French",
+    "dialect": "French (Parisian speaker)",
+    "source": "ph"
+   },
+   "bibtex": [
+    "fra_fougeron1993"
+   ],
+   "rows": [
+    {
+     "phoneme": "i",
+     "allophones": "i j",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "u",
+     "allophones": "u w",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "y",
+     "allophones": "y ɥ",
+     "marginal": "FALSE"
+    }
+   ]
+  },
+  "2196": {
+   "meta": {
+    "iso": "jpn",
+    "name": "Japanese",
+    "dialect": "Japanese (Tokyo or other areas with similar pitch accent systems)",
+    "source": "ph"
+   },
+   "bibtex": [
+    "jpn_okada1991"
+   ],
+   "rows": [
+    {
+     "phoneme": "i",
+     "allophones": "i ɨ i̥",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "u",
+     "allophones": "u ɯ ü̜ ɯ̈ u̥",
+     "marginal": "FALSE"
+    }
+   ]
+  },
+  "2197": {
+   "meta": {
+    "iso": "kor",
+    "name": "Korean",
+    "dialect": "Standard Korean (spoken in and around Seoul)",
+    "source": "ph"
+   },
+   "bibtex": [
+    "kor_lee1993"
+   ],
+   "rows": [
+    {
+     "phoneme": "i",
+     "allophones": "i",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "u",
+     "allophones": "u",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "ɯ",
+     "allophones": "ɯ",
+     "marginal": "FALSE"
+    }
+   ]
+  },
+  "2206": {
+   "meta": {
+    "iso": "por",
+    "name": "Portuguese (European)",
+    "dialect": "Lisbon",
+    "source": "ph"
+   },
+   "bibtex": [
+    "por_cruz-ferreira1995"
+   ],
+   "rows": [
+    {
+     "phoneme": "ɯ",
+     "allophones": "ɯ ɯ̥",
+     "marginal": "FALSE"
+    }
+   ]
+  },
+  "2207": {
+   "meta": {
+    "iso": "por",
+    "name": "Portuguese (Brazilian)",
+    "dialect": "São Paulo",
+    "source": "ph"
+   },
+   "bibtex": [
+    "por_barbosa2004"
+   ],
+   "rows": [
+    {
+     "phoneme": "i",
+     "allophones": "i ɪ ĩ",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "u",
+     "allophones": "u ʊ ũ",
+     "marginal": "FALSE"
+    }
+   ]
+  },
+  "2210": {
+   "meta": {
+    "iso": "spa",
+    "name": "Spanish",
+    "dialect": "Castilian Spanish",
+    "source": "ph"
+   },
+   "bibtex": [
+    "spa_martinez-celdra2003"
+   ],
+   "rows": [
+    {
+     "phoneme": "i",
+     "allophones": "i",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "u",
+     "allophones": "u",
+     "marginal": "FALSE"
+    }
+   ]
+  },
+  "2261": {
+   "meta": {
+    "iso": "rus",
+    "name": "Russian",
+    "dialect": "Russian (Standard)",
+    "source": "ea"
+   },
+   "bibtex": [
+    "yanushevskaya2015russian"
+   ],
+   "rows": [
+    {
+     "phoneme": "i",
+     "allophones": "NA",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "u",
+     "allophones": "NA",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "ɨ",
+     "allophones": "NA",
+     "marginal": "FALSE"
+    }
+   ]
+  },
+  "2398": {
+   "meta": {
+    "iso": "deu",
+    "name": "German",
+    "dialect": "German (Standard)",
+    "source": "ea"
+   },
+   "bibtex": [
+    "hall2000phonologie"
+   ],
+   "rows": [
+    {
+     "phoneme": "iː",
+     "allophones": "NA",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "uː",
+     "allophones": "NA",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "yː",
+     "allophones": "NA",
+     "marginal": "FALSE"
+    }
+   ]
+  }
+ }
+}

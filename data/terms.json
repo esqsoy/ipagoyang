@@ -651,7 +651,12 @@
     "ref": "stdict",
     "word_no": "68279"
    },
-   "note": "사전: ≒폐모음, 닫은홀소리. 영어는 IPA 표의 Close. high vowel이라고도 한다"
+   "note": "사전: ≒폐모음, 닫은홀소리. 영어는 IPA 표의 Close. high vowel이라고도 한다(미국 쪽 용어. 영어 위키백과 'Close vowel')",
+   "note_source": {
+    "ref": "en.wikipedia Close vowel",
+    "checked": "2026-11-25",
+    "quote_fact": "첫 문장이 close vowel을 'high vowel (in U.S. terminology)'라고도 한다고 적고 Concise Oxford Companion to the English Language를 든다(그 책은 미열람). 2차 출처"
+   }
   },
   "폐모음": {
    "ko": "폐모음",
@@ -690,17 +695,12 @@
    "hanja": "半閉母音",
    "en": "close-mid",
    "group": "height",
-   "native": "반닫은홀소리",
    "source": {
     "ref": "stdict",
     "word_no": "427157"
    },
    "status": "확인",
-   "native_source": {
-    "ref": "stdict",
-    "word_no": "133699"
-   },
-   "note": "중고모음과 같은 이름으로 받는다(9강)"
+   "note": "중고모음과 같은 이름으로 받는다(9강). 사전에 같은 말로 오른 반닫은홀소리(word_no 133699)는 원어가 '半닫은홀소리'라 순우리말 이름으로 싣지 않는다"
   },
   "반고모음": {
    "ko": "반고모음",
@@ -774,7 +774,12 @@
     "ref": "stdict",
     "word_no": "406302"
    },
-   "note": "사전: ≒개모음, 낮은홀소리, 연홀소리, 저위 모음. 영어는 IPA 표의 Open. low vowel이라고도 한다"
+   "note": "사전: ≒개모음, 낮은홀소리, 연홀소리, 저위 모음. 영어는 IPA 표의 Open. low vowel이라고도 한다(미국 쪽 용어. 영어 위키백과 'Open vowel')",
+   "note_source": {
+    "ref": "en.wikipedia Open vowel",
+    "checked": "2026-11-25",
+    "quote_fact": "둘째 문장이 open vowel을 'low vowels (in U.S. terminology)'라고도 한다고 적고 Concise Oxford Companion to the English Language를 든다(그 책은 미열람). 2차 출처"
+   }
   },
   "개모음": {
    "ko": "개모음",

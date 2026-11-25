@@ -246,7 +246,7 @@ html[data-pal="chalk"]{--panel-rgb:18,37,28;--bg1-rgb:14,28,22;--bg1:#0e1c16;--b
 .ipa-vmap{width:100%;height:auto;display:block}
 .ipa-vmap .ipa-vl{stroke:var(--line);stroke-width:1.2}
 .ipa-vmap .ipa-vdot{fill:var(--muted)}
-.ipa-vmap .ipa-vs text{font-family:"Balum IPA",serif;font-size:15px;fill:var(--muted)}
+.ipa-vmap .ipa-vs text{font-family:"Balum IPA",serif;font-size:18px;fill:var(--muted);stroke:var(--panel,#161a33);stroke-width:5px;paint-order:stroke;stroke-linejoin:round}
 .ipa-vmap .ipa-vs.on text{fill:var(--gold);font-weight:700}
 .ipa-vmap .ipa-vs.cur text{fill:var(--cyan)}
 .ipa-vmap .ipa-vs.hit text{fill:var(--gold);text-decoration:underline}
