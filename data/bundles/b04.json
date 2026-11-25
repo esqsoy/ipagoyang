@@ -44,7 +44,7 @@
    "ko-meori": "머리의 ㄹ은 한 번 툭이라고양. 발의 ㄹ은 붙이고 있고라고양.",
    "es-perro": "pero는 툭, perro는 드르륵이라고양. 개는 드르륵 짖는다고양.",
    "fr-rouge": "목구멍 r이라고양. 가글하듯 하라고양. ㅎㅎ",
-   "en-red": "영어 r은 혀가 아무 데도 안 닿는다고양.",
+   "en-red": "영어 r은 혀끝이 아무 데도 안 닿는다고양.",
    "zh-ren": "중국어 r은 책마다 다르게 적는다고양. 고양이도 헷갈린다고양."
   },
   "end": "ㄹ 칸이 켜졌다고양. 이제 ㄹ·r 다섯 형제를 다 만났다고양."
@@ -403,9 +403,7 @@
    "status": "확인 필요",
    "status_why": "중국어 병음 r의 표기가 출처마다 다르다(ɹ·ɻ·ʐ)",
    "audio": "zh-ren2-weigao",
-   "audio_more": [
-    "zh-ren2-yunjiao-tw"
-   ]
+   "audio_more": []
   },
   {
    "id": "ru-luk",
@@ -495,7 +493,6 @@
    "status_why": "PHOIBLE 2184 /ʁ/",
    "audio": "de-rot-wallroth",
    "audio_more": [
-    "de-rot-ionenlaser",
     "de-rot-werkmeister"
    ]
   },
