@@ -312,10 +312,7 @@
    "note": "브라질 대부분 지역에서는 d가 i 앞에서 [dʒ]로 난다. 그대로 [d]로 내는 지역도 있다.",
    "status": "확인",
    "status_why": "PHOIBLE 2207 /d̪/의 변이음 d̪ʒ̟",
-   "audio": "pt-dia-sillim",
-   "audio_more": [
-    "pt-dia-jjunho"
-   ]
+   "audio": "pt-dia-jjunho"
   },
   {
    "id": "ru-tsvet",
@@ -498,9 +495,8 @@
    },
    "status": "확인",
    "status_why": "PHOIBLE 1145 /d̠ʒ/",
-   "audio": "it-giorno-langpao",
+   "audio": "it-giorno-xana000",
    "audio_more": [
-    "it-giorno-xana000",
     "it-giorno-ciampix"
    ]
   },
@@ -676,10 +672,11 @@
     "seg": "z",
     "allo": "dʑ"
    },
-   "note": "じ의 자음. 음운 자료 PHOIBLE 2196은 /z/의 변이음으로 [dz]·[ʑ]·[dʑ]도 적는다. 녹음은 간사이 억양 화자다.",
+   "note": "じ의 자음. 음운 자료 PHOIBLE 2196은 /z/의 변이음으로 [dz]·[ʑ]·[dʑ]도 적는다. 녹음은 간사이 억양 화자다. 도쿄 말은 낱말 첫 유성음을 덜 울리는 일이 흔해 듣고 이름 대기에는 내지 않는다.",
    "status": "확인",
    "status_why": "PHOIBLE 2196 /z/의 변이음 dʑ",
-   "audio": "ja-jishin-earthquake-wanikani-female"
+   "audio": "ja-jishin-earthquake-wanikani-female",
+   "listen": false
   },
   {
    "id": "de-jeans",
@@ -719,10 +716,11 @@
     "seg": "z",
     "allo": "dz"
    },
-   "note": "낱말 첫머리의 ざ는 [dz]로 난다(Wiktionary [dzã̠nːẽ̞ɴ]; 음운 자료 PHOIBLE 2196은 /z/의 변이음 dz). 6강의 難しい는 모음 사이라 [z]다.",
+   "note": "낱말 첫머리의 ざ는 [dz]로 난다(Wiktionary [dzã̠nːẽ̞ɴ]; 음운 자료 PHOIBLE 2196은 /z/의 변이음 dz). 6강의 難しい는 모음 사이라 [z]다. 도쿄 말은 낱말 첫 유성음을 덜 울리는 일이 흔해 듣고 이름 대기에는 내지 않는다.",
    "status": "확인",
    "status_why": "PHOIBLE 2196 /z/의 변이음 dz",
-   "audio": "ja-zannen-tofugumale"
+   "audio": "ja-zannen-tofugumale",
+   "listen": false
   }
  ]
 }

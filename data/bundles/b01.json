@@ -353,7 +353,7 @@
    },
    "status": "확인",
    "status_why": "PHOIBLE 2207 /b/",
-   "audio": "pt-bom-sillim"
+   "audio": "pt-bom"
   },
   {
    "id": "zh-ba",
@@ -558,10 +558,7 @@
    },
    "status": "확인",
    "status_why": "PHOIBLE 1145 /b/",
-   "audio": "it-bocca-langpao",
-   "audio_more": [
-    "it-bocca-ciampix"
-   ]
+   "audio": "it-bocca-ciampix"
   },
   {
    "id": "ar-bab",
@@ -631,7 +628,9 @@
    },
    "status": "확인",
    "status_why": "PHOIBLE 2196 /b/",
-   "audio": "ja-botan-aoi"
+   "audio": "ja-botan-aoi",
+   "listen": false,
+   "note": "도쿄 말은 낱말 첫 유성음을 덜 울리는 일이 흔해 듣고 이름 대기에는 내지 않는다."
   },
   {
    "id": "en-bed",

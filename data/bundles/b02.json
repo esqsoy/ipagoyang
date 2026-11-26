@@ -245,8 +245,7 @@
    "status": "확인",
    "status_why": "PHOIBLE 2210 /d̻/(변이음 d̪·ð̞)",
    "audio_more": [
-    "es-dos-precision27",
-    "es-dos-rodelar"
+    "es-dos-precision27"
    ]
   },
   {
@@ -387,7 +386,7 @@
    },
    "status": "확인",
    "status_why": "PHOIBLE 2207 /d̪/",
-   "audio": "pt-dois-sillim",
+   "audio": "pt-dois",
    "note": "혀끝이 윗니 뒤에 닿는다([d̪])."
   },
   {
@@ -581,7 +580,6 @@
    "status_why": "PHOIBLE 1145 /d/",
    "audio": "it-due-xana000",
    "audio_more": [
-    "it-due-langpao",
     "it-due-ciampix"
    ]
   },
