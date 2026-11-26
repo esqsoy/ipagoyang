@@ -7,7 +7,7 @@
   index.html만 고치면 다음 조립 때 사라진다.
 - 묶음 하나 = 틀의 '강' 하나(data/bundles/b01.json → 01강, b02 → 02강). 연습은 이름 대기·한국어 → 이름 대기·영어 → 듣고 고르기 → 전사 빈칸(PRINCIPLES 8-3, 26.11.08에 배우기·한국어와 견주기를 뺐다).
   전사 빈칸은 틀의 '원문 속 빈칸'(MT_CONTEXTS)을 쓴다: 원문 자리에 전사, 빈칸에 대상 기호.
-- 녹음 파일(assets/audio/<id>.mp3)이 없는 음원은 재생 단추 대신 '녹음 준비 중'이 뜨고, 듣고 고르기에서 빠진다.
+- 녹음 파일(assets/audio/<id>.mp3)이 없는 음원은 재생 단추 대신 '발음 확보 중'이 뜨고(26.11.26 영신), 듣고 이름 대기에서 빠진다.
 - --check: index.html이 원본과 맞는지만 본다. --artifact: claude.ai 미리보기용 한 파일(문서 껍데기를 빼고 글꼴·녹음을 data: 주소로).
 """
 import base64, json, os, re, sys
@@ -229,6 +229,8 @@ def build(inline=False):
         'audio': {aid: {'src': src_of(aid), 'peaks': peaks.get(aid), 'duration': audio_src[aid].get('duration'), 'speaker': audio_src[aid].get('speaker_short')}
                   for aid in sorted(a for a in used_audio if a) if audio_ok(aid)},
         'wordAudio': word_audio_map, 'wordTarget': word_target, 'byWord': by_word,
+        # 26.11.26 영신: 확인 필요 카드도 넣되 학습자에게 '확인 필요'라고 보인다(PRINCIPLES 2-3)
+        'wordCheck': [wd['id'] for b in bundles for wd in b['words'] if wd.get('status') == '확인 필요'],
         # 언어 고르기에 보일 언어: 묶음에 낱말이 있는 언어만, 한국어·영어·스페인어·그 밖 차례
         'langs': [{'id': l, 'ko': langs[l]['ko']} for l in lang_order if any(wd['lang'] == l for b in bundles for wd in b['words'])],
         'bundles': bundles_lit,

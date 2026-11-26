@@ -259,3 +259,6 @@ html[data-pal="chalk"]{--panel-rgb:18,37,28;--bg1-rgb:14,28,22;--bg1:#0e1c16;--b
 .ipa-vmini{display:block;width:84px;padding:3px;border:1px solid var(--line);border-radius:8px;cursor:pointer}
 .ipa-vnote{display:block;color:var(--muted);font-size:.72rem;margin-top:4px}
 .ipa-lips{width:70px;height:50px}
+/* 확인 필요 표시(26.11.26 영신, PRINCIPLES 2-3) */
+.ipa-chk{display:inline-block;margin-left:4px;padding:0 4px;border:1px solid var(--gold);border-radius:4px;color:var(--gold);font-size:.62rem;font-weight:700;vertical-align:middle;line-height:1.4}
+.ipa-chkline{margin:8px auto 0;max-width:30rem;text-align:center;font-size:.74rem;color:var(--gold)}

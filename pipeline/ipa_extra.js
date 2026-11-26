@@ -222,6 +222,9 @@ function ipaEsc(s) { return String(s ?? '').replace(/[&<>"]/g, c => ({'&':'&amp;
 function ipaHanjaHtml(str) {
   return [...String(str || '')].map(ch => (IPA.hanja || {})[ch] ? `<span class="ipa-gl" tabindex="0" data-g="${ipaEsc(IPA.hanja[ch])}">${ch}</span>` : ipaEsc(ch)).join('');
 }
+// 26.11.26 영신: 녹음을 못 구한 낱말은 '발음 확보 중', 확인 필요 카드는 '확인 필요'라고 보이고 진행한다(차후 확보·확인되면 고친다)
+let ipaChkSet = null;
+function ipaChk(wid) { if (!ipaChkSet) ipaChkSet = new Set(IPA.wordCheck || []); return ipaChkSet.has(wid) ? '<span class="ipa-chk" title="문헌끼리 다르거나 1차 출처를 아직 못 본 자료">확인 필요</span>' : ''; }
 function ipaWordHtml(text, gloss) {
   return gloss && gloss !== text ? `<span class="ipa-gl ipa-gl-w" tabindex="0" data-g="${ipaEsc(gloss)}">${ipaEsc(text)}</span>` : ipaEsc(text);
 }
@@ -278,7 +281,7 @@ function ipaTapAttrs(ids, label, start) {
 function ipaSpkHtml(ids) {
   const l = (Array.isArray(ids) ? ids : [ids]).filter(ipaHasAudio);
   // 조작 설명은 두지 않는다(26.11.20 영신). 소리를 낸 뒤에만 몇 번째 목소리·화자를 적는다
-  return l.length ? '<span class="ipa-spk" aria-live="polite"></span>' : '<span class="ipa-soon">녹음 준비 중</span>';
+  return l.length ? '<span class="ipa-spk" aria-live="polite"></span>' : '<span class="ipa-soon">발음 확보 중</span>';
 }
 function ipaBtnNext(b) {
   const l = b.dataset.list.split('|'); let i = +b.dataset.i || 0; const id = l[i % l.length];
@@ -326,7 +329,7 @@ function ipaBeforeCard(w) {
   const lm = copying ? ipaLearnMini(ipaSymOf(w)) : '';
   if (w.learn) {
     const s = IPA.symbols[w.sym] || {};
-    const ex = (IPA.examples[w.sym] || []).map(e => { const l = ipaAudioList(e.wid, e.audio); return `<div class="ipa-ex"><span class="ipa-lang">${ipaEsc(e.lang)}</span><span class="ipa-word">${ipaWordHtml(e.text, e.ko)}</span><span class="ipa-tr"${ipaTapAttrs(l, e.text + ' 듣기')}>[${ipaEsc(e.a)}<b>${ipaEsc(e.t)}</b>${ipaEsc(e.b)}]</span><span class="ipa-exn">${l.length > 1 ? '×' + l.length : l.length ? '' : '녹음 없음'}</span></div>`; }).join('');
+    const ex = (IPA.examples[w.sym] || []).map(e => { const l = ipaAudioList(e.wid, e.audio); return `<div class="ipa-ex"><span class="ipa-lang">${ipaEsc(e.lang)}</span><span class="ipa-word">${ipaWordHtml(e.text, e.ko)}${ipaChk(e.wid)}</span><span class="ipa-tr"${ipaTapAttrs(l, e.text + ' 듣기')}>[${ipaEsc(e.a)}<b>${ipaEsc(e.t)}</b>${ipaEsc(e.b)}]</span><span class="ipa-exn">${l.length > 1 ? '×' + l.length : l.length ? '' : '발음 확보 중'}</span></div>`; }).join('');
     const symTap = s.sound && ipaHasAudio(s.sound) ? ipaTapAttrs(s.sound, w.sym + ' 기호 소리 듣기') : '';
     return `<div class="ipa-learn">
       <div class="ipa-big"><span${symTap}>${ipaEsc(w.sym === 'β' ? 'β β̞' : w.sym === 'ð' ? 'ð ð̞' : w.sym)}</span></div>
@@ -341,7 +344,7 @@ function ipaBeforeCard(w) {
   }
   if (w.nameq) {
     // 이름 대기: 보카고양의 예문처럼 기호를 대표 낱말 속에 보인다(한국어·영어·스페인어·그 밖 차례, 26.11.08 영신)
-    const rows = (w.reps || []).map(e => { const l = ipaAudioList(e.wid); return `<div class="ipa-rep"><span class="ipa-lang">${ipaEsc(e.lang)}</span><span class="ipa-word">${ipaWordHtml(e.text, e.ko)}</span><span class="ipa-tr"${ipaTapAttrs(l, e.text + ' 듣기')}>[${ipaEsc(e.a)}<b>${ipaEsc(e.t)}</b>${ipaEsc(e.b)}]</span></div>`; }).join('');
+    const rows = (w.reps || []).map(e => { const l = ipaAudioList(e.wid); return `<div class="ipa-rep"><span class="ipa-lang">${ipaEsc(e.lang)}</span><span class="ipa-word">${ipaWordHtml(e.text, e.ko)}${ipaChk(e.wid)}</span><span class="ipa-tr"${ipaTapAttrs(l, e.text + ' 듣기')}>[${ipaEsc(e.a)}<b>${ipaEsc(e.t)}</b>${ipaEsc(e.b)}]</span></div>`; }).join('');
     const s = IPA.symbols[w.sym] || {};
     const symTap = s.sound && ipaHasAudio(s.sound) ? ipaTapAttrs(s.sound, w.sym + ' 기호 소리 듣기') : '';
     return `${lm}<div class="ipa-nameq ipa-qtop"><div class="ipa-big"><span${symTap}>${ipaEsc(w.sym)}</span></div>${ipaMiniMap(w)}</div><div class="ipa-nameq ipa-repsbox"><div class="ipa-reps">${rows || '<div class="ipa-soon">대표 낱말 없음</div>'}</div></div>`;
@@ -603,7 +606,7 @@ function ipaShowDex() {
     box.innerHTML = `<div class="ipa-dex-in"><b class="ipa-dex-sym">??</b><span><span class="nm">고양고양이</span> 아직 잠긴 칸이라고양. 강에서 만나면 열린다고양.</span></div>`;
     return;
   }
-  const words = (IPA.examples[v] || []).map(e => `<span class="ipa-chip">${ipaEsc(e.lang)} ${ipaWordHtml(e.text, e.ko)}</span>`).join('');
+  const words = (IPA.examples[v] || []).map(e => `<span class="ipa-chip">${ipaEsc(e.lang)} ${ipaWordHtml(e.text, e.ko)}${ipaChk(e.wid)}</span>`).join('');
   const snd = s.sound && ipaHasAudio(s.sound) ? ipaTapAttrs(s.sound, v + ' 기호 소리 듣기') : '';
   // '한국어와'·'다른 표기'는 배우기 카드를 뺀(26.11.08) 뒤로 화면 어디에도 안 나왔다(26.11.25 외솔 검토). PRINCIPLES 2-4의
   // '다른 관례는 다른 표기에 적는다'를 지키려고 지도 칸 설명(도감)에 되살린다. 카드 화면은 그대로(26.11.20 '레이아웃을 아껴씁시다')
@@ -868,3 +871,9 @@ const IPA_LIPS_KO = {spread: '편 입술', rounded: '둥글게 내민 입술', c
     el.querySelectorAll('.ipa-vwrap [data-term]').forEach(b => b.onclick = () => ipaShowTerm(b.dataset.term));
   };
 }
+
+document.addEventListener('ipa:aftercard', e => {
+  const w = e.detail, root = document.getElementById('hoeCtx');
+  if (!w || !w.wid || !root || root.querySelector('.ipa-chkline') || !ipaChk(w.wid)) return;
+  root.insertAdjacentHTML('beforeend', '<p class="ipa-chkline">이 낱말 자료는 <b>확인 필요</b>: 문헌끼리 다르거나 1차 출처를 아직 못 봤다. 확인되면 고친다.</p>');
+});
