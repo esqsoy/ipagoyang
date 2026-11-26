@@ -265,6 +265,14 @@
    "allo": null,
    "ok": true,
    "why": ""
+  },
+  {
+   "word": "ko-heuk",
+   "inv": 2197,
+   "seg": "h",
+   "allo": "x",
+   "ok": true,
+   "why": ""
   }
  ],
  "absent": [

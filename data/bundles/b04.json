@@ -602,6 +602,28 @@
    "status_why": "녹음 없음. 현대 표준 아랍어 녹음은 Commons에서 찾지 못했다. PHOIBLE 2157도 방언 화자 목록이다",
    "audio": "ar-rajul",
    "note": "쓸 수 있는 녹음이 없다(찾은 녹음은 모로코 아랍어 파일이다. 모로코 아랍어는 ج를 [ʒ]로 내어 이 전사와 다르다)."
+  },
+  {
+   "id": "en-water",
+   "lang": "eng",
+   "text": "water",
+   "roman": "water",
+   "ko": "물",
+   "ipa": [
+    "ˈwɔ",
+    "ɾ",
+    "ɚ"
+   ],
+   "target": "ɾ",
+   "phoible": {
+    "inv": 2176,
+    "seg": "tʰ",
+    "allo": "ɾ"
+   },
+   "note": "글자는 t인데 미국 영어는 water·city·better처럼 강세 있는 모음 뒤, 약한 모음 앞의 t를 혀끝으로 한 번 쳐서 [ɾ]로 낸다(머리의 ㄹ과 같은 기호). 또박또박 읽으면 [t]로도 나고, 영국 표준 발음은 [tʰ]로 낸다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2176 /tʰ/의 변이음 ɾ, Wiktionary (General American) /ˈwɔ.tɚ/ [ˈwɔ.ɾɚ], (Received Pronunciation) [ˈwo̞ː.tʰə]. 첫 모음을 [ɑ]로 내는 화자도 있다(Wiktionary [ˈwɑ.ɾɚ], 대상 밖). 조건(강세 없는 모음 앞)은 Wiktionary 전사 water·city·better에서 본 것이고 PHOIBLE은 조건을 적지 않는다. 녹음 없음(넣을 때 미국 화자 것만)",
+   "audio": "en-water"
   }
  ]
 }

@@ -177,6 +177,14 @@
    "allo": null,
    "ok": true,
    "why": ""
+  },
+  {
+   "word": "en-water",
+   "inv": 2176,
+   "seg": "tʰ",
+   "allo": "ɾ",
+   "ok": true,
+   "why": ""
   }
  ],
  "absent": [
@@ -283,6 +291,11 @@
     {
      "phoneme": "l",
      "allophones": "l ɫ lɪ̯",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "tʰ",
+     "allophones": "tʰ t ɾ tʰɪ̯",
      "marginal": "FALSE"
     },
     {
