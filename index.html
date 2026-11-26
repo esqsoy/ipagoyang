@@ -1525,7 +1525,7 @@ body.playing .appbar{display:flex;padding:0 5px;}
 .ipa-cell.empty{background:transparent;border-color:transparent}
 .ipa-cell-s{font-family:var(--ipa);font-size:.9rem;line-height:1;background:none;border:0;padding:2px 1px;color:var(--line);cursor:pointer;min-width:11px}
 .ipa-cell-s.on{color:var(--gold);text-shadow:0 0 6px rgba(255,211,77,.45)}
-.ipa-cell-s.cur{color:var(--cyan);animation:ipaBlink 1.2s steps(2) infinite}
+.ipa-cell-s.cur{color:var(--cyan)}  /* 26.11.26 영신: 처음 화면 지도의 기호는 깜박이지 않는다(카드 위 작은 지도는 그대로) */
 @keyframes ipaBlink{50%{opacity:.45}}
 .ipa-dex{padding:0 13px 13px}
 .ipa-dex-in{display:grid;grid-template-columns:auto 1fr;gap:10px;align-items:center;border:2px solid var(--line);border-radius:12px;padding:10px 12px;background:var(--panel2);font-size:.82rem;line-height:1.5}
