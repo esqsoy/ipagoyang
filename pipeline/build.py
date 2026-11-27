@@ -153,7 +153,8 @@ def build(inline=False):
         for wd in b['words']:
             if wd.get('listen') is False or not word_audio(wd):
                 continue
-            lg = langs[wd['lang']]['ko']
+            # 기본 변종이 아닌 카드(아르헨티나·스페인·포르투갈)와 기본 변종 안에서도 갈리는 카드(보고따)는 문제에 변종을 보인다(26.11.27, 이언 권고, PRINCIPLES 2-2)
+            lg = langs[wd['lang']]['ko'] + (f'({wd["vtag"]})' if wd.get('vtag') else '')
             ans = wd['target']
             a, t, z = wd['ipa']
             # 대상 기호가 첫소리가 아닌 낱말(spin·lobo)이 있어 '첫소리'라 하지 않고 전사의 빈칸으로 묻는다. 낱말 글자는 답한 뒤에 보인다
@@ -174,7 +175,8 @@ def build(inline=False):
             a, t, z = wd['ipa']
             example = f'[{a}{t}{z}]'
             assert example.find(t) == 1 + len(a), (wd['id'], '대상 기호가 앞에 또 나온다')
-            lg = langs[wd['lang']]['ko']
+            # 기본 변종이 아닌 카드(아르헨티나·스페인·포르투갈)와 기본 변종 안에서도 갈리는 카드(보고따)는 문제에 변종을 보인다(26.11.27, 이언 권고, PRINCIPLES 2-2)
+            lg = langs[wd['lang']]['ko'] + (f'({wd["vtag"]})' if wd.get('vtag') else '')
             roman = f' ({wd["roman"]})' if wd['roman'] != wd['text'] else ''
             _, names = names_for(wd['target'], t, wd.get('accept'), wd.get('accept_names'))
             term = names[0]['ko']

@@ -99,10 +99,15 @@
    "ʒ",
    "ʂ",
    "ʐ"
+  ],
+  "2210": [
+   "z",
+   "ʃ",
+   "ʒ"
   ]
  },
  "absent_about": "한국어 2197에 ʃ·ʒ·ʂ·ʐ가 없어야 '한국어에 없다'가 맞다. z는 2197이 ㅅ의 변이음으로 적어 두어 넣지 않았다.",
- "audio_plan": "모두 Commons·Lingua Libre·Shtooka 녹음(PRINCIPLES 8-10). 중국어는 베이징 화자 Wei Gao(Shtooka)를 첫 목소리로 둔다. 이탈리아어 sbagliare는 지역을 알 수 있는 화자가 한 사람뿐이다.",
+ "audio_plan": "모두 Commons·Lingua Libre·Shtooka 녹음(PRINCIPLES 8-10). 중국어는 베이징 화자 Wei Gao(Shtooka)를 첫 목소리로 둔다. 이탈리아어 sbagliare는 지역을 알 수 있는 화자가 한 사람뿐이다. 스페인어 yo·calle·cinco·mismo는 녹음을 찾지 않는다(영신 26.11.27 \"보고타 화자 녹음은 찾지마 내 안에 다 있음\").",
  "words": [
   {
    "id": "ko-so",
@@ -251,9 +256,9 @@
     "inv": 2210,
     "seg": "s"
    },
-   "note": "녹음은 스페인 화자다. 스페인 s는 혀끝을 세워 내고(apical), 보고타·아르헨티나 s는 혀날로 낸다(laminal). 그래서 조금 다르게 들린다. 보고타는 음절 끝 s도 [s]로 지킨다.",
+   "note": "녹음은 스페인 화자다. 스페인 s는 혀끝을 세워 내고(apical), 중남미 s는 대개 혀날로 낸다(laminal, 콜롬비아 고원에서는 혀끝 s도 기록된다). 보고따는 음절 끝 s도 [s]로 지킨다.",
    "status": "확인",
-   "status_why": "PHOIBLE 2210 /s/. 혀끝·혀날: Martínez-Celdrán 외 2003(JIPA 33/2, 카스티야), Coloma 2018(JIPA 48/2, 아르헨티나). 보고타 음절 끝 s: Markič 2017(Linguistica 57, Montes Giraldo 인용). 보고타·중남미 화자 녹음은 아직 없다",
+   "status_why": "PHOIBLE 2210 /s/. 혀끝·혀날: Martínez-Celdrán 외 2003(JIPA 33/2, 카스티야), Coloma 2018(JIPA 48/2, 아르헨티나), 콜롬비아 고원 혀끝 s: Markič 2017이 인용한 Aleza·Enguita 2002(외솔 26.11.27 바로잡음). 보고따 음절 끝 s: Markič 2017(Linguistica 57, Montes Giraldo 인용). 보고따·중남미 화자 녹음은 아직 없다",
    "audio": "es-sol-rodelar"
   },
   {
@@ -954,6 +959,110 @@
     "de-journalist-jeuwre",
     "de-journalist-kampy"
    ]
+  },
+  {
+   "id": "es-yo-ar",
+   "lang": "spa",
+   "text": "yo",
+   "roman": "yo",
+   "ko": "나",
+   "ipa": [
+    "",
+    "ʃ",
+    "o"
+   ],
+   "target": "ʃ",
+   "accept": [
+    "ʃ",
+    "ʒ"
+   ],
+   "phoible": {
+    "inv": null,
+    "why": "PHOIBLE에 아르헨티나 스페인어 목록이 없다(스페인어 목록 164·553·2210·2303·2308은 스페인이거나 지역 없음, 외솔 26.11.27 확인)"
+   },
+   "note": "아르헨티나(부에노스아이레스) 발음이다. y와 ll을 잇몸 뒤에서 [ʃ]로 낸다. 목청을 울려 [ʒ]로 내는 사람과 지역도 있다(우루과이 등). 보고따·스페인은 센입천장 소리 [ʝ]로 낸다(낱말 첫머리에서는 [ɟʝ]).",
+   "status": "확인 필요",
+   "status_why": "대상 기호가 출처마다 갈린다. Coloma 2018(JIPA 48/2, 아르헨티나)은 부에노스아이레스의 이 음소를 /ʃ/로 적고(llama /ˈʃama/, yerro [ˈʃero]), 지금 세대는 [ʃ]나 [ʒ] 하나로 다 낸다고 한다. Wiktionary yo: /ˈʃo/ [ˈʃo] (Buenos Aires and environs), /ˈʒo/ [ˈʒo] (elsewhere in Pampas and southern Argentina, Uruguay), 그 밖은 /ˈʝo/ [ˈɟ͡ʝo]. Moreno·Mariño 1998(ICSLP)과 Martínez-Celdrán 외 2003(JIPA 33/2, 카스티야)은 유성 [ʒ]로만 적는다. 그래서 [ʃ]·[ʒ] 이름을 다 받는다(2-4). PHOIBLE에는 아르헨티나 목록이 없어 [ʃ]를 대조하지 못했다. 6강에 [ʃ]·[ʒ]가 다 있어 듣고 이름 대기에서 답이 둘이 되므로 listen: false. 녹음을 듣고 대상을 정하면 푼다. 한 음절이라 강세표를 뗌(es-si 선례). 기본 변종(보고따)과 다른 아르헨티나 발음 카드(2-2). id의 -ar은 변종 표시(나중에 보고따 [ʝ] 카드가 es-yo를 쓸 수 있게)",
+   "audio": "es-yo-ar",
+   "listen": false,
+   "vtag": "아르헨티나"
+  },
+  {
+   "id": "es-calle-ar",
+   "lang": "spa",
+   "text": "calle",
+   "roman": "calle",
+   "ko": "길(거리)",
+   "ipa": [
+    "ˈka",
+    "ʃ",
+    "e"
+   ],
+   "target": "ʃ",
+   "accept": [
+    "ʃ",
+    "ʒ"
+   ],
+   "phoible": {
+    "inv": null,
+    "why": "PHOIBLE에 아르헨티나 스페인어 목록이 없다(스페인어 목록 164·553·2210·2303·2308은 스페인이거나 지역 없음, 외솔 26.11.27 확인)"
+   },
+   "note": "아르헨티나(부에노스아이레스) 발음이다. ll도 y와 같은 소리 [ʃ]로 낸다([ʒ]로도 낸다). 보고따는 [ˈkaʝe]다([ʎ]로 적는 자료도 있다). 보고따에서 ll을 [ʎ]로 따로 내던 구별은 사라지는 중이다.",
+   "status": "확인 필요",
+   "status_why": "대상 기호가 출처마다 갈린다(es-yo-ar와 같은 사정). Wiktionary calle: /ˈkaʃe/ [ˈka.ʃe] (Buenos Aires and environs), /ˈkaʒe/ [ˈka.ʒe] (… elsewhere in Pampas and southern Argentina, Uruguay), /ˈkaʝe/ [ˈka.ʝe] (Spain, most of Latin America), /ˈkaʎe/ [ˈka.ʎe] (… northern and central Andes Mountains …). Coloma 2018(JIPA 48/2, 아르헨티나): /ɟʝ/와 /ʎ/가 한 음소 /ʃ/로 합쳐졌다(ellos [ˈeʃos], brilló [bɾiˈʃo]). Moreno·Mariño 1998(ICSLP): 부에노스아이레스 llave를 유성 [ʒ]로. 보고따의 ʎ/ʝ 구별이 사라지는 중: Markič 2017(Linguistica 57, Montes Giraldo 인용). PHOIBLE에 아르헨티나 목록이 없다. 6강에 [ʃ]·[ʒ]가 다 있어 listen: false(2-4). 기본 변종(보고따)과 다른 아르헨티나 발음 카드(2-2)",
+   "audio": "es-calle-ar",
+   "listen": false,
+   "vtag": "아르헨티나"
+  },
+  {
+   "id": "es-cinco-s",
+   "lang": "spa",
+   "text": "cinco",
+   "roman": "cinco",
+   "ko": "다섯",
+   "ipa": [
+    "ˈ",
+    "s",
+    "iŋko"
+   ],
+   "target": "s",
+   "phoible": {
+    "inv": 2210,
+    "seg": "s"
+   },
+   "note": "보고따 발음이다. 중남미는 e·i 앞의 c와 z를 모두 [s]로 낸다. 5강에서 본 스페인 발음 [ˈθiŋko]와 견준다.",
+   "status": "확인",
+   "status_why": "Wiktionary cinco: /ˈsinko/ [ˈsĩŋ.ko] (Latin America, Philippines), /ˈθinko/ [ˈθĩŋ.ko] (Spain, Equatorial Guinea). 중남미에 /θ/가 없고 [s]로 낸다: Moreno·Mariño 1998(ICSLP), Martínez-Celdrán 외 2003(JIPA 33/2, 카스티야), Coloma 2018(JIPA 48/2, 아르헨티나), 콜롬비아도 같다: Markič 2017(Linguistica 57). PHOIBLE 2210 /s/(카스티야 목록. 콜롬비아 목록은 PHOIBLE에 없음). 5강 es-cinco(스페인 [θ])와 짝. id는 5강 es-cinco와 겹치지 않게 -s를 붙임(pt-casa-z 선례)",
+   "audio": "es-cinco-s",
+   "vtag": "보고따"
+  },
+  {
+   "id": "es-mismo",
+   "lang": "spa",
+   "text": "mismo",
+   "roman": "mismo",
+   "ko": "같은",
+   "ipa": [
+    "ˈmi",
+    "z",
+    "mo"
+   ],
+   "target": "z",
+   "accept": [
+    "z",
+    "s"
+   ],
+   "phoible": {
+    "inv": 2210,
+    "seg": "s",
+    "allo": "s̬"
+   },
+   "note": "유성 자음(m) 앞의 s는 목청이 울려 [z]가 된다. [z]는 따로 된 음소가 아니다. 보고따는 음절 끝 s를 지키는데, 울림까지 내는지는 근거가 없다. 아르헨티나와 카리브 해안은 이 s를 [h]로 낸다([ˈmihmo]).",
+   "status": "확인 필요",
+   "status_why": "Wiktionary mismo: /ˈmismo/ [ˈmiz.mo]. 스페인: Martínez-Celdrán 외 2003(JIPA 33/2, 카스티야)은 s가 유성 자음 앞에서 유성이 된다고 적는다(rasgo [ˈrazɣo]). PHOIBLE 2210 /s/의 변이음 s̬(유성 s. 이 게임의 [z]와 기호가 다르다, 관례 차이). 보고따가 s를 울리는지는 독립 근거가 없다(Moreno·Mariño 1998의 desde [ˈdezde]의 [z]는 카스티야 기본 규칙을 물려받은 것이고, 보고따 절이 바꾼 것은 x→h와 b·d·g뿐이다, 외솔 26.11.27). Markič 2017(Linguistica 57, Montes Giraldo 인용)은 안데스 쪽이 음절 끝 s를 '팽팽한 치찰음'으로 지킨다고만 하고 울림은 말하지 않으며, 보고따 말에서 [h]도 꽤 나온다고 한다. 그래서 [s] 이름도 받는다(2-4). 아르헨티나 [h]: Coloma 2018(JIPA 48/2, 아르헨티나) pasta [ˈpahta]. 카리브 해안 [h]: Moreno·Mariño 1998 pasta [ˈpahta], Markič 2017은 해안 말의 mismo를 [ˈmiɦmo]로 적는다. Wiktionary가 mismo에 붙인 콜롬비아 녹음([ˈmiʰ.mo] 표시)은 까르따헤나(카리브 해안) 화자 것이라 보고따 근거가 아니다. 6강에 [s]·[z]가 다 있고 화자에 따라 [h]도 나므로 listen: false(2-4)",
+   "audio": "es-mismo",
+   "listen": false,
+   "vtag": "보고따"
   }
  ]
 }

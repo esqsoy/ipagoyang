@@ -233,6 +233,14 @@
    "allo": null,
    "ok": true,
    "why": ""
+  },
+  {
+   "word": "es-verde",
+   "inv": 2210,
+   "seg": "d̻",
+   "allo": "d̪",
+   "ok": true,
+   "why": ""
   }
  ],
  "absent": [

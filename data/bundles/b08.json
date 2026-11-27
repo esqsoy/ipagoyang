@@ -506,7 +506,8 @@
    "status_why": "Wiktionary (Portugal) /pɨˈke.nu/, (Brazil) /piˈkẽ.nu/·/peˈkẽ.nu/. PHOIBLE 리스본 목록 2206은 이 모음을 /ɯ/(변이음 ɯ ɯ̥)로 적어 기호가 다르다(관례 차이). 기본 변종(브라질 2207)에는 없는 소리(2-2로 넣음). accept에서 ɯ를 뺌(외솔 C-02). 2206이 무성 변이음 ɯ̥를 적어 녹음에서 [ɨ]가 안 들릴 수 있으므로 listen: false(외솔 N-5·R-8, 파시 26.11.25). 귀로 [ɨ]가 확인되면 푼다",
    "audio": "pt-pequeno-pt-santamarcanda",
    "listen": false,
-   "audio_more": []
+   "audio_more": [],
+   "vtag": "포르투갈"
   },
   {
    "id": "zh-li",

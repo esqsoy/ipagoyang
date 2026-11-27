@@ -671,3 +671,10 @@
 - 고침: jugo [x](보고타 [x]/[h] 문헌 갈림 → 확인 필요, listen: false, 세 변종 설명), foca(콜롬비아 [ɸ] 흔함, 녹음 둘 다 해안·코스타리카 화자 → listen: false), cinco(스페인 발음 카드 문구), sol(혀끝·혀날 s를 출처로), goma·dos(보고타는 자음 뒤에서도 막는 소리, 스페인은 약해짐), sí(status_why), languages.json·symbols.json θ 문구. nada·chocolate에서 카르타헤나 화자 녹음을 귀로 확인 전까지 뺌(8-10, 다른 화자 녹음이 남음). 카드 537(듣기 문항 둘 빠짐), 녹음 410.
 - 더할 후보(영신에게 먼저 묻기, AGENTS): 6강 아르헨티나 yo·calle [ʃ]/[ʒ], 6강 보고타 cinco [s], 6강 mismo [z], 2·3강 desde·algo 자음 뒤 b·d·g, 보고타 화자 녹음 찾기.
 - 검사: build --check 맞음, prototype·record-transfer 시험 통과.
+
+## 2026-11-27 · 스페인어 변종 카드 7장(영신 승인)
+
+- 영신 "스페인어 카드 후보는 넣고 보고타 화자 녹음은 찾지마 내 안에 다 있음". 흐름: 이솝 초안 → 파시 손봄(desde → verde: 조립 도구가 대상 앞 같은 기호를 못 받음, 같은 현상) → 외솔 검토(A2·B1~B4) · 이언 답을 가린 검산(7낱말 전사·대상 모두 일치) → 파시 합치기.
+- 넣음: 6강 es-yo-ar·es-calle-ar(아르헨티나 [ʃ], accept ʃ/ʒ, listen false), es-cinco-s(보고따 [s]), es-mismo([z], accept z/s), 2강 es-verde·3강 es-algo·es-carga(보고따 자음 뒤 파열음, accept 좁힘). 모두 녹음 없음('발음 확보 중').
+- 판정 방침(PRINCIPLES 2-4 새 줄): 문제에 변종 표시(`vtag`, build.py), accept는 기본 변종 안에서 근거가 갈릴 때만 넓힌다. es-jugo는 accept [x, h]로 듣기에 되돌림. es-sol 설명 바로잡음(콜롬비아 고원 혀끝 s 기록, 외솔). es-dos·es-goma 근거 원문 확인(이언). 데이터의 '보고타'를 '보고따'로(AGENTS).
+- phoible_check: inv null 칸(아르헨티나) 받음, 어긋남 0. b06 absent에 2210 [z ʃ ʒ]. build --check 맞음, 시험 통과. 카드 545, 녹음 410.

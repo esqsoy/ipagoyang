@@ -79,7 +79,7 @@ def main():
         # 결과 파일에는 이 묶음 낱말이 대조한 음소 줄과 absent 줄만 남긴다(26.11.09: 전에는 입술소리 줄만 남겼다)
         segs = collections.defaultdict(set)
         for w in b['words']:
-            if w.get('phoible'):
+            if w.get('phoible') and w['phoible'].get('inv') is not None:
                 segs[w['phoible']['inv']].add(w['phoible']['seg'])
         for k, ss in b.get('absent', {}).items():
             segs[int(k)].update(ss)

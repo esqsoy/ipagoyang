@@ -305,6 +305,34 @@
    "allo": null,
    "ok": true,
    "why": ""
+  },
+  {
+   "word": "es-yo-ar",
+   "inv": null,
+   "ok": true,
+   "why": "목록 없음: PHOIBLE에 아르헨티나 스페인어 목록이 없다(스페인어 목록 164·553·2210·2303·2308은 스페인이거나 지역 없음, 외솔 26.11.27 확인)"
+  },
+  {
+   "word": "es-calle-ar",
+   "inv": null,
+   "ok": true,
+   "why": "목록 없음: PHOIBLE에 아르헨티나 스페인어 목록이 없다(스페인어 목록 164·553·2210·2303·2308은 스페인이거나 지역 없음, 외솔 26.11.27 확인)"
+  },
+  {
+   "word": "es-cinco-s",
+   "inv": 2210,
+   "seg": "s",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "es-mismo",
+   "inv": 2210,
+   "seg": "s",
+   "allo": "s̬",
+   "ok": true,
+   "why": ""
   }
  ],
  "absent": [
@@ -329,6 +357,24 @@
   {
    "inv": 2197,
    "seg": "ʐ",
+   "ok": true,
+   "found_in": []
+  },
+  {
+   "inv": 2210,
+   "seg": "z",
+   "ok": true,
+   "found_in": []
+  },
+  {
+   "inv": 2210,
+   "seg": "ʃ",
+   "ok": true,
+   "found_in": []
+  },
+  {
+   "inv": 2210,
+   "seg": "ʒ",
    "ok": true,
    "found_in": []
   }

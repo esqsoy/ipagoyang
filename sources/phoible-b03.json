@@ -209,6 +209,22 @@
    "allo": null,
    "ok": true,
    "why": ""
+  },
+  {
+   "word": "es-algo",
+   "inv": 2210,
+   "seg": "ɡ",
+   "allo": "ɡ",
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "es-carga",
+   "inv": 2210,
+   "seg": "ɡ",
+   "allo": "ɡ",
+   "ok": true,
+   "why": ""
   }
  ],
  "absent": [

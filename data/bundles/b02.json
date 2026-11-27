@@ -241,9 +241,9 @@
     "seg": "d̻",
     "allo": "d̪"
    },
-   "note": "쉰 다음 첫머리에서는 [d]. 혀끝이 윗니 뒤에 닿는다([d̪]). 보고타는 자음 뒤에서도 [d]로 막는다(desde [ˈdezde]). 스페인은 desde [ˈdezð̞e]처럼 약해진다.",
+   "note": "쉰 다음 첫머리에서는 [d]. 혀끝이 윗니 뒤에 닿는다([d̪]). 보고따는 자음 뒤에서도 [d]로 막는다(desde [ˈdezde]). 스페인은 desde [ˈdezð̞e]처럼 약해진다.",
    "status": "확인",
-   "status_why": "PHOIBLE 2210 /d̻/(변이음 d̪·ð̞). 보고타 자음 뒤: Moreno·Mariño 1998(ICSLP, 보고타 전사 규칙)(확인 필요, 근거 하나). 스페인: Wiktionary desde",
+   "status_why": "PHOIBLE 2210 /d̻/(변이음 d̪·ð̞). 보고따 자음 뒤: Moreno·Mariño 1998(ICSLP, 보고따 전사 규칙)(근거 하나. 원문은 이언 26.11.27 직접 확인: 4.3절 desde [ˈdezde], carga [ˈkarga]). 스페인: Wiktionary desde",
    "audio_more": [
     "es-dos-precision27"
    ]
@@ -272,7 +272,7 @@
    },
    "note": "모음 사이 d는 혀끝으로 막지 않는다.",
    "status": "확인",
-   "status_why": "PHOIBLE 2210 /d̻/의 변이음 ð̞ 카르타헤나(카리브 해안) 녹음은 모음 사이 d가 약해지거나 빠질 수 있어 귀로 확인 전까지 뺌(8-10, 외솔 26.11.27, Markič 2017(Linguistica 57, Montes Giraldo 인용))",
+   "status_why": "PHOIBLE 2210 /d̻/의 변이음 ð̞ 까르따헤나(카리브 해안) 녹음은 모음 사이 d가 약해지거나 빠질 수 있어 귀로 확인 전까지 뺌(8-10, 외솔 26.11.27, Markič 2017(Linguistica 57, Montes Giraldo 인용))",
    "audio_more": []
   },
   {
@@ -713,6 +713,30 @@
    "status": "확인",
    "status_why": "PHOIBLE 2261 /t̪/",
    "audio": "ru-tok-kerbush"
+  },
+  {
+   "id": "es-verde",
+   "lang": "spa",
+   "text": "verde",
+   "roman": "verde",
+   "ko": "초록",
+   "ipa": [
+    "ˈbeɾ",
+    "d",
+    "e"
+   ],
+   "target": "d",
+   "phoible": {
+    "inv": 2210,
+    "seg": "d̻",
+    "allo": "d̪"
+   },
+   "note": "보고따는 자음 뒤의 d도 꽉 막는 [d]다(desde [ˈdezde]도 같다). 스페인은 r 뒤에서 [ð̞]로 약해진다([ˈbeɾð̞e]). v는 b와 같은 소리다.",
+   "status": "확인 필요",
+   "status_why": "보고따 [ˈbeɾde]: Moreno·Mariño 1998(ICSLP, 보고따 전사 규칙)의 규칙(b·d·g는 모음 사이와 음절 끝이 아니면 늘 파열음)을 적용한 것이다. 그 논문의 보기 낱말은 desde [ˈdezde]·carga [ˈkaɾɡa]이고 verde는 아니다. 근거가 이것 하나다. 스페인: Wiktionary verde /ˈbeɾde/ [ˈbeɾ.ð̞e], Martínez-Celdrán 외 2003(JIPA 33/2, 카스티야)은 d가 쉼·비음·l 뒤에서만 파열음이라고 적는다. PHOIBLE 2210 /d̻/(변이음 d̪·ð̞, 카스티야 목록). 2강에 [d]·[ð]가 다 있고 문제에 '(보고따)'를 보이므로 [ð]는 받지 않는다(이언 26.11.27: 받으면 이 카드가 가르치는 '보고따는 막는다'가 흐려진다). Moreno·Mariño 1998 원문은 이언이 직접 확인했으나 근거는 하나다. 같은 까닭으로 listen: false(8-10)",
+   "audio": "es-verde",
+   "listen": false,
+   "vtag": "보고따"
   }
  ],
  "compare": [
@@ -840,5 +864,5 @@
   ]
  },
  "absent_about": "한국어 목록 셋에 ð·θ가 없어야 symbols ð의 '한국어에 없다'가 맞다. 스페인어 2210에 음소 /ð/가 없어야 nada의 [ð̞]가 /d/의 변이음이라는 것이 맞다.",
- "audio_plan": "모두 Commons·Lingua Libre 녹음(PRINCIPLES 8-10). 한국어 달·탈·딸은 Amanda1970 계정 녹음뿐이라(출처 의심) 쓰지 않았다. 바다는 호로조. 스페인어 té는 원어민 녹음이 하나뿐(화자 거주지 프랑스)이라 tú로 바꿨다. 電気는 같은 화자의 두 녹음 중 한자 제목 하나만. En-us-day는 만든 사람이 '추정'으로 표시돼 쓰지 않았다."
+ "audio_plan": "모두 Commons·Lingua Libre 녹음(PRINCIPLES 8-10). 한국어 달·탈·딸은 Amanda1970 계정 녹음뿐이라(출처 의심) 쓰지 않았다. 바다는 호로조. 스페인어 té는 원어민 녹음이 하나뿐(화자 거주지 프랑스)이라 tú로 바꿨다. 電気는 같은 화자의 두 녹음 중 한자 제목 하나만. En-us-day는 만든 사람이 '추정'으로 표시돼 쓰지 않았다. 스페인어 verde는 녹음을 찾지 않는다(영신 26.11.27 \"보고타 화자 녹음은 찾지마 내 안에 다 있음\")."
 }

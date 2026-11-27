@@ -91,7 +91,7 @@
   ]
  },
  "absent_about": "한국어 목록 셋에 ɣ가 없어야 symbols ɣ의 '한국어에 없다'가 맞다.",
- "audio_plan": "모두 Commons·Lingua Libre 녹음(PRINCIPLES 8-10). 한국어 개·코·꽃·고기는 한 화자(호로조, 경기).",
+ "audio_plan": "모두 Commons·Lingua Libre 녹음(PRINCIPLES 8-10). 한국어 개·코·꽃·고기는 한 화자(호로조, 경기). 스페인어 algo·carga는 녹음을 찾지 않는다(영신 26.11.27 \"보고타 화자 녹음은 찾지마 내 안에 다 있음\").",
  "words": [
   {
    "id": "ko-gae",
@@ -299,9 +299,9 @@
     "seg": "ɡ",
     "allo": "ɡ"
    },
-   "note": "쉰 다음 첫머리에서는 [ɡ]. 보고타는 자음 뒤에서도 [ɡ]로 막는다(carga [ˈkarga]). 스페인은 자음 뒤에서 약해진다(algo [ˈalɣ̞o]).",
+   "note": "쉰 다음 첫머리에서는 [ɡ]. 보고따는 자음 뒤에서도 [ɡ]로 막는다(carga [ˈkarga]). 스페인은 자음 뒤에서 약해진다(algo [ˈalɣ̞o]).",
    "status": "확인",
-   "status_why": "PHOIBLE 2210 /ɡ/(변이음 ɡ·ɣ̞·ɰ). 보고타 자음 뒤: Moreno·Mariño 1998(ICSLP, 보고타 전사 규칙)(확인 필요, 근거 하나). 스페인: Martínez-Celdrán 외 2003(JIPA 33/2, 카스티야)",
+   "status_why": "PHOIBLE 2210 /ɡ/(변이음 ɡ·ɣ̞·ɰ). 보고따 자음 뒤: Moreno·Mariño 1998(ICSLP, 보고따 전사 규칙)(근거 하나. 원문은 이언 26.11.27 직접 확인: 4.3절 desde [ˈdezde], carga [ˈkarga]). 스페인: Martínez-Celdrán 외 2003(JIPA 33/2, 카스티야)",
    "audio": "es-goma-rubyn"
   },
   {
@@ -686,6 +686,54 @@
    "status": "확인 필요",
    "status_why": "녹음 없음. 현대 표준 아랍어 녹음은 Commons에서 찾지 못했다. PHOIBLE 2157도 방언 화자 목록이다",
    "audio": "ar-gharb"
+  },
+  {
+   "id": "es-algo",
+   "lang": "spa",
+   "text": "algo",
+   "roman": "algo",
+   "ko": "무언가",
+   "ipa": [
+    "ˈal",
+    "ɡ",
+    "o"
+   ],
+   "target": "ɡ",
+   "phoible": {
+    "inv": 2210,
+    "seg": "ɡ",
+    "allo": "ɡ"
+   },
+   "note": "보고따는 자음 뒤의 g도 꽉 막는 [ɡ]다. 스페인은 l 뒤에서 [ɣ̞]로 약해진다([ˈalɣ̞o]).",
+   "status": "확인 필요",
+   "status_why": "보고따 [ˈalɡo]: Moreno·Mariño 1998(ICSLP, 보고따 전사 규칙)의 규칙(b·d·g는 모음 사이와 음절 끝이 아니면 늘 파열음)을 적용한 것이다. algo는 그 논문의 보기 낱말이 아니고(보기는 carga), 근거가 이것 하나다. 스페인: Wiktionary algo /ˈalɡo/ [ˈal.ɣ̞o], Martínez-Celdrán 외 2003(JIPA 33/2, 카스티야)도 algo를 [ˈalɣ̞o]로 적는다. PHOIBLE 2210 /ɡ/(변이음 ɡ·ɣ̞·ɰ, 카스티야 목록). 3강에 [ɡ]·[ɣ]가 다 있고 문제에 '(보고따)'를 보이므로 [ɣ]는 받지 않는다(이언 26.11.27: 받으면 이 카드가 가르치는 '보고따는 막는다'가 흐려진다). Moreno·Mariño 1998 원문은 이언이 직접 확인했으나 근거는 하나다. 같은 까닭으로 listen: false(8-10)",
+   "audio": "es-algo",
+   "listen": false,
+   "vtag": "보고따"
+  },
+  {
+   "id": "es-carga",
+   "lang": "spa",
+   "text": "carga",
+   "roman": "carga",
+   "ko": "짐",
+   "ipa": [
+    "ˈkaɾ",
+    "ɡ",
+    "a"
+   ],
+   "target": "ɡ",
+   "phoible": {
+    "inv": 2210,
+    "seg": "ɡ",
+    "allo": "ɡ"
+   },
+   "note": "보고따는 r 뒤의 g도 꽉 막는 [ɡ]다. 스페인은 [ˈkaɾɣ̞a]로 약해진다.",
+   "status": "확인 필요",
+   "status_why": "보고따 [ˈkaɾɡa]: Moreno·Mariño 1998(ICSLP, 보고따 전사 규칙)의 보기 낱말이다. 근거가 이것 하나다. 스페인: Wiktionary carga /ˈkaɾɡa/ [ˈkaɾ.ɣ̞a], Martínez-Celdrán 외 2003(JIPA 33/2, 카스티야)은 g가 쉼·비음 뒤에서만 파열음이라고 적는다. PHOIBLE 2210 /ɡ/(변이음 ɡ·ɣ̞·ɰ, 카스티야 목록). 3강에 [ɡ]·[ɣ]가 다 있고 문제에 '(보고따)'를 보이므로 [ɣ]는 받지 않는다(이언 26.11.27: 받으면 이 카드가 가르치는 '보고따는 막는다'가 흐려진다). Moreno·Mariño 1998 원문은 이언이 직접 확인했으나 근거는 하나다. 같은 까닭으로 listen: false(8-10)",
+   "audio": "es-carga",
+   "listen": false,
+   "vtag": "보고따"
   }
  ]
 }
