@@ -761,6 +761,34 @@
     ]
    },
    "fetched": "2026-11-27"
+  },
+  {
+   "word": "vi-ba",
+   "ours": "[ɓaː˨˩]",
+   "wiktionary": [
+    "[ʔɓaː˨˩]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[ʔɓaː˨˩]"
+   ],
+   "page": "bà",
+   "revid": 93437087,
+   "line": "Hà Nội",
+   "how": "위키문법 API({{vi-IPA}}) + API expandtemplates(title=bà, text={{vi-IPA}})",
+   "stripped": [
+    "앞 성문 폐쇄 ʔ"
+   ],
+   "other_lines": {
+    "Huế": [
+     "[ʔɓaː˦˩]"
+    ],
+    "Saigon": [
+     "[ʔɓaː˨˩]"
+    ]
+   },
+   "fetched": "2026-11-27"
   }
  ]
 }

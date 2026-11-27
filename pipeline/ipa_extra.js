@@ -208,7 +208,7 @@ const IPA_OFF_HEAD = '<span class="ipa-rowh ipa-offh" title="IPA 표에 칸이 �
 /* 내파 줄(26.11.27, 베트남어 đ [ɗ]): 내파음은 IPA 표의 폐 기류 자음표가 아니라 '비폐장 기류 자음' 표에 있어 자음표에 칸이 없다.
    표 밖 줄에 섞지 않고 따로 한 줄을 두고, 자리 열은 위 표와 같게 한다(ɗ는 치·치경 = 4열, 나중에 ɓ가 들어오면 1열 양순).
    이 게임이 가르치는 것만 둔다(8-7). 머리 칸은 용어 자료의 '내파음'(표준국어대사전 內破音) */
-const IPA_IMP_COLS = [null, null, null, ['ɗ'], null, null, null, null, null, null, null];
+const IPA_IMP_COLS = [['ɓ'], null, null, ['ɗ'], null, null, null, null, null, null, null];
 const IPA_IMP = IPA_IMP_COLS.flatMap(v => v || []);
 function ipaKey(sym) { const k = String(sym || '').normalize('NFD').replace(/[\u0300-\u036f\u02b0-\u02ff]/g, ''); return IPA_OFF.includes(k) ? k : k.slice(0, 1); }
 // 목청 설명: 기호마다 따로 적은 글(마찰음·파찰음)이 있으면 그것, 없으면 상태별 글(파열음 기준)

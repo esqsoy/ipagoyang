@@ -321,6 +321,14 @@
    "allo": null,
    "ok": true,
    "why": ""
+  },
+  {
+   "word": "vi-ba",
+   "inv": 2462,
+   "seg": "ɓ",
+   "allo": null,
+   "ok": true,
+   "why": ""
   }
  ],
  "absent": [
@@ -355,6 +363,12 @@
    "found_in": []
   },
   {
+   "inv": 2197,
+   "seg": "ɓ",
+   "ok": true,
+   "found_in": []
+  },
+  {
    "inv": 1,
    "seg": "β",
    "ok": true,
@@ -385,6 +399,12 @@
    "found_in": []
   },
   {
+   "inv": 1,
+   "seg": "ɓ",
+   "ok": true,
+   "found_in": []
+  },
+  {
    "inv": 2287,
    "seg": "β",
    "ok": true,
@@ -411,6 +431,12 @@
   {
    "inv": 2287,
    "seg": "b̤",
+   "ok": true,
+   "found_in": []
+  },
+  {
+   "inv": 2287,
+   "seg": "ɓ",
    "ok": true,
    "found_in": []
   },
@@ -736,6 +762,24 @@
     "lee1989korean"
    ],
    "rows": []
+  },
+  "2462": {
+   "meta": {
+    "iso": "vie",
+    "name": "Vietnamese",
+    "dialect": "Vietnamese (Hanoi)",
+    "source": "ea"
+   },
+   "bibtex": [
+    "vie_kirby2011"
+   ],
+   "rows": [
+    {
+     "phoneme": "ɓ",
+     "allophones": "NA",
+     "marginal": "FALSE"
+    }
+   ]
   }
  }
 }

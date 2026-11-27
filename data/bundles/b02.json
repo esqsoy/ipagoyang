@@ -43,7 +43,7 @@
   "dh": "dʱ",
   "d<": "ɗ"
  },
- "shortcuts_about": "b01과 같은 방식: tʰ = th, ㄸ의 로마자 tt = t͈, ð = 대문자 D(Claude 안). dh → dʱ(산스크리트어 로마자 dh, 26.11.27). d< → ɗ(X-SAMPA의 내파음 표기 d<, 26.11.27).",
+ "shortcuts_about": "b01과 같은 방식: tʰ = th, ㄸ의 로마자 tt = t͈, ð = 대문자 D(Claude 안). dh → dʱ(산스크리트어 로마자 dh, 26.11.27). d< → ɗ(X-SAMPA의 내파음 표기 d_<에서 밑줄을 뺀 줄임, 26.11.27).",
  "words": [
   {
    "id": "ko-dal",
@@ -1076,7 +1076,7 @@
    },
    "note": "베트남어 t는 바람이 거의 없는 [t]다. 한국어 귀에는 ㄸ에 가깝게 들린다(또이). t·th는 혀 앞날이 윗니 뒤와 잇몸에 함께 닿고, đ는 혀끝이 잇몸에 닿는다. 바람을 넣으면 thôi(그만), 목청을 울리며 울대를 내리면 đôi(짝)다.",
    "status": "확인",
-   "status_why": "PHOIBLE 2233 /t̪/(변이음 t̪·t̻·t̚. 이 게임은 프랑스어·스페인어처럼 치음 표시를 떼고 [t]로 적는다). Wiktionary tôi(revid 91803731) 'Hà Nội' [toj˧˧]와 같음(Huế·Saigon 줄도 같다). 성조 글자 ˧˧는 Wiktionary 'Hà Nội' 줄 그대로다. 2233 성조 줄과 ngang의 대응은 Kirby 본문 확인 필요(대상 밖). 혀 자리(t·tʰ는 혀 앞날이 윗니 뒤·잇몸에 닿는 denti-alveolar·laminal, đ는 혀끝이 잇몸에 닿는 apico-alveolar)는 Kirby 2011:382를 영어 위키백과 Vietnamese phonology 경유로 봤다(원문 미대조). 'ㄸ에 가깝게 들린다'와 낱말 고르기는 Claude 지식. 틀 {{vi-IPA}}가 철자에서 만든 전사(2차, 기계 생성)를 렌더된 문서의 WebFetch로 읽었다(Wikimedia API가 요청 제한 429로 막혀 expandtemplates를 못 했다). 문서의 위키문법과 판 번호는 API로 받았다."
+   "status_why": "PHOIBLE 2233 /t̪/(변이음 t̪·t̻·t̚. 이 게임은 프랑스어·스페인어처럼 치음 표시를 떼고 [t]로 적는다). Wiktionary tôi(revid 91803731) 'Hà Nội' [toj˧˧]와 같음(Huế·Saigon 줄도 같다). 성조 글자 ˧˧는 Wiktionary 'Hà Nội' 줄 그대로다. 2233 성조 줄과 ngang의 대응은 Kirby 본문 확인 필요(대상 밖). 혀 자리(t·tʰ는 혀 앞날이 윗니 뒤·잇몸에 닿는 denti-alveolar·laminal, đ는 혀끝이 잇몸에 닿는 apico-alveolar)는 Kirby 2011:382 원문으로 확인했다(26.11.27). 'ㄸ에 가깝게 들린다'와 낱말 고르기는 Claude 지식. 틀 {{vi-IPA}}가 철자에서 만든 전사(2차, 기계 생성)를 렌더된 문서의 WebFetch로 읽었다(Wikimedia API가 요청 제한 429로 막혀 expandtemplates를 못 했다). 문서의 위키문법과 판 번호는 API로 받았다."
   },
   {
    "id": "vi-thoi",
@@ -1119,7 +1119,7 @@
    },
    "note": "줄 그은 đ는 [ɗ]다. 혀끝을 잇몸에 붙이고 목청을 울리면서 울대를 살짝 내려, 터뜨릴 때 밖으로 터지는 바람이 약하다. 다른 표기: Wiktionary는 앞에 목을 막는 소리를 붙여 [ʔɗ]로 적는다. 줄 없는 d는 하노이에서 [z]다.",
    "status": "확인",
-   "status_why": "PHOIBLE 2233 /ɗ/(변이음 ɗ). Wiktionary đôi(revid 94532939) 'Hà Nội' [ʔɗoj˧˧]에 대상 ɗ가 있다(Huế·Saigon 줄도 같다). 다른 표기: Wiktionary는 앞 성문 폐쇄를 붙여 [ʔɗ], PHOIBLE 2233은 /ɗ/. 줄 없는 d = [z]는 Wiktionary 부록(revid 95496966) 하노이 칸과 2233 /z/. 내는 법 설명과 낱말 고르기는 Claude 지식(Kirby 2011 본문 미열람). 정답은 ɗ 하나(accept를 넓히지 않음). 듣고 이름 대기에 내지 않는다(listen false): 내파가 약한 화자의 đ는 [d]로 들릴 수 있고, 베트남어 đ는 앞 성문 폐쇄가 주이고 내파는 덜하다는 기술이 있어(Kirby 2011:382, 영어 위키백과 경유) 귀로는 답이 둘이 될 수 있다(2-4). 성조 글자 ˧˧는 Wiktionary 'Hà Nội' 줄 그대로다. 2233 성조 줄과 ngang의 대응은 Kirby 본문 확인 필요(대상 밖). 틀 {{vi-IPA}}가 철자에서 만든 전사(2차, 기계 생성)를 렌더된 문서의 WebFetch로 읽었다(Wikimedia API가 요청 제한 429로 막혀 expandtemplates를 못 했다). 문서의 위키문법과 판 번호는 API로 받았다."
+   "status_why": "PHOIBLE 2233 /ɗ/(변이음 ɗ). Wiktionary đôi(revid 94532939) 'Hà Nội' [ʔɗoj˧˧]에 대상 ɗ가 있다(Huế·Saigon 줄도 같다). 다른 표기: Wiktionary는 앞 성문 폐쇄를 붙여 [ʔɗ], PHOIBLE 2233은 /ɗ/. 줄 없는 d = [z]는 Wiktionary 부록(revid 95496966) 하노이 칸과 2233 /z/. 내는 법 설명과 낱말 고르기는 Claude 지식(Kirby 2011 본문 미열람). 정답은 ɗ 하나(accept를 넓히지 않음). 듣고 이름 대기에 내지 않는다(listen false): 내파가 약한 화자의 đ는 [d]로 들릴 수 있고, 베트남어 하노이 유성 파열음은 보통 내파음이나 늘 그렇지는 않고(Kirby 2011:382 원문), 앞 성문 폐쇄가 주라는 기술도 있어(위키백과가 Thompson 1959 등 인용) 귀로는 답이 둘이 될 수 있다(2-4). 성조 글자 ˧˧는 Wiktionary 'Hà Nội' 줄 그대로다. 2233 성조 줄과 ngang의 대응은 Kirby 본문 확인 필요(대상 밖). 틀 {{vi-IPA}}가 철자에서 만든 전사(2차, 기계 생성)를 렌더된 문서의 WebFetch로 읽었다(Wikimedia API가 요청 제한 429로 막혀 expandtemplates를 못 했다). 문서의 위키문법과 판 번호는 API로 받았다."
   }
  ],
  "compare": [

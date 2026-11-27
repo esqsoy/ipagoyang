@@ -12,7 +12,7 @@ import json, glob, os, sys, math, struct, subprocess
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 # ɗ(베트남어 đ, 26.11.27): 내파음도 닫는 동안 울리므로 앞 울림이 있어야 한다. 아직 녹음이 없어(vi-doi 발음 확보 중) 잴 것이 없다
-TARGETS = {'b', 'd', 'ɡ', 'dz', 'dʒ', 'dʑ', 'ɗ'}
+TARGETS = {'b', 'd', 'ɡ', 'dz', 'dʒ', 'dʑ', 'ɗ', 'ɓ'}
 
 
 def load(p, lp=None, sr=16000):
