@@ -569,7 +569,7 @@ function ipaRenderMap() {
   const {set, current} = ipaLearned();
   const sym = v => {
     const on = set.has(v), cur = current.has(v);
-    return `<button type="button" class="ipa-cell-s${on ? ' on' : ''}${cur ? ' cur' : ''}" data-s="${ipaEsc(v)}" aria-label="${ipaEsc(on ? v : '잠긴 칸')}">${on || cur ? ipaEsc(v) : '·'}</button>`;
+    return `<button type="button" class="ipa-cell-s${on ? ' on' : ''}${cur ? ' cur' : ''}" data-s="${ipaEsc(v)}" aria-label="${ipaEsc(v)}">${ipaEsc(v)}</button>`;  // 26.11.27 영신: 처음부터 다 열어 둔다(잠긴 칸 없음)
   };
   const colh = (k, i) => { const t = ipaT(k); return `<button type="button" class="ipa-col" data-term="${ipaEsc(k)}" aria-label="${ipaEsc(ipaHeadAria(t))}">${i + 1}<small>${ipaHeadText(t, ipaColLabel(t))}</small><small class="h">${ipaHanjaHtml(t.short_hanja || t.hanja || '')}</small></button>`; };
   const rowh = k => { const t = ipaT(k); return `<button type="button" class="ipa-rowh" data-term="${ipaEsc(k)}" aria-label="${ipaEsc(ipaHeadAria(t))}"><span>${ipaHeadText(t, ipaRowLabel(t))}</span><small class="h">${ipaHanjaHtml(t.hanja || '')}</small></button>`; };
@@ -584,7 +584,7 @@ function ipaRenderMap() {
   }
   grid += `${IPA_OFF_HEAD}${ipaOffRow(sym)}</div>`;
   const lit = [...set].length, all = IPA_ROWS.reduce((a, r) => a + r.cells.filter(Boolean).reduce((b, c) => b + (c.v || c).length, 0), 0) + IPA_OFF.length;
-  el.innerHTML = `<div class="phead"><div style="flex:1;min-width:0"><h2>IPA 입 지도</h2><small>입술(1)에서 목청(11)까지 · 켠 칸 ${lit}/${all} · 점은 잠긴 칸 · 머리 칸을 누르면 용어 풀이</small></div></div>
+  el.innerHTML = `<div class="phead"><div style="flex:1;min-width:0"><h2>IPA 입 지도</h2><small>입술(1)에서 목청(11)까지 · 켠 칸 ${lit}/${all} · 흐린 기호는 아직 강에서 다루지 않는 것 · 머리 칸을 누르면 용어 풀이</small></div></div>
     <div class="ipa-map-wrap">${grid}</div>
     <div class="ipa-dex" id="ipaDex"></div>
     ${ipaLangPanel()}
@@ -602,8 +602,8 @@ function ipaShowDex() {
   const v = ipaPick || [...current][0] || [...set][0];
   if (!v) { box.innerHTML = ''; return; }
   const s = IPA.symbols[v];
-  if (!(set.has(v) || current.has(v)) || !s) {
-    box.innerHTML = `<div class="ipa-dex-in"><b class="ipa-dex-sym">??</b><span><span class="nm">고양고양이</span> 아직 잠긴 칸이라고양. 강에서 만나면 열린다고양.</span></div>`;
+  if (!s) {
+    box.innerHTML = `<div class="ipa-dex-in"><b class="ipa-dex-sym">${ipaEsc(v)}</b><span><span class="nm">고양고양이</span> 이 기호는 아직 강에서 다루지 않는다고양. 표에서 자리만 보라고양.</span></div>`;
     return;
   }
   const words = (IPA.examples[v] || []).map(e => `<span class="ipa-chip">${ipaEsc(e.lang)} ${ipaWordHtml(e.text, e.ko)}${ipaChk(e.wid)}</span>`).join('');
@@ -795,8 +795,8 @@ function ipaVowelSvg(o = {}) {
     if (rd !== -1 && (b !== 'nf' && b !== 'nb')) s += `<circle cx="${cx}" cy="${cy}" r="${small ? 1.6 : 2.4}" class="ipa-vdot"/>`;
     if (small) { if (on || cu || h) s += `<circle cx="${tx}" cy="${cy}" r="${h ? 6 : 4.5}" class="ipa-vm${h ? ' hit' : cu ? ' cur' : ' on'}"/>`; continue; }
     const cls = `ipa-vs${on ? ' on' : ''}${cu ? ' cur' : ''}${h ? ' hit' : ''}`;
-    const show = o.all || on || cu;
-    s += `<g class="${cls}" data-s="${ipaEsc(v)}" role="button" tabindex="0" aria-label="${ipaEsc(show ? v : '잠긴 칸')}"><circle cx="${tx}" cy="${cy}" r="11" class="ipa-vhit"/><text x="${tx}" y="${cy + 5}" text-anchor="middle">${ipaEsc(show ? v : '·')}</text></g>`;
+    const show = true;  // 26.11.27 영신: 처음부터 다 열어 둔다
+    s += `<g class="${cls}" data-s="${ipaEsc(v)}" role="button" tabindex="0" aria-label="${ipaEsc(v)}"><circle cx="${tx}" cy="${cy}" r="11" class="ipa-vhit"/><text x="${tx}" y="${cy + 5}" text-anchor="middle">${ipaEsc(show ? v : '·')}</text></g>`;
     if (!small && IPA_VKO[v] && o.ko !== false) s += `<text x="${tx}" y="${cy - 12}" text-anchor="middle" class="ipa-vko">${IPA_VKO[v]}</text>`;
   }
   const w = P * 2 + 3 * W, hgt = P * 2 + 6 * H;
