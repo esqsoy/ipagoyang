@@ -262,3 +262,7 @@ html[data-pal="chalk"]{--panel-rgb:18,37,28;--bg1-rgb:14,28,22;--bg1:#0e1c16;--b
 /* 확인 필요 표시(26.11.26 영신, PRINCIPLES 2-3) */
 .ipa-chk{display:inline-block;margin-left:4px;padding:0 4px;border:1px solid var(--gold);border-radius:4px;color:var(--gold);font-size:.62rem;font-weight:700;vertical-align:middle;line-height:1.4}
 .ipa-chkline{margin:8px auto 0;max-width:30rem;text-align:center;font-size:.74rem;color:var(--gold)}
+/* 자음·모음 지도 바꿔 보기(26.11.27) */
+.ipa-tabs{display:flex;gap:4px;flex:none;align-self:flex-start}
+.ipa-tab{font:inherit;font-size:.78rem;font-weight:800;padding:4px 10px;border-radius:999px;border:1px solid var(--line);background:transparent;color:var(--muted);cursor:pointer}
+.ipa-tab[aria-pressed="true"]{background:var(--cyan);border-color:var(--cyan);color:#0b0b16}

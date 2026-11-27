@@ -867,6 +867,21 @@ const IPA_LIPS_KO = {spread: '편 입술', rounded: '둥글게 내민 입술', c
     const {set, current} = ipaLearned();
     const wrap = el.querySelector('.ipa-map-wrap'); if (!wrap) return;
     wrap.insertAdjacentHTML('afterend', ipaVowelPanel(set, current));
+    // 26.11.27 영신: 모음표가 들어오며 처음 화면이 길어졌다 → 자음 지도와 같은 자리에서 '자음 | 모음' 단추로 바꿔 본다(마지막에 본 쪽 기억)
+    const vw = el.querySelector('.ipa-vwrap'), head = el.querySelector('.phead');
+    let tab = 'c'; try { tab = localStorage.getItem('ipagoyang-map-tab') === 'v' ? 'v' : 'c'; } catch (e) {}
+    const small = head && head.querySelector('small'), cText = small ? small.innerHTML : '';
+    const vAll = IPA_VOWELS.length, vLit = IPA_VOWELS.filter(x => set.has(x[0])).length;
+    const show = k => {
+      tab = k; try { localStorage.setItem('ipagoyang-map-tab', k); } catch (e) {}
+      wrap.hidden = k !== 'c'; vw.hidden = k !== 'v';
+      el.querySelectorAll('.ipa-tab').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.tab === k)));
+      if (small) small.innerHTML = k === 'c' ? cText : `혀 높이(위아래)와 앞뒤 · 켠 칸 ${vLit}/${vAll} · 머리 칸을 누르면 용어 풀이`;
+    };
+    if (head) head.insertAdjacentHTML('beforeend', '<div class="ipa-tabs" role="group" aria-label="지도 고르기"><button type="button" class="ipa-tab" data-tab="c">자음</button><button type="button" class="ipa-tab" data-tab="v">모음</button></div>');
+    vw.querySelector('h3')?.remove();
+    el.querySelectorAll('.ipa-tab').forEach(b => b.onclick = () => show(b.dataset.tab));
+    show(tab);
     el.querySelectorAll('.ipa-vs').forEach(g => { const pick = () => { ipaPick = g.dataset.s; ipaShowDex(); const sy = IPA.symbols[ipaPick]; if (sy && sy.sound && ipaHasAudio(sy.sound) && g.classList.contains('on')) ipaPlay(sy.sound); }; g.onclick = pick; g.onkeydown = e => { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(); } }; });
     el.querySelectorAll('.ipa-vwrap [data-term]').forEach(b => b.onclick = () => ipaShowTerm(b.dataset.term));
   };

@@ -120,7 +120,9 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) fails++
   ok(finished === nEx, `연습 ${finished}/${nEx}개 끝`);
   await page.goto(base); await page.waitForTimeout(800);
   const lit = await page.locator('#ipaMap .ipa-cell-s.on').count() + await page.locator('#ipaMap .ipa-vs.on').count();
-  ok(await page.locator('#ipaMap .ipa-vwrap').count() === 1, '처음 화면에 모음 지도');
+  ok(await page.locator('#ipaMap .ipa-vwrap').count() === 1 && await page.locator('#ipaMap .ipa-tab').count() === 2, '처음 화면에 모음 지도(자음·모음 단추로 바꿔 봄)');
+  if (await page.locator('#ipaMap .ipa-vwrap').isHidden()) { await page.locator('#ipaMap .ipa-tab[data-tab="v"]').click(); await page.waitForTimeout(100); }
+  ok(await page.locator('#ipaMap .ipa-map-wrap').isHidden() && await page.locator('#ipaMap .ipa-vwrap').isVisible(), '모음 단추를 누르면 자음 지도는 숨고 모음표만');
   ok(lit >= 3, `IPA 지도 켜진 칸 ${lit}`);
   await shot('t05-home-after');
   // 언어 고르기(26.11.08): 한국어만 고르면 한국어 낱말 카드만 남고, 한국어에 없는 기호(β·ð)는 이름 대기에서 빠진다
