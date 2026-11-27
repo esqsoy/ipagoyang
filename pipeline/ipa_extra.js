@@ -32,9 +32,13 @@ function ipaIn(raw) {
 // 26.11.25(외솔 플레이테스트): 치조(표준국어대사전 '치조음 ≒ 치경음'), 치조구개 = 치경구개, palato-alveolar = postalveolar(ʃ·ʒ의 옛 IPA 이름)
 const IPA_NAME_SYN = {'폐쇄음': '파열음', '된소리': '경음', '거센소리': '유기', '격음': '유기', '탄설음': '탄음', '치조구개': '치경구개', '치조': '치경', 'stop': 'plosive', 'fortis': 'tense', 'flap': 'tap', 'palatoalveolar': 'postalveolar',
   // 모음(PRINCIPLES 8-11): 사전 같은 말 폐모음=고모음, 국립국어연구원 해설(2003)의 비원순=평순, 영어 high=close(고모음이 high를 옮긴 말)
-  '폐모음': '고모음', '비원순': '평순', 'high': 'close'};
+  '폐모음': '고모음', '비원순': '평순', 'high': 'close',
+  // 유성 유기음(26.11.27, 산스크리트어 bh·dh·gh): IPA 표 이름 breathy voiced = 인도어학 이름 voiced aspirate(d)
+  'breathy': 'aspirated', 'aspirate': 'aspirated'};
+// 붙임표로 이은 두 낱말이 한 낱말로 붙은 것을 다시 둘로 푼다(breathy-voiced → breathyvoiced → aspirated + voiced)
+const IPA_EN_SPLIT = {'breathyvoiced': ['aspirated', 'voiced'], 'voicedaspirated': ['voiced', 'aspirated'], 'voicedaspirate': ['voiced', 'aspirated']};
 // 영어 이름 낱말: 붙임표로 이은 말은 한 낱말로(post-alveolar = postalveolar, alveolo-palatal = alveolopalatal). 친 글과 정답에 똑같이 쓴다
-function ipaEnTok(str) { return (String(str || '').toLowerCase().replace(/([a-z])-(?=[a-z])/g, '$1').match(/[a-z]+/g) || []).map(x => IPA_NAME_SYN[x] || x); }
+function ipaEnTok(str) { return (String(str || '').toLowerCase().replace(/([a-z])-(?=[a-z])/g, '$1').match(/[a-z]+/g) || []).flatMap(x => IPA_EN_SPLIT[x] || [IPA_NAME_SYN[x] || x]); }
 // 붙은 용어는 낱말로 나눠 견준다(설측 접근음 = 설측 + 접근음): 순서를 바꿔 쳐도 같게
 const IPA_NAME_SPLIT = {'설측접근': ['설측', '접근음'], '설측마찰': ['설측', '마찰음']};
 let ipaKoVocab = null;
@@ -181,7 +185,8 @@ function ipaSagittal(o = {}) {
   return `<svg class="ipa-sag" viewBox="85 95 90 122" role="img" aria-label="${label}"><g transform="translate(260,0) scale(-1,1)">${s}</g></svg>`;
 }
 function ipaSagOpts(s) {
-  return {shape: s.sagittal || 'neutral', place: s.place, near: s.lips === 'near', voiced: s.glottis === 'voiced', puff: s.glottis === 'wide'};
+  // 유성 유기음(breathy, 26.11.27)은 울림과 바람을 함께 그린다
+  return {shape: s.sagittal || 'neutral', place: s.place, near: s.lips === 'near', voiced: s.glottis === 'voiced' || s.glottis === 'breathy', puff: s.glottis === 'wide' || s.glottis === 'breathy'};
 }
 function ipaBase(sym) { return String(sym || '').normalize('NFD').replace(/[\u0300-\u036f\u02b0-\u02ff]/g, '').slice(0, 1); }
 /* IPA 자음표에 칸이 없는 기호(26.11.09, 묶음 6·7): ɕ는 IPA 표 '기타 기호'에 있고, 파찰음은 두 기호를 이어 적어 표에 줄이 없다.
@@ -196,11 +201,13 @@ function ipaKey(sym) { const k = String(sym || '').normalize('NFD').replace(/[\u
 // 목청 설명: 기호마다 따로 적은 글(마찰음·파찰음)이 있으면 그것, 없으면 상태별 글(파열음 기준)
 function ipaGlottisText(s) { return s.glottis_text || (IPA.glottis || {})[s.glottis] || ''; }
 function ipaGlottis(st) {
-  const g = {open: [24, 46], wide: [12, 58], voiced: [33, 37], tight: [34, 36]}[st] || [24, 46];
+  // breathy(유성 유기음, 26.11.27): 떨리면서(울림) 틈이 벌어져 바람이 함께 샌다 → 떨리는 선 + 틈 + 가운데 바람 줄
+  const g = {open: [24, 46], wide: [12, 58], voiced: [33, 37], tight: [34, 36], breathy: [26, 44]}[st] || [24, 46];
   const w = st === 'tight' ? 6 : 5;
-  let s = `<svg viewBox="0 0 70 50" role="img" aria-label="목청(모식도)"><rect x="1" y="1" width="68" height="48" rx="8" fill="var(--ipa-cav)" stroke="var(--line)"/>
-    <g${st === 'voiced' ? ' class="ipa-vib"' : ''}><path d="M35,7 L${g[0]},40" stroke="var(--ipa-tongue)" stroke-width="${w}" stroke-linecap="round"/><path d="M35,7 L${g[1]},40" stroke="var(--ipa-tongue)" stroke-width="${w}" stroke-linecap="round"/></g>`;
+  let s = `<svg viewBox="0 0 70 50" role="img" aria-label="목청(모식도)${st === 'breathy' ? ': 울림과 바람' : ''}"><rect x="1" y="1" width="68" height="48" rx="8" fill="var(--ipa-cav)" stroke="var(--line)"/>
+    <g${st === 'voiced' || st === 'breathy' ? ' class="ipa-vib"' : ''}><path d="M35,7 L${g[0]},40" stroke="var(--ipa-tongue)" stroke-width="${w}" stroke-linecap="round"/><path d="M35,7 L${g[1]},40" stroke="var(--ipa-tongue)" stroke-width="${w}" stroke-linecap="round"/></g>`;
   if (st === 'tight') s += `<path d="M14,26 l7,0 m-3,-3 l3,3 l-3,3 M56,26 l-7,0 m3,-3 l-3,3 l3,3" stroke="var(--gold)" stroke-width="1.4" fill="none"/>`;
+  if (st === 'breathy') s += `<g class="ipa-gpuff"><path d="M32,42 q-2,-5 0,-10 M38,42 q2,-5 0,-10 M35,44 l0,-13" stroke="var(--gold)" stroke-width="1.2" fill="none" stroke-linecap="round"/></g>`;
   return s + '</svg>';
 }
 function ipaVot(k) {
@@ -212,6 +219,8 @@ function ipaVot(k) {
   if (k === 'lead') s += wavy(30, 290) + `<text x="70" y="14" font-size="10" text-anchor="middle" fill="var(--cyan)">울림이 먼저</text>`;
   if (k === 'short') s += wavy(rel + 8, 290) + `<text x="205" y="14" font-size="10" text-anchor="middle" fill="var(--cyan)">바로 울림</text>`;
   if (k === 'long') s += noise(rel + 2, 196) + wavy(198, 290) + `<text x="158" y="14" font-size="10" text-anchor="middle" fill="var(--gold)">바람(흐)</text><text x="244" y="14" font-size="10" text-anchor="middle" fill="var(--cyan)">울림</text>`;
+  // 유성 유기음(26.11.27): 터뜨리기 전부터 울리고, 터뜨린 뒤에는 울림에 바람이 겹친다
+  if (k === 'lead-breathy') s += wavy(30, 290) + noise(rel + 2, 210) + `<text x="70" y="14" font-size="10" text-anchor="middle" fill="var(--cyan)">울림이 먼저</text><text x="166" y="14" font-size="10" text-anchor="middle" fill="var(--gold)">울림 + 바람</text>`;
   return s + '</svg>';
 }
 
@@ -516,7 +525,7 @@ function ipaOnCorrect(w) {
   const where = {bilabial: '입술', alveolar: '혀끝·잇몸', dental: '혀끝·이', velar: '혀뒤·여린입천장', uvular: '혀뒤·목젖', labiodental: '아랫입술·윗니', palatal: '혀 몸통·입천장', postalveolar: '혀·잇몸 뒤', alveolopalatal: '혀 앞면·입천장 앞', retroflex: '혀끝·잇몸 뒤', glottal: '목청'}[s.place] || '입';
   const gl = ipaGlottisText(s);
   const steps = s.steps ? s.steps : s.vot
-    ? [`${where} 닫기`, `목청: ${gl}`, /파찰음/.test(s.name) ? '천천히 떼며 갈이(마찰)' : '터뜨림', {lead: '울림(닫을 때부터)', short: '울림(바로)', long: '바람 뒤 울림'}[s.vot]]
+    ? [`${where} 닫기`, `목청: ${gl}`, /파찰음/.test(s.name) ? '천천히 떼며 갈이(마찰)' : '터뜨림', {lead: '울림(닫을 때부터)', short: '울림(바로)', long: '바람 뒤 울림', 'lead-breathy': '울림(닫을 때부터)에 바람이 섞임'}[s.vot]]
     : [`${where} 좁히기`, '목청 울림', '틈으로 바람'];
   const el = document.createElement('div');
   el.className = `ipa-anim vot-${s.vot || 'cont'}`;
@@ -741,16 +750,37 @@ if (typeof ipaAfterCard === 'function') {
 }
 // 연습 기록은 제목으로 저장된다(틀 getRec(강, 제목)). 26.11.25에 '듣고 고르기' → '듣고 이름 대기', 긴 판을 '… 1/2'처럼 나눴으므로
 // 옛 제목으로 끝낸 기록을 새 판들에 옮긴다(옛 판 하나를 끝냈다 = 지금 그 판들을 다 끝냈다). 이미 하던 진도는 빼앗지 않는다.
-// 다른 기기에서 옛 기록을 옮겨 와도 열 때마다 다시 맞춘다
+// 다른 기기에서 옛 기록을 옮겨 와도 열 때마다 다시 맞춘다.
+// 26.11.27: 카드가 늘어 판 수가 바뀌면('전사 빈칸 1/2' → '1/4', 고전어 카드) 옛 판 나눔 기록도 옮긴다. 판 i/n은 카드 줄의 i번째 n등분이라고 보고,
+// 새 판 j/m과 겹치는 옛 판이 모두 끝났을 때만 새 판을 끝낸 것으로 친다(1/2를 끝냈으면 1/4·2/4, 둘 다 끝냈으면 넷 다).
+// 판이 하나이던 옛 기록('전사 빈칸')은 1/1로 본다(26.11.25 옮김과 같은 뜻).
+const IPA_TITLE_ALIAS = {'듣고 고르기': '듣고 이름 대기'};
+function ipaSplitTitle(t) {
+  const m = /^(.*\S) (\d+)\/(\d+)$/.exec(t);
+  const [head, i, n] = m ? [m[1], +m[2], +m[3]] : [t, 1, 1];
+  return {head: IPA_TITLE_ALIAS[head] || head, i, n};
+}
 function ipaMigrateTitles() {
   if (typeof state === 'undefined' || !state.progress || !state.lessons) return false;
   let changed = false;
   for (const L of state.lessons) {
     const rec = state.progress[L.id]; if (!rec) continue;
-    const titles = (L.exercises || []).map(e => e.title);
-    for (const [old, now] of [['듣고 고르기', '듣고 이름 대기'], ['전사 빈칸', '전사 빈칸']]) {
-      if (!rec[old] || !rec[old].completed) continue;
-      for (const t of titles) if (t !== old && t.startsWith(now) && !rec[t]) { rec[t] = {...rec[old]}; changed = true; }
+    const titles = (L.exercises || []).map(e => e.title), now = new Set(titles);
+    // 옛 기록: 지금 연습 제목에 없는 것만, 머리 제목·나눔 수(n)마다
+    const old = {};
+    for (const [t, r] of Object.entries(rec)) {
+      if (now.has(t) || !r) continue;
+      const {head, i, n} = ipaSplitTitle(t);
+      ((old[head] = old[head] || {})[n] = old[head][n] || {})[i] = r;
+    }
+    for (const t of titles) {
+      if (rec[t]) continue;
+      const {head, i: j, n: m} = ipaSplitTitle(t), groups = old[head]; if (!groups) continue;
+      for (const [nn, parts] of Object.entries(groups)) {
+        const n = +nn, over = [];
+        for (let i = 1; i <= n; i++) if ((i - 1) / n < j / m && (j - 1) / m < i / n) over.push(parts[i]);
+        if (over.length && over.every(r => r && r.completed)) { rec[t] = {...over[0]}; changed = true; break; }
+      }
     }
   }
   if (changed) { try { saveProgress(); } catch (e) {} }

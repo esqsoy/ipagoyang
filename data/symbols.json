@@ -1,5 +1,5 @@
 {
- "about": "기호 설명 원본. 형식은 탄고고양 五十音 gojuon_sound.py를 씨앗으로 했다: [기호] + 조음 이름 + 내는 법 + 한국어와 같은 점·다른 점. 그림 값(place·lips·glottis·vot)은 입 옆모습 지도와 목청 창·소리 시작 띠가 쓴다(모식도). status는 PRINCIPLES 2-3. sound는 기호 하나의 소리 녹음(sources/audio.json id). 원어민 낱말이 아니라 기호 시범 소리다.",
+ "about": "기호 설명 원본. 형식은 탄고고양 五十音 gojuon_sound.py를 씨앗으로 했다: [기호] + 조음 이름 + 내는 법 + 한국어와 같은 점·다른 점. 그림 값(place·lips·glottis·vot)은 입 옆모습 지도와 목청 창·소리 시작 띠가 쓴다(모식도). status는 PRINCIPLES 2-3. sound는 기호 하나의 소리 녹음(sources/audio.json id). 원어민 낱말이 아니라 기호 시범 소리다. glottis breathy·vot lead-breathy는 산스크리트어 유성 유기음 bʱ·dʱ·ɡʱ용(26.11.27): 목청 그림과 입 옆모습이 울림과 바람을 함께 그린다(ipa_extra.js).",
  "symbols": {
   "p": {
    "name": "무성 양순 파열음",
@@ -92,6 +92,45 @@
     {
      "ko": "유성 양순 파열음",
      "en": "voiced bilabial plosive"
+    }
+   ]
+  },
+  "bʱ": {
+   "name": "유성 유기 양순 파열음",
+   "name_hanja": "有聲 有氣 兩脣 破裂音",
+   "name_en": "breathy voiced bilabial plosive",
+   "how": "입술을 닫고 [b]처럼 목청을 울리다가, 터뜨린 뒤에도 목청을 느슨하게 벌린 채 울려서 울림에 바람이 섞여 나오게 한다. 오른쪽 위 작은 ʱ가 그 '울리는 바람' 표시다.",
+   "ko": "한국어에 없다. 산스크리트어 bh(भ)가 이 소리다(bhūmi 땅). 산스크리트어는 입술 파열음을 넷으로 가른다: p [p], ph [pʰ], b [b], bh [bʱ].",
+   "other": "[b̤]로 적는 문헌도 있다(음운 자료 PHOIBLE 1782). 인도어학에서는 '유성 유기음(voiced aspirate)'이라 부르고, IPA 표의 이름은 breathy voiced(숨소리 섞인 울림)다.",
+   "place": "bilabial",
+   "lips": "closed",
+   "glottis": "breathy",
+   "vot": "lead-breathy",
+   "sagittal": "b",
+   "evidence": [
+    {
+     "src": "phoible",
+     "note": "산스크리트어 1782 /b̤/ /d̪̤/ /ɡʱ/(같은 목록 안에서 b·d는 ̤, ɡ는 ʱ). 한국어 2197·1·2287에는 없다"
+    },
+    {
+     "src": "wikt-sa-pronunc",
+     "note": "Module:sa-pronunc: भ = bʱ, ध = dʱ(고전 줄에서는 치음 표시가 붙어 d̪ʱ), घ = ɡʱ"
+    },
+    {
+     "src": "whitney-skt-grammar",
+     "note": "§37c: 유성 유기음은 '유성 파열음의 닫음이 터진 뒤 들리는 h 소리'로 흔히 기술되지만 '성문의 웅웅거림'으로 보는 음성학자도 있고 권위자들이 갈린다(WebFetch 요약으로 읽음)"
+    },
+    {
+     "src": "wikipedia-breathy-voice",
+     "note": "두 표기 [bʱ]·[b̤]를 다 든다. '유성 유기음'이라는 이름은 조음으로 보면 정확하지 않다고 적는다(숨소리 발성은 기식과 다른 발성). 3차 자료, WebFetch 요약"
+    }
+   ],
+   "status": "확인 필요",
+   "status_why": "소리가 산스크리트어에 있다는 것과 표기 둘(ʱ, ̤)은 PHOIBLE 1782·Wiktionary Module:sa-pronunc로 대조했다. 내는 법(목청 모양)은 Wikipedia 'Breathy voice'와 Whitney §37c를 요약으로만 읽었고 음성학 1차 출처는 못 읽었다. 시범 녹음(sound) 없음",
+   "answers": [
+    {
+     "ko": "유성 유기 양순 파열음",
+     "en": "breathy voiced bilabial plosive"
     }
    ]
   },
@@ -338,6 +377,49 @@
    ],
    "sound": "ipa-d"
   },
+  "dʱ": {
+   "name": "유성 유기 치 파열음",
+   "name_hanja": "有聲 有氣 齒 破裂音",
+   "name_en": "breathy voiced dental plosive",
+   "how": "혀끝을 윗니에 대고 [d]처럼 목청을 울리다가, 터뜨린 뒤에도 목청을 느슨하게 벌린 채 울려서 울림에 바람이 섞여 나오게 한다.",
+   "ko": "한국어에 없다. 산스크리트어 dh(ध)가 이 소리다(dharma 법). 혀끝이 윗니에 닿는 치음이다.",
+   "other": "[d̪̤]로 적는 문헌도 있다(음운 자료 PHOIBLE 1782). 치음 표시까지 적으면 [d̪ʱ]. 이 게임은 프랑스어·스페인어 치음 t·d를 맨 [t]·[d]로 적는 것처럼 [dʱ]로 적는다. IPA 표에서 치·치경·후치경 파열음은 한 칸이라 치경 이름(유성 유기 치경 파열음)도 맞다고 한다.",
+   "place": "dental",
+   "lips": null,
+   "glottis": "breathy",
+   "vot": "lead-breathy",
+   "sagittal": "d",
+   "evidence": [
+    {
+     "src": "phoible",
+     "note": "산스크리트어 1782 /b̤/ /d̪̤/ /ɡʱ/(같은 목록 안에서 b·d는 ̤, ɡ는 ʱ). 한국어 2197·1·2287에는 없다"
+    },
+    {
+     "src": "wikt-sa-pronunc",
+     "note": "Module:sa-pronunc: भ = bʱ, ध = dʱ(고전 줄에서는 치음 표시가 붙어 d̪ʱ), घ = ɡʱ"
+    },
+    {
+     "src": "whitney-skt-grammar",
+     "note": "§37c: 유성 유기음은 '유성 파열음의 닫음이 터진 뒤 들리는 h 소리'로 흔히 기술되지만 '성문의 웅웅거림'으로 보는 음성학자도 있고 권위자들이 갈린다(WebFetch 요약으로 읽음)"
+    },
+    {
+     "src": "wikipedia-breathy-voice",
+     "note": "두 표기 [bʱ]·[b̤]를 다 든다. '유성 유기음'이라는 이름은 조음으로 보면 정확하지 않다고 적는다(숨소리 발성은 기식과 다른 발성). 3차 자료, WebFetch 요약"
+    }
+   ],
+   "status": "확인 필요",
+   "status_why": "소리가 산스크리트어에 있다는 것과 표기 둘(ʱ, ̤)은 PHOIBLE 1782·Wiktionary Module:sa-pronunc로 대조했다. 내는 법(목청 모양)은 Wikipedia 'Breathy voice'와 Whitney §37c를 요약으로만 읽었고 음성학 1차 출처는 못 읽었다. 시범 녹음(sound) 없음",
+   "answers": [
+    {
+     "ko": "유성 유기 치 파열음",
+     "en": "breathy voiced dental plosive"
+    },
+    {
+     "ko": "유성 유기 치경 파열음",
+     "en": "breathy voiced alveolar plosive"
+    }
+   ]
+  },
   "ð": {
    "name": "유성 치 마찰음 [ð] · 접근음 [ð̞]",
    "name_hanja": "有聲 齒 摩擦音 · 接近音",
@@ -485,6 +567,45 @@
    ],
    "status": "확인 필요",
    "status_why": "'낱말 첫 [ɡ]를 [k]와 헷갈리기 쉽다'는 지각 연구 본문을 읽지 못함(묶음 1의 [b]와 같은 사정)"
+  },
+  "ɡʱ": {
+   "name": "유성 유기 연구개 파열음",
+   "name_hanja": "有聲 有氣 軟口蓋 破裂音",
+   "name_en": "breathy voiced velar plosive",
+   "how": "혀 뒤를 붙이고 [ɡ]처럼 목청을 울리다가, 터뜨린 뒤에도 목청을 느슨하게 벌린 채 울려서 울림에 바람이 섞여 나오게 한다.",
+   "ko": "한국어에 없다. 산스크리트어 gh(घ)가 이 소리다(ghoṣa 소리).",
+   "other": "[ɡ̤]로 적는 목록도 있다(음운 자료 PHOIBLE: 힌디어 2190·네팔어 2204는 /ɡ̤/, 산스크리트어 1782와 벵골어 2162는 /ɡʱ/. phoible.csv로 대조).",
+   "place": "velar",
+   "lips": null,
+   "glottis": "breathy",
+   "vot": "lead-breathy",
+   "sagittal": "g",
+   "evidence": [
+    {
+     "src": "phoible",
+     "note": "산스크리트어 1782 /b̤/ /d̪̤/ /ɡʱ/(같은 목록 안에서 b·d는 ̤, ɡ는 ʱ). 한국어 2197·1·2287에는 없다"
+    },
+    {
+     "src": "wikt-sa-pronunc",
+     "note": "Module:sa-pronunc: भ = bʱ, ध = dʱ(고전 줄에서는 치음 표시가 붙어 d̪ʱ), घ = ɡʱ"
+    },
+    {
+     "src": "whitney-skt-grammar",
+     "note": "§37c: 유성 유기음은 '유성 파열음의 닫음이 터진 뒤 들리는 h 소리'로 흔히 기술되지만 '성문의 웅웅거림'으로 보는 음성학자도 있고 권위자들이 갈린다(WebFetch 요약으로 읽음)"
+    },
+    {
+     "src": "wikipedia-breathy-voice",
+     "note": "두 표기 [bʱ]·[b̤]를 다 든다. '유성 유기음'이라는 이름은 조음으로 보면 정확하지 않다고 적는다(숨소리 발성은 기식과 다른 발성). 3차 자료, WebFetch 요약"
+    }
+   ],
+   "status": "확인 필요",
+   "status_why": "소리가 산스크리트어에 있다는 것과 표기 둘(ʱ, ̤)은 PHOIBLE 1782·Wiktionary Module:sa-pronunc로 대조했다. 내는 법(목청 모양)은 Wikipedia 'Breathy voice'와 Whitney §37c를 요약으로만 읽었고 음성학 1차 출처는 못 읽었다. 시범 녹음(sound) 없음",
+   "answers": [
+    {
+     "ko": "유성 유기 연구개 파열음",
+     "en": "breathy voiced velar plosive"
+    }
+   ]
   },
   "ɣ": {
    "name": "유성 연구개 마찰음 [ɣ] · 접근음 [ɣ̞]",
@@ -1628,12 +1749,14 @@
   "open": "닫는 동안은 울리지 않고, 터뜨리자마자 모음에서 울린다",
   "wide": "목청이 크게 열려 있어 터뜨린 뒤 바람이 먼저 나온다",
   "voiced": "목청이 붙어 떨린다(울림)",
-  "tight": "목청을 꽉 조인다"
+  "tight": "목청을 꽉 조인다",
+  "breathy": "목청이 떨리면서 틈이 벌어져 바람이 함께 샌다"
  },
  "vot": {
   "lead": "터뜨리기 전부터 울림",
   "short": "터뜨리자 바로 울림",
-  "long": "바람이 샌 뒤 울림"
+  "long": "바람이 샌 뒤 울림",
+  "lead-breathy": "터뜨리기 전부터 울리고, 터뜨린 뒤 울림에 바람이 섞인다"
  },
- "answers_about": "명칭 치기(26.11.08 영신: \"pp를 치는데 그대신 무성 경음 양순 파열음이라고 치는거지\", \"영어까지 제대로 쳐야 넘어가는걸로\"). answers는 인정하는 한글·영어 이름 짝이고 첫째가 대표다. 한글과 영어는 같은 짝이어야 한다. t·d 줄과 l은 IPA 표에서 치·치경·후치경이 한 칸이라 치음 이름(프랑스어·스페인어 [t̪], 프랑스어 [l̪])도 인정한다. l은 줄인 이름 '설측음'도 받는다. β·ð·ɣ·ʁ는 마찰음과 접근음(β̞·ð̞·ɣ̞·ʁ̞)을 다 인정하고, 전사가 β̞·ð̞·ɣ̞인 낱말에서는 접근음이 대표다. 순서·띄어쓰기는 자유, 동의어는 ipa_extra.js IPA_NAME_SYN."
+ "answers_about": "명칭 치기(26.11.08 영신: \"pp를 치는데 그대신 무성 경음 양순 파열음이라고 치는거지\", \"영어까지 제대로 쳐야 넘어가는걸로\"). answers는 인정하는 한글·영어 이름 짝이고 첫째가 대표다. 한글과 영어는 같은 짝이어야 한다. t·d 줄과 l은 IPA 표에서 치·치경·후치경이 한 칸이라 치음 이름(프랑스어·스페인어 [t̪], 프랑스어 [l̪])도 인정한다. l은 줄인 이름 '설측음'도 받는다. β·ð·ɣ·ʁ는 마찰음과 접근음(β̞·ð̞·ɣ̞·ʁ̞)을 다 인정하고, 전사가 β̞·ð̞·ɣ̞인 낱말에서는 접근음이 대표다. 순서·띄어쓰기는 자유, 동의어는 ipa_extra.js IPA_NAME_SYN. 유성 유기음 bʱ·dʱ·ɡʱ의 영어 이름은 IPA 표의 breathy voiced이고, voiced aspirated로 쳐도 맞다(IPA_NAME_SYN breathy = aspirated, 붙임표로 친 breathy-voiced도 두 낱말로 푼다). dʱ는 t·d처럼 치·치경 이름을 다 인정한다."
 }

@@ -1,14 +1,15 @@
 {
  "id": "b02",
  "title": "치경 파열음",
- "symbols_title": "[t] [d] [tʰ] [t͈] (+[ð])",
- "about": "묶음 2 원본(PRINCIPLES 8-5: 묶음 1 다음 [t d tʰ t͈]). 언어는 한국어 + 영어·스페인어·일본어·프랑스어(8-7: 넷 다 t/d를 음소로 가르고, 일본어 天気/電気는 한국어 화자가 틀리는 짝). 짜는 법은 b01과 같다. 26.11.08: 그 소리가 있는 언어는 11개 가운데 다 넣는다(PRINCIPLES 8-7 바뀜). 포르투갈어·중국어·러시아어·독일어·이탈리아어·아랍어 낱말을 더했다.",
+ "symbols_title": "[t] [d] [tʰ] [t͈] [dʱ] (+[ð])",
+ "about": "묶음 2 원본(PRINCIPLES 8-5: 묶음 1 다음 [t d tʰ t͈]). 언어는 한국어 + 영어·스페인어·일본어·프랑스어(8-7: 넷 다 t/d를 음소로 가르고, 일본어 天気/電気는 한국어 화자가 틀리는 짝). 짜는 법은 b01과 같다. 26.11.08: 그 소리가 있는 언어는 11개 가운데 다 넣는다(PRINCIPLES 8-7 바뀜). 포르투갈어·중국어·러시아어·독일어·이탈리아어·아랍어 낱말을 더했다. 26.11.27: 고전어 다섯 갈래(grc 고대 그리스어·grc-koi 코이네·lat 라틴어·lat-ecc 교회 라틴어·san 산스크리트어) 카드를 words 끝에 더했다(이솝 초안 v3 → 외솔 검토 → 이언 검산 → 파시 합치기, PRINCIPLES 8-7·8-10). 녹음은 아직 없다(발음 확보 중).",
  "place": "alveolar",
  "learn": [
   "t",
   "tʰ",
   "t͈",
   "d",
+  "dʱ",
   "ð"
  ],
  "lit": [
@@ -21,7 +22,8 @@
    "t",
    "tʰ",
    "t͈",
-   "d"
+   "d",
+   "dʱ"
   ],
   [
    "n"
@@ -34,9 +36,10 @@
  "shortcuts": {
   "th": "tʰ",
   "tt": "t͈",
-  "D": "ð"
+  "D": "ð",
+  "dh": "dʱ"
  },
- "shortcuts_about": "b01과 같은 방식: tʰ = th, ㄸ의 로마자 tt = t͈, ð = 대문자 D(Claude 안).",
+ "shortcuts_about": "b01과 같은 방식: tʰ = th, ㄸ의 로마자 tt = t͈, ð = 대문자 D(Claude 안). dh → dʱ(산스크리트어 로마자 dh, 26.11.27).",
  "words": [
   {
    "id": "ko-dal",
@@ -737,6 +740,318 @@
    "audio": "es-verde",
    "listen": false,
    "vtag": "보고따"
+  },
+  {
+   "id": "grc-teknon",
+   "lang": "grc",
+   "text": "τέκνον",
+   "roman": "téknon",
+   "ko": "아이·자식",
+   "ipa": [
+    "",
+    "t",
+    "éknon"
+   ],
+   "target": "t",
+   "audio": "grc-teknon",
+   "phoible": {
+    "inv": null,
+    "why": "PHOIBLE 2.0에 고대 그리스어 목록 없음(phoible.csv에서 ISO grc·이름 검색, 현대 그리스어 ell 목록만 있음)"
+   },
+   "note": "τ는 바람 없는 [t]. 고저 악센트: 철자에서 짧은 모음 위의 ´(έ)는 IPA에서도 ´(높음)로 적는다.",
+   "status": "확인",
+   "status_why": "Wiktionary τέκνον '5th BCE Attic' /té.knon/와 같음(음절 점만 뺌). Wiktionary 모듈(2차, 철자에서 생성) 기준, 1차 출처(Allen 등) 대조 전. 녹음이 들어오면 기식(소리 시작 시간)을 재기 전까지 듣고 이름 대기에 내지 않는다(지금은 녹음 없음)"
+  },
+  {
+   "id": "grc-theos",
+   "lang": "grc",
+   "text": "θεός",
+   "roman": "theós",
+   "ko": "신",
+   "ipa": [
+    "",
+    "tʰ",
+    "eós"
+   ],
+   "target": "tʰ",
+   "audio": "grc-theos",
+   "phoible": {
+    "inv": null,
+    "why": "PHOIBLE 2.0에 고대 그리스어 목록 없음(phoible.csv에서 ISO grc·이름 검색, 현대 그리스어 ell 목록만 있음)"
+   },
+   "note": "θ는 영어 th [θ]가 아니라 바람 센 [tʰ]다. [θ]로 바뀐 것은 뒤 시대다(Wiktionary 4세기 줄부터 [θ]).",
+   "status": "확인",
+   "status_why": "Wiktionary θεός '5th BCE Attic' /tʰe.ós/와 같음(음절 점만 뺌). Wiktionary 모듈(2차, 철자에서 생성) 기준, 1차 출처(Allen 등) 대조 전"
+  },
+  {
+   "id": "grc-doron",
+   "lang": "grc",
+   "text": "δῶρον",
+   "roman": "dôron",
+   "ko": "선물",
+   "ipa": [
+    "",
+    "d",
+    "ɔ̂ːron"
+   ],
+   "target": "d",
+   "audio": "grc-doron",
+   "phoible": {
+    "inv": null,
+    "why": "PHOIBLE 2.0에 고대 그리스어 목록 없음(phoible.csv에서 ISO grc·이름 검색, 현대 그리스어 ell 목록만 있음)"
+   },
+   "note": "δ는 [d]다. 고저 악센트: 철자의 ῀(ῶ)는 IPA에서 ˆ(내림)로 적는다. 긴 모음 안에서 높았다가 내려간다.",
+   "status": "확인",
+   "status_why": "Wiktionary δῶρον '5th BCE Attic' /dɔ̂ː.ron/와 같음(음절 점만 뺌). Wiktionary 모듈(2차, 철자에서 생성) 기준, 1차 출처(Allen 등) 대조 전. 녹음이 들어오면 기식(소리 시작 시간)을 재기 전까지 듣고 이름 대기에 내지 않는다(지금은 녹음 없음)"
+  },
+  {
+   "id": "koi-teknon",
+   "lang": "grc-koi",
+   "text": "τέκνον",
+   "roman": "téknon",
+   "ko": "아이·자식",
+   "ipa": [
+    "ˈ",
+    "t",
+    "ɛknon"
+   ],
+   "target": "t",
+   "audio": "koi-teknon",
+   "phoible": {
+    "inv": null,
+    "why": "PHOIBLE 2.0에 코이네 그리스어 목록 없음(현대 그리스어 ell 목록만 있음)"
+   },
+   "note": "τ는 바람 없는 [t]. ε는 [ɛ].",
+   "status": "확인",
+   "status_why": "기준: Kantor 2023 유대·팔레스타인 1세기(서평 Harper 2025 원문으로 본 낱자 값을 낱말에 적용. 2차, 책 본문 대조 전). 서평: 자음은 대체로 현대 그리스어와 같다(τ는 예외 목록에 없음), 모음 ε [ɛ]. 참고: Wiktionary τέκνον '1st CE Egyptian' /ˈte.knon/, '4th CE Koine' /ˈte.knon/. 대상 기호가 두 줄 모두와 같다. note의 발음 요령·본문 자리는 Claude 지식. 녹음이 들어오면 기식(소리 시작 시간)을 재기 전까지 듣고 이름 대기에 내지 않는다(지금은 녹음 없음)"
+  },
+  {
+   "id": "koi-theos",
+   "lang": "grc-koi",
+   "text": "θεός",
+   "roman": "theós",
+   "ko": "하느님·신",
+   "ipa": [
+    "",
+    "tʰ",
+    "ɛˈos"
+   ],
+   "target": "tʰ",
+   "audio": "koi-theos",
+   "phoible": {
+    "inv": null,
+    "why": "PHOIBLE 2.0에 코이네 그리스어 목록 없음(현대 그리스어 ell 목록만 있음)"
+   },
+   "note": "θ는 아직 바람 센 [tʰ]다. 영어 th 같은 [θ]는 더 뒤의 일이다.",
+   "status": "확인",
+   "status_why": "기준: Kantor 2023 유대·팔레스타인 1세기(서평 Harper 2025 원문으로 본 낱자 값을 낱말에 적용. 2차, 책 본문 대조 전). 서평: θ [tʰ], 'δ, χ, θ have not yet shifted'. 참고: Wiktionary θεός '1st CE Egyptian' /tʰeˈos/, '4th CE Koine' /θeˈos/. 대상 기호는 1st CE Egyptian 줄과만 같다. note의 발음 요령·본문 자리는 Claude 지식"
+  },
+  {
+   "id": "koi-doxa",
+   "lang": "grc-koi",
+   "text": "δόξα",
+   "roman": "dóxa",
+   "ko": "영광",
+   "ipa": [
+    "ˈ",
+    "d",
+    "oksɑ"
+   ],
+   "target": "d",
+   "audio": "koi-doxa",
+   "phoible": {
+    "inv": null,
+    "why": "PHOIBLE 2.0에 코이네 그리스어 목록 없음(현대 그리스어 ell 목록만 있음)"
+   },
+   "note": "δ는 아직 [d]다. β·γ와 달리 마찰음 [ð]로 바뀌지 않았다. 1세기 유대·팔레스타인 코이네에서 δ는 아직 막는 [d]다. 4세기 이후에는 [ð]로 바뀐다.",
+   "status": "확인",
+   "status_why": "기준: Kantor 2023 유대·팔레스타인 1세기(서평 Harper 2025 원문으로 본 낱자 값을 낱말에 적용. 2차, 책 본문 대조 전). 서평: δ [d], 'δ, χ, θ have not yet shifted'. 참고: Wiktionary δόξα '1st CE Egyptian' /ˈdok.sa/, '4th CE Koine' /ˈðok.sa/. 대상 기호는 1st CE Egyptian 줄과만 같다. note의 발음 요령·본문 자리는 Claude 지식. 녹음이 들어오면 기식(소리 시작 시간)을 재기 전까지 듣고 이름 대기에 내지 않는다(지금은 녹음 없음)"
+  },
+  {
+   "id": "la-terra",
+   "lang": "lat",
+   "text": "terra",
+   "roman": "terra",
+   "ko": "땅",
+   "ipa": [
+    "ˈ",
+    "t",
+    "ɛrra"
+   ],
+   "target": "t",
+   "audio": "la-terra",
+   "phoible": {
+    "inv": null,
+    "why": "PHOIBLE 2.0에 라틴어 목록 없음(phoible.csv에서 ISO lat·이름 검색)"
+   },
+   "note": "t는 바람 없는 [t]. rr는 길게 떤다.",
+   "status": "확인",
+   "status_why": "Wiktionary terra 'Classical Latin' [ˈtɛr.ra]와 같음(음절 점만 뺌). Wiktionary 모듈(2차, 철자에서 생성) 기준, 1차 출처(Allen 등) 대조 전. t가 치음인지 치경음인지는 Wiktionary 줄에 표시가 없고 다른 출처도 못 봄(확인 필요). 녹음이 들어오면 기식(소리 시작 시간)을 재기 전까지 듣고 이름 대기에 내지 않는다(지금은 녹음 없음)"
+  },
+  {
+   "id": "la-deus",
+   "lang": "lat",
+   "text": "deus",
+   "roman": "deus",
+   "ko": "신",
+   "ipa": [
+    "ˈ",
+    "d",
+    "eʊs"
+   ],
+   "target": "d",
+   "audio": "la-deus",
+   "phoible": {
+    "inv": null,
+    "why": "PHOIBLE 2.0에 라틴어 목록 없음(phoible.csv에서 ISO lat·이름 검색)"
+   },
+   "status": "확인",
+   "status_why": "Wiktionary deus 'Classical Latin' [ˈde.ʊs]와 같음(음절 점만 뺌). Wiktionary 모듈(2차, 철자에서 생성) 기준, 1차 출처(Allen 등) 대조 전. 녹음이 들어오면 기식(소리 시작 시간)을 재기 전까지 듣고 이름 대기에 내지 않는다(지금은 녹음 없음)"
+  },
+  {
+   "id": "la-theatrum",
+   "lang": "lat",
+   "text": "theatrum",
+   "roman": "theātrum",
+   "ko": "극장",
+   "ipa": [
+    "",
+    "tʰ",
+    "eˈaːtrũː"
+   ],
+   "target": "tʰ",
+   "audio": "la-theatrum",
+   "phoible": {
+    "inv": null,
+    "why": "PHOIBLE 2.0에 라틴어 목록 없음(phoible.csv에서 ISO lat·이름 검색)"
+   },
+   "note": "th는 그리스어에서 온 낱말에만 있고 영어 th가 아니라 바람 센 [tʰ]다.",
+   "status": "확인",
+   "status_why": "Wiktionary theatrum 'Classical Latin' [tʰeˈaː.trũː]와 같음(음절 점만 뺌). Wiktionary 모듈(2차, 철자에서 생성) 기준, 1차 출처(Allen 등) 대조 전"
+  },
+  {
+   "id": "ecc-terra",
+   "lang": "lat-ecc",
+   "text": "terra",
+   "roman": "terra",
+   "ko": "땅",
+   "ipa": [
+    "ˈ",
+    "t",
+    "ɛrra"
+   ],
+   "target": "t",
+   "audio": "ecc-terra",
+   "phoible": {
+    "inv": null,
+    "why": "PHOIBLE 2.0에 라틴어 목록 없음(phoible.csv에서 ISO lat·이름 검색)"
+   },
+   "status": "확인",
+   "status_why": "Wiktionary terra 'modern Italianate Ecclesiastical' [ˈtɛr.ra]와 같음(음절 점만 뺌). Wiktionary 모듈(2차, 철자에서 생성) 기준, 1차 출처(교회 쪽 발음 규정) 대조 전. 녹음이 들어오면 기식(소리 시작 시간)을 재기 전까지 듣고 이름 대기에 내지 않는다(지금은 녹음 없음)"
+  },
+  {
+   "id": "ecc-deus",
+   "lang": "lat-ecc",
+   "text": "Deus",
+   "roman": "Deus",
+   "ko": "하느님",
+   "ipa": [
+    "ˈ",
+    "d",
+    "ɛːus"
+   ],
+   "target": "d",
+   "audio": "ecc-deus",
+   "phoible": {
+    "inv": null,
+    "why": "PHOIBLE 2.0에 라틴어 목록 없음(phoible.csv에서 ISO lat·이름 검색)"
+   },
+   "status": "확인",
+   "status_why": "Wiktionary Deus 'modern Italianate Ecclesiastical' [ˈdɛː.us]와 같음(음절 점만 뺌). Wiktionary 모듈(2차, 철자에서 생성) 기준, 1차 출처(교회 쪽 발음 규정) 대조 전. 녹음이 들어오면 기식(소리 시작 시간)을 재기 전까지 듣고 이름 대기에 내지 않는다(지금은 녹음 없음)"
+  },
+  {
+   "id": "sa-tapas",
+   "lang": "san",
+   "text": "तपस्",
+   "roman": "tapas",
+   "ko": "열·고행",
+   "ipa": [
+    "",
+    "t",
+    "ɐpɐs"
+   ],
+   "target": "t",
+   "audio": "sa-tapas",
+   "phoible": {
+    "inv": 1782,
+    "seg": "t̪"
+   },
+   "note": "혀끝이 윗니에 닿는다([t̪]). 혀끝을 말아 올리는 ṭ [ʈ]와 다른 소리다. tapas는 사전 꼴(어간)이고, 문장 끝에서는 끝 s가 ḥ로 바뀌어 tapaḥ로 낭송한다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 1782 /t̪/. Wiktionary तपस् 'Classical Sanskrit' /t̪ɐ.pɐs̪/와 같음(치음 표시·음절 점만 뺌). 문장 끝 꼴: Whitney §145·§170a(끝 s는 쉼 앞에서 비사르가가 된다, Wikisource를 WebFetch 요약으로 봄). 녹음을 붙일 때 tapas인지 tapaḥ인지 본다. 녹음이 들어오면 기식(소리 시작 시간)을 재기 전까지 듣고 이름 대기에 내지 않는다(지금은 녹음 없음)"
+  },
+  {
+   "id": "sa-ratha",
+   "lang": "san",
+   "text": "रथ",
+   "roman": "ratha",
+   "ko": "전차·수레",
+   "ipa": [
+    "ɾɐ",
+    "tʰ",
+    "ɐ"
+   ],
+   "target": "tʰ",
+   "audio": "sa-ratha",
+   "phoible": {
+    "inv": 1782,
+    "seg": "t̪ʰ"
+   },
+   "note": "th는 영어 th가 아니라 바람 센 [tʰ]다. 혀끝이 윗니에 닿는다([t̪ʰ]).",
+   "status": "확인",
+   "status_why": "PHOIBLE 1782 /t̪ʰ/. Wiktionary रथ 'Classical Sanskrit' /ɾɐ.t̪ʰɐ/와 같음(치음 표시·음절 점만 뺌)"
+  },
+  {
+   "id": "sa-deva",
+   "lang": "san",
+   "text": "देव",
+   "roman": "deva",
+   "ko": "신",
+   "ipa": [
+    "",
+    "d",
+    "eːʋɐ"
+   ],
+   "target": "d",
+   "audio": "sa-deva",
+   "phoible": {
+    "inv": 1782,
+    "seg": "d̪"
+   },
+   "note": "혀끝이 윗니에 닿는다([d̪]).",
+   "status": "확인",
+   "status_why": "PHOIBLE 1782 /d̪/. Wiktionary देव 'Classical Sanskrit' /ˈd̪eː.ʋɐ/와 같음(치음 표시·음절 점·강세 표시만 뺌). 이 문서만 발음 틀이 아니라 손으로 적은 전사이고 강세 표시가 있다(/ˈd̪eː.ʋɐ/). 다른 낱말의 'Classical Sanskrit' 줄에는 강세 표시가 없어 뺐다. 녹음이 들어오면 기식(소리 시작 시간)을 재기 전까지 듣고 이름 대기에 내지 않는다(지금은 녹음 없음)"
+  },
+  {
+   "id": "sa-dharma",
+   "lang": "san",
+   "text": "धर्म",
+   "roman": "dharma",
+   "ko": "법·도리",
+   "ipa": [
+    "",
+    "dʱ",
+    "ɐɾmɐ"
+   ],
+   "target": "dʱ",
+   "audio": "sa-dharma",
+   "phoible": {
+    "inv": 1782,
+    "seg": "d̪̤"
+   },
+   "note": "dh는 목청을 울리면서 바람을 섞어 터뜨린다. 혀끝이 윗니에 닿는다([d̪ʱ]). [d̪̤]로 적는 문헌도 있다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 1782 /d̪̤/. Wiktionary धर्म 'Classical Sanskrit' /d̪ʱɐɾ.mɐ/와 같음(치음 표시·음절 점만 뺌). 표기 차이: PHOIBLE 1782는 /d̪̤/, Wiktionary는 /d̪ʱ/"
   }
  ],
  "compare": [
@@ -810,7 +1125,7 @@
    "목에 손 대 보라고양. 떨리면 [d]라고양.",
    "혀끝으로 다 막았냐, 덜 막았냐 보라고양. 덜 막으면 [ð]라고양.",
    "[t]랑 [tʰ]는 바람 차이라고양. 병음 d가 [t], t가 [tʰ]라고양.",
-   "입술 때랑 똑같다고양. 막는 소리는 바람, 목 울림, 목 조임 셋이라고양."
+   "입술 때랑 똑같다고양. 바람, 목 울림, 목 조임, 울림+바람이라고양."
   ],
   "by_word": {
    "en-stop": "s 뒤 t도 바람이 없다고양. spin이랑 같은 수법이라고양.",
@@ -849,20 +1164,32 @@
  "absent": {
   "2197": [
    "ð",
-   "θ"
+   "θ",
+   "dʱ",
+   "d̤",
+   "d̪ʱ",
+   "d̪̤"
   ],
   "1": [
    "ð",
-   "θ"
+   "θ",
+   "dʱ",
+   "d̤",
+   "d̪ʱ",
+   "d̪̤"
   ],
   "2287": [
    "ð",
-   "θ"
+   "θ",
+   "dʱ",
+   "d̤",
+   "d̪ʱ",
+   "d̪̤"
   ],
   "2210": [
    "ð"
   ]
  },
- "absent_about": "한국어 목록 셋에 ð·θ가 없어야 symbols ð의 '한국어에 없다'가 맞다. 스페인어 2210에 음소 /ð/가 없어야 nada의 [ð̞]가 /d/의 변이음이라는 것이 맞다.",
+ "absent_about": "한국어 목록 셋에 ð·θ가 없어야 symbols ð의 '한국어에 없다'가 맞다. 스페인어 2210에 음소 /ð/가 없어야 nada의 [ð̞]가 /d/의 변이음이라는 것이 맞다. 한국어 목록 셋에 dʱ·d̤(치음 표시 붙은 꼴 포함)가 없어야 symbols dʱ의 '한국어에 없다'가 맞다(26.11.27).",
  "audio_plan": "모두 Commons·Lingua Libre 녹음(PRINCIPLES 8-10). 한국어 달·탈·딸은 Amanda1970 계정 녹음뿐이라(출처 의심) 쓰지 않았다. 바다는 호로조. 스페인어 té는 원어민 녹음이 하나뿐(화자 거주지 프랑스)이라 tú로 바꿨다. 電気는 같은 화자의 두 녹음 중 한자 제목 하나만. En-us-day는 만든 사람이 '추정'으로 표시돼 쓰지 않았다. 스페인어 verde는 녹음을 찾지 않는다(영신 26.11.27 \"보고타 화자 녹음은 찾지마 내 안에 다 있음\")."
 }

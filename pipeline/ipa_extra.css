@@ -43,6 +43,9 @@
 @keyframes ipaPuff{0%{opacity:0;transform:translateX(0)}30%{opacity:1}100%{opacity:0;transform:translateX(-8px)}}
 .ipa-vib{animation:ipaVib .12s linear infinite alternate}
 @keyframes ipaVib{from{transform:translateX(-.6px)}to{transform:translateX(.6px)}}
+/* 유성 유기음(breathy, 26.11.27): 목청 창의 틈으로 바람이 올라온다 */
+.ipa-gpuff{animation:ipaGPuff 1.4s ease-out infinite}
+@keyframes ipaGPuff{0%{opacity:0;transform:translateY(3px)}30%{opacity:1}100%{opacity:0;transform:translateY(-6px)}}
 /* IPA 지도: 주기율표 게임처럼 잠긴 칸이 다 보인다 */
 .ipamap{overflow:hidden}
 .ipa-map-wrap{padding:0 8px 8px;overflow-x:auto}
@@ -67,7 +70,7 @@
 .ipa-dex-sym{font-family:var(--ipa);font-size:2rem;color:var(--gold);min-width:1.6em;text-align:center}
 .ipa-chips{display:flex;flex-wrap:wrap;gap:5px;margin-top:6px}
 .ipa-chip{font-size:.7rem;font-weight:800;border:1px solid var(--line);border-radius:999px;padding:2px 8px;color:var(--pinkpale)}
-@media (prefers-reduced-motion:reduce){.ipa-puff,.ipa-vib,.ipa-cell-s.cur{animation:none}}
+@media (prefers-reduced-motion:reduce){.ipa-puff,.ipa-gpuff,.ipa-vib,.ipa-cell-s.cur{animation:none}}
 /* 입 옆모습(CC0 단면도): 살은 --ipa-tis, 빈 곳은 --ipa-cav, 목청 선은 울리면 청록 */
 .ipa-sag path{fill:var(--ipa-sag-fill);stroke:var(--ipa-sag-line);stroke-width:.5}
 .ipa-sag .ipa-sag-glottis{fill:none;stroke:var(--muted);stroke-width:.9}
@@ -105,7 +108,7 @@
 .ipa-anim .a-puff{opacity:0;animation:ipaPuffOnce 2.2s ease forwards}
 @keyframes ipaPuffOnce{0%,46%{opacity:0;transform:translateX(0)}56%{opacity:1}80%{opacity:1;transform:translateX(5px)}100%{opacity:0;transform:translateX(7px)}}
 .ipa-anim .ipa-sag-glottis{stroke:var(--muted);animation:ipaVoice 2.2s steps(1) forwards}
-.ipa-anim.vot-lead .ipa-sag-glottis,.ipa-anim.vot-cont .ipa-sag-glottis{animation-name:ipaVoiceLead}
+.ipa-anim.vot-lead .ipa-sag-glottis,.ipa-anim.vot-cont .ipa-sag-glottis,.ipa-anim.vot-lead-breathy .ipa-sag-glottis{animation-name:ipaVoiceLead}
 .ipa-anim.vot-short .ipa-sag-glottis{animation-name:ipaVoiceShort}
 .ipa-anim.vot-long .ipa-sag-glottis{animation-name:ipaVoiceLong}
 @keyframes ipaVoiceLead{0%{stroke:var(--cyan)}100%{stroke:var(--cyan)}}

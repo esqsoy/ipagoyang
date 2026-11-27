@@ -225,6 +225,116 @@
    "allo": "ɡ",
    "ok": true,
    "why": ""
+  },
+  {
+   "word": "grc-kosmos",
+   "inv": null,
+   "ok": true,
+   "why": "목록 없음: PHOIBLE 2.0에 고대 그리스어 목록 없음(phoible.csv에서 ISO grc·이름 검색, 현대 그리스어 ell 목록만 있음)"
+  },
+  {
+   "word": "grc-kharis",
+   "inv": null,
+   "ok": true,
+   "why": "목록 없음: PHOIBLE 2.0에 고대 그리스어 목록 없음(phoible.csv에서 ISO grc·이름 검색, 현대 그리스어 ell 목록만 있음)"
+  },
+  {
+   "word": "grc-ge",
+   "inv": null,
+   "ok": true,
+   "why": "목록 없음: PHOIBLE 2.0에 고대 그리스어 목록 없음(phoible.csv에서 ISO grc·이름 검색, 현대 그리스어 ell 목록만 있음)"
+  },
+  {
+   "word": "koi-kardia",
+   "inv": null,
+   "ok": true,
+   "why": "목록 없음: PHOIBLE 2.0에 코이네 그리스어 목록 없음(현대 그리스어 ell 목록만 있음)"
+  },
+  {
+   "word": "koi-kharis",
+   "inv": null,
+   "ok": true,
+   "why": "목록 없음: PHOIBLE 2.0에 코이네 그리스어 목록 없음(현대 그리스어 ell 목록만 있음)"
+  },
+  {
+   "word": "koi-spongos",
+   "inv": null,
+   "ok": true,
+   "why": "목록 없음: PHOIBLE 2.0에 코이네 그리스어 목록 없음(현대 그리스어 ell 목록만 있음)"
+  },
+  {
+   "word": "koi-logos",
+   "inv": null,
+   "ok": true,
+   "why": "목록 없음: PHOIBLE 2.0에 코이네 그리스어 목록 없음(현대 그리스어 ell 목록만 있음)"
+  },
+  {
+   "word": "la-caesar",
+   "inv": null,
+   "ok": true,
+   "why": "목록 없음: PHOIBLE 2.0에 라틴어 목록 없음(phoible.csv에서 ISO lat·이름 검색)"
+  },
+  {
+   "word": "la-gallia",
+   "inv": null,
+   "ok": true,
+   "why": "목록 없음: PHOIBLE 2.0에 라틴어 목록 없음(phoible.csv에서 ISO lat·이름 검색)"
+  },
+  {
+   "word": "la-chorus",
+   "inv": null,
+   "ok": true,
+   "why": "목록 없음: PHOIBLE 2.0에 라틴어 목록 없음(phoible.csv에서 ISO lat·이름 검색)"
+  },
+  {
+   "word": "la-pulcher",
+   "inv": null,
+   "ok": true,
+   "why": "목록 없음: PHOIBLE 2.0에 라틴어 목록 없음(phoible.csv에서 ISO lat·이름 검색)"
+  },
+  {
+   "word": "ecc-corpus",
+   "inv": null,
+   "ok": true,
+   "why": "목록 없음: PHOIBLE 2.0에 라틴어 목록 없음(phoible.csv에서 ISO lat·이름 검색)"
+  },
+  {
+   "word": "ecc-gloria",
+   "inv": null,
+   "ok": true,
+   "why": "목록 없음: PHOIBLE 2.0에 라틴어 목록 없음(phoible.csv에서 ISO lat·이름 검색)"
+  },
+  {
+   "word": "sa-kala",
+   "inv": 1782,
+   "seg": "k",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "sa-sukha",
+   "inv": 1782,
+   "seg": "kʰ",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "sa-guru",
+   "inv": 1782,
+   "seg": "ɡ",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "sa-ghosa",
+   "inv": 1782,
+   "seg": "ɡʱ",
+   "allo": null,
+   "ok": true,
+   "why": ""
   }
  ],
  "absent": [
@@ -235,14 +345,50 @@
    "found_in": []
   },
   {
+   "inv": 2197,
+   "seg": "ɡʱ",
+   "ok": true,
+   "found_in": []
+  },
+  {
+   "inv": 2197,
+   "seg": "ɡ̤",
+   "ok": true,
+   "found_in": []
+  },
+  {
    "inv": 1,
    "seg": "ɣ",
    "ok": true,
    "found_in": []
   },
   {
+   "inv": 1,
+   "seg": "ɡʱ",
+   "ok": true,
+   "found_in": []
+  },
+  {
+   "inv": 1,
+   "seg": "ɡ̤",
+   "ok": true,
+   "found_in": []
+  },
+  {
    "inv": 2287,
    "seg": "ɣ",
+   "ok": true,
+   "found_in": []
+  },
+  {
+   "inv": 2287,
+   "seg": "ɡʱ",
+   "ok": true,
+   "found_in": []
+  },
+  {
+   "inv": 2287,
+   "seg": "ɡ̤",
    "ok": true,
    "found_in": []
   }
@@ -308,6 +454,39 @@
      "phoneme": "ɡ",
      "allophones": "ɡ ɡː",
      "marginal": "FALSE"
+    }
+   ]
+  },
+  "1782": {
+   "meta": {
+    "iso": "san",
+    "name": "Sanskrit",
+    "dialect": "NA",
+    "source": "ra"
+   },
+   "bibtex": [
+    "1782_Sukumar1971"
+   ],
+   "rows": [
+    {
+     "phoneme": "k",
+     "allophones": "NA",
+     "marginal": "NA"
+    },
+    {
+     "phoneme": "kʰ",
+     "allophones": "NA",
+     "marginal": "NA"
+    },
+    {
+     "phoneme": "ɡ",
+     "allophones": "NA",
+     "marginal": "NA"
+    },
+    {
+     "phoneme": "ɡʱ",
+     "allophones": "NA",
+     "marginal": "NA"
     }
    ]
   },

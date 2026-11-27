@@ -241,6 +241,104 @@
    "allo": "d̪",
    "ok": true,
    "why": ""
+  },
+  {
+   "word": "grc-teknon",
+   "inv": null,
+   "ok": true,
+   "why": "목록 없음: PHOIBLE 2.0에 고대 그리스어 목록 없음(phoible.csv에서 ISO grc·이름 검색, 현대 그리스어 ell 목록만 있음)"
+  },
+  {
+   "word": "grc-theos",
+   "inv": null,
+   "ok": true,
+   "why": "목록 없음: PHOIBLE 2.0에 고대 그리스어 목록 없음(phoible.csv에서 ISO grc·이름 검색, 현대 그리스어 ell 목록만 있음)"
+  },
+  {
+   "word": "grc-doron",
+   "inv": null,
+   "ok": true,
+   "why": "목록 없음: PHOIBLE 2.0에 고대 그리스어 목록 없음(phoible.csv에서 ISO grc·이름 검색, 현대 그리스어 ell 목록만 있음)"
+  },
+  {
+   "word": "koi-teknon",
+   "inv": null,
+   "ok": true,
+   "why": "목록 없음: PHOIBLE 2.0에 코이네 그리스어 목록 없음(현대 그리스어 ell 목록만 있음)"
+  },
+  {
+   "word": "koi-theos",
+   "inv": null,
+   "ok": true,
+   "why": "목록 없음: PHOIBLE 2.0에 코이네 그리스어 목록 없음(현대 그리스어 ell 목록만 있음)"
+  },
+  {
+   "word": "koi-doxa",
+   "inv": null,
+   "ok": true,
+   "why": "목록 없음: PHOIBLE 2.0에 코이네 그리스어 목록 없음(현대 그리스어 ell 목록만 있음)"
+  },
+  {
+   "word": "la-terra",
+   "inv": null,
+   "ok": true,
+   "why": "목록 없음: PHOIBLE 2.0에 라틴어 목록 없음(phoible.csv에서 ISO lat·이름 검색)"
+  },
+  {
+   "word": "la-deus",
+   "inv": null,
+   "ok": true,
+   "why": "목록 없음: PHOIBLE 2.0에 라틴어 목록 없음(phoible.csv에서 ISO lat·이름 검색)"
+  },
+  {
+   "word": "la-theatrum",
+   "inv": null,
+   "ok": true,
+   "why": "목록 없음: PHOIBLE 2.0에 라틴어 목록 없음(phoible.csv에서 ISO lat·이름 검색)"
+  },
+  {
+   "word": "ecc-terra",
+   "inv": null,
+   "ok": true,
+   "why": "목록 없음: PHOIBLE 2.0에 라틴어 목록 없음(phoible.csv에서 ISO lat·이름 검색)"
+  },
+  {
+   "word": "ecc-deus",
+   "inv": null,
+   "ok": true,
+   "why": "목록 없음: PHOIBLE 2.0에 라틴어 목록 없음(phoible.csv에서 ISO lat·이름 검색)"
+  },
+  {
+   "word": "sa-tapas",
+   "inv": 1782,
+   "seg": "t̪",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "sa-ratha",
+   "inv": 1782,
+   "seg": "t̪ʰ",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "sa-deva",
+   "inv": 1782,
+   "seg": "d̪",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "sa-dharma",
+   "inv": 1782,
+   "seg": "d̪̤",
+   "allo": null,
+   "ok": true,
+   "why": ""
   }
  ],
  "absent": [
@@ -257,6 +355,30 @@
    "found_in": []
   },
   {
+   "inv": 2197,
+   "seg": "dʱ",
+   "ok": true,
+   "found_in": []
+  },
+  {
+   "inv": 2197,
+   "seg": "d̤",
+   "ok": true,
+   "found_in": []
+  },
+  {
+   "inv": 2197,
+   "seg": "d̪ʱ",
+   "ok": true,
+   "found_in": []
+  },
+  {
+   "inv": 2197,
+   "seg": "d̪̤",
+   "ok": true,
+   "found_in": []
+  },
+  {
    "inv": 1,
    "seg": "ð",
    "ok": true,
@@ -269,6 +391,30 @@
    "found_in": []
   },
   {
+   "inv": 1,
+   "seg": "dʱ",
+   "ok": true,
+   "found_in": []
+  },
+  {
+   "inv": 1,
+   "seg": "d̤",
+   "ok": true,
+   "found_in": []
+  },
+  {
+   "inv": 1,
+   "seg": "d̪ʱ",
+   "ok": true,
+   "found_in": []
+  },
+  {
+   "inv": 1,
+   "seg": "d̪̤",
+   "ok": true,
+   "found_in": []
+  },
+  {
    "inv": 2287,
    "seg": "ð",
    "ok": true,
@@ -277,6 +423,30 @@
   {
    "inv": 2287,
    "seg": "θ",
+   "ok": true,
+   "found_in": []
+  },
+  {
+   "inv": 2287,
+   "seg": "dʱ",
+   "ok": true,
+   "found_in": []
+  },
+  {
+   "inv": 2287,
+   "seg": "d̤",
+   "ok": true,
+   "found_in": []
+  },
+  {
+   "inv": 2287,
+   "seg": "d̪ʱ",
+   "ok": true,
+   "found_in": []
+  },
+  {
+   "inv": 2287,
+   "seg": "d̪̤",
    "ok": true,
    "found_in": []
   },
@@ -348,6 +518,39 @@
      "phoneme": "t",
      "allophones": "t tː",
      "marginal": "FALSE"
+    }
+   ]
+  },
+  "1782": {
+   "meta": {
+    "iso": "san",
+    "name": "Sanskrit",
+    "dialect": "NA",
+    "source": "ra"
+   },
+   "bibtex": [
+    "1782_Sukumar1971"
+   ],
+   "rows": [
+    {
+     "phoneme": "d̪",
+     "allophones": "NA",
+     "marginal": "NA"
+    },
+    {
+     "phoneme": "d̪̤",
+     "allophones": "NA",
+     "marginal": "NA"
+    },
+    {
+     "phoneme": "t̪",
+     "allophones": "NA",
+     "marginal": "NA"
+    },
+    {
+     "phoneme": "t̪ʰ",
+     "allophones": "NA",
+     "marginal": "NA"
     }
    ]
   },

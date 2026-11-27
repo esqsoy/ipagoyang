@@ -1,14 +1,15 @@
 {
  "id": "b03",
  "title": "연구개 파열음",
- "symbols_title": "[k] [ɡ] [kʰ] [k͈] (+[ɣ])",
- "about": "묶음 3 원본(PRINCIPLES 8-5: [p…]·[t…] 다음). 그 소리가 있는 언어는 11개 가운데 다 넣는다(8-7). 짜는 법은 b01·b02와 같다.",
+ "symbols_title": "[k] [ɡ] [kʰ] [k͈] [ɡʱ] (+[ɣ])",
+ "about": "묶음 3 원본(PRINCIPLES 8-5: [p…]·[t…] 다음). 그 소리가 있는 언어는 11개 가운데 다 넣는다(8-7). 짜는 법은 b01·b02와 같다. 26.11.27: 고전어 다섯 갈래(grc 고대 그리스어·grc-koi 코이네·lat 라틴어·lat-ecc 교회 라틴어·san 산스크리트어) 카드를 words 끝에 더했다(이솝 초안 v3 → 외솔 검토 → 이언 검산 → 파시 합치기, PRINCIPLES 8-7·8-10). 녹음은 아직 없다(발음 확보 중).",
  "place": "velar",
  "learn": [
   "k",
   "kʰ",
   "k͈",
   "ɡ",
+  "ɡʱ",
   "ɣ"
  ],
  "lit": [
@@ -21,7 +22,8 @@
    "k",
    "kʰ",
    "k͈",
-   "ɡ"
+   "ɡ",
+   "ɡʱ"
   ],
   [
    "ŋ"
@@ -31,7 +33,9 @@
    "ɣ"
   ]
  ],
- "shortcuts": {},
+ "shortcuts": {
+  "gh": "ɡʱ"
+ },
  "compare": [],
  "lines": {
   "correct": [
@@ -43,7 +47,7 @@
    "목에 손 대 보라고양. 떨리면 [ɡ]라고양.",
    "혀뒤로 다 막았냐, 덜 막았냐 보라고양. 덜 막으면 [ɣ]라고양.",
    "글자 g가 꼭 [ɡ]는 아니라고양. 병음 g는 [k]라고양.",
-   "[k]·[kʰ]·[k͈]는 목이 안 울린다고양. 울리면 [ɡ]나 [ɣ]라고양."
+   "[k]·[kʰ]·[k͈]는 목이 안 울린다고양. 울리면 [ɡ]·[ɡʱ]·[ɣ]라고양."
   ],
   "by_word": {
    "ko-gogi": "고기의 두 ㄱ은 소리가 다르다고양. 고기도 앞뒤가 다르다고양.",
@@ -81,16 +85,22 @@
  ],
  "absent": {
   "2197": [
-   "ɣ"
+   "ɣ",
+   "ɡʱ",
+   "ɡ̤"
   ],
   "1": [
-   "ɣ"
+   "ɣ",
+   "ɡʱ",
+   "ɡ̤"
   ],
   "2287": [
-   "ɣ"
+   "ɣ",
+   "ɡʱ",
+   "ɡ̤"
   ]
  },
- "absent_about": "한국어 목록 셋에 ɣ가 없어야 symbols ɣ의 '한국어에 없다'가 맞다.",
+ "absent_about": "한국어 목록 셋에 ɣ가 없어야 symbols ɣ의 '한국어에 없다'가 맞다. 한국어 목록 셋에 ɡʱ·ɡ̤가 없어야 symbols ɡʱ의 '한국어에 없다'가 맞다(26.11.27).",
  "audio_plan": "모두 Commons·Lingua Libre 녹음(PRINCIPLES 8-10). 한국어 개·코·꽃·고기는 한 화자(호로조, 경기). 스페인어 algo·carga는 녹음을 찾지 않는다(영신 26.11.27 \"보고타 화자 녹음은 찾지마 내 안에 다 있음\").",
  "words": [
   {
@@ -734,6 +744,366 @@
    "audio": "es-carga",
    "listen": false,
    "vtag": "보고따"
+  },
+  {
+   "id": "grc-kosmos",
+   "lang": "grc",
+   "text": "κόσμος",
+   "roman": "kósmos",
+   "ko": "질서·세계",
+   "ipa": [
+    "",
+    "k",
+    "ózmos"
+   ],
+   "target": "k",
+   "audio": "grc-kosmos",
+   "phoible": {
+    "inv": null,
+    "why": "PHOIBLE 2.0에 고대 그리스어 목록 없음(phoible.csv에서 ISO grc·이름 검색, 현대 그리스어 ell 목록만 있음)"
+   },
+   "note": "κ는 바람 없는 [k]. μ 앞의 σ는 [z]로 난다.",
+   "status": "확인",
+   "status_why": "Wiktionary κόσμος '5th BCE Attic' /kóz.mos/와 같음(음절 점만 뺌). Wiktionary 모듈(2차, 철자에서 생성) 기준, 1차 출처(Allen 등) 대조 전. 녹음이 들어오면 기식(소리 시작 시간)을 재기 전까지 듣고 이름 대기에 내지 않는다(지금은 녹음 없음)"
+  },
+  {
+   "id": "grc-kharis",
+   "lang": "grc",
+   "text": "χάρις",
+   "roman": "kháris",
+   "ko": "아름다움·호의",
+   "ipa": [
+    "",
+    "kʰ",
+    "áris"
+   ],
+   "target": "kʰ",
+   "audio": "grc-kharis",
+   "phoible": {
+    "inv": null,
+    "why": "PHOIBLE 2.0에 고대 그리스어 목록 없음(phoible.csv에서 ISO grc·이름 검색, 현대 그리스어 ell 목록만 있음)"
+   },
+   "note": "χ는 [x]가 아니라 바람 센 [kʰ]다. [x]로 바뀐 것은 뒤 시대다(Wiktionary 4세기 줄부터 [x]).",
+   "status": "확인",
+   "status_why": "Wiktionary χάρις '5th BCE Attic' /kʰá.ris/와 같음(음절 점만 뺌). Wiktionary 모듈(2차, 철자에서 생성) 기준, 1차 출처(Allen 등) 대조 전"
+  },
+  {
+   "id": "grc-ge",
+   "lang": "grc",
+   "text": "γῆ",
+   "roman": "gê",
+   "ko": "땅",
+   "ipa": [
+    "",
+    "ɡ",
+    "ɛ̂ː"
+   ],
+   "target": "ɡ",
+   "audio": "grc-ge",
+   "phoible": {
+    "inv": null,
+    "why": "PHOIBLE 2.0에 고대 그리스어 목록 없음(phoible.csv에서 ISO grc·이름 검색, 현대 그리스어 ell 목록만 있음)"
+   },
+   "note": "γ는 [ɡ]다. 뒤 시대의 [ɣ]·[ʝ]가 아니다(Wiktionary 4세기 줄부터 /ˈʝi/).",
+   "status": "확인",
+   "status_why": "Wiktionary γῆ '5th BCE Attic' /ɡɛ̂ː/와 같음. Wiktionary 모듈(2차, 철자에서 생성) 기준, 1차 출처(Allen 등) 대조 전. 녹음이 들어오면 기식(소리 시작 시간)을 재기 전까지 듣고 이름 대기에 내지 않는다(지금은 녹음 없음)"
+  },
+  {
+   "id": "koi-kardia",
+   "lang": "grc-koi",
+   "text": "καρδία",
+   "roman": "kardía",
+   "ko": "마음·심장",
+   "ipa": [
+    "",
+    "k",
+    "ɑrˈdiɑ"
+   ],
+   "target": "k",
+   "audio": "koi-kardia",
+   "phoible": {
+    "inv": null,
+    "why": "PHOIBLE 2.0에 코이네 그리스어 목록 없음(현대 그리스어 ell 목록만 있음)"
+   },
+   "note": "κ는 바람 없는 [k]. 뒷모음 α 앞이라 구개음화가 없는 자리다.",
+   "status": "확인",
+   "status_why": "기준: Kantor 2023 유대·팔레스타인 1세기(서평 Harper 2025 원문으로 본 낱자 값을 낱말에 적용. 2차, 책 본문 대조 전). 서평: 자음은 대체로 현대 그리스어와 같다(κ는 예외 목록에 없음). 앞모음 앞 연구개음은 구개음화가 진행 중이었을 것이라 해서 v1의 κύριος(υ 앞)를 이 낱말로 바꿨다(외솔 권고). 참고: Wiktionary καρδία '1st CE Egyptian' /karˈdi.a/, '4th CE Koine' /karˈði.a/. 대상 기호가 두 줄 모두와 같다. note의 발음 요령·본문 자리는 Claude 지식. 녹음이 들어오면 기식(소리 시작 시간)을 재기 전까지 듣고 이름 대기에 내지 않는다(지금은 녹음 없음)"
+  },
+  {
+   "id": "koi-kharis",
+   "lang": "grc-koi",
+   "text": "χάρις",
+   "roman": "kháris",
+   "ko": "은혜",
+   "ipa": [
+    "ˈ",
+    "kʰ",
+    "ɑris"
+   ],
+   "target": "kʰ",
+   "audio": "koi-kharis",
+   "phoible": {
+    "inv": null,
+    "why": "PHOIBLE 2.0에 코이네 그리스어 목록 없음(현대 그리스어 ell 목록만 있음)"
+   },
+   "note": "χ는 아직 바람 센 [kʰ]다. [x]는 더 뒤의 일이다.",
+   "status": "확인",
+   "status_why": "기준: Kantor 2023 유대·팔레스타인 1세기(서평 Harper 2025 원문으로 본 낱자 값을 낱말에 적용. 2차, 책 본문 대조 전). 서평: χ [kʰ], 'δ, χ, θ have not yet shifted'. 참고: Wiktionary χάρις '1st CE Egyptian' /ˈkʰa.ris/, '4th CE Koine' /ˈxa.ris/. 대상 기호는 1st CE Egyptian 줄과만 같다. note의 발음 요령·본문 자리는 Claude 지식"
+  },
+  {
+   "id": "koi-spongos",
+   "lang": "grc-koi",
+   "text": "σπόγγος",
+   "roman": "spóngos",
+   "ko": "해면",
+   "ipa": [
+    "ˈspoŋ",
+    "ɡ",
+    "os"
+   ],
+   "target": "ɡ",
+   "audio": "koi-spongos",
+   "phoible": {
+    "inv": null,
+    "why": "PHOIBLE 2.0에 코이네 그리스어 목록 없음(현대 그리스어 ell 목록만 있음)"
+   },
+   "note": "γγ는 [ŋɡ]로 난다. 코이네에서 γ가 [ɡ]로 남는 자리는 이런 비음 뒤다.",
+   "status": "확인 필요",
+   "status_why": "기준: Kantor 2023 유대·팔레스타인 1세기(서평 Harper 2025 원문으로 본 낱자 값을 낱말에 적용. 2차, 책 본문 대조 전). 서평에는 γγ의 값이 없다. [ŋɡ]는 외솔 권고와 Wiktionary 줄(모든 시대 /ˈspoŋ.ɡos/)을 따랐다. Kantor 본문에서 γγ를 봐야 한다. 외솔이 든 φέγγος는 앞에 전이 중인 φ가 있어 σπόγγος로 골랐다. 참고: Wiktionary σπόγγος '1st CE Egyptian' /ˈspoŋ.ɡos/, '4th CE Koine' /ˈspoŋ.ɡos/. 대상 기호가 두 줄 모두와 같다. note의 발음 요령·본문 자리는 Claude 지식. 녹음이 들어오면 기식(소리 시작 시간)을 재기 전까지 듣고 이름 대기에 내지 않는다(지금은 녹음 없음) 이언 검산(26.11.27): 코이네 γ가 [ɣ]인데 막힘소리로 남는 자리(ŋ 뒤)라 대표 카드로는 약하다. γγ=[ŋɡ]는 Wiktionary 1·4세기 줄과 지식."
+  },
+  {
+   "id": "koi-logos",
+   "lang": "grc-koi",
+   "text": "λόγος",
+   "roman": "lógos",
+   "ko": "말·말씀",
+   "ipa": [
+    "ˈlo",
+    "ɣ",
+    "os"
+   ],
+   "target": "ɣ",
+   "audio": "koi-logos",
+   "phoible": {
+    "inv": null,
+    "why": "PHOIBLE 2.0에 코이네 그리스어 목록 없음(현대 그리스어 ell 목록만 있음)"
+   },
+   "note": "γ는 1세기에 이미 마찰음 [ɣ]다. 앞모음(ε·η·ι·υ) 앞에서는 [ʝ]로 난다.",
+   "status": "확인",
+   "status_why": "기준: Kantor 2023 유대·팔레스타인 1세기(서평 Harper 2025 원문으로 본 낱자 값을 낱말에 적용. 2차, 책 본문 대조 전). 서평: γ [ɣ] and [ʝ], 각주 2 'having become mainstream by the second century BC'(Pronunciation p. 109), 앞모음 앞 [ʝ]. 참고: Wiktionary λόγος '1st CE Egyptian' /ˈlo.ɡos/, '4th CE Koine' /ˈlo.ɣos/. 대상 기호는 4th CE Koine 줄과만 같다. note의 발음 요령·본문 자리는 Claude 지식"
+  },
+  {
+   "id": "la-caesar",
+   "lang": "lat",
+   "text": "Caesar",
+   "roman": "Caesar",
+   "ko": "카이사르",
+   "ipa": [
+    "ˈ",
+    "k",
+    "ae̯sar"
+   ],
+   "target": "k",
+   "audio": "la-caesar",
+   "phoible": {
+    "inv": null,
+    "why": "PHOIBLE 2.0에 라틴어 목록 없음(phoible.csv에서 ISO lat·이름 검색)"
+   },
+   "note": "c는 어느 모음 앞에서나 [k]다. 교회 라틴어로는 이 낱말의 c를 [tʃ]로 읽는다.",
+   "status": "확인",
+   "status_why": "Wiktionary Caesar 'Classical Latin' [ˈkae̯.sar]와 같음(음절 점만 뺌). Wiktionary 모듈(2차, 철자에서 생성) 기준, 1차 출처(Allen 등) 대조 전. 같은 문서의 'modern Italianate Ecclesiastical' 줄은 [ˈt͡ʃɛː.s̬ar]. 녹음이 들어오면 기식(소리 시작 시간)을 재기 전까지 듣고 이름 대기에 내지 않는다(지금은 녹음 없음)"
+  },
+  {
+   "id": "la-gallia",
+   "lang": "lat",
+   "text": "Gallia",
+   "roman": "Gallia",
+   "ko": "갈리아",
+   "ipa": [
+    "ˈ",
+    "ɡ",
+    "allia"
+   ],
+   "target": "ɡ",
+   "audio": "la-gallia",
+   "phoible": {
+    "inv": null,
+    "why": "PHOIBLE 2.0에 라틴어 목록 없음(phoible.csv에서 ISO lat·이름 검색)"
+   },
+   "note": "g는 어느 모음 앞에서나 [ɡ]다.",
+   "status": "확인",
+   "status_why": "Wiktionary Gallia 'Classical Latin' [ˈɡal.li.a]와 같음(음절 점만 뺌). Wiktionary 모듈(2차, 철자에서 생성) 기준, 1차 출처(Allen 등) 대조 전. 녹음이 들어오면 기식(소리 시작 시간)을 재기 전까지 듣고 이름 대기에 내지 않는다(지금은 녹음 없음)"
+  },
+  {
+   "id": "la-chorus",
+   "lang": "lat",
+   "text": "chorus",
+   "roman": "chorus",
+   "ko": "합창·가무",
+   "ipa": [
+    "ˈ",
+    "kʰ",
+    "ɔrʊs"
+   ],
+   "target": "kʰ",
+   "audio": "la-chorus",
+   "phoible": {
+    "inv": null,
+    "why": "PHOIBLE 2.0에 라틴어 목록 없음(phoible.csv에서 ISO lat·이름 검색)"
+   },
+   "note": "ch는 그리스어에서 온 낱말에 쓰고(χορός), [x]가 아니라 바람 센 [kʰ]다.",
+   "status": "확인",
+   "status_why": "Wiktionary chorus 'Classical Latin' [ˈkʰɔ.rʊs]와 같음(음절 점만 뺌). Wiktionary 모듈(2차, 철자에서 생성) 기준, 1차 출처(Allen 등) 대조 전. Wiktionary 어원 줄: Ancient Greek χορός에서. 렌더된 문서를 WebFetch로 봄(revid 없음)"
+  },
+  {
+   "id": "la-pulcher",
+   "lang": "lat",
+   "text": "pulcher",
+   "roman": "pulcher",
+   "ko": "아름다운",
+   "ipa": [
+    "ˈpʊɫ",
+    "kʰ",
+    "ɛr"
+   ],
+   "target": "kʰ",
+   "audio": "la-pulcher",
+   "phoible": {
+    "inv": null,
+    "why": "PHOIBLE 2.0에 라틴어 목록 없음(phoible.csv에서 ISO lat·이름 검색)"
+   },
+   "note": "ch는 바람 센 [kʰ]다. 그리스어에서 온 낱말이 아닌데 ch를 쓰게 된 낱말이다. 키케로는 옛사람들을 따라 pulcros라고 하다가 뒤늦게 사람들의 말버릇을 따랐다고 적었다(『Orator』 160).",
+   "status": "확인",
+   "status_why": "Wiktionary pulcher 'Classical Latin' [ˈpʊɫ.kʰɛr]와 같음(음절 점만 뺌). Wiktionary 모듈(2차, 철자에서 생성) 기준, 1차 출처(Allen 등) 대조 전. Cicero, Orator 160(thelatinlibrary.com 본문을 WebFetch로 봄): 'ut pulcros, Cetegos, triumpos, Cartaginem dicerem … usum loquendi populo concessi'. Wikipedia 'Latin phonology and orthography': pulcher·lachrima 같은 고유어에서는 r·l 가까이에서 나타난다(그 문서의 출처 각주는 못 봄) 이언 검산(26.11.27): 고유 라틴어의 과잉 기식이라 같은 고전 갈래 안에서 pulcer 꼴도 있어 근거가 갈린다 → accept [kʰ, k](2-4).",
+   "accept": [
+    "kʰ",
+    "k"
+   ]
+  },
+  {
+   "id": "ecc-corpus",
+   "lang": "lat-ecc",
+   "text": "corpus",
+   "roman": "corpus",
+   "ko": "몸",
+   "ipa": [
+    "ˈ",
+    "k",
+    "ɔrpus"
+   ],
+   "target": "k",
+   "audio": "ecc-corpus",
+   "phoible": {
+    "inv": null,
+    "why": "PHOIBLE 2.0에 라틴어 목록 없음(phoible.csv에서 ISO lat·이름 검색)"
+   },
+   "note": "c는 a·o·u와 자음 앞에서 [k]다. e·i·ae·oe 앞에서는 [tʃ]로 바뀐다(caelum [ˈtʃɛːlum]).",
+   "status": "확인",
+   "status_why": "Wiktionary corpus 'modern Italianate Ecclesiastical' [ˈkɔr.pus]와 같음(음절 점만 뺌). Wiktionary 모듈(2차, 철자에서 생성) 기준, 1차 출처(교회 쪽 발음 규정) 대조 전. caelum의 같은 줄은 [ˈt͡ʃɛː.lum](7강 파찰음 몫). 녹음이 들어오면 기식(소리 시작 시간)을 재기 전까지 듣고 이름 대기에 내지 않는다(지금은 녹음 없음)"
+  },
+  {
+   "id": "ecc-gloria",
+   "lang": "lat-ecc",
+   "text": "gloria",
+   "roman": "gloria",
+   "ko": "영광",
+   "ipa": [
+    "ˈ",
+    "ɡ",
+    "lɔːria"
+   ],
+   "target": "ɡ",
+   "audio": "ecc-gloria",
+   "phoible": {
+    "inv": null,
+    "why": "PHOIBLE 2.0에 라틴어 목록 없음(phoible.csv에서 ISO lat·이름 검색)"
+   },
+   "note": "g는 a·o·u와 자음 앞에서 [ɡ]다. e·i 앞에서는 [dʒ]로 바뀐다(gens [dʒɛns]).",
+   "status": "확인",
+   "status_why": "Wiktionary gloria 'modern Italianate Ecclesiastical' [ˈɡlɔː.ri.a]와 같음(음절 점만 뺌). Wiktionary 모듈(2차, 철자에서 생성) 기준, 1차 출처(교회 쪽 발음 규정) 대조 전. gens의 같은 줄은 [ˈd͡ʒɛns](7강 파찰음 몫). 녹음이 들어오면 기식(소리 시작 시간)을 재기 전까지 듣고 이름 대기에 내지 않는다(지금은 녹음 없음)"
+  },
+  {
+   "id": "sa-kala",
+   "lang": "san",
+   "text": "काल",
+   "roman": "kāla",
+   "ko": "때·시간",
+   "ipa": [
+    "",
+    "k",
+    "ɑːlɐ"
+   ],
+   "target": "k",
+   "audio": "sa-kala",
+   "phoible": {
+    "inv": 1782,
+    "seg": "k"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 1782 /k/. Wiktionary काल 'Classical Sanskrit' /kɑː.l̪ɐ/와 같음(치음 표시·음절 점만 뺌). v1의 karman은 낭송하지 않는 어간형이라 a 어간 낱말로 바꿈(외솔 검토). 렌더된 문서를 WebFetch로 봄(revid 없음). API로 받은 같은 꼴의 다른 낱말: काम kāma /kɑː.mɐ/. 녹음이 들어오면 기식(소리 시작 시간)을 재기 전까지 듣고 이름 대기에 내지 않는다(지금은 녹음 없음)"
+  },
+  {
+   "id": "sa-sukha",
+   "lang": "san",
+   "text": "सुख",
+   "roman": "sukha",
+   "ko": "즐거움·안락",
+   "ipa": [
+    "su",
+    "kʰ",
+    "ɐ"
+   ],
+   "target": "kʰ",
+   "audio": "sa-sukha",
+   "phoible": {
+    "inv": 1782,
+    "seg": "kʰ"
+   },
+   "note": "kh는 [x]가 아니라 바람 센 [kʰ]다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 1782 /kʰ/. Wiktionary सुख 'Classical Sanskrit' /s̪u.kʰɐ/와 같음(치음 표시·음절 점만 뺌)"
+  },
+  {
+   "id": "sa-guru",
+   "lang": "san",
+   "text": "गुरु",
+   "roman": "guru",
+   "ko": "무거운·스승",
+   "ipa": [
+    "",
+    "ɡ",
+    "uɾu"
+   ],
+   "target": "ɡ",
+   "audio": "sa-guru",
+   "phoible": {
+    "inv": 1782,
+    "seg": "ɡ"
+   },
+   "status": "확인",
+   "status_why": "PHOIBLE 1782 /ɡ/. Wiktionary गुरु 'Classical Sanskrit' /ɡu.ɾu/와 같음(음절 점만 뺌). 녹음이 들어오면 기식(소리 시작 시간)을 재기 전까지 듣고 이름 대기에 내지 않는다(지금은 녹음 없음)"
+  },
+  {
+   "id": "sa-ghosa",
+   "lang": "san",
+   "text": "घोष",
+   "roman": "ghoṣa",
+   "ko": "소리·외침",
+   "ipa": [
+    "",
+    "ɡʱ",
+    "oːʂɐ"
+   ],
+   "target": "ɡʱ",
+   "audio": "sa-ghosa",
+   "phoible": {
+    "inv": 1782,
+    "seg": "ɡʱ"
+   },
+   "note": "gh는 목청을 울리면서 바람을 섞어 터뜨린다. 뒤의 ṣ는 혀끝을 말아 올리는 [ʂ]로 적는다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 1782 /ɡʱ/. Wiktionary घोष 'Classical Sanskrit' /ɡʱoː.ʂɐ/와 같음(음절 점만 뺌). PHOIBLE 1782도 /ɡʱ/로 적는다(b̤·d̪̤와 달리 ʱ). ṣ는 PHOIBLE 1782·Wiktionary 둘 다 [ʂ]인데 낭송 녹음에서는 [ʃ]로 날 수 있다(외솔 검토, 출처 대조 전). 녹음을 붙일 때 본다(대상 소리 ɡʱ와는 무관)"
   }
- ]
+ ],
+ "shortcuts_about": "gh → ɡʱ(산스크리트어 로마자 gh, 26.11.27)."
 }

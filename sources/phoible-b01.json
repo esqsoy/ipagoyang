@@ -217,6 +217,110 @@
    "allo": null,
    "ok": true,
    "why": ""
+  },
+  {
+   "word": "grc-pater",
+   "inv": null,
+   "ok": true,
+   "why": "목록 없음: PHOIBLE 2.0에 고대 그리스어 목록 없음(phoible.csv에서 ISO grc·이름 검색, 현대 그리스어 ell 목록만 있음)"
+  },
+  {
+   "word": "grc-philos",
+   "inv": null,
+   "ok": true,
+   "why": "목록 없음: PHOIBLE 2.0에 고대 그리스어 목록 없음(phoible.csv에서 ISO grc·이름 검색, 현대 그리스어 ell 목록만 있음)"
+  },
+  {
+   "word": "grc-basileus",
+   "inv": null,
+   "ok": true,
+   "why": "목록 없음: PHOIBLE 2.0에 고대 그리스어 목록 없음(phoible.csv에서 ISO grc·이름 검색, 현대 그리스어 ell 목록만 있음)"
+  },
+  {
+   "word": "koi-pater",
+   "inv": null,
+   "ok": true,
+   "why": "목록 없음: PHOIBLE 2.0에 코이네 그리스어 목록 없음(현대 그리스어 ell 목록만 있음)"
+  },
+  {
+   "word": "koi-phos",
+   "inv": null,
+   "ok": true,
+   "why": "목록 없음: PHOIBLE 2.0에 코이네 그리스어 목록 없음(현대 그리스어 ell 목록만 있음)"
+  },
+  {
+   "word": "koi-lambano",
+   "inv": null,
+   "ok": true,
+   "why": "목록 없음: PHOIBLE 2.0에 코이네 그리스어 목록 없음(현대 그리스어 ell 목록만 있음)"
+  },
+  {
+   "word": "koi-bios",
+   "inv": null,
+   "ok": true,
+   "why": "목록 없음: PHOIBLE 2.0에 코이네 그리스어 목록 없음(현대 그리스어 ell 목록만 있음)"
+  },
+  {
+   "word": "la-pater",
+   "inv": null,
+   "ok": true,
+   "why": "목록 없음: PHOIBLE 2.0에 라틴어 목록 없음(phoible.csv에서 ISO lat·이름 검색)"
+  },
+  {
+   "word": "la-bellum",
+   "inv": null,
+   "ok": true,
+   "why": "목록 없음: PHOIBLE 2.0에 라틴어 목록 없음(phoible.csv에서 ISO lat·이름 검색)"
+  },
+  {
+   "word": "la-philosophia",
+   "inv": null,
+   "ok": true,
+   "why": "목록 없음: PHOIBLE 2.0에 라틴어 목록 없음(phoible.csv에서 ISO lat·이름 검색)"
+  },
+  {
+   "word": "ecc-pater",
+   "inv": null,
+   "ok": true,
+   "why": "목록 없음: PHOIBLE 2.0에 라틴어 목록 없음(phoible.csv에서 ISO lat·이름 검색)"
+  },
+  {
+   "word": "ecc-bonus",
+   "inv": null,
+   "ok": true,
+   "why": "목록 없음: PHOIBLE 2.0에 라틴어 목록 없음(phoible.csv에서 ISO lat·이름 검색)"
+  },
+  {
+   "word": "sa-pada",
+   "inv": 1782,
+   "seg": "p",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "sa-phala",
+   "inv": 1782,
+   "seg": "pʰ",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "sa-bala",
+   "inv": 1782,
+   "seg": "b",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "sa-bhumi",
+   "inv": 1782,
+   "seg": "b̤",
+   "allo": null,
+   "ok": true,
+   "why": ""
   }
  ],
  "absent": [
@@ -239,6 +343,18 @@
    "found_in": []
   },
   {
+   "inv": 2197,
+   "seg": "bʱ",
+   "ok": true,
+   "found_in": []
+  },
+  {
+   "inv": 2197,
+   "seg": "b̤",
+   "ok": true,
+   "found_in": []
+  },
+  {
    "inv": 1,
    "seg": "β",
    "ok": true,
@@ -257,6 +373,18 @@
    "found_in": []
   },
   {
+   "inv": 1,
+   "seg": "bʱ",
+   "ok": true,
+   "found_in": []
+  },
+  {
+   "inv": 1,
+   "seg": "b̤",
+   "ok": true,
+   "found_in": []
+  },
+  {
    "inv": 2287,
    "seg": "β",
    "ok": true,
@@ -271,6 +399,18 @@
   {
    "inv": 2287,
    "seg": "v",
+   "ok": true,
+   "found_in": []
+  },
+  {
+   "inv": 2287,
+   "seg": "bʱ",
+   "ok": true,
+   "found_in": []
+  },
+  {
+   "inv": 2287,
+   "seg": "b̤",
    "ok": true,
    "found_in": []
   },
@@ -342,6 +482,39 @@
      "phoneme": "p",
      "allophones": "p pː",
      "marginal": "FALSE"
+    }
+   ]
+  },
+  "1782": {
+   "meta": {
+    "iso": "san",
+    "name": "Sanskrit",
+    "dialect": "NA",
+    "source": "ra"
+   },
+   "bibtex": [
+    "1782_Sukumar1971"
+   ],
+   "rows": [
+    {
+     "phoneme": "b",
+     "allophones": "NA",
+     "marginal": "NA"
+    },
+    {
+     "phoneme": "b̤",
+     "allophones": "NA",
+     "marginal": "NA"
+    },
+    {
+     "phoneme": "p",
+     "allophones": "NA",
+     "marginal": "NA"
+    },
+    {
+     "phoneme": "pʰ",
+     "allophones": "NA",
+     "marginal": "NA"
     }
    ]
   },

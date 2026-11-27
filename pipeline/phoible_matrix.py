@@ -1,4 +1,4 @@
-"""PHOIBLE '기호 × 11개 언어' 표(PRINCIPLES 8-7): 묶음을 짜기 전에 어느 언어가 그 기호를 음소·변이음으로 갖는지 본다.
+"""PHOIBLE '기호 × 언어' 표(PRINCIPLES 8-7, 처음 11개 언어 + 26.11.27 산스크리트어): 묶음을 짜기 전에 어느 언어가 그 기호를 음소·변이음으로 갖는지 본다.
 
 쓰는 법:
   python3 pipeline/phoible_matrix.py <phoible.csv> [--out data/phoible-matrix.json]
@@ -26,6 +26,9 @@ INVENTORIES = {
     'fra': (2182, 'fra_fougeron1993', 'Fougeron·Smith 1993 JIPA, 파리 화자'),
     'ita': (1145, 'ita_rogers2004', "Rogers·d'Arcangeli 2004 JIPA, 표준 이탈리아어"),
     'arb': (2157, 'arb_thelwall1990', "Thelwall·Sa'Adeddin 1990 JIPA, 아랍어(사파드·베이루트·다마스쿠스·쿠웨이트 화자). 현대 표준 아랍어 목록은 확인 필요"),
+    # 26.11.27 고전어(PRINCIPLES 8-7·8-10): PHOIBLE에 목록이 있는 것은 산스크리트어뿐이다. 그리스어·라틴어(grc·grc-koi·lat·lat-ecc)는
+    # data/languages.json에서 phoible이 null이라 건너뛴다(main의 대조)
+    'san': (1782, '1782_Sukumar1971', 'Sen 1971(Ramaswami 1999가 옮긴 목록), 고전 산스크리트어. 음소만 있고 변이음은 없다. 유성 유기음을 b̤·d̪̤·ɡʱ로 적는다(게임 표기 bʱ·dʱ·ɡʱ)'),
 }
 
 
@@ -53,6 +56,13 @@ def main():
     out = os.path.join(ROOT, 'data', 'phoible-matrix.json')
     if '--out' in sys.argv:
         out = sys.argv[sys.argv.index('--out') + 1]
+    # data/languages.json과 맞춘다: phoible 번호가 있는 언어는 여기 목록과 번호가 같아야 하고, null인 언어(PHOIBLE에 목록 없음)는 건너뛴다
+    for l in json.load(open(os.path.join(ROOT, 'data', 'languages.json'), encoding='utf-8'))['langs']:
+        if l.get('phoible') is None:
+            assert l['id'] not in INVENTORIES, (l['id'], 'languages.json은 phoible null인데 여기 목록이 있다')
+            print('건너뜀(PHOIBLE 목록 없음):', l['id'], l['ko'])
+            continue
+        assert INVENTORIES.get(l['id'], (None,))[0] == l['phoible'], (l['id'], l['phoible'], 'languages.json과 목록 번호가 다르다')
     want = {v[0]: k for k, v in INVENTORIES.items()}
     rows = collections.defaultdict(list)
     with open(sys.argv[1], encoding='utf-8') as f:
