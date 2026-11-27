@@ -691,3 +691,8 @@
 - 진도: 판 나눔이 바뀌어도(전사 빈칸 1/2 → 1/4) 끝낸 기록이 비율로 옮겨지게 ipaMigrateTitles를 일반화(겹치는 옛 판이 모두 끝났을 때만).
 - phoible_matrix에 san(1782), phoible null 언어는 건너뜀. 검사: build --check 맞음, prototype·record-transfer 시험 통과, phoible_check 어긋남 0, 390·1280px 화면 확인(콘솔 오류 0). 카드 599, 녹음 410.
 - 남은 것: 그리스어 고저 악센트 범례, 아티카 β [b] / 코이네 β [β] 배우기 문구, 고전어 '복원 발음' 표시, Kantor 본문·Allen 대조, 녹음(복원 발음·전통 낭송).
+
+## 2026-11-27 · 앱 개선 회의, breathy 동의어 버그
+
+- 영신 "이번에는 '전반적인 앱개선' 을 회의로 하자". 이솝·외솔·이언 1차 안(스크래치 team/appmeet/r1) → 합친 항목 A~J → 2차 투표(3·2·1점): B 답 하나하나 기록 9, H 듣기를 귀로만 풀리게 5, A 카드 번호를 낱말 id로 3, E 근거를 저장소로 1. 큰 발견: 듣고 이름 대기 197문항 중 귀로만 풀리는 것 27(이언; 화자 이름이 답 전에 뜸·성조 부호·같은 판 낱말·앞뒤 규칙), 모아둔 카드 번호가 자리 번호라 언어 고르기·판 나눔에 따라 다른 카드를 가리킴(외솔), 끝낸 강에 더한 카드가 '끝냄'에 묻힘(이솝·외솔).
+- 외솔이 찾은 버그 고침: 26.11.27에 넣은 breathy→aspirated 동의어 때문에 "voiceless breathy bilabial plosive"가 [pʰ] 정답이 됐다. breathy는 voiced와 함께 올 때만 aspirated로 본다(ipa_extra.js ipaEnTok). breathy voiced = voiced aspirated, breathy-voiced도 맞음을 확인. 시험 통과.

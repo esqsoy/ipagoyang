@@ -1987,12 +1987,16 @@ function ipaIn(raw) {
 const IPA_NAME_SYN = {'폐쇄음': '파열음', '된소리': '경음', '거센소리': '유기', '격음': '유기', '탄설음': '탄음', '치조구개': '치경구개', '치조': '치경', 'stop': 'plosive', 'fortis': 'tense', 'flap': 'tap', 'palatoalveolar': 'postalveolar',
   // 모음(PRINCIPLES 8-11): 사전 같은 말 폐모음=고모음, 국립국어연구원 해설(2003)의 비원순=평순, 영어 high=close(고모음이 high를 옮긴 말)
   '폐모음': '고모음', '비원순': '평순', 'high': 'close',
-  // 유성 유기음(26.11.27, 산스크리트어 bh·dh·gh): IPA 표 이름 breathy voiced = 인도어학 이름 voiced aspirate(d)
-  'breathy': 'aspirated', 'aspirate': 'aspirated'};
+  // 유성 유기음(26.11.27, 산스크리트어 bh·dh·gh): 인도어학 이름 voiced aspirate(d). breathy는 voiced와 함께 올 때만 aspirated로 본다(아래 ipaEnTok)
+  'aspirate': 'aspirated'};
 // 붙임표로 이은 두 낱말이 한 낱말로 붙은 것을 다시 둘로 푼다(breathy-voiced → breathyvoiced → aspirated + voiced)
 const IPA_EN_SPLIT = {'breathyvoiced': ['aspirated', 'voiced'], 'voicedaspirated': ['voiced', 'aspirated'], 'voicedaspirate': ['voiced', 'aspirated']};
 // 영어 이름 낱말: 붙임표로 이은 말은 한 낱말로(post-alveolar = postalveolar, alveolo-palatal = alveolopalatal). 친 글과 정답에 똑같이 쓴다
-function ipaEnTok(str) { return (String(str || '').toLowerCase().replace(/([a-z])-(?=[a-z])/g, '$1').match(/[a-z]+/g) || []).flatMap(x => IPA_EN_SPLIT[x] || [IPA_NAME_SYN[x] || x]); }
+function ipaEnTok(str) {
+  const t = (String(str || '').toLowerCase().replace(/([a-z])-(?=[a-z])/g, '$1').match(/[a-z]+/g) || []).flatMap(x => IPA_EN_SPLIT[x] || [IPA_NAME_SYN[x] || x]);
+  // breathy voiced = voiced aspirated. 'voiceless breathy'처럼 voiced 없이 온 breathy는 그대로 둬 [pʰ] 이름으로 받지 않는다(외솔 26.11.27)
+  return t.includes('voiced') ? t.map(x => x === 'breathy' ? 'aspirated' : x) : t;
+}
 // 붙은 용어는 낱말로 나눠 견준다(설측 접근음 = 설측 + 접근음): 순서를 바꿔 쳐도 같게
 const IPA_NAME_SPLIT = {'설측접근': ['설측', '접근음'], '설측마찰': ['설측', '마찰음']};
 let ipaKoVocab = null;
