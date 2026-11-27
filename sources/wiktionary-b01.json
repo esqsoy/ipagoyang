@@ -1,5 +1,5 @@
 {
- "about": "pipeline/wikt_compare.py 결과. Wiktionary(en.wiktionary.org, CC BY-SA 4.0) 낱말 문서의 전사와 대조만 했다. 우리 전사는 data/bundles에 있고 Wiktionary에서 가져오지 않았다.",
+ "about": "pipeline/wikt_compare.py 결과. Wiktionary(en.wiktionary.org, CC BY-SA 4.0) 낱말 문서의 전사와 대조만 했다. 우리 전사는 data/bundles에 있고 Wiktionary에서 가져오지 않았다. 근거 줄을 스크래치에서 옮긴 것(26.11.27, PRINCIPLES 8-13 E): 이 줄들은 wikt_compare.py가 아니라 낱말 문서의 해당 줄을 따로 뽑아 같은 칸(word·ours·wiktionary·target_ok·via·other_diff)으로 맞춘 것이고, page·revid(알면)·line·how·note·fetched를 더 붙였다. revid가 null이면 받은 판 번호를 남기지 못했다. 본문 문장은 옮기지 않았고 전사 줄과 지역 표시만 적었다.",
  "fetched": "2026-11-06",
  "bundle": "b01",
  "rows": [
@@ -325,6 +325,442 @@
     "/be̝d/",
     "/bɪd/"
    ]
+  },
+  {
+   "word": "grc-pater",
+   "ours": "[patɛ̌ːr]",
+   "wiktionary": [
+    "/pa.tɛ̌ːr/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "πατήρ",
+   "revid": 94639924,
+   "line": "5th BCE Attic",
+   "how": "API expandtemplates",
+   "stripped": [
+    "음절 점"
+   ],
+   "other_lines": {
+    "1st CE Egyptian": [
+     "/paˈte̝r/"
+    ],
+    "4th CE Koine": [
+     "/paˈtir/"
+    ],
+    "10th CE Medieval": [
+     "/paˈtir/"
+    ],
+    "15th CE Constantinopolitan": [
+     "/paˈtir/"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "grc-philos",
+   "ours": "[pʰílos]",
+   "wiktionary": [
+    "/pʰí.los/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "φίλος",
+   "revid": 92282694,
+   "line": "5th BCE Attic",
+   "how": "API expandtemplates",
+   "stripped": [
+    "음절 점"
+   ],
+   "other_lines": {
+    "1st CE Egyptian": [
+     "/ˈpʰi.los/"
+    ],
+    "4th CE Koine": [
+     "/ˈɸi.los/"
+    ],
+    "10th CE Medieval": [
+     "/ˈfi.los/"
+    ],
+    "15th CE Constantinopolitan": [
+     "/ˈfi.los/"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "grc-basileus",
+   "ours": "[basilěu̯s]",
+   "wiktionary": [
+    "/ba.si.lěu̯s/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ba.si.lěu̯s/"
+   ],
+   "page": "βασιλεύς",
+   "revid": 93318668,
+   "line": "5th BCE Attic",
+   "how": "API expandtemplates",
+   "stripped": [
+    "음절 점"
+   ],
+   "other_lines": {
+    "1st CE Egyptian": [
+     "/ba.siˈleʍs/"
+    ],
+    "4th CE Koine": [
+     "/βa.siˈleɸs/"
+    ],
+    "10th CE Medieval": [
+     "/va.siˈlefs/"
+    ],
+    "15th CE Constantinopolitan": [
+     "/va.siˈlefs/"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "koi-pater",
+   "ours": "[pɑˈter]",
+   "wiktionary": [
+    "/paˈte̝r/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/paˈte̝r/"
+   ],
+   "page": "πατήρ",
+   "revid": 94639924,
+   "line": "Kantor 2023(서평 경유) 기준. Wiktionary 줄은 참고",
+   "how": "API expandtemplates",
+   "other_lines": {
+    "5th BCE Attic": [
+     "/pa.tɛ̌ːr/"
+    ],
+    "4th CE Koine": [
+     "/paˈtir/"
+    ],
+    "10th CE Medieval": [
+     "/paˈtir/"
+    ],
+    "15th CE Constantinopolitan": [
+     "/paˈtir/"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "koi-phos",
+   "ours": "[ˈpʰos]",
+   "wiktionary": [
+    "/ˈpʰos/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "φῶς",
+   "revid": 92202713,
+   "line": "Kantor 2023(서평 경유) 기준. Wiktionary 줄은 참고",
+   "how": "API expandtemplates",
+   "other_lines": {
+    "5th BCE Attic": [
+     "/pʰɔ̂ːs/"
+    ],
+    "4th CE Koine": [
+     "/ˈɸos/"
+    ],
+    "10th CE Medieval": [
+     "/ˈfos/"
+    ],
+    "15th CE Constantinopolitan": [
+     "/ˈfos/"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "koi-lambano",
+   "ours": "[lɑmˈbɑno]",
+   "wiktionary": [
+    "/lamˈba.no/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/lamˈba.no/"
+   ],
+   "page": "λαμβάνω",
+   "revid": null,
+   "line": "Kantor 2023(서평 경유) 기준. Wiktionary 줄은 참고",
+   "how": "WebFetch로 본 렌더된 문서",
+   "stripped": [
+    "음절 점"
+   ],
+   "other_lines": {
+    "5th BCE Attic": [
+     "/lam.bá.nɔː/"
+    ],
+    "4th CE Koine": [
+     "/lamˈba.no/"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "koi-bios",
+   "ours": "[ˈβios]",
+   "wiktionary": [
+    "/ˈbi.os/"
+   ],
+   "target_ok": false,
+   "via": "대상 기호는 같은 문서의 4th CE Koine 줄에만 있다. 카드의 근거는 Kantor 2023(서평 경유)이고 이 Wiktionary 줄은 참고",
+   "other_diff": [],
+   "page": "βίος",
+   "revid": 95467157,
+   "line": "Kantor 2023(서평 경유) 기준. Wiktionary 줄은 참고",
+   "how": "API expandtemplates",
+   "stripped": [
+    "음절 점"
+   ],
+   "other_lines": {
+    "5th BCE Attic": [
+     "/bí.os/"
+    ],
+    "4th CE Koine": [
+     "/ˈβi.os/"
+    ],
+    "10th CE Medieval": [
+     "/ˈvi.os/"
+    ],
+    "15th CE Constantinopolitan": [
+     "/ˈvi.os/"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "la-pater",
+   "ours": "[ˈpatɛr]",
+   "wiktionary": [
+    "[ˈpa.tɛr]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "pater",
+   "revid": 93967884,
+   "line": "Classical Latin",
+   "how": "API expandtemplates",
+   "stripped": [
+    "음절 점"
+   ],
+   "other_lines": {
+    "modern Italianate Ecclesiastical": [
+     "[ˈpaː.ter]"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "la-bellum",
+   "ours": "[ˈbɛllũː]",
+   "wiktionary": [
+    "[ˈbɛl.lũː]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[ˈbɛl.lũː]"
+   ],
+   "page": "bellum",
+   "revid": 95842186,
+   "line": "Classical Latin",
+   "how": "API expandtemplates",
+   "stripped": [
+    "음절 점"
+   ],
+   "other_lines": {
+    "modern Italianate Ecclesiastical": [
+     "[ˈbɛl.lum]"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "la-philosophia",
+   "ours": "[pʰɪɫɔˈsɔpʰia]",
+   "wiktionary": [
+    "[pʰɪ.ɫɔˈsɔ.pʰi.a]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "philosophia",
+   "revid": 90562511,
+   "line": "Classical Latin",
+   "how": "API expandtemplates",
+   "stripped": [
+    "음절 점"
+   ],
+   "other_lines": {
+    "modern Italianate Ecclesiastical": [
+     "[fi.loˈs̬ɔː.fi.a]"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "ecc-pater",
+   "ours": "[ˈpaːter]",
+   "wiktionary": [
+    "[ˈpaː.ter]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "pater",
+   "revid": 93967884,
+   "line": "modern Italianate Ecclesiastical",
+   "how": "API expandtemplates",
+   "stripped": [
+    "음절 점"
+   ],
+   "other_lines": {
+    "Classical Latin": [
+     "[ˈpa.tɛr]"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "ecc-bonus",
+   "ours": "[ˈbɔːnus]",
+   "wiktionary": [
+    "[ˈbɔː.nus]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "bonus",
+   "revid": 94548438,
+   "line": "modern Italianate Ecclesiastical",
+   "how": "API expandtemplates",
+   "stripped": [
+    "음절 점"
+   ],
+   "other_lines": {
+    "Classical Latin": [
+     "[ˈbɔ.nʊs]"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "sa-pada",
+   "ours": "[pɑːdɐ]",
+   "wiktionary": [
+    "/pɑː.d̪ɐ/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/pɑː.d̪ɐ/"
+   ],
+   "page": "पाद",
+   "revid": 93636000,
+   "line": "Classical Sanskrit",
+   "how": "API expandtemplates",
+   "stripped": [
+    "치음 표시",
+    "음절 점"
+   ],
+   "other_lines": {
+    "Vedic": [
+     "/pɑː.dɐ/"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "sa-phala",
+   "ours": "[pʰɐlɐ]",
+   "wiktionary": [
+    "/pʰɐ.l̪ɐ/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/pʰɐ.l̪ɐ/"
+   ],
+   "page": "फल",
+   "revid": 93635558,
+   "line": "Classical Sanskrit",
+   "how": "API expandtemplates",
+   "stripped": [
+    "치음 표시",
+    "음절 점"
+   ],
+   "other_lines": {
+    "Vedic": [
+     "/pʰɐ́.lɐ/"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "sa-bala",
+   "ours": "[bɐlɐ]",
+   "wiktionary": [
+    "/bɐ.l̪ɐ/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/bɐ.l̪ɐ/"
+   ],
+   "page": "बल",
+   "revid": 95802115,
+   "line": "Classical Sanskrit",
+   "how": "API expandtemplates",
+   "stripped": [
+    "치음 표시",
+    "음절 점"
+   ],
+   "other_lines": {
+    "Vedic": [
+     "/bɐ́.lɐ/"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "sa-bhumi",
+   "ours": "[bʱuːmi]",
+   "wiktionary": [
+    "/bʱuː.mi/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "भूमि",
+   "revid": 93641503,
+   "line": "Classical Sanskrit",
+   "how": "API expandtemplates",
+   "stripped": [
+    "음절 점"
+   ],
+   "other_lines": {
+    "Vedic": [
+     "/bʱúː.mi/"
+    ]
+   },
+   "fetched": "2026-11-27"
   }
  ]
 }

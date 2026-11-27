@@ -1,0 +1,608 @@
+{
+ "about": "pipeline/wikt_compare.py 형식. Wiktionary(en.wiktionary.org, CC BY-SA 4.0) 낱말 문서의 전사와 대조만 했다. 우리 전사는 data/bundles에 있고 Wiktionary에서 가져오지 않았다. 근거 줄을 스크래치에서 옮긴 것(26.11.27, PRINCIPLES 8-13 E): 이 줄들은 wikt_compare.py가 아니라 낱말 문서의 해당 줄을 따로 뽑아 같은 칸(word·ours·wiktionary·target_ok·via·other_diff)으로 맞춘 것이고, page·revid(알면)·line·how·note·fetched를 더 붙였다. revid가 null이면 받은 판 번호를 남기지 못했다. 본문 문장은 옮기지 않았고 전사 줄과 지역 표시만 적었다.",
+ "fetched": "2026-11-25",
+ "bundle": "b08",
+ "rows": [
+  {
+   "word": "ko-gil",
+   "ours": "[kil]",
+   "wiktionary": [
+    "[kiɭ]",
+    "[ki(ː)ɭ]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[kiɭ]",
+    "[ki(ː)ɭ]"
+   ],
+   "page": "길",
+   "revid": null,
+   "how": "낱말 문서(렌더된 HTML)의 해당 언어 절 발음 줄을 이언이 답을 가리고 다시 뽑음",
+   "note": "같은 문서의 다른 어원(다른 뜻) 줄은 길이 표시가 따로 있다. 이 낱말(길=도로)은 짧은 [i].",
+   "fetched": "2026-11-25"
+  },
+  {
+   "word": "ko-geul",
+   "ours": "[kɯl]",
+   "wiktionary": [
+    "[kɯɭ]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[kɯɭ]"
+   ],
+   "page": "글",
+   "revid": null,
+   "how": "낱말 문서(렌더된 HTML)의 해당 언어 절 발음 줄을 이언이 답을 가리고 다시 뽑음",
+   "fetched": "2026-11-25"
+  },
+  {
+   "word": "ko-gul",
+   "ours": "[kul]",
+   "wiktionary": [
+    "[kuɭ]",
+    "[ku(ː)ɭ]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[kuɭ]",
+    "[ku(ː)ɭ]"
+   ],
+   "page": "굴",
+   "revid": null,
+   "how": "낱말 문서(렌더된 HTML)의 해당 언어 절 발음 줄을 이언이 답을 가리고 다시 뽑음",
+   "note": "같은 문서의 다른 어원(굴=동굴) 줄은 길이 표시가 따로 있다. 이 낱말(굴=굴조개)은 짧은 [u].",
+   "fetched": "2026-11-25"
+  },
+  {
+   "word": "en-see",
+   "ours": "[si]",
+   "wiktionary": [
+    "/siː/",
+    "/si/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/siː/"
+   ],
+   "page": "see",
+   "revid": null,
+   "how": "낱말 문서(렌더된 HTML)의 해당 언어 절 발음 줄을 이언이 답을 가리고 다시 뽑음",
+   "fetched": "2026-11-25"
+  },
+  {
+   "word": "en-pool",
+   "ours": "[pʰul]",
+   "wiktionary": [
+    "/puːl/",
+    "/pʉwl/",
+    "[pʊwl]",
+    "/poːl/",
+    "/pul/",
+    "/pʉːl/",
+    "[puːl]",
+    "/pʉl/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/puːl/",
+    "/pʉwl/",
+    "[pʊwl]",
+    "/poːl/",
+    "/pul/",
+    "/pʉːl/",
+    "[puːl]",
+    "/pʉl/"
+   ],
+   "page": "pool",
+   "revid": null,
+   "how": "낱말 문서(렌더된 HTML)의 해당 언어 절 발음 줄을 이언이 답을 가리고 다시 뽑음",
+   "fetched": "2026-11-25"
+  },
+  {
+   "word": "es-si",
+   "ours": "[si]",
+   "wiktionary": [
+    "/ˈsi/",
+    "[ˈsi]",
+    "[hi ~ xi]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[hi ~ xi]"
+   ],
+   "page": "sí",
+   "revid": null,
+   "how": "낱말 문서(렌더된 HTML)의 해당 언어 절 발음 줄을 이언이 답을 가리고 다시 뽑음",
+   "fetched": "2026-11-25"
+  },
+  {
+   "word": "es-tu-u",
+   "ours": "[tu]",
+   "wiktionary": [
+    "/ˈtu/",
+    "[ˈt̪u]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[ˈt̪u]"
+   ],
+   "page": "tú",
+   "revid": null,
+   "how": "낱말 문서(렌더된 HTML)의 해당 언어 절 발음 줄을 이언이 답을 가리고 다시 뽑음",
+   "fetched": "2026-11-25"
+  },
+  {
+   "word": "ja-i",
+   "ours": "[i]",
+   "wiktionary": [
+    "[i]",
+    "[ì]",
+    "[0]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[ì]",
+    "[0]"
+   ],
+   "page": "胃",
+   "revid": null,
+   "how": "낱말 문서(렌더된 HTML)의 해당 언어 절 발음 줄을 이언이 답을 가리고 다시 뽑음",
+   "fetched": "2026-11-25"
+  },
+  {
+   "word": "ja-ume",
+   "ours": "[ɯ̟me]",
+   "wiktionary": [
+    "[ɯ̟me̞]",
+    "[ùmé]",
+    "[0]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[ùmé]",
+    "[0]"
+   ],
+   "page": "梅",
+   "revid": null,
+   "how": "낱말 문서(렌더된 HTML)의 해당 언어 절 발음 줄을 이언이 답을 가리고 다시 뽑음",
+   "fetched": "2026-11-25"
+  },
+  {
+   "word": "ja-umi",
+   "ours": "[ɯ̟mi]",
+   "wiktionary": [
+    "[ɯ̟mʲi]",
+    "[úꜜmì]",
+    "[1]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[ɯ̟mʲi]",
+    "[úꜜmì]",
+    "[1]"
+   ],
+   "page": "海",
+   "revid": null,
+   "how": "낱말 문서(렌더된 HTML)의 해당 언어 절 발음 줄을 이언이 답을 가리고 다시 뽑음",
+   "fetched": "2026-11-25"
+  },
+  {
+   "word": "fr-vie",
+   "ours": "[vi]",
+   "wiktionary": [
+    "/vi/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "vie",
+   "revid": null,
+   "how": "낱말 문서(렌더된 HTML)의 해당 언어 절 발음 줄을 이언이 답을 가리고 다시 뽑음",
+   "fetched": "2026-11-25"
+  },
+  {
+   "word": "fr-vu",
+   "ours": "[vy]",
+   "wiktionary": [
+    "/vy/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "vu",
+   "revid": null,
+   "how": "낱말 문서(렌더된 HTML)의 해당 언어 절 발음 줄을 이언이 답을 가리고 다시 뽑음",
+   "fetched": "2026-11-25"
+  },
+  {
+   "word": "fr-vous",
+   "ours": "[vu]",
+   "wiktionary": [
+    "/vu/",
+    "/vu.z‿/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/vu.z‿/"
+   ],
+   "page": "vous",
+   "revid": null,
+   "how": "낱말 문서(렌더된 HTML)의 해당 언어 절 발음 줄을 이언이 답을 가리고 다시 뽑음",
+   "fetched": "2026-11-25"
+  },
+  {
+   "word": "pt-vida-i",
+   "ours": "[ˈvidɐ]",
+   "wiktionary": [
+    "/ˈvi.dɐ/",
+    "/ˈvi.dɐ/",
+    "[ˈvi.ðɐ]",
+    "/ˈbi.dɐ/",
+    "[ˈbi.ðɐ]",
+    "/ˈvi.dɐ/",
+    "/ˈvi.da/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[ˈvi.ðɐ]",
+    "/ˈbi.dɐ/",
+    "[ˈbi.ðɐ]",
+    "/ˈvi.da/"
+   ],
+   "page": "vida",
+   "revid": null,
+   "how": "낱말 문서(렌더된 HTML)의 해당 언어 절 발음 줄을 이언이 답을 가리고 다시 뽑음",
+   "fetched": "2026-11-25"
+  },
+  {
+   "word": "pt-uva",
+   "ours": "[ˈuvɐ]",
+   "wiktionary": [
+    "/ˈu.vɐ/",
+    "/ˈu.vɐ/",
+    "/ˈu.bɐ/",
+    "[ˈu.βɐ]",
+    "[ˈyvɐ]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ˈu.bɐ/",
+    "[ˈu.βɐ]",
+    "[ˈyvɐ]"
+   ],
+   "page": "uva",
+   "revid": null,
+   "how": "낱말 문서(렌더된 HTML)의 해당 언어 절 발음 줄을 이언이 답을 가리고 다시 뽑음",
+   "fetched": "2026-11-25"
+  },
+  {
+   "word": "pt-pequeno-pt",
+   "ours": "[pɨˈkenu]",
+   "wiktionary": [
+    "/piˈkẽ.nu/",
+    "/peˈkẽ.nu/",
+    "/pɨˈke.nu/",
+    "/piˈke.nu/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/piˈkẽ.nu/",
+    "/peˈkẽ.nu/",
+    "/piˈke.nu/"
+   ],
+   "page": "pequeno",
+   "revid": null,
+   "how": "낱말 문서(렌더된 HTML)의 해당 언어 절 발음 줄을 이언이 답을 가리고 다시 뽑음",
+   "fetched": "2026-11-25",
+   "note": "ɨ는 (Portugal) 줄 /pɨˈke.nu/에만 있다. 브라질 줄은 /pi/ 또는 /pe/. 카드는 포르투갈(유럽) 발음 카드다."
+  },
+  {
+   "word": "zh-li",
+   "ours": "[li˥˩]",
+   "wiktionary": [
+    "/li⁵¹/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/li⁵¹/"
+   ],
+   "page": "力",
+   "revid": null,
+   "how": "낱말 문서(렌더된 HTML)의 해당 언어 절 발음 줄을 이언이 답을 가리고 다시 뽑음",
+   "fetched": "2026-11-25"
+  },
+  {
+   "word": "zh-lu",
+   "ours": "[lu˥˩]",
+   "wiktionary": [
+    "/lu⁵¹/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/lu⁵¹/"
+   ],
+   "page": "路",
+   "revid": null,
+   "how": "낱말 문서(렌더된 HTML)의 해당 언어 절 발음 줄을 이언이 답을 가리고 다시 뽑음",
+   "fetched": "2026-11-25"
+  },
+  {
+   "word": "zh-lv",
+   "ours": "[ly˥˩]",
+   "wiktionary": [
+    "/ly⁵¹/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ly⁵¹/"
+   ],
+   "page": "綠",
+   "revid": null,
+   "how": "낱말 문서(렌더된 HTML)의 해당 언어 절 발음 줄을 이언이 답을 가리고 다시 뽑음",
+   "note": "번체 綠·간체 绿 문서의 같은 줄. 같은 문서에 다른 읽기(lù)가 따로 있다.",
+   "fetched": "2026-11-25"
+  },
+  {
+   "word": "ru-mir",
+   "ours": "[mʲir]",
+   "wiktionary": [
+    "[mʲir]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "мир",
+   "revid": null,
+   "how": "낱말 문서(렌더된 HTML)의 해당 언어 절 발음 줄을 이언이 답을 가리고 다시 뽑음",
+   "fetched": "2026-11-25"
+  },
+  {
+   "word": "ru-bit",
+   "ours": "[bʲitʲ]",
+   "wiktionary": [
+    "[bʲitʲ]",
+    "[bʲit̪ʲ]",
+    "[bʲɪˀt̪ʲ]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[bʲit̪ʲ]",
+    "[bʲɪˀt̪ʲ]"
+   ],
+   "page": "бить",
+   "revid": null,
+   "how": "낱말 문서(렌더된 HTML)의 해당 언어 절 발음 줄을 이언이 답을 가리고 다시 뽑음",
+   "fetched": "2026-11-25"
+  },
+  {
+   "word": "ru-byt",
+   "ours": "[bɨtʲ]",
+   "wiktionary": [
+    "[bɨtʲ]",
+    "[bɨtsʲ]",
+    "[bɪtʲ]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[bɨtsʲ]",
+    "[bɪtʲ]"
+   ],
+   "page": "быть",
+   "revid": null,
+   "how": "낱말 문서(렌더된 HTML)의 해당 언어 절 발음 줄을 이언이 답을 가리고 다시 뽑음",
+   "fetched": "2026-11-25"
+  },
+  {
+   "word": "ru-ty",
+   "ours": "[tɨ]",
+   "wiktionary": [
+    "[tɨ]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "ты",
+   "revid": null,
+   "how": "낱말 문서(렌더된 HTML)의 해당 언어 절 발음 줄을 이언이 답을 가리고 다시 뽑음",
+   "fetched": "2026-11-25"
+  },
+  {
+   "word": "ru-my",
+   "ours": "[mɨ]",
+   "wiktionary": [
+    "[mɨ]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "мы",
+   "revid": null,
+   "how": "낱말 문서(렌더된 HTML)의 해당 언어 절 발음 줄을 이언이 답을 가리고 다시 뽑음",
+   "fetched": "2026-11-25"
+  },
+  {
+   "word": "ru-syn",
+   "ours": "[sɨn]",
+   "wiktionary": [
+    "[sɨn]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "сын",
+   "revid": null,
+   "how": "낱말 문서(렌더된 HTML)의 해당 언어 절 발음 줄을 이언이 답을 가리고 다시 뽑음",
+   "fetched": "2026-11-25"
+  },
+  {
+   "word": "ru-um",
+   "ours": "[um]",
+   "wiktionary": [
+    "[um]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "ум",
+   "revid": null,
+   "how": "낱말 문서(렌더된 HTML)의 해당 언어 절 발음 줄을 이언이 답을 가리고 다시 뽑음",
+   "fetched": "2026-11-25"
+  },
+  {
+   "word": "de-biene",
+   "ours": "[ˈbiːnə]",
+   "wiktionary": [
+    "/ˈbiːnə/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "Biene",
+   "revid": null,
+   "how": "낱말 문서(렌더된 HTML)의 해당 언어 절 발음 줄을 이언이 답을 가리고 다시 뽑음",
+   "fetched": "2026-11-25"
+  },
+  {
+   "word": "de-buehne",
+   "ours": "[ˈbyːnə]",
+   "wiktionary": [
+    "/ˈbyːnə/",
+    "/ˈbyːnɛ/",
+    "[b̥y-]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ˈbyːnɛ/",
+    "[b̥y-]"
+   ],
+   "page": "Bühne",
+   "revid": null,
+   "how": "낱말 문서(렌더된 HTML)의 해당 언어 절 발음 줄을 이언이 답을 가리고 다시 뽑음",
+   "fetched": "2026-11-25"
+  },
+  {
+   "word": "de-buch-u",
+   "ours": "[buːx]",
+   "wiktionary": [
+    "/buːx/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "Buch",
+   "revid": null,
+   "how": "낱말 문서(렌더된 HTML)의 해당 언어 절 발음 줄을 이언이 답을 가리고 다시 뽑음",
+   "fetched": "2026-11-25"
+  },
+  {
+   "word": "it-vino-i",
+   "ours": "[ˈvino]",
+   "wiktionary": [
+    "/ˈvi.no/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "vino",
+   "revid": null,
+   "how": "낱말 문서(렌더된 HTML)의 해당 언어 절 발음 줄을 이언이 답을 가리고 다시 뽑음",
+   "fetched": "2026-11-25"
+  },
+  {
+   "word": "it-luna-u",
+   "ours": "[ˈluna]",
+   "wiktionary": [
+    "/ˈlu.na/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "luna",
+   "revid": null,
+   "how": "낱말 문서(렌더된 HTML)의 해당 언어 절 발음 줄을 이언이 답을 가리고 다시 뽑음",
+   "fetched": "2026-11-25"
+  },
+  {
+   "word": "ar-bint",
+   "ours": "[bint]",
+   "wiktionary": [
+    "/bint/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "بنت",
+   "revid": null,
+   "how": "낱말 문서(렌더된 HTML)의 해당 언어 절 발음 줄을 이언이 답을 가리고 다시 뽑음",
+   "fetched": "2026-11-25"
+  },
+  {
+   "word": "ar-fil",
+   "ours": "[fiːl]",
+   "wiktionary": [
+    "/fiːl/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "فيل",
+   "revid": null,
+   "how": "낱말 문서(렌더된 HTML)의 해당 언어 절 발음 줄을 이언이 답을 가리고 다시 뽑음",
+   "fetched": "2026-11-25"
+  },
+  {
+   "word": "ar-umm",
+   "ours": "[ʔumm]",
+   "wiktionary": [
+    "/ʔumm/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "أم",
+   "revid": null,
+   "how": "낱말 문서(렌더된 HTML)의 해당 언어 절 발음 줄을 이언이 답을 가리고 다시 뽑음",
+   "fetched": "2026-11-25"
+  },
+  {
+   "word": "ar-nur",
+   "ours": "[nuːr]",
+   "wiktionary": [
+    "/naw.wa.ra/",
+    "/nawr/",
+    "/nuːr/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/naw.wa.ra/",
+    "/nawr/"
+   ],
+   "page": "نور",
+   "revid": null,
+   "how": "낱말 문서(렌더된 HTML)의 해당 언어 절 발음 줄을 이언이 답을 가리고 다시 뽑음",
+   "fetched": "2026-11-25"
+  }
+ ]
+}

@@ -8,6 +8,8 @@
 - 묶음 하나 = 틀의 '강' 하나(data/bundles/b01.json → 01강, b02 → 02강). 연습은 이름 대기·한국어 → 이름 대기·영어 → 듣고 고르기 → 전사 빈칸(PRINCIPLES 8-3, 26.11.08에 배우기·한국어와 견주기를 뺐다).
   전사 빈칸은 틀의 '원문 속 빈칸'(MT_CONTEXTS)을 쓴다: 원문 자리에 전사, 빈칸에 대상 기호.
 - 녹음 파일(assets/audio/<id>.mp3)이 없는 음원은 재생 단추 대신 '발음 확보 중'이 뜨고(26.11.26 영신), 듣고 이름 대기에서 빠진다.
+- 조립·--check 앞에 근거 검사를 돈다(PRINCIPLES 8-13 E): (a) 낱말 id가 묶음 사이에서 겹치면 멈춤, (b) status_why가 빈 낱말이 있으면 멈춤,
+  (c) sources/wiktionary-bNN.json에 줄이 없는 낱말은 경고로만 출력(처음엔 경고, 멈추지 않음).
 - --check: index.html이 원본과 맞는지만 본다. --artifact: claude.ai 미리보기용 한 파일(문서 껍데기를 빼고 글꼴·녹음을 data: 주소로).
 """
 import base64, json, os, re, sys
@@ -26,6 +28,26 @@ def js(v):
 def bundle_files():
     d = os.path.join(ROOT, 'data', 'bundles')
     return sorted(f[:-5] for f in os.listdir(d) if re.fullmatch(r'b\d\d\.json', f))
+
+
+def source_checks():
+    """근거 검사. (a)(b)는 문제가 있으면 메시지를 돌려주고, (c)는 경고만 낸다."""
+    errs, seen, nowikt = [], {}, []
+    for bid in bundle_files():
+        words = rd('data', 'bundles', bid + '.json')['words']
+        wp = os.path.join(ROOT, 'sources', f'wiktionary-{bid}.json')
+        have = {r['word'] for r in rd('sources', f'wiktionary-{bid}.json')['rows']} if os.path.exists(wp) else set()
+        for w in words:
+            if w['id'] in seen:
+                errs.append(f"낱말 id가 겹침: {w['id']} ({seen[w['id']]}·{bid})")
+            seen.setdefault(w['id'], bid)
+            if not (w.get('status_why') or '').strip():
+                errs.append(f"status_why가 비어 있음: {bid} {w['id']}")
+            if w['id'] not in have:
+                nowikt.append(f"{bid} {w['id']}")
+    if nowikt:
+        print(f'경고: sources/wiktionary-bNN.json에 줄이 없는 낱말 {len(nowikt)}개: ' + ', '.join(nowikt), file=sys.stderr)
+    return errs
 
 
 def build(inline=False):
@@ -286,6 +308,10 @@ def build(inline=False):
 
 
 def main():
+    errs = source_checks()
+    if errs:
+        print('멈춤: 근거 검사 실패\n' + '\n'.join(errs), file=sys.stderr)
+        sys.exit(1)
     if '--artifact' in sys.argv:
         dst = sys.argv[sys.argv.index('--artifact') + 1]
         html, n, a = build(inline=True)

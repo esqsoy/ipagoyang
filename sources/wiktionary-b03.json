@@ -1,5 +1,5 @@
 {
- "about": "pipeline/wikt_compare.py 결과. Wiktionary(en.wiktionary.org, CC BY-SA 4.0) 낱말 문서의 전사와 대조만 했다. 우리 전사는 data/bundles에 있고 Wiktionary에서 가져오지 않았다.",
+ "about": "pipeline/wikt_compare.py 결과. Wiktionary(en.wiktionary.org, CC BY-SA 4.0) 낱말 문서의 전사와 대조만 했다. 우리 전사는 data/bundles에 있고 Wiktionary에서 가져오지 않았다. 근거 줄을 스크래치에서 옮긴 것(26.11.27, PRINCIPLES 8-13 E): 이 줄들은 wikt_compare.py가 아니라 낱말 문서의 해당 줄을 따로 뽑아 같은 칸(word·ours·wiktionary·target_ok·via·other_diff)으로 맞춘 것이고, page·revid(알면)·line·how·note·fetched를 더 붙였다. revid가 null이면 받은 판 번호를 남기지 못했다. 본문 문장은 옮기지 않았고 전사 줄과 지역 표시만 적었다.",
  "fetched": "2026-11-06",
  "bundle": "b03",
  "rows": [
@@ -328,6 +328,495 @@
     "/ɣa.rab/",
     "/ɣurb/"
    ]
+  },
+  {
+   "word": "es-algo",
+   "ours": "[ˈalɡo]",
+   "wiktionary": [
+    "/ˈalɡo/",
+    "[ˈal.ɣ̞o]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[ˈal.ɣ̞o]"
+   ],
+   "page": "algo",
+   "revid": null,
+   "how": "낱말 문서(?action=render로 받은 HTML)의 스페인어 절 발음 줄",
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "es-carga",
+   "ours": "[ˈkaɾɡa]",
+   "wiktionary": [
+    "/ˈkaɾɡa/",
+    "[ˈkaɾ.ɣ̞a]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[ˈkaɾ.ɣ̞a]"
+   ],
+   "page": "carga",
+   "revid": null,
+   "how": "낱말 문서(?action=render로 받은 HTML)의 스페인어 절 발음 줄",
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "grc-kosmos",
+   "ours": "[kózmos]",
+   "wiktionary": [
+    "/kóz.mos/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "κόσμος",
+   "revid": 93467388,
+   "line": "5th BCE Attic",
+   "how": "API expandtemplates",
+   "stripped": [
+    "음절 점"
+   ],
+   "other_lines": {
+    "1st CE Egyptian": [
+     "/ˈkoz.mos/"
+    ],
+    "4th CE Koine": [
+     "/ˈkoz.mos/"
+    ],
+    "10th CE Medieval": [
+     "/ˈkoz.mos/"
+    ],
+    "15th CE Constantinopolitan": [
+     "/ˈkoz.mos/"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "grc-kharis",
+   "ours": "[kʰáris]",
+   "wiktionary": [
+    "/kʰá.ris/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "χάρις",
+   "revid": 92294391,
+   "line": "5th BCE Attic",
+   "how": "API expandtemplates",
+   "stripped": [
+    "음절 점"
+   ],
+   "other_lines": {
+    "1st CE Egyptian": [
+     "/ˈkʰa.ris/"
+    ],
+    "4th CE Koine": [
+     "/ˈxa.ris/"
+    ],
+    "10th CE Medieval": [
+     "/ˈxa.ris/"
+    ],
+    "15th CE Constantinopolitan": [
+     "/ˈxa.ris/"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "grc-ge",
+   "ours": "[ɡɛ̂ː]",
+   "wiktionary": [
+    "/ɡɛ̂ː/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "γῆ",
+   "revid": 92203612,
+   "line": "5th BCE Attic",
+   "how": "API expandtemplates",
+   "other_lines": {
+    "1st CE Egyptian": [
+     "/ˈɡe̝/"
+    ],
+    "4th CE Koine": [
+     "/ˈʝi/"
+    ],
+    "10th CE Medieval": [
+     "/ˈʝi/"
+    ],
+    "15th CE Constantinopolitan": [
+     "/ˈʝi/"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "koi-kardia",
+   "ours": "[kɑrˈdiɑ]",
+   "wiktionary": [
+    "/karˈdi.a/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/karˈdi.a/"
+   ],
+   "page": "καρδία",
+   "revid": 92194925,
+   "line": "Kantor 2023(서평 경유) 기준. Wiktionary 줄은 참고",
+   "how": "API expandtemplates",
+   "stripped": [
+    "음절 점"
+   ],
+   "other_lines": {
+    "5th BCE Attic": [
+     "/kar.dí.aː/"
+    ],
+    "4th CE Koine": [
+     "/karˈði.a/"
+    ],
+    "10th CE Medieval": [
+     "/karˈði.a/"
+    ],
+    "15th CE Constantinopolitan": [
+     "/karˈði.a/"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "koi-kharis",
+   "ours": "[ˈkʰɑris]",
+   "wiktionary": [
+    "/ˈkʰa.ris/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ˈkʰa.ris/"
+   ],
+   "page": "χάρις",
+   "revid": 92294391,
+   "line": "Kantor 2023(서평 경유) 기준. Wiktionary 줄은 참고",
+   "how": "API expandtemplates",
+   "stripped": [
+    "음절 점"
+   ],
+   "other_lines": {
+    "5th BCE Attic": [
+     "/kʰá.ris/"
+    ],
+    "4th CE Koine": [
+     "/ˈxa.ris/"
+    ],
+    "10th CE Medieval": [
+     "/ˈxa.ris/"
+    ],
+    "15th CE Constantinopolitan": [
+     "/ˈxa.ris/"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "koi-spongos",
+   "ours": "[ˈspoŋɡos]",
+   "wiktionary": [
+    "/ˈspoŋ.ɡos/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "σπόγγος",
+   "revid": null,
+   "line": "Kantor 2023(서평 경유) 기준. Wiktionary 줄은 참고",
+   "how": "WebFetch로 본 렌더된 문서",
+   "stripped": [
+    "음절 점"
+   ],
+   "other_lines": {
+    "5th BCE Attic": [
+     "/spóŋ.ɡos/"
+    ],
+    "4th CE Koine": [
+     "/ˈspoŋ.ɡos/"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "koi-logos",
+   "ours": "[ˈloɣos]",
+   "wiktionary": [
+    "/ˈlo.ɡos/"
+   ],
+   "target_ok": false,
+   "via": "대상 기호는 같은 문서의 4th CE Koine 줄에만 있다. 카드의 근거는 Kantor 2023(서평 경유)이고 이 Wiktionary 줄은 참고",
+   "other_diff": [],
+   "page": "λόγος",
+   "revid": 93506157,
+   "line": "Kantor 2023(서평 경유) 기준. Wiktionary 줄은 참고",
+   "how": "API expandtemplates",
+   "stripped": [
+    "음절 점"
+   ],
+   "other_lines": {
+    "5th BCE Attic": [
+     "/ló.ɡos/"
+    ],
+    "4th CE Koine": [
+     "/ˈlo.ɣos/"
+    ],
+    "10th CE Medieval": [
+     "/ˈlo.ɣos/"
+    ],
+    "15th CE Constantinopolitan": [
+     "/ˈlo.ɣos/"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "la-caesar",
+   "ours": "[ˈkae̯sar]",
+   "wiktionary": [
+    "[ˈkae̯.sar]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "Caesar",
+   "revid": 93940787,
+   "line": "Classical Latin",
+   "how": "API expandtemplates",
+   "stripped": [
+    "음절 점"
+   ],
+   "other_lines": {
+    "modern Italianate Ecclesiastical": [
+     "[ˈt͡ʃɛː.s̬ar]"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "la-gallia",
+   "ours": "[ˈɡallia]",
+   "wiktionary": [
+    "[ˈɡal.li.a]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "Gallia",
+   "revid": 95840958,
+   "line": "Classical Latin",
+   "how": "API expandtemplates",
+   "stripped": [
+    "음절 점"
+   ],
+   "other_lines": {
+    "modern Italianate Ecclesiastical": [
+     "[ˈɡal.li.a]"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "la-chorus",
+   "ours": "[ˈkʰɔrʊs]",
+   "wiktionary": [
+    "[ˈkʰɔ.rʊs]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "chorus",
+   "revid": null,
+   "line": "Classical Latin",
+   "how": "WebFetch로 본 렌더된 문서",
+   "stripped": [
+    "음절 점"
+   ],
+   "other_lines": {
+    "modern Italianate Ecclesiastical": [
+     "[ˈkɔː.rus]"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "la-pulcher",
+   "ours": "[ˈpʊɫkʰɛr]",
+   "wiktionary": [
+    "[ˈpʊɫ.kʰɛr]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "pulcher",
+   "revid": 92291272,
+   "line": "Classical Latin",
+   "how": "API expandtemplates",
+   "stripped": [
+    "음절 점"
+   ],
+   "other_lines": {
+    "modern Italianate Ecclesiastical": [
+     "[ˈpul.ker]"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "ecc-corpus",
+   "ours": "[ˈkɔrpus]",
+   "wiktionary": [
+    "[ˈkɔr.pus]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "corpus",
+   "revid": 95630142,
+   "line": "modern Italianate Ecclesiastical",
+   "how": "API expandtemplates",
+   "stripped": [
+    "음절 점"
+   ],
+   "other_lines": {
+    "Classical Latin": [
+     "[ˈkɔr.pʊs]"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "ecc-gloria",
+   "ours": "[ˈɡlɔːria]",
+   "wiktionary": [
+    "[ˈɡlɔː.ri.a]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "gloria",
+   "revid": 95538224,
+   "line": "modern Italianate Ecclesiastical",
+   "how": "API expandtemplates",
+   "stripped": [
+    "음절 점"
+   ],
+   "other_lines": {
+    "Classical Latin": [
+     "[ˈɡɫoː.ri.a]"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "sa-kala",
+   "ours": "[kɑːlɐ]",
+   "wiktionary": [
+    "/kɑː.l̪ɐ/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/kɑː.l̪ɐ/"
+   ],
+   "page": "काल",
+   "revid": null,
+   "line": "Classical Sanskrit",
+   "how": "WebFetch로 본 렌더된 문서",
+   "stripped": [
+    "치음 표시",
+    "음절 점"
+   ],
+   "other_lines": {
+    "Vedic": [
+     "/kɑː.lɐ́/"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "sa-sukha",
+   "ours": "[sukʰɐ]",
+   "wiktionary": [
+    "/s̪u.kʰɐ/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/s̪u.kʰɐ/"
+   ],
+   "page": "सुख",
+   "revid": 93806001,
+   "line": "Classical Sanskrit",
+   "how": "API expandtemplates",
+   "stripped": [
+    "치음 표시",
+    "음절 점"
+   ],
+   "other_lines": {
+    "Vedic": [
+     "/su.kʰɐ́/"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "sa-guru",
+   "ours": "[ɡuɾu]",
+   "wiktionary": [
+    "/ɡu.ɾu/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "गुरु",
+   "revid": 93656938,
+   "line": "Classical Sanskrit",
+   "how": "API expandtemplates",
+   "stripped": [
+    "음절 점"
+   ],
+   "other_lines": {
+    "Vedic": [
+     "/ɡu.ɾú/"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "sa-ghosa",
+   "ours": "[ɡʱoːʂɐ]",
+   "wiktionary": [
+    "/ɡʱoː.ʂɐ/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "घोष",
+   "revid": 93636742,
+   "line": "Classical Sanskrit",
+   "how": "API expandtemplates",
+   "stripped": [
+    "음절 점"
+   ],
+   "other_lines": {
+    "Vedic": [
+     "/ɡʱɐ́u̯.ʂɐ/"
+    ]
+   },
+   "fetched": "2026-11-27"
   }
  ]
 }

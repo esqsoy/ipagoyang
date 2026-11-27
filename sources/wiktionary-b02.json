@@ -1,5 +1,5 @@
 {
- "about": "pipeline/wikt_compare.py 결과. Wiktionary(en.wiktionary.org, CC BY-SA 4.0) 낱말 문서의 전사와 대조만 했다. 우리 전사는 data/bundles에 있고 Wiktionary에서 가져오지 않았다.",
+ "about": "pipeline/wikt_compare.py 결과. Wiktionary(en.wiktionary.org, CC BY-SA 4.0) 낱말 문서의 전사와 대조만 했다. 우리 전사는 data/bundles에 있고 Wiktionary에서 가져오지 않았다. 근거 줄을 스크래치에서 옮긴 것(26.11.27, PRINCIPLES 8-13 E): 이 줄들은 wikt_compare.py가 아니라 낱말 문서의 해당 줄을 따로 뽑아 같은 칸(word·ours·wiktionary·target_ok·via·other_diff)으로 맞춘 것이고, page·revid(알면)·line·how·note·fetched를 더 붙였다. revid가 null이면 받은 판 번호를 남기지 못했다. 본문 문장은 옮기지 않았고 전사 줄과 지역 표시만 적었다.",
  "fetched": "2026-11-06",
  "bundle": "b02",
  "rows": [
@@ -409,6 +409,435 @@
    "target_ok": true,
    "via": "",
    "other_diff": []
+  },
+  {
+   "word": "es-verde",
+   "ours": "[ˈbeɾde]",
+   "wiktionary": [
+    "/ˈbeɾde/",
+    "[ˈbeɾ.ð̞e]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[ˈbeɾ.ð̞e]"
+   ],
+   "page": "verde",
+   "revid": null,
+   "how": "낱말 문서(?action=render로 받은 HTML)의 스페인어 절 발음 줄",
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "grc-teknon",
+   "ours": "[téknon]",
+   "wiktionary": [
+    "/té.knon/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "τέκνον",
+   "revid": 88881916,
+   "line": "5th BCE Attic",
+   "how": "API expandtemplates",
+   "stripped": [
+    "음절 점"
+   ],
+   "other_lines": {
+    "1st CE Egyptian": [
+     "/ˈte.knon/"
+    ],
+    "4th CE Koine": [
+     "/ˈte.knon/"
+    ],
+    "10th CE Medieval": [
+     "/ˈte.knon/"
+    ],
+    "15th CE Constantinopolitan": [
+     "/ˈte.knon/"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "grc-theos",
+   "ours": "[tʰeós]",
+   "wiktionary": [
+    "/tʰe.ós/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "θεός",
+   "revid": 95861767,
+   "line": "5th BCE Attic",
+   "how": "API expandtemplates",
+   "stripped": [
+    "음절 점"
+   ],
+   "other_lines": {
+    "1st CE Egyptian": [
+     "/tʰeˈos/"
+    ],
+    "4th CE Koine": [
+     "/θeˈos/"
+    ],
+    "10th CE Medieval": [
+     "/θeˈos/"
+    ],
+    "15th CE Constantinopolitan": [
+     "/θeˈos/"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "grc-doron",
+   "ours": "[dɔ̂ːron]",
+   "wiktionary": [
+    "/dɔ̂ː.ron/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "δῶρον",
+   "revid": 92194828,
+   "line": "5th BCE Attic",
+   "how": "API expandtemplates",
+   "stripped": [
+    "음절 점"
+   ],
+   "other_lines": {
+    "1st CE Egyptian": [
+     "/ˈdo.ron/"
+    ],
+    "4th CE Koine": [
+     "/ˈðo.ron/"
+    ],
+    "10th CE Medieval": [
+     "/ˈðo.ron/"
+    ],
+    "15th CE Constantinopolitan": [
+     "/ˈðo.ron/"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "koi-teknon",
+   "ours": "[ˈtɛknon]",
+   "wiktionary": [
+    "/ˈte.knon/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ˈte.knon/"
+   ],
+   "page": "τέκνον",
+   "revid": 88881916,
+   "line": "Kantor 2023(서평 경유) 기준. Wiktionary 줄은 참고",
+   "how": "API expandtemplates",
+   "stripped": [
+    "음절 점"
+   ],
+   "other_lines": {
+    "5th BCE Attic": [
+     "/té.knon/"
+    ],
+    "4th CE Koine": [
+     "/ˈte.knon/"
+    ],
+    "10th CE Medieval": [
+     "/ˈte.knon/"
+    ],
+    "15th CE Constantinopolitan": [
+     "/ˈte.knon/"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "koi-theos",
+   "ours": "[tʰɛˈos]",
+   "wiktionary": [
+    "/tʰeˈos/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/tʰeˈos/"
+   ],
+   "page": "θεός",
+   "revid": 95861767,
+   "line": "Kantor 2023(서평 경유) 기준. Wiktionary 줄은 참고",
+   "how": "API expandtemplates",
+   "other_lines": {
+    "5th BCE Attic": [
+     "/tʰe.ós/"
+    ],
+    "4th CE Koine": [
+     "/θeˈos/"
+    ],
+    "10th CE Medieval": [
+     "/θeˈos/"
+    ],
+    "15th CE Constantinopolitan": [
+     "/θeˈos/"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "koi-doxa",
+   "ours": "[ˈdoksɑ]",
+   "wiktionary": [
+    "/ˈdok.sa/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ˈdok.sa/"
+   ],
+   "page": "δόξα",
+   "revid": 93736270,
+   "line": "Kantor 2023(서평 경유) 기준. Wiktionary 줄은 참고",
+   "how": "API expandtemplates",
+   "stripped": [
+    "음절 점"
+   ],
+   "other_lines": {
+    "5th BCE Attic": [
+     "/dók.sa/"
+    ],
+    "4th CE Koine": [
+     "/ˈðok.sa/"
+    ],
+    "10th CE Medieval": [
+     "/ˈðok.sa/"
+    ],
+    "15th CE Constantinopolitan": [
+     "/ˈðok.sa/"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "la-terra",
+   "ours": "[ˈtɛrra]",
+   "wiktionary": [
+    "[ˈtɛr.ra]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "terra",
+   "revid": 95507008,
+   "line": "Classical Latin",
+   "how": "API expandtemplates",
+   "stripped": [
+    "음절 점"
+   ],
+   "other_lines": {
+    "modern Italianate Ecclesiastical": [
+     "[ˈtɛr.ra]"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "la-deus",
+   "ours": "[ˈdeʊs]",
+   "wiktionary": [
+    "[ˈde.ʊs]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "deus",
+   "revid": 95859160,
+   "line": "Classical Latin",
+   "how": "API expandtemplates",
+   "stripped": [
+    "음절 점"
+   ],
+   "other_lines": {
+    "modern Italianate Ecclesiastical": [
+     "[ˈdɛː.us]"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "la-theatrum",
+   "ours": "[tʰeˈaːtrũː]",
+   "wiktionary": [
+    "[tʰeˈaː.trũː]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[tʰeˈaː.trũː]"
+   ],
+   "page": "theatrum",
+   "revid": 89464928,
+   "line": "Classical Latin",
+   "how": "API expandtemplates",
+   "stripped": [
+    "음절 점"
+   ],
+   "other_lines": {
+    "modern Italianate Ecclesiastical": [
+     "[teˈaː.trum]"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "ecc-terra",
+   "ours": "[ˈtɛrra]",
+   "wiktionary": [
+    "[ˈtɛr.ra]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "terra",
+   "revid": 95507008,
+   "line": "modern Italianate Ecclesiastical",
+   "how": "API expandtemplates",
+   "stripped": [
+    "음절 점"
+   ],
+   "other_lines": {
+    "Classical Latin": [
+     "[ˈtɛr.ra]"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "ecc-deus",
+   "ours": "[ˈdɛːus]",
+   "wiktionary": [
+    "[ˈdɛː.us]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "Deus",
+   "revid": 93670776,
+   "line": "modern Italianate Ecclesiastical",
+   "how": "API expandtemplates",
+   "stripped": [
+    "음절 점"
+   ],
+   "other_lines": {
+    "Classical Latin": [
+     "[ˈde.ʊs]"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "sa-tapas",
+   "ours": "[tɐpɐs]",
+   "wiktionary": [
+    "/t̪ɐ.pɐs̪/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/t̪ɐ.pɐs̪/"
+   ],
+   "page": "तपस्",
+   "revid": 93640549,
+   "line": "Classical Sanskrit",
+   "how": "API expandtemplates",
+   "stripped": [
+    "치음 표시",
+    "음절 점"
+   ],
+   "other_lines": {
+    "Vedic": [
+     "/tɐ́.pɐs/"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "sa-ratha",
+   "ours": "[ɾɐtʰɐ]",
+   "wiktionary": [
+    "/ɾɐ.t̪ʰɐ/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ɾɐ.t̪ʰɐ/"
+   ],
+   "page": "रथ",
+   "revid": 93635894,
+   "line": "Classical Sanskrit",
+   "how": "API expandtemplates",
+   "stripped": [
+    "치음 표시",
+    "음절 점"
+   ],
+   "other_lines": {
+    "Vedic": [
+     "/ɾɐ́.tʰɐ/"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "sa-deva",
+   "ours": "[deːʋɐ]",
+   "wiktionary": [
+    "/ˈd̪eː.ʋɐ/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ˈd̪eː.ʋɐ/"
+   ],
+   "page": "देव",
+   "revid": 95644101,
+   "line": "Classical Sanskrit",
+   "how": "문서에 손으로 적힌 전사",
+   "stripped": [
+    "치음 표시",
+    "음절 점",
+    "강세 표시"
+   ],
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "sa-dharma",
+   "ours": "[dʱɐɾmɐ]",
+   "wiktionary": [
+    "/d̪ʱɐɾ.mɐ/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/d̪ʱɐɾ.mɐ/"
+   ],
+   "page": "धर्म",
+   "revid": 93635660,
+   "line": "Classical Sanskrit",
+   "how": "API expandtemplates",
+   "stripped": [
+    "치음 표시",
+    "음절 점"
+   ],
+   "other_lines": {
+    "Vedic": [
+     "/dʱɐ́ɾ.mɐ/"
+    ]
+   },
+   "fetched": "2026-11-27"
   }
  ]
 }

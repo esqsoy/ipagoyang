@@ -696,3 +696,8 @@
 
 - 영신 "이번에는 '전반적인 앱개선' 을 회의로 하자". 이솝·외솔·이언 1차 안(스크래치 team/appmeet/r1) → 합친 항목 A~J → 2차 투표(3·2·1점): B 답 하나하나 기록 9, H 듣기를 귀로만 풀리게 5, A 카드 번호를 낱말 id로 3, E 근거를 저장소로 1. 큰 발견: 듣고 이름 대기 197문항 중 귀로만 풀리는 것 27(이언; 화자 이름이 답 전에 뜸·성조 부호·같은 판 낱말·앞뒤 규칙), 모아둔 카드 번호가 자리 번호라 언어 고르기·판 나눔에 따라 다른 카드를 가리킴(외솔), 끝낸 강에 더한 카드가 '끝냄'에 묻힘(이솝·외솔).
 - 외솔이 찾은 버그 고침: 26.11.27에 넣은 breathy→aspirated 동의어 때문에 "voiceless breathy bilabial plosive"가 [pʰ] 정답이 됐다. breathy는 voiced와 함께 올 때만 aspirated로 본다(ipa_extra.js ipaEnTok). breathy voiced = voiced aspirated, breathy-voiced도 맞음을 확인. 시험 통과.
+
+## 2026-11-27 · 근거를 저장소로(8-13 E)
+
+- 스크래치에만 있던 Wiktionary 대조 결과 92줄을 sources/wiktionary-bNN.json으로 옮김(고전어 48, 8강 35는 새 파일 wiktionary-b08.json, 스페인어 변종 7, 영어 water·한국어 흙). 본문은 옮기지 않고 전사 줄·지역·revid(있는 것)만. b04의 옛 id es-perro → es-perro-r. 넣지 않은 11칸의 이유는 sources/gaps-20261126.md. 이제 b01~b08 낱말마다 근거 줄이 있다. koi-bios·koi-logos는 Wiktionary 1세기 줄과 달라 target_ok false(카드 기준은 Kantor, 4세기 줄과 같음)로 정직하게 둠. revid가 없는 줄(8강, 스페인어 변종)은 null.
+- build.py source_checks: 낱말 id 묶음 사이 겹침과 빈 status_why는 멈춤, 근거 줄 없음은 경고. 검사 통과(카드 599·녹음 410, index.html 변화 없음).

@@ -1,5 +1,5 @@
 {
- "about": "pipeline/wikt_compare.py 결과. Wiktionary(en.wiktionary.org, CC BY-SA 4.0) 낱말 문서의 전사와 대조만 했다. 우리 전사는 data/bundles에 있고 Wiktionary에서 가져오지 않았다.",
+ "about": "pipeline/wikt_compare.py 결과. Wiktionary(en.wiktionary.org, CC BY-SA 4.0) 낱말 문서의 전사와 대조만 했다. 우리 전사는 data/bundles에 있고 Wiktionary에서 가져오지 않았다. 근거 줄을 스크래치에서 옮긴 것(26.11.27, PRINCIPLES 8-13 E): 이 줄들은 wikt_compare.py가 아니라 낱말 문서의 해당 줄을 따로 뽑아 같은 칸(word·ours·wiktionary·target_ok·via·other_diff)으로 맞춘 것이고, page·revid(알면)·line·how·note·fetched를 더 붙였다. revid가 null이면 받은 판 번호를 남기지 못했다. 본문 문장은 옮기지 않았고 전사 줄과 지역 표시만 적었다.",
  "fetched": "2026-11-06",
  "bundle": "b06",
  "rows": [
@@ -499,6 +499,105 @@
     "[ˌʃoɐ̯-]",
     "[ˌtʃoɐ̯-]"
    ]
+  },
+  {
+   "word": "es-yo-ar",
+   "ours": "[ʃo]",
+   "wiktionary": [
+    "/ˈʝo/",
+    "[ˈɟʝo]",
+    "/ˈʃo/",
+    "[ˈʃo]",
+    "/ˈʒo/",
+    "[ˈʒo]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ˈʝo/",
+    "[ˈɟʝo]",
+    "/ˈʒo/",
+    "[ˈʒo]"
+   ],
+   "page": "yo",
+   "revid": null,
+   "how": "낱말 문서(?action=render로 받은 HTML)의 스페인어 절 발음 줄",
+   "note": "Buenos Aires 줄 /ˈʃo/, Pampas 남부·우루과이 줄 /ˈʒo/, 그 밖 /ˈʝo/",
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "es-calle-ar",
+   "ours": "[ˈkaʃe]",
+   "wiktionary": [
+    "/ˈkaʝe/",
+    "[ˈka.ʝe]",
+    "/ˈkaʎe/",
+    "[ˈka.ʎe]",
+    "/ˈkaʃe/",
+    "[ˈka.ʃe]",
+    "/ˈkaʒe/",
+    "[ˈka.ʒe]",
+    "/ˈkae/",
+    "[ˈka.e]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ˈkaʝe/",
+    "[ˈka.ʝe]",
+    "/ˈkaʎe/",
+    "[ˈka.ʎe]",
+    "/ˈkaʒe/",
+    "[ˈka.ʒe]",
+    "/ˈkae/",
+    "[ˈka.e]"
+   ],
+   "page": "calle",
+   "revid": null,
+   "how": "낱말 문서(?action=render로 받은 HTML)의 스페인어 절 발음 줄",
+   "note": "Buenos Aires 줄 /ˈkaʃe/, 그 밖 지역 줄은 /ˈkaʝe/·/ˈkaʎe/·/ˈkaʒe/·/ˈkae/",
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "es-cinco-s",
+   "ours": "[ˈsiŋko]",
+   "wiktionary": [
+    "/ˈθinko/",
+    "[ˈθĩŋ.ko]",
+    "/ˈsinko/",
+    "[ˈsĩŋ.ko]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ˈθinko/",
+    "[ˈθĩŋ.ko]",
+    "/ˈsinko/",
+    "[ˈsĩŋ.ko]"
+   ],
+   "page": "cinco",
+   "revid": null,
+   "how": "낱말 문서(?action=render로 받은 HTML)의 스페인어 절 발음 줄",
+   "note": "중남미 줄 /ˈsinko/, 스페인 줄 /ˈθinko/",
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "es-mismo",
+   "ours": "[ˈmizmo]",
+   "wiktionary": [
+    "/ˈmismo/",
+    "[ˈmiz.mo]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "/ˈmismo/"
+   ],
+   "page": "mismo",
+   "revid": null,
+   "how": "낱말 문서(?action=render로 받은 HTML)의 스페인어 절 발음 줄",
+   "note": "녹음 표시 [ˈmiʰ.mo](콜롬비아 카르타헤나·칠레 화자)는 따로 있다",
+   "fetched": "2026-11-27"
   }
  ]
 }
