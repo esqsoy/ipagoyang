@@ -79,17 +79,21 @@
 .ipa-sag-at{fill:none;stroke:var(--gold);stroke-width:1.1}
 .ipa-sag-gl{fill:none;stroke:transparent;stroke-width:1}
 .ipa-sag-puff path{fill:none;stroke:var(--gold);stroke-width:1;stroke-linecap:round}
+/* 내파음(26.11.27): 울대가 내려가는 화살표(덧그림) */
+.ipa-sag .ipa-sag-lower{fill:none;stroke:var(--gold);stroke-width:1.1;stroke-linecap:round;stroke-linejoin:round}
 /* 여러 화자 */
 .ipa-spk{position:relative;z-index:3;font-size:.68rem;color:var(--muted);font-weight:800;white-space:nowrap}
 .ipa-explay{display:flex;align-items:center;gap:4px;justify-content:flex-end}
 .ipa-explay .ipa-spk{display:none}
 /* 카드 위 작은 지도 */
-.ipa-mini{position:relative;z-index:3;display:grid;width:max-content;grid-template-columns:repeat(11,6px);grid-template-rows:repeat(8,5px) 2px 5px;gap:1px;flex:none;padding:3px;border:1px solid var(--line);border-radius:5px;background:rgba(0,0,0,.18);margin:0 auto}
+.ipa-mini{position:relative;z-index:3;display:grid;width:max-content;grid-template-columns:repeat(11,6px);grid-template-rows:repeat(8,5px) 2px 5px 5px;gap:1px;flex:none;padding:3px;border:1px solid var(--line);border-radius:5px;background:rgba(0,0,0,.18);margin:0 auto}
 .ipa-learn .ipa-mini{margin:2px auto 6px}
 .ipa-mini i{display:block;border-radius:1px;background:rgba(255,255,255,.13)}
 .ipa-mini i.e{background:transparent}
 .ipa-mini i.off{border-radius:3px}
 .ipa-offh{cursor:default;border-top:1px dashed var(--line);padding-top:3px}
+/* 내파 줄(26.11.27): 비폐장 기류 자음이라 표 밖 줄처럼 점선으로 가른다. 머리 칸은 눌러 용어 풀이 */
+.ipa-imph{border-top:1px dashed var(--line);padding-top:3px}
 .ipa-mini i.cur{background:var(--cyan);animation:ipaBlink 1.2s steps(2) infinite}
 .ipa-mini i.hit{background:var(--gold);box-shadow:0 0 4px var(--gold)}
 /* 맞힘 그림: 닫기(0~1.0s) → 목청(0.45s~) → 터뜨림·바람(1.0s~) → 울림(소리 시작 띠에 따라) */
@@ -105,10 +109,13 @@
 .ipa-anim.vot-cont .a-close{animation:none;opacity:1;stroke-dasharray:2 1.4}
 .ipa-anim .a-glot{animation:ipaGlot 2.2s ease forwards}
 @keyframes ipaGlot{0%,18%{stroke:transparent}24%,60%{stroke:var(--gold)}70%,100%{stroke:transparent}}
+/* 내파음 울대 내림 화살표: 목청 단계에서 나타나 남는다 */
+.ipa-anim .a-lower{animation:ipaLower 2.2s ease forwards}
+@keyframes ipaLower{0%,18%{stroke:transparent;transform:translateY(-3px)}30%,100%{stroke:var(--gold);transform:none}}
 .ipa-anim .a-puff{opacity:0;animation:ipaPuffOnce 2.2s ease forwards}
 @keyframes ipaPuffOnce{0%,46%{opacity:0;transform:translateX(0)}56%{opacity:1}80%{opacity:1;transform:translateX(5px)}100%{opacity:0;transform:translateX(7px)}}
 .ipa-anim .ipa-sag-glottis{stroke:var(--muted);animation:ipaVoice 2.2s steps(1) forwards}
-.ipa-anim.vot-lead .ipa-sag-glottis,.ipa-anim.vot-cont .ipa-sag-glottis,.ipa-anim.vot-lead-breathy .ipa-sag-glottis{animation-name:ipaVoiceLead}
+.ipa-anim.vot-lead .ipa-sag-glottis,.ipa-anim.vot-cont .ipa-sag-glottis,.ipa-anim.vot-lead-breathy .ipa-sag-glottis,.ipa-anim.vot-lead-implosive .ipa-sag-glottis{animation-name:ipaVoiceLead}
 .ipa-anim.vot-short .ipa-sag-glottis{animation-name:ipaVoiceShort}
 .ipa-anim.vot-long .ipa-sag-glottis{animation-name:ipaVoiceLong}
 @keyframes ipaVoiceLead{0%{stroke:var(--cyan)}100%{stroke:var(--cyan)}}

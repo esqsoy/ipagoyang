@@ -2,7 +2,7 @@
  "id": "b04",
  "title": "유음",
  "symbols_title": "[l] [ɾ] [r] [ɹ] [ʁ]",
- "about": "묶음 4 원본(PRINCIPLES 8-5: 유음 r/l). 한국어 ㄹ의 두 소리([l]·[ɾ]), 영어 r, 스페인어 두 r, 프랑스어·독일어 목 r. 그 소리가 있는 언어는 다 넣는다(8-7).",
+ "about": "묶음 4 원본(PRINCIPLES 8-5: 유음 r/l). 한국어 ㄹ의 두 소리([l]·[ɾ]), 영어 r, 스페인어 두 r, 프랑스어·독일어 목 r. 그 소리가 있는 언어는 다 넣는다(8-7). 26.11.27: 알바니아어 세 장(mirë [ɾ], burrë·rrugë [r])을 더했다(이솝 초안 → 외솔 검토 → 이언 검산 → 파시 합치기, PRINCIPLES 8-7). arë·arrë 최소대립은 녹음을 확인한 뒤로 미뤘다. mirë는 듣고 이름 대기에 내지 않는다. 녹음은 아직 없다(발음 확보 중).",
  "place": "alveolar",
  "learn": [
   "l",
@@ -56,7 +56,10 @@
    "fr-lit": "프랑스어 l은 혀끝이 윗니 뒤에 닿는다고양. 잇몸보다 앞이라고양.",
    "de-rot": "독일어 r도 프랑스어 rouge랑 같은 [ʁ]로 적는다고양.",
    "it-rosa": "rosa의 첫 r은 혀끝을 떤다고양. 스페인어 perro랑 같은 [r]라고양.",
-   "es-perro-r": "pero는 툭, perro는 드르륵이라고양. 개는 드르륵 짖는다고양."
+   "es-perro-r": "pero는 툭, perro는 드르륵이라고양. 개는 드르륵 짖는다고양.",
+   "sq-mire": "알바니아어 r 하나는 한 번 툭이라고양. 미러, 좋다는 뜻이라고양.",
+   "sq-burre": "burrë의 rr는 드르륵 떤다고양. 남자라면 떨어 보라고양.",
+   "sq-rruge": "rr는 드르륵 떤다고양. 길이 울퉁불퉁하다고양."
   },
   "end": "ㄹ 칸이 켜졌다고양. 이제 ㄹ·r 다섯 형제를 다 만났다고양."
  },
@@ -84,7 +87,7 @@
   ]
  },
  "absent_about": "한국어 2197에 r·ɹ·ʁ가 없어야 '한국어에 없다'가 맞다.",
- "audio_plan": "모두 Commons·Lingua Libre 녹음(PRINCIPLES 8-10). 한국어 발·머리는 호로조(경기).",
+ "audio_plan": "모두 Commons·Lingua Libre 녹음(PRINCIPLES 8-10). 한국어 발·머리는 호로조(경기). 알바니아어 세 장은 녹음을 아직 넣지 않았다(발음 확보 중).",
  "words": [
   {
    "id": "ko-bal",
@@ -624,6 +627,70 @@
    "status": "확인",
    "status_why": "PHOIBLE 2176 /tʰ/의 변이음 ɾ, Wiktionary (General American) /ˈwɔ.tɚ/ [ˈwɔ.ɾɚ], (Received Pronunciation) [ˈwo̞ː.tʰə]. 첫 모음을 [ɑ]로 내는 화자도 있다(Wiktionary [ˈwɑ.ɾɚ], 대상 밖). 조건(강세 없는 모음 앞)은 Wiktionary 전사 water·city·better에서 본 것이고 PHOIBLE은 조건을 적지 않는다. 녹음 없음(넣을 때 미국 화자 것만)",
    "audio": "en-water"
+  },
+  {
+   "id": "sq-mire",
+   "lang": "als",
+   "text": "mirë",
+   "roman": "mirë",
+   "ko": "좋다·잘",
+   "ipa": [
+    "ˈmi",
+    "ɾ",
+    "ə"
+   ],
+   "target": "ɾ",
+   "audio": "sq-mire",
+   "listen": false,
+   "phoible": {
+    "inv": 2592,
+    "seg": "ɾ"
+   },
+   "note": "알바니아어 r 하나는 혀끝으로 한 번 치는 [ɾ]다. 한국어 '머리'의 ㄹ과 같은 기호다. rr는 여러 번 떠는 [r]다(rrugë 길). 북부(게그)와 구어에서는 혀끝이 닿지 않는 [ɹ]로도 난다(확인 필요). 끝의 ë는 약한 '어'([ə])이고 말할 때 흔히 떨어진다.",
+   "status": "확인",
+   "status_why": "PHOIBLE 2592 /ɾ/(토스크, 코르처). Wiktionary mirë(revid 95811597) 'Tosk' /ˈmiɾə/와 같음. 같은 문서의 'Gheg' 줄은 /ˈmɪɹ/ 등으로 r을 ɹ로 적는다. accept는 넓히지 않는다: 표준어 근거는 /ɾ/(2592·Wiktionary 부록)이고, [ɹ] 근거는 각주 없는 영어 위키백과 Albanian language(표준어에서도 r 하나가 흔히 [ɹ]로 난다고 적음, WebFetch 요약)와 방언 표시 없는 좁은 전사(arë [aːɹ], erë [eɹ(ə)])뿐이다. 그래서 note에 '북부·구어 [ɹ](확인 필요)'만 적었다(2-2). 듣고 이름 대기에 내지 않는다(listen false): 녹음의 r이 [ɹ]로 날 수 있어 귀로는 답이 둘이 될 수 있다(2-4). '끝 ë가 흔히 떨어진다'와 낱말 고르기는 Claude 지식. 문서에 손으로 적힌 전사를 API로 받은 위키문법에서 읽었다."
+  },
+  {
+   "id": "sq-burre",
+   "lang": "als",
+   "text": "burrë",
+   "roman": "burrë",
+   "ko": "남자·남편",
+   "ipa": [
+    "ˈbu",
+    "r",
+    "ə"
+   ],
+   "target": "r",
+   "audio": "sq-burre",
+   "phoible": {
+    "inv": 2592,
+    "seg": "r"
+   },
+   "note": "rr는 혀끝을 여러 번 떠는 [r]다. 모음 사이에서도 떨림이 줄지 않는다. r 하나로 한 번만 치면 다른 낱말이 되는 짝이 많다(arë 밭 / arrë 호두).",
+   "status": "확인",
+   "status_why": "PHOIBLE 2592 /r/. Wiktionary burrë(revid 92176281) 'Tosk' /ˈburə/와 같음. 'Gheg' 줄은 /ˈbuːr/(끝 ë 없음, 긴 u, 대상 r은 같다). arë·arrë 짝과 낱말 고르기는 Claude 지식(두 낱말 카드는 녹음 확인 뒤로 미룸, 26.11.27 파시). 문서에 손으로 적힌 전사를 API로 받은 위키문법에서 읽었다."
+  },
+  {
+   "id": "sq-rruge",
+   "lang": "als",
+   "text": "rrugë",
+   "roman": "rrugë",
+   "ko": "길·거리",
+   "ipa": [
+    "ˈ",
+    "r",
+    "uɡə"
+   ],
+   "target": "r",
+   "audio": "sq-rruge",
+   "phoible": {
+    "inv": 2592,
+    "seg": "r"
+   },
+   "note": "rr는 혀끝을 여러 번 떠는 [r]다. 스페인어 perro의 rr와 같은 기호다. 알바니아어는 낱말 첫머리에서도 r와 rr를 가른다(ruaj 지키다 / rruaj 면도하다).",
+   "status": "확인",
+   "status_why": "PHOIBLE 2592 /r/. Wiktionary rrugë(revid 92184079) /ˈruɡə/와 같음. 같은 줄의 [ruːɡ]는 방언 표시가 없는 좁은 전사(끝 ë 없음, 긴 u)로 대상 r은 같다. ruaj·rruaj는 Wiktionary에 두 문서가 다 있고 rruaj(revid 92227574)는 /ˈru.aj/, ruaj(revid 92184082)는 전사가 없다. 낱말 고르기와 '첫머리에서도 가른다'는 Claude 지식. 문서에 손으로 적힌 전사를 API로 받은 위키문법에서 읽었다."
   }
  ]
 }

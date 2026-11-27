@@ -838,6 +838,82 @@
     ]
    },
    "fetched": "2026-11-27"
+  },
+  {
+   "word": "vi-toi",
+   "ours": "[toj˧˧]",
+   "wiktionary": [
+    "[toj˧˧]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "tôi",
+   "revid": 91803731,
+   "line": "Hà Nội",
+   "how": "위키문법 API({{vi-IPA}}) + 렌더된 문서 WebFetch 요약",
+   "stripped": [],
+   "other_lines": {
+    "Huế": [
+     "[toj˧˧]"
+    ],
+    "Saigon": [
+     "[toj˧˧]"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "vi-thoi",
+   "ours": "[tʰoj˧˧]",
+   "wiktionary": [
+    "[tʰoj˧˧]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "thôi",
+   "revid": 93739287,
+   "line": "Hà Nội",
+   "how": "위키문법 API({{vi-IPA}}) + 렌더된 문서 WebFetch 요약",
+   "stripped": [],
+   "other_lines": {
+    "Huế": [
+     "[tʰoj˧˧]"
+    ],
+    "Saigon": [
+     "[tʰoj˧˧]"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "vi-doi",
+   "ours": "[ɗoj˧˧]",
+   "wiktionary": [
+    "[ʔɗoj˧˧]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[ʔɗoj˧˧]"
+   ],
+   "page": "đôi",
+   "revid": 94532939,
+   "line": "Hà Nội",
+   "how": "위키문법 API({{vi-IPA}}) + 렌더된 문서 WebFetch 요약(요약은 대괄호 없이 ʔɗoj˧˧로 돌려줌)",
+   "stripped": [
+    "앞 성문 폐쇄 ʔ"
+   ],
+   "other_lines": {
+    "Huế": [
+     "[ʔɗoj˧˧]"
+    ],
+    "Saigon": [
+     "[ʔɗoj˧˧]"
+    ]
+   },
+   "fetched": "2026-11-27"
   }
  ]
 }

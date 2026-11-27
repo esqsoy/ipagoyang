@@ -3630,6 +3630,628 @@
     }
    ]
   },
+  "vie": {
+   "inventory": 2233,
+   "source": "vie_kirby2011",
+   "name": "Vietnamese",
+   "dialect": "Hanoi Vietnamese",
+   "note": "Kirby 2011 JIPA, 하노이 베트남어. 변이음이 있다(같은 글을 옮긴 2462는 변이음이 없고 ɓ를 음소로 둔다)",
+   "known_gaps": [],
+   "segments": [
+    {
+     "p": "f",
+     "allo": [
+      "f"
+     ],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "h",
+     "allo": [
+      "h"
+     ],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "j",
+     "allo": [
+      "j"
+     ],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "k",
+     "allo": [
+      "k",
+      "k̚",
+      "k̟",
+      "kp"
+     ],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "l̪",
+     "allo": [
+      "l̪"
+     ],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "m",
+     "allo": [
+      "m"
+     ],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "n̪",
+     "allo": [
+      "n̪"
+     ],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "p",
+     "allo": [
+      "p",
+      "p̚",
+      "ɓ",
+      "b"
+     ],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "s",
+     "allo": [
+      "s"
+     ],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "tɕ",
+     "allo": [
+      "tɕ"
+     ],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "t̪",
+     "allo": [
+      "t̪",
+      "t̻",
+      "t̚"
+     ],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "t̪ʰ",
+     "allo": [
+      "t̪ʰ",
+      "t̻ʰ"
+     ],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "v",
+     "allo": [
+      "v"
+     ],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "w",
+     "allo": [
+      "w",
+      "ʊ̯"
+     ],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "x",
+     "allo": [
+      "x"
+     ],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "z",
+     "allo": [
+      "z"
+     ],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "ŋ",
+     "allo": [
+      "ŋ",
+      "ŋ̟",
+      "ŋm"
+     ],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "ɗ",
+     "allo": [
+      "ɗ"
+     ],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "ɣ",
+     "allo": [
+      "ɣ"
+     ],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "ɲ",
+     "allo": [
+      "ɲ"
+     ],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "ʔ",
+     "allo": [
+      "ʔ"
+     ],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "˥˩˩˥",
+     "allo": [
+      "˥˩˩˥"
+     ],
+     "class": "tone",
+     "marginal": false
+    },
+    {
+     "p": "˦",
+     "allo": [
+      "˦"
+     ],
+     "class": "tone",
+     "marginal": false
+    },
+    {
+     "p": "˦˨",
+     "allo": [
+      "˦˨"
+     ],
+     "class": "tone",
+     "marginal": false
+    },
+    {
+     "p": "˦˩˨",
+     "allo": [
+      "˦˩˨"
+     ],
+     "class": "tone",
+     "marginal": false
+    },
+    {
+     "p": "˧˥",
+     "allo": [
+      "˧˥"
+     ],
+     "class": "tone",
+     "marginal": false
+    },
+    {
+     "p": "˧˩",
+     "allo": [
+      "˧˩"
+     ],
+     "class": "tone",
+     "marginal": false
+    },
+    {
+     "p": "˨",
+     "allo": [
+      "˨"
+     ],
+     "class": "tone",
+     "marginal": false
+    },
+    {
+     "p": "˩˧",
+     "allo": [
+      "˩˧"
+     ],
+     "class": "tone",
+     "marginal": false
+    },
+    {
+     "p": "a",
+     "allo": [
+      "a"
+     ],
+     "class": "vowel",
+     "marginal": false
+    },
+    {
+     "p": "aː",
+     "allo": [
+      "aː"
+     ],
+     "class": "vowel",
+     "marginal": false
+    },
+    {
+     "p": "e",
+     "allo": [
+      "e"
+     ],
+     "class": "vowel",
+     "marginal": false
+    },
+    {
+     "p": "i",
+     "allo": [
+      "i"
+     ],
+     "class": "vowel",
+     "marginal": false
+    },
+    {
+     "p": "iə",
+     "allo": [
+      "iə"
+     ],
+     "class": "vowel",
+     "marginal": false
+    },
+    {
+     "p": "o",
+     "allo": [
+      "o"
+     ],
+     "class": "vowel",
+     "marginal": false
+    },
+    {
+     "p": "u",
+     "allo": [
+      "u"
+     ],
+     "class": "vowel",
+     "marginal": false
+    },
+    {
+     "p": "uə",
+     "allo": [
+      "uə"
+     ],
+     "class": "vowel",
+     "marginal": false
+    },
+    {
+     "p": "ɔ",
+     "allo": [
+      "ɔ"
+     ],
+     "class": "vowel",
+     "marginal": false
+    },
+    {
+     "p": "ɔː",
+     "allo": [
+      "ɔː"
+     ],
+     "class": "vowel",
+     "marginal": false
+    },
+    {
+     "p": "ɛ",
+     "allo": [
+      "ɛ"
+     ],
+     "class": "vowel",
+     "marginal": false
+    },
+    {
+     "p": "ɛː",
+     "allo": [
+      "ɛː"
+     ],
+     "class": "vowel",
+     "marginal": false
+    },
+    {
+     "p": "ɤ",
+     "allo": [
+      "ɤ"
+     ],
+     "class": "vowel",
+     "marginal": false
+    },
+    {
+     "p": "ɤː",
+     "allo": [
+      "ɤː"
+     ],
+     "class": "vowel",
+     "marginal": false
+    },
+    {
+     "p": "ɯ",
+     "allo": [
+      "ɯ",
+      "ɯ̽",
+      "i"
+     ],
+     "class": "vowel",
+     "marginal": false
+    },
+    {
+     "p": "ɯə",
+     "allo": [
+      "ɯə"
+     ],
+     "class": "vowel",
+     "marginal": false
+    }
+   ]
+  },
+  "als": {
+   "inventory": 2592,
+   "source": "klippenstein2010word",
+   "name": "Tosk Albanian",
+   "dialect": "Tosk Albanian (Korçë)",
+   "note": "토스크 알바니아어(코르처), EA가 Klippenstein 2010·Camaj 1984를 정리한 목록. 토스크 목록 가운데 ɾ/r를 음소로 따로 세운 유일한 목록이나 게그 목록 2358과 출처가 같고, 169(Newmark 1957)는 /r/ 하나에 변이음 ɾ·r로 적어 출처끼리 갈린다. JIPA 목록 없음",
+   "known_gaps": [],
+   "segments": [
+    {
+     "p": "b",
+     "allo": [],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "c",
+     "allo": [],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "d",
+     "allo": [],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "dz",
+     "allo": [],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "d̠ʒ",
+     "allo": [],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "f",
+     "allo": [],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "h",
+     "allo": [],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "j",
+     "allo": [],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "k",
+     "allo": [],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "l",
+     "allo": [],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "m",
+     "allo": [],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "n",
+     "allo": [],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "p",
+     "allo": [],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "r",
+     "allo": [],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "s",
+     "allo": [],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "t",
+     "allo": [],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "ts",
+     "allo": [],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "t̠ʃ",
+     "allo": [],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "v",
+     "allo": [],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "z",
+     "allo": [],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "ð͇ˠ",
+     "allo": [],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "ɟ",
+     "allo": [],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "ɡ",
+     "allo": [],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "ɫ",
+     "allo": [],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "ɲ",
+     "allo": [],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "ɾ",
+     "allo": [],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "ʃ",
+     "allo": [],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "ʒ",
+     "allo": [],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "θ",
+     "allo": [],
+     "class": "consonant",
+     "marginal": false
+    },
+    {
+     "p": "ä",
+     "allo": [],
+     "class": "vowel",
+     "marginal": false
+    },
+    {
+     "p": "e",
+     "allo": [],
+     "class": "vowel",
+     "marginal": false
+    },
+    {
+     "p": "i",
+     "allo": [],
+     "class": "vowel",
+     "marginal": false
+    },
+    {
+     "p": "i̯",
+     "allo": [],
+     "class": "vowel",
+     "marginal": false
+    },
+    {
+     "p": "o",
+     "allo": [],
+     "class": "vowel",
+     "marginal": false
+    },
+    {
+     "p": "u",
+     "allo": [],
+     "class": "vowel",
+     "marginal": false
+    },
+    {
+     "p": "u̯",
+     "allo": [],
+     "class": "vowel",
+     "marginal": false
+    },
+    {
+     "p": "y",
+     "allo": [],
+     "class": "vowel",
+     "marginal": false
+    },
+    {
+     "p": "ə",
+     "allo": [],
+     "class": "vowel",
+     "marginal": false
+    }
+   ]
+  },
   "san": {
    "inventory": 1782,
    "source": "1782_Sukumar1971",
@@ -4034,6 +4656,22 @@
      "role": "phoneme"
     }
    ],
+   "vie": [
+    {
+     "seg": "a",
+     "role": "phoneme"
+    },
+    {
+     "seg": "aː",
+     "role": "phoneme"
+    }
+   ],
+   "als": [
+    {
+     "seg": "ä",
+     "role": "phoneme"
+    }
+   ],
    "san": [
     {
      "seg": "a",
@@ -4126,6 +4764,19 @@
      "role": "phoneme"
     }
    ],
+   "vie": [
+    {
+     "seg": "b",
+     "role": "allophone",
+     "of": "p"
+    }
+   ],
+   "als": [
+    {
+     "seg": "b",
+     "role": "phoneme"
+    }
+   ],
    "san": [
     {
      "seg": "b",
@@ -4162,6 +4813,12 @@
      "seg": "ç",
      "role": "allophone",
      "of": "x"
+    }
+   ],
+   "als": [
+    {
+     "seg": "c",
+     "role": "phoneme"
     }
    ],
    "san": [
@@ -4329,6 +4986,20 @@
      "role": "phoneme"
     }
    ],
+   "als": [
+    {
+     "seg": "d",
+     "role": "phoneme"
+    },
+    {
+     "seg": "dz",
+     "role": "phoneme"
+    },
+    {
+     "seg": "d̠ʒ",
+     "role": "phoneme"
+    }
+   ],
    "san": [
     {
      "seg": "d̪",
@@ -4440,6 +5111,18 @@
      "role": "phoneme"
     }
    ],
+   "vie": [
+    {
+     "seg": "e",
+     "role": "phoneme"
+    }
+   ],
+   "als": [
+    {
+     "seg": "e",
+     "role": "phoneme"
+    }
+   ],
    "san": [
     {
      "seg": "eː",
@@ -4510,6 +5193,18 @@
      "seg": "f",
      "role": "phoneme"
     }
+   ],
+   "vie": [
+    {
+     "seg": "f",
+     "role": "phoneme"
+    }
+   ],
+   "als": [
+    {
+     "seg": "f",
+     "role": "phoneme"
+    }
    ]
   },
   "h": {
@@ -4545,6 +5240,18 @@
     }
    ],
    "arb": [
+    {
+     "seg": "h",
+     "role": "phoneme"
+    }
+   ],
+   "vie": [
+    {
+     "seg": "h",
+     "role": "phoneme"
+    }
+   ],
+   "als": [
     {
      "seg": "h",
      "role": "phoneme"
@@ -4721,6 +5428,31 @@
      "role": "phoneme"
     }
    ],
+   "vie": [
+    {
+     "seg": "i",
+     "role": "phoneme"
+    },
+    {
+     "seg": "iə",
+     "role": "phoneme"
+    },
+    {
+     "seg": "i",
+     "role": "allophone",
+     "of": "ɯ"
+    }
+   ],
+   "als": [
+    {
+     "seg": "i",
+     "role": "phoneme"
+    },
+    {
+     "seg": "i̯",
+     "role": "phoneme"
+    }
+   ],
    "san": [
     {
      "seg": "i",
@@ -4788,6 +5520,18 @@
     }
    ],
    "arb": [
+    {
+     "seg": "j",
+     "role": "phoneme"
+    }
+   ],
+   "vie": [
+    {
+     "seg": "j",
+     "role": "phoneme"
+    }
+   ],
+   "als": [
     {
      "seg": "j",
      "role": "phoneme"
@@ -4932,6 +5676,33 @@
      "role": "phoneme"
     }
    ],
+   "vie": [
+    {
+     "seg": "k",
+     "role": "phoneme"
+    },
+    {
+     "seg": "k̚",
+     "role": "allophone",
+     "of": "k"
+    },
+    {
+     "seg": "k̟",
+     "role": "allophone",
+     "of": "k"
+    },
+    {
+     "seg": "kp",
+     "role": "allophone",
+     "of": "k"
+    }
+   ],
+   "als": [
+    {
+     "seg": "k",
+     "role": "phoneme"
+    }
+   ],
    "san": [
     {
      "seg": "k",
@@ -5053,6 +5824,18 @@
      "role": "phoneme"
     }
    ],
+   "vie": [
+    {
+     "seg": "l̪",
+     "role": "phoneme"
+    }
+   ],
+   "als": [
+    {
+     "seg": "l",
+     "role": "phoneme"
+    }
+   ],
    "san": [
     {
      "seg": "l",
@@ -5136,6 +5919,18 @@
     }
    ],
    "arb": [
+    {
+     "seg": "m",
+     "role": "phoneme"
+    }
+   ],
+   "vie": [
+    {
+     "seg": "m",
+     "role": "phoneme"
+    }
+   ],
+   "als": [
     {
      "seg": "m",
      "role": "phoneme"
@@ -5264,6 +6059,18 @@
      "role": "phoneme"
     }
    ],
+   "vie": [
+    {
+     "seg": "n̪",
+     "role": "phoneme"
+    }
+   ],
+   "als": [
+    {
+     "seg": "n",
+     "role": "phoneme"
+    }
+   ],
    "san": [
     {
      "seg": "n",
@@ -5366,6 +6173,18 @@
     }
    ],
    "ita": [
+    {
+     "seg": "o",
+     "role": "phoneme"
+    }
+   ],
+   "vie": [
+    {
+     "seg": "o",
+     "role": "phoneme"
+    }
+   ],
+   "als": [
     {
      "seg": "o",
      "role": "phoneme"
@@ -5510,6 +6329,23 @@
      "of": "p"
     }
    ],
+   "vie": [
+    {
+     "seg": "p",
+     "role": "phoneme"
+    },
+    {
+     "seg": "p̚",
+     "role": "allophone",
+     "of": "p"
+    }
+   ],
+   "als": [
+    {
+     "seg": "p",
+     "role": "phoneme"
+    }
+   ],
    "san": [
     {
      "seg": "p",
@@ -5567,6 +6403,12 @@
     }
    ],
    "arb": [
+    {
+     "seg": "r",
+     "role": "phoneme"
+    }
+   ],
+   "als": [
     {
      "seg": "r",
      "role": "phoneme"
@@ -5670,6 +6512,18 @@
     },
     {
      "seg": "s̙ˤ",
+     "role": "phoneme"
+    }
+   ],
+   "vie": [
+    {
+     "seg": "s",
+     "role": "phoneme"
+    }
+   ],
+   "als": [
+    {
+     "seg": "s",
      "role": "phoneme"
     }
    ],
@@ -5931,6 +6785,49 @@
      "role": "phoneme"
     }
    ],
+   "vie": [
+    {
+     "seg": "tɕ",
+     "role": "phoneme"
+    },
+    {
+     "seg": "t̪",
+     "role": "phoneme"
+    },
+    {
+     "seg": "t̻",
+     "role": "allophone",
+     "of": "t̪"
+    },
+    {
+     "seg": "t̚",
+     "role": "allophone",
+     "of": "t̪"
+    },
+    {
+     "seg": "t̪ʰ",
+     "role": "phoneme"
+    },
+    {
+     "seg": "t̻ʰ",
+     "role": "allophone",
+     "of": "t̪ʰ"
+    }
+   ],
+   "als": [
+    {
+     "seg": "t",
+     "role": "phoneme"
+    },
+    {
+     "seg": "ts",
+     "role": "phoneme"
+    },
+    {
+     "seg": "t̠ʃ",
+     "role": "phoneme"
+    }
+   ],
    "san": [
     {
      "seg": "t̪",
@@ -6119,6 +7016,26 @@
      "role": "phoneme"
     }
    ],
+   "vie": [
+    {
+     "seg": "u",
+     "role": "phoneme"
+    },
+    {
+     "seg": "uə",
+     "role": "phoneme"
+    }
+   ],
+   "als": [
+    {
+     "seg": "u",
+     "role": "phoneme"
+    },
+    {
+     "seg": "u̯",
+     "role": "phoneme"
+    }
+   ],
    "san": [
     {
      "seg": "u",
@@ -6182,6 +7099,18 @@
      "role": "allophone",
      "of": "v"
     }
+   ],
+   "vie": [
+    {
+     "seg": "v",
+     "role": "phoneme"
+    }
+   ],
+   "als": [
+    {
+     "seg": "v",
+     "role": "phoneme"
+    }
    ]
   },
   "w": {
@@ -6226,6 +7155,12 @@
     }
    ],
    "arb": [
+    {
+     "seg": "w",
+     "role": "phoneme"
+    }
+   ],
+   "vie": [
     {
      "seg": "w",
      "role": "phoneme"
@@ -6286,6 +7221,12 @@
      "seg": "xʀ̥",
      "role": "phoneme"
     }
+   ],
+   "vie": [
+    {
+     "seg": "x",
+     "role": "phoneme"
+    }
    ]
   },
   "y": {
@@ -6311,6 +7252,12 @@
      "role": "allophone",
      "of": "ɥ"
     },
+    {
+     "seg": "y",
+     "role": "phoneme"
+    }
+   ],
+   "als": [
     {
      "seg": "y",
      "role": "phoneme"
@@ -6376,6 +7323,18 @@
      "seg": "z",
      "role": "phoneme"
     }
+   ],
+   "vie": [
+    {
+     "seg": "z",
+     "role": "phoneme"
+    }
+   ],
+   "als": [
+    {
+     "seg": "z",
+     "role": "phoneme"
+    }
    ]
   },
   "æ": {
@@ -6407,6 +7366,12 @@
     },
     {
      "seg": "ð̪̙ˤ",
+     "role": "phoneme"
+    }
+   ],
+   "als": [
+    {
+     "seg": "ð͇ˠ",
      "role": "phoneme"
     }
    ]
@@ -6493,6 +7458,22 @@
      "seg": "ŋ",
      "role": "allophone",
      "of": "n"
+    }
+   ],
+   "vie": [
+    {
+     "seg": "ŋ",
+     "role": "phoneme"
+    },
+    {
+     "seg": "ŋ̟",
+     "role": "allophone",
+     "of": "ŋ"
+    },
+    {
+     "seg": "ŋm",
+     "role": "allophone",
+     "of": "ŋ"
     }
    ],
    "san": [
@@ -6588,6 +7569,15 @@
     }
    ]
   },
+  "ɓ": {
+   "vie": [
+    {
+     "seg": "ɓ",
+     "role": "allophone",
+     "of": "p"
+    }
+   ]
+  },
   "ɔ": {
    "por": [
     {
@@ -6638,6 +7628,16 @@
      "seg": "ɔ",
      "role": "phoneme"
     }
+   ],
+   "vie": [
+    {
+     "seg": "ɔ",
+     "role": "phoneme"
+    },
+    {
+     "seg": "ɔː",
+     "role": "phoneme"
+    }
    ]
   },
   "ɕ": {
@@ -6685,6 +7685,14 @@
     }
    ]
   },
+  "ɗ": {
+   "vie": [
+    {
+     "seg": "ɗ",
+     "role": "phoneme"
+    }
+   ]
+  },
   "ə": {
    "kor": [
     {
@@ -6705,6 +7713,12 @@
     }
    ],
    "fra": [
+    {
+     "seg": "ə",
+     "role": "phoneme"
+    }
+   ],
+   "als": [
     {
      "seg": "ə",
      "role": "phoneme"
@@ -6780,12 +7794,28 @@
      "seg": "ɛ",
      "role": "phoneme"
     }
+   ],
+   "vie": [
+    {
+     "seg": "ɛ",
+     "role": "phoneme"
+    },
+    {
+     "seg": "ɛː",
+     "role": "phoneme"
+    }
    ]
   },
   "ɟ": {
    "spa": [
     {
      "seg": "ɟʝ",
+     "role": "phoneme"
+    }
+   ],
+   "als": [
+    {
+     "seg": "ɟ",
      "role": "phoneme"
     }
    ],
@@ -6875,6 +7905,12 @@
      "of": "ɡ"
     }
    ],
+   "als": [
+    {
+     "seg": "ɡ",
+     "role": "phoneme"
+    }
+   ],
    "san": [
     {
      "seg": "ɡ",
@@ -6922,12 +7958,28 @@
      "role": "allophone",
      "of": "uu̯"
     }
+   ],
+   "vie": [
+    {
+     "seg": "ɣ",
+     "role": "phoneme"
+    }
    ]
   },
   "ɤ": {
    "cmn": [
     {
      "seg": "ɤ",
+     "role": "phoneme"
+    }
+   ],
+   "vie": [
+    {
+     "seg": "ɤ",
+     "role": "phoneme"
+    },
+    {
+     "seg": "ɤː",
      "role": "phoneme"
     }
    ]
@@ -7015,6 +8067,12 @@
      "role": "allophone",
      "of": "l"
     }
+   ],
+   "als": [
+    {
+     "seg": "ɫ",
+     "role": "phoneme"
+    }
    ]
   },
   "ɭ": {
@@ -7057,6 +8115,21 @@
      "seg": "ɯ̈",
      "role": "allophone",
      "of": "u"
+    }
+   ],
+   "vie": [
+    {
+     "seg": "ɯ",
+     "role": "phoneme"
+    },
+    {
+     "seg": "ɯ̽",
+     "role": "allophone",
+     "of": "ɯ"
+    },
+    {
+     "seg": "ɯə",
+     "role": "phoneme"
     }
    ]
   },
@@ -7117,6 +8190,18 @@
      "role": "allophone",
      "of": "n"
     },
+    {
+     "seg": "ɲ",
+     "role": "phoneme"
+    }
+   ],
+   "vie": [
+    {
+     "seg": "ɲ",
+     "role": "phoneme"
+    }
+   ],
+   "als": [
     {
      "seg": "ɲ",
      "role": "phoneme"
@@ -7258,6 +8343,12 @@
      "role": "allophone",
      "of": "r"
     }
+   ],
+   "als": [
+    {
+     "seg": "ɾ",
+     "role": "phoneme"
+    }
    ]
   },
   "ʀ": {
@@ -7354,6 +8445,12 @@
      "seg": "ʃ",
      "role": "phoneme"
     }
+   ],
+   "als": [
+    {
+     "seg": "ʃ",
+     "role": "phoneme"
+    }
    ]
   },
   "ʈ": {
@@ -7401,6 +8498,13 @@
      "seg": "ʊ",
      "role": "allophone",
      "of": "u"
+    }
+   ],
+   "vie": [
+    {
+     "seg": "ʊ̯",
+     "role": "allophone",
+     "of": "w"
     }
    ]
   },
@@ -7499,6 +8603,12 @@
      "seg": "ʒ",
      "role": "phoneme"
     }
+   ],
+   "als": [
+    {
+     "seg": "ʒ",
+     "role": "phoneme"
+    }
    ]
   },
   "ʔ": {
@@ -7514,6 +8624,12 @@
     }
    ],
    "arb": [
+    {
+     "seg": "ʔ",
+     "role": "phoneme"
+    }
+   ],
+   "vie": [
     {
      "seg": "ʔ",
      "role": "phoneme"
@@ -7537,8 +8653,22 @@
     }
    ]
   },
+  "˥˩˩˥": {
+   "vie": [
+    {
+     "seg": "˥˩˩˥",
+     "role": "phoneme"
+    }
+   ]
+  },
   "˦": {
    "cmn": [
+    {
+     "seg": "˦",
+     "role": "phoneme"
+    }
+   ],
+   "vie": [
     {
      "seg": "˦",
      "role": "phoneme"
@@ -7549,6 +8679,28 @@
    "cmn": [
     {
      "seg": "˦˨",
+     "role": "phoneme"
+    }
+   ],
+   "vie": [
+    {
+     "seg": "˦˨",
+     "role": "phoneme"
+    }
+   ]
+  },
+  "˦˩˨": {
+   "vie": [
+    {
+     "seg": "˦˩˨",
+     "role": "phoneme"
+    }
+   ]
+  },
+  "˧˥": {
+   "vie": [
+    {
+     "seg": "˧˥",
      "role": "phoneme"
     }
    ]
@@ -7565,6 +8717,30 @@
    "cmn": [
     {
      "seg": "˧˨˧",
+     "role": "phoneme"
+    }
+   ]
+  },
+  "˧˩": {
+   "vie": [
+    {
+     "seg": "˧˩",
+     "role": "phoneme"
+    }
+   ]
+  },
+  "˨": {
+   "vie": [
+    {
+     "seg": "˨",
+     "role": "phoneme"
+    }
+   ]
+  },
+  "˩˧": {
+   "vie": [
+    {
+     "seg": "˩˧",
      "role": "phoneme"
     }
    ]
@@ -7606,6 +8782,12 @@
    "arb": [
     {
      "seg": "θ̪",
+     "role": "phoneme"
+    }
+   ],
+   "als": [
+    {
+     "seg": "θ",
      "role": "phoneme"
     }
    ]

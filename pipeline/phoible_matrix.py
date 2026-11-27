@@ -1,4 +1,4 @@
-"""PHOIBLE '기호 × 언어' 표(PRINCIPLES 8-7, 처음 11개 언어 + 26.11.27 산스크리트어): 묶음을 짜기 전에 어느 언어가 그 기호를 음소·변이음으로 갖는지 본다.
+"""PHOIBLE '기호 × 언어' 표(PRINCIPLES 8-7, 처음 11개 언어 + 26.11.27 베트남어·알바니아어·산스크리트어): 묶음을 짜기 전에 어느 언어가 그 기호를 음소·변이음으로 갖는지 본다.
 
 쓰는 법:
   python3 pipeline/phoible_matrix.py <phoible.csv> [--out data/phoible-matrix.json]
@@ -26,6 +26,10 @@ INVENTORIES = {
     'fra': (2182, 'fra_fougeron1993', 'Fougeron·Smith 1993 JIPA, 파리 화자'),
     'ita': (1145, 'ita_rogers2004', "Rogers·d'Arcangeli 2004 JIPA, 표준 이탈리아어"),
     'arb': (2157, 'arb_thelwall1990', "Thelwall·Sa'Adeddin 1990 JIPA, 아랍어(사파드·베이루트·다마스쿠스·쿠웨이트 화자). 현대 표준 아랍어 목록은 확인 필요"),
+    # 26.11.27 베트남어·알바니아어(PRINCIPLES 8-7, data/languages.json note)
+    'vie': (2233, 'vie_kirby2011', 'Kirby 2011 JIPA, 하노이 베트남어. 변이음이 있다(같은 글을 옮긴 2462는 변이음이 없고 ɓ를 음소로 둔다)'),
+    'als': (2592, 'klippenstein2010word', '토스크 알바니아어(코르처), EA가 Klippenstein 2010·Camaj 1984를 정리한 목록. 토스크 목록 가운데 ɾ/r를 음소로 따로 세운 유일한 목록이나 '
+                                          '게그 목록 2358과 출처가 같고, 169(Newmark 1957)는 /r/ 하나에 변이음 ɾ·r로 적어 출처끼리 갈린다. JIPA 목록 없음'),
     # 26.11.27 고전어(PRINCIPLES 8-7·8-10): PHOIBLE에 목록이 있는 것은 산스크리트어뿐이다. 그리스어·라틴어(grc·grc-koi·lat·lat-ecc)는
     # data/languages.json에서 phoible이 null이라 건너뛴다(main의 대조)
     'san': (1782, '1782_Sukumar1971', 'Sen 1971(Ramaswami 1999가 옮긴 목록), 고전 산스크리트어. 음소만 있고 변이음은 없다. 유성 유기음을 b̤·d̪̤·ɡʱ로 적는다(게임 표기 bʱ·dʱ·ɡʱ)'),

@@ -185,12 +185,16 @@ function ipaSagittal(o = {}) {
   if (at) s += `<circle class="ipa-sag-at a-close" cx="${at[0]}" cy="${at[1]}" r="4.2"/>`;
   s += `<circle class="ipa-sag-gl a-glot" cx="${gl[0]}" cy="${gl[1]}" r="4.6"/>`;
   if (o.puff && at) s += `<g class="ipa-sag-puff a-puff${o.anim ? '' : ' ipa-puff'}"><path d="M${at[0] + 9},${at[1] - 3} q3,3 0,6"/><path d="M${at[0] + 13},${at[1] - 5} q4,5 0,10"/><path d="M${at[0] + 17},${at[1] - 7} q5,7 0,14"/></g>`;
-  const label = '입 옆모습(단면도 CC0, Wright·McCloy)' + (o.near ? ' · 틈은 덧그린 것' : '');
+  // 내파음(26.11.27, 베트남어 đ [ɗ]): 막는 동안 울대(후두)가 내려간다 → 목청 점 뒤쪽(목 뒤)에 작은 아래 화살표. 옆모습에서만 그린다
+  // (목청 창은 위에서 본 그림이라 위아래를 그릴 수 없어 voiced 그대로)
+  if (o.lower) s += `<path class="ipa-sag-lower a-lower" d="M${gl[0] - 9},${gl[1] - 9} l0,13 m-3,-3.5 l3,3.5 l3,-3.5"/>`;
+  const label = '입 옆모습(단면도 CC0, Wright·McCloy)' + (o.near ? ' · 틈은 덧그린 것' : '') + (o.lower ? ' · 울대가 내려가는 화살표는 덧그린 것' : '');
   return `<svg class="ipa-sag" viewBox="85 95 90 122" role="img" aria-label="${label}"><g transform="translate(260,0) scale(-1,1)">${s}</g></svg>`;
 }
 function ipaSagOpts(s) {
   // 유성 유기음(breathy, 26.11.27)은 울림과 바람을 함께 그린다
-  return {shape: s.sagittal || 'neutral', place: s.place, near: s.lips === 'near', voiced: s.glottis === 'voiced' || s.glottis === 'breathy', puff: s.glottis === 'wide' || s.glottis === 'breathy'};
+  // 내파음(airstream implosive, 26.11.27)은 울림 + 울대 내림 화살표, 바람 줄 없음
+  return {shape: s.sagittal || 'neutral', place: s.place, near: s.lips === 'near', voiced: s.glottis === 'voiced' || s.glottis === 'breathy', puff: s.glottis === 'wide' || s.glottis === 'breathy', lower: s.airstream === 'implosive'};
 }
 function ipaBase(sym) { return String(sym || '').normalize('NFD').replace(/[\u0300-\u036f\u02b0-\u02ff]/g, '').slice(0, 1); }
 /* IPA 자음표에 칸이 없는 기호(26.11.09, 묶음 6·7): ɕ는 IPA 표 '기타 기호'에 있고, 파찰음은 두 기호를 이어 적어 표에 줄이 없다.
@@ -199,8 +203,13 @@ const IPA_OFF = ['ɕ', 'ts', 'dz', 'tʃ', 'dʒ', 'tɕ', 'dʑ', 'tʂ'];
 // 표 밖 줄도 실제 자리 열 밑에 둔다(26.11.25 외솔 플레이테스트: 1~8열에 차례로 붙어 ɕ가 양순 밑에 보였다).
 // 4 치경 ts dz · 5 후치경 tʃ dʒ · 6 권설 tʂ · 7 경구개 쪽 ɕ tɕ dʑ(치경구개). 칸에 둘이면 왼쪽이 무성(표와 같음)
 const IPA_OFF_COLS = [null, null, null, ['ts', 'dz'], ['tʃ', 'dʒ'], ['tʂ'], ['ɕ', 'tɕ', 'dʑ'], null, null, null, null];
-function ipaOffRow(f) { return IPA_OFF_COLS.map(v => v ? `<span class="ipa-cell">${v.map(f).join('')}</span>` : '<span class="ipa-cell empty"></span>').join(''); }
+function ipaOffRow(f, cols = IPA_OFF_COLS) { return cols.map(v => v ? `<span class="ipa-cell">${v.map(f).join('')}</span>` : '<span class="ipa-cell empty"></span>').join(''); }
 const IPA_OFF_HEAD = '<span class="ipa-rowh ipa-offh" title="IPA 표에 칸이 없는 기호"><span>표 밖</span><small class="h">기타·파찰</small></span>';
+/* 내파 줄(26.11.27, 베트남어 đ [ɗ]): 내파음은 IPA 표의 폐 기류 자음표가 아니라 '비폐장 기류 자음' 표에 있어 자음표에 칸이 없다.
+   표 밖 줄에 섞지 않고 따로 한 줄을 두고, 자리 열은 위 표와 같게 한다(ɗ는 치·치경 = 4열, 나중에 ɓ가 들어오면 1열 양순).
+   이 게임이 가르치는 것만 둔다(8-7). 머리 칸은 용어 자료의 '내파음'(표준국어대사전 內破音) */
+const IPA_IMP_COLS = [null, null, null, ['ɗ'], null, null, null, null, null, null, null];
+const IPA_IMP = IPA_IMP_COLS.flatMap(v => v || []);
 function ipaKey(sym) { const k = String(sym || '').normalize('NFD').replace(/[\u0300-\u036f\u02b0-\u02ff]/g, ''); return IPA_OFF.includes(k) ? k : k.slice(0, 1); }
 // 목청 설명: 기호마다 따로 적은 글(마찰음·파찰음)이 있으면 그것, 없으면 상태별 글(파열음 기준)
 function ipaGlottisText(s) { return s.glottis_text || (IPA.glottis || {})[s.glottis] || ''; }
@@ -218,13 +227,15 @@ function ipaVot(k) {
   const y = 30, rel = 120;
   let s = `<svg viewBox="0 0 300 66" role="img" aria-label="소리 시작 띠(모식도)"><line x1="10" y1="${y}" x2="290" y2="${y}" stroke="var(--line)" stroke-width="2"/>
     <line x1="${rel}" y1="10" x2="${rel}" y2="48" stroke="#fff" stroke-width="1.6"/><text x="${rel}" y="60" font-size="10" text-anchor="middle" fill="#fff">터뜨림</text>`;
-  const wavy = (a, b) => { let d = `M${a},${y}`; for (let x = a; x < b; x += 6) d += ` q1.5,-7 3,0 q1.5,7 3,0`; return `<path d="${d}" fill="none" stroke="var(--cyan)" stroke-width="1.6"/>`; };
+  const wavy = (a, b, h = 7) => { let d = `M${a},${y}`; for (let x = a; x < b; x += 6) d += ` q1.5,-${h} 3,0 q1.5,${h} 3,0`; return `<path d="${d}" fill="none" stroke="var(--cyan)" stroke-width="1.6"/>`; };
   const noise = (a, b) => { let d = ''; for (let x = a; x < b; x += 4) d += `M${x},${y - 6} L${x + 2},${y + 6} `; return `<path d="${d}" stroke="var(--gold)" stroke-width="1.2"/>`; };
   if (k === 'lead') s += wavy(30, 290) + `<text x="70" y="14" font-size="10" text-anchor="middle" fill="var(--cyan)">울림이 먼저</text>`;
   if (k === 'short') s += wavy(rel + 8, 290) + `<text x="205" y="14" font-size="10" text-anchor="middle" fill="var(--cyan)">바로 울림</text>`;
   if (k === 'long') s += noise(rel + 2, 196) + wavy(198, 290) + `<text x="158" y="14" font-size="10" text-anchor="middle" fill="var(--gold)">바람(흐)</text><text x="244" y="14" font-size="10" text-anchor="middle" fill="var(--cyan)">울림</text>`;
   // 유성 유기음(26.11.27): 터뜨리기 전부터 울리고, 터뜨린 뒤에는 울림에 바람이 겹친다
   if (k === 'lead-breathy') s += wavy(30, 290) + noise(rel + 2, 210) + `<text x="70" y="14" font-size="10" text-anchor="middle" fill="var(--cyan)">울림이 먼저</text><text x="166" y="14" font-size="10" text-anchor="middle" fill="var(--gold)">울림 + 바람</text>`;
+  // 내파음(26.11.27, [ɗ]): 터뜨리기 전부터 울리되 터뜨리기 직전에 울림이 커진다(울대를 내려 입안 기압이 오르지 않으므로). 바람(빗금)·화살표는 없다
+  if (k === 'lead-implosive') s += wavy(30, 84) + wavy(84, 102, 9) + wavy(102, rel, 12) + wavy(rel, 290) + `<text x="56" y="14" font-size="10" text-anchor="middle" fill="var(--cyan)">울림이 먼저</text><text x="102" y="14" font-size="10" text-anchor="middle" fill="var(--cyan)">커짐</text>`;
   return s + '</svg>';
 }
 
@@ -338,7 +349,7 @@ function ipaTapBind(root, canvasFor) {
 /* 배우기를 뺐으므로(26.11.08 영신 "배우기 빼자") 틀렸을 때 따라 치는 동안 그 기호의 풀이를 짧게 보인다 */
 function ipaLearnMini(sym) {
   const s = IPA.symbols[sym]; if (!s) return '';
-  return `<div class="ipa-lmini"><div class="ipa-pair"><div>${ipaSagittal(ipaSagOpts(s))}<i>입 옆모습</i></div><div>${ipaGlottis(s.glottis)}<i>목청: ${ipaEsc(ipaGlottisText(s))}</i></div></div><p>${ipaEsc(s.how)}</p></div>`;
+  return `<div class="ipa-lmini"><div class="ipa-pair"><div>${ipaSagittal(ipaSagOpts(s))}<i>입 옆모습${s.airstream === 'implosive' ? ' · 화살표는 덧그림' : ''}</i></div><div>${ipaGlottis(s.glottis)}<i>목청: ${ipaEsc(ipaGlottisText(s))}</i></div></div><p>${ipaEsc(s.how)}</p></div>`;
 }
 /* 고양이 대사는 시리즈 공통 + 지금 강의 대사만(26.11.20 검수: 모든 강 대사를 한 통에 섞어서 1강에서 'ㅅ'·'[ɡ]' 대사가 나왔다).
    모아둔 카드처럼 여러 강이 섞인 판은 공통 대사만 */
@@ -365,7 +376,7 @@ function ipaBeforeCard(w) {
       ${symTap ? '<div class="ipa-symhint">기호를 누르면 소리(시범 녹음)</div>' : '<div class="ipa-symhint">이 기호 하나의 녹음은 아직 없다. 아래 낱말 전사를 누르면 낱말 소리</div>'}
       ${ipaNameHtml(s)}
       ${ipaMiniMap(w)}
-      <div class="ipa-pair"><div>${ipaSagittal(ipaSagOpts(s))}<i>입 옆모습${s.lips === 'near' ? ' · 틈은 덧그림' : ''}</i></div><div>${ipaGlottis(s.glottis)}<i>목청 = ${ipaTermInline('성대')}: ${ipaEsc(ipaGlottisText(s))}</i></div></div>
+      <div class="ipa-pair"><div>${ipaSagittal(ipaSagOpts(s))}<i>입 옆모습${s.lips === 'near' ? ' · 틈은 덧그림' : s.airstream === 'implosive' ? ' · 화살표는 덧그림' : ''}</i></div><div>${ipaGlottis(s.glottis)}<i>목청 = ${ipaTermInline('성대')}: ${ipaEsc(ipaGlottisText(s))}</i></div></div>
       ${s.vot ? `<div class="ipa-vot">${ipaVot(s.vot)}<i>소리 시작 띠 = ${ipaTermInline('성대 진동 개시 시간')}: ${ipaEsc((IPA.vot || {})[s.vot] || '')}</i></div>` : ''}
       <p>${ipaEsc(s.how)}</p><p><b>한국어와</b> ${ipaEsc(s.ko)}</p>${s.other ? `<p class="ipa-other">다른 표기: ${ipaEsc(s.other)}</p>` : ''}
       ${ex ? `<div class="ipa-exs">${ex}</div>` : ''}
@@ -460,8 +471,9 @@ function ipaLangClick(id) {
 /* ---------- 카드 위 작은 지도(PRINCIPLES 8-9 ②) ----------
    문제를 푸는 동안에는 그 묶음의 칸들을 깜박인다(답 칸만 깜박이면 β/b처럼 줄이 다른 답이 새므로). 맞히면 답 칸이 금빛이 된다. */
 function ipaCellOf(sym) {
-  const b = ipaKey(sym), off = IPA_OFF_COLS.findIndex(v => v && v.includes(b));
+  const b = ipaKey(sym), off = IPA_OFF_COLS.findIndex(v => v && v.includes(b)), imp = IPA_IMP_COLS.findIndex(v => v && v.includes(b));
   if (off >= 0) return {r: IPA_ROWS.length, c: off, span: 1};
+  if (imp >= 0) return {r: IPA_ROWS.length + 1, c: imp, span: 1};
   for (let r = 0; r < IPA_ROWS.length; r++) {
     let c = 0;
     for (const cell of IPA_ROWS[r].cells) {
@@ -494,6 +506,8 @@ function ipaMiniMap(w, hit) {
   });
   const R = IPA_ROWS.length;
   IPA_OFF_COLS.forEach((v, c) => { if (v) g += `<i class="off ${h && h.r === R && h.c === c ? 'hit' : cur.has(R + ':' + c) ? 'cur' : ''}" style="grid-column:${c + 1};grid-row:${R + 2}"></i>`; });
+  // 내파 줄(표 밖 줄 밑)
+  IPA_IMP_COLS.forEach((v, c) => { if (v) g += `<i class="off ${h && h.r === R + 1 && h.c === c ? 'hit' : cur.has((R + 1) + ':' + c) ? 'cur' : ''}" style="grid-column:${c + 1};grid-row:${R + 3}"></i>`; });
   return `<div class="ipa-mini" role="button" tabindex="0" data-zoom="${w.b}" data-hit="${ipaEsc(hit || '')}" aria-label="IPA 표 크게 보기">${g}</div>`;
 }
 /* 작은 지도를 누르면 실제 IPA 자음표를 크게(26.11.08 영신: "해당 부분을 누르면 실제 ipa표를 확대해서 볼 수 있게").
@@ -514,12 +528,13 @@ function ipaZoomOpen(lesson, hit) {
       g += `<span class="ipa-cell" style="grid-column:span ${span}">${v.map(zs).join('')}</span>`;
     }
   }
-  g += `${IPA_OFF_HEAD}${ipaOffRow(zs)}</div>`;
+  const ti = ipaT('내파음');
+  g += `${IPA_OFF_HEAD}${ipaOffRow(zs)}<span class="ipa-rowh ipa-offh" title="IPA 표 '비폐장 기류 자음'의 내파음"><span>${ipaEsc(ti.ko || '내파음')}</span><small class="h">${ipaHanjaHtml(ti.hanja || '')}</small><small class="en">${ipaEsc(ti.en || '')}</small></span>${ipaOffRow(zs, IPA_IMP_COLS)}</div>`;
   const ov = document.createElement('div');
   ov.className = 'ipa-zoom'; ov.setAttribute('role', 'dialog'); ov.setAttribute('aria-label', 'IPA 자음표');
   ov.innerHTML = `<div class="ipa-zoom-in"><div class="ipa-zoom-h"><b>IPA 자음표(폐 기류)</b><button type="button" class="ipa-zoom-x" aria-label="닫기">✕</button></div>
     <div class="ipa-map-wrap">${g}</div>
-    <p class="ipa-zoom-k"><span class="on">배운 칸</span><span class="cur">이번 강</span>${h ? '<span class="hit">맞힌 답</span>' : ''} · 가로는 입 앞(1 입술)에서 목 안(11 성문), 세로는 소리 내는 방법. 칸에 둘이면 앞(왼쪽·위)이 무성, 뒤(오른쪽·아래)가 유성. 표 밖 줄은 IPA 표에 칸이 없는 기호(자리는 위 열과 같다): ɕ는 '기타 기호'에 있고, 파찰음은 두 기호를 이어 적는다. 국제음성학회 IPA 표(2020, CC BY-SA 4.0)</p><p class="ipa-zoom-k ipa-zoom-gl">목청 말: 무성 voiceless · 유성 voiced · 유기 aspirated · 경음 tense. 영어 이름은 [목청] [자리] [방법] 차례(예: voiceless bilabial plosive)</p><p class="ipa-zoom-k ipa-zoom-cols">${IPA_COLS.map((k, i) => `${i + 1} ${ipaEsc(ipaT(k).en || '')}`).join(' · ')}</p></div>`;
+    <p class="ipa-zoom-k"><span class="on">배운 칸</span><span class="cur">이번 강</span>${h ? '<span class="hit">맞힌 답</span>' : ''} · 가로는 입 앞(1 입술)에서 목 안(11 성문), 세로는 소리 내는 방법. 칸에 둘이면 앞(왼쪽·위)이 무성, 뒤(오른쪽·아래)가 유성. 표 밖 줄은 IPA 표에 칸이 없는 기호(자리는 위 열과 같다): ɕ는 '기타 기호'에 있고, 파찰음은 두 기호를 이어 적는다. 내파음 줄은 IPA 표 '비폐장 기류 자음'의 유성 내파음(자리는 위 열과 같다). 국제음성학회 IPA 표(2020, CC BY-SA 4.0)</p><p class="ipa-zoom-k ipa-zoom-gl">목청 말: 무성 voiceless · 유성 voiced · 유기 aspirated · 경음 tense. 영어 이름은 [목청] [자리] [방법] 차례(예: voiceless bilabial plosive)</p><p class="ipa-zoom-k ipa-zoom-cols">${IPA_COLS.map((k, i) => `${i + 1} ${ipaEsc(ipaT(k).en || '')}`).join(' · ')}</p></div>`;
   // 큰 표를 보는 동안은 카드 시간이 가지 않는다(표를 보는 것이 공부라서, 26.11.20 검토)
   const ss = (typeof state !== 'undefined') ? state.session : null;
   const hold = ss && !ss.answered ? setInterval(() => { if (state.session === ss && !ss.answered) ss.cardStart += 250; }, 250) : 0;
@@ -545,7 +560,7 @@ function ipaOnCorrect(w) {
   const where = {bilabial: '입술', alveolar: '혀끝·잇몸', dental: '혀끝·이', velar: '혀뒤·여린입천장', uvular: '혀뒤·목젖', labiodental: '아랫입술·윗니', palatal: '혀 몸통·입천장', postalveolar: '혀·잇몸 뒤', alveolopalatal: '혀 앞면·입천장 앞', retroflex: '혀끝·잇몸 뒤', glottal: '목청'}[s.place] || '입';
   const gl = ipaGlottisText(s);
   const steps = s.steps ? s.steps : s.vot
-    ? [`${where} 닫기`, `목청: ${gl}`, /파찰음/.test(s.name) ? '천천히 떼며 갈이(마찰)' : '터뜨림', {lead: '울림(닫을 때부터)', short: '울림(바로)', long: '바람 뒤 울림', 'lead-breathy': '울림(닫을 때부터)에 바람이 섞임'}[s.vot]]
+    ? [`${where} 닫기`, `목청: ${gl}`, /파찰음/.test(s.name) ? '천천히 떼며 갈이(마찰)' : '터뜨림', {lead: '울림(닫을 때부터)', short: '울림(바로)', long: '바람 뒤 울림', 'lead-breathy': '울림(닫을 때부터)에 바람이 섞임', 'lead-implosive': '울림(닫을 때부터, 터뜨리기 직전에 커짐)'}[s.vot]]
     : [`${where} 좁히기`, '목청 울림', '틈으로 바람'];
   const el = document.createElement('div');
   el.className = `ipa-anim vot-${s.vot || 'cont'}`;
@@ -601,7 +616,7 @@ function ipaRenderMap() {
     return `<button type="button" class="ipa-cell-s${on ? ' on' : ''}${cur ? ' cur' : ''}" data-s="${ipaEsc(v)}" aria-label="${ipaEsc(v)}">${ipaEsc(v)}</button>`;  // 26.11.27 영신: 처음부터 다 열어 둔다(잠긴 칸 없음)
   };
   const colh = (k, i) => { const t = ipaT(k); return `<button type="button" class="ipa-col" data-term="${ipaEsc(k)}" aria-label="${ipaEsc(ipaHeadAria(t))}">${i + 1}<small>${ipaHeadText(t, ipaColLabel(t))}</small><small class="h">${ipaHanjaHtml(t.short_hanja || t.hanja || '')}</small></button>`; };
-  const rowh = k => { const t = ipaT(k); return `<button type="button" class="ipa-rowh" data-term="${ipaEsc(k)}" aria-label="${ipaEsc(ipaHeadAria(t))}"><span>${ipaHeadText(t, ipaRowLabel(t))}</span><small class="h">${ipaHanjaHtml(t.hanja || '')}</small></button>`; };
+  const rowh = (k, x = '') => { const t = ipaT(k); return `<button type="button" class="ipa-rowh${x}" data-term="${ipaEsc(k)}" aria-label="${ipaEsc(ipaHeadAria(t))}"><span>${ipaHeadText(t, ipaRowLabel(t))}</span><small class="h">${ipaHanjaHtml(t.hanja || '')}</small></button>`; };
   let grid = `<div class="ipa-grid"><span></span>${IPA_COLS.map(colh).join('')}`;
   for (const r of IPA_ROWS) {
     grid += rowh(r.ko);
@@ -611,8 +626,9 @@ function ipaRenderMap() {
       grid += `<span class="ipa-cell" style="grid-column:span ${span}">${v.map(sym).join('')}</span>`;
     }
   }
-  grid += `${IPA_OFF_HEAD}${ipaOffRow(sym)}</div>`;
-  const lit = [...set].length, all = IPA_ROWS.reduce((a, r) => a + r.cells.filter(Boolean).reduce((b, c) => b + (c.v || c).length, 0), 0) + IPA_OFF.length;
+  // 표 밖 줄, 그 밑에 내파 줄(머리 칸을 누르면 '내파음' 용어 풀이)
+  grid += `${IPA_OFF_HEAD}${ipaOffRow(sym)}${rowh('내파음', ' ipa-imph')}${ipaOffRow(sym, IPA_IMP_COLS)}</div>`;
+  const lit = [...set].length, all = IPA_ROWS.reduce((a, r) => a + r.cells.filter(Boolean).reduce((b, c) => b + (c.v || c).length, 0), 0) + IPA_OFF.length + IPA_IMP.length;
   el.innerHTML = `<div class="phead"><div style="flex:1;min-width:0"><h2>IPA 입 지도</h2><small>입술(1)에서 목청(11)까지 · 켠 칸 ${lit}/${all} · 흐린 기호는 아직 강에서 다루지 않는 것 · 머리 칸을 누르면 용어 풀이</small></div></div>
     <div class="ipa-map-wrap">${grid}</div>
     <div class="ipa-dex" id="ipaDex"></div>

@@ -265,6 +265,52 @@
    "cite": "Whitney, William Dwight. Sanskrit Grammar. Chapter III (Rules of euphonic combination), §145, §148, §152, §170.",
    "checked": "en.wikisource.org/wiki/Sanskrit_Grammar_(Whitney)/Chapter_III (26.11.27, WebFetch 요약, 앞 10만 자). 끝 s는 쉼 앞에서 비사르가가 된다(§145, §170a)",
    "read": "WebFetch 요약"
+  },
+  {
+   "id": "vie_kirby2011",
+   "cite": "Kirby, James P. 2011. Vietnamese (Hanoi Vietnamese). Journal of the International Phonetic Association 41(3): 381–392.",
+   "doi": "10.1017/S0025100311000181",
+   "checked": "Crossref 서지(26.11.27): 제목·지은이·권호·쪽·2011-11-11. 본문은 못 읽음(저자 누리집 PDF 주소는 봇 차단). PHOIBLE 2233·2462의 출처 키 vie_kirby2011",
+   "read": false,
+   "phoible": 2233
+  },
+  {
+   "id": "klippenstein2010word",
+   "cite": "Klippenstein 2010 (PHOIBLE 2592·2358의 출처 키 klippenstein2010word).",
+   "checked": "PHOIBLE InventoryID-Bibtex.csv의 키(2592·2358)와 phoible.org/inventories/view/2592의 'Klippenstein 2010'(WebFetch 요약, 26.11.27). 받은 phoible-references.bib 사본에는 항목이 없다. 제목·출판 사항은 못 봄(확인 필요)",
+   "read": false,
+   "phoible": 2592
+  },
+  {
+   "id": "camaj1984albanian",
+   "cite": "Camaj and Fox 1984 (PHOIBLE 2592·2358의 출처 키 camaj1984albanian).",
+   "checked": "위와 같음. PHOIBLE 누리집은 'Camaj and Fox 1984'로 적는다. 제목·출판 사항은 못 봄(확인 필요)",
+   "read": false,
+   "phoible": 2592
+  },
+  {
+   "id": "wikt-sq-appendix",
+   "cite": "en.wiktionary.org, Appendix:Albanian pronunciation (CC BY-SA 4.0).",
+   "checked": "API로 위키문법을 받아 읽음(26.11.27, revid 91427899). 문서 머리에 'Work in progress' 표시가 있다. '현대 표준 알바니아어의 음소 표기'라고 밝히고 r /ɾ/, rr /r/, q /c/, gj /ɟ/, ë /ə/로 적는다",
+   "read": true
+  },
+  {
+   "id": "wikt-vi-appendix",
+   "cite": "en.wiktionary.org, Appendix:Vietnamese pronunciation (CC BY-SA 4.0).",
+   "checked": "API로 위키문법을 받아 읽음(26.11.27, revid 95496966). 첫소리 표(하노이 / 후에·빈 / 호찌민): đ ɗ, t t, th tʰ, kh x / kʰ, d z / j. 모음·성조 절은 비어 있다",
+   "read": true
+  },
+  {
+   "id": "wikipedia-vietnamese-phonology",
+   "cite": "en.wikipedia.org, Vietnamese phonology (CC BY-SA 4.0).",
+   "checked": "26.11.27 WebFetch 요약. 3차 자료. Kirby 2011:382를 인용한 문장(t·tʰ는 denti-alveolar·laminal, ɗ·n은 apico-alveolar, 성문화 파열음은 앞 성문 폐쇄가 주이고 내파는 덜하다)은 이 문서가 적은 대로이고 원문과 대조하지 않음",
+   "read": "WebFetch 요약"
+  },
+  {
+   "id": "wikipedia-albanian-language",
+   "cite": "en.wikipedia.org, Albanian language (CC BY-SA 4.0). Phonology·Standard Albanian 절.",
+   "checked": "26.11.27 WebFetch 요약. 3차 자료. r 하나가 [ɹ]로도 난다는 문장에는 각주가 없다",
+   "read": "WebFetch 요약"
   }
  ]
 }

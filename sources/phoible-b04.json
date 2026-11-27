@@ -185,6 +185,30 @@
    "allo": "ɾ",
    "ok": true,
    "why": ""
+  },
+  {
+   "word": "sq-mire",
+   "inv": 2592,
+   "seg": "ɾ",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "sq-burre",
+   "inv": 2592,
+   "seg": "r",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "sq-rruge",
+   "inv": 2592,
+   "seg": "r",
+   "allo": null,
+   "ok": true,
+   "why": ""
   }
  ],
  "absent": [
@@ -456,6 +480,30 @@
     },
     {
      "phoneme": "r",
+     "allophones": "NA",
+     "marginal": "FALSE"
+    }
+   ]
+  },
+  "2592": {
+   "meta": {
+    "iso": "als",
+    "name": "Tosk Albanian",
+    "dialect": "Tosk Albanian (Korçë)",
+    "source": "ea"
+   },
+   "bibtex": [
+    "klippenstein2010word",
+    "camaj1984albanian"
+   ],
+   "rows": [
+    {
+     "phoneme": "r",
+     "allophones": "NA",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "ɾ",
      "allophones": "NA",
      "marginal": "FALSE"
     }

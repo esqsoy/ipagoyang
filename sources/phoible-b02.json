@@ -339,6 +339,30 @@
    "allo": null,
    "ok": true,
    "why": ""
+  },
+  {
+   "word": "vi-toi",
+   "inv": 2233,
+   "seg": "t̪",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "vi-thoi",
+   "inv": 2233,
+   "seg": "t̪ʰ",
+   "allo": null,
+   "ok": true,
+   "why": ""
+  },
+  {
+   "word": "vi-doi",
+   "inv": 2233,
+   "seg": "ɗ",
+   "allo": null,
+   "ok": true,
+   "why": ""
   }
  ],
  "absent": [
@@ -379,6 +403,12 @@
    "found_in": []
   },
   {
+   "inv": 2197,
+   "seg": "ɗ",
+   "ok": true,
+   "found_in": []
+  },
+  {
    "inv": 1,
    "seg": "ð",
    "ok": true,
@@ -415,6 +445,12 @@
    "found_in": []
   },
   {
+   "inv": 1,
+   "seg": "ɗ",
+   "ok": true,
+   "found_in": []
+  },
+  {
    "inv": 2287,
    "seg": "ð",
    "ok": true,
@@ -447,6 +483,12 @@
   {
    "inv": 2287,
    "seg": "d̪̤",
+   "ok": true,
+   "found_in": []
+  },
+  {
+   "inv": 2287,
+   "seg": "ɗ",
    "ok": true,
    "found_in": []
   },
@@ -749,6 +791,34 @@
     {
      "phoneme": "t̻",
      "allophones": "t̻ t̪",
+     "marginal": "FALSE"
+    }
+   ]
+  },
+  "2233": {
+   "meta": {
+    "iso": "vie",
+    "name": "Vietnamese",
+    "dialect": "Hanoi Vietnamese",
+    "source": "ph"
+   },
+   "bibtex": [
+    "vie_kirby2011"
+   ],
+   "rows": [
+    {
+     "phoneme": "t̪",
+     "allophones": "t̪ t̻ t̚",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "t̪ʰ",
+     "allophones": "t̪ʰ t̻ʰ",
+     "marginal": "FALSE"
+    },
+    {
+     "phoneme": "ɗ",
+     "allophones": "ɗ",
      "marginal": "FALSE"
     }
    ]

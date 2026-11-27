@@ -1,6 +1,6 @@
 """낱말 첫 유성음의 앞 울림(prevoicing) 재기(PRINCIPLES 2-4·8-10, 26.11.26).
 
-쓰는 법: python3 pipeline/prevoicing_check.py   (data/bundles의 낱말 첫 b·d·ɡ·dz·dʒ·dʑ 카드 녹음을 모두 잰다)
+쓰는 법: python3 pipeline/prevoicing_check.py   (data/bundles의 낱말 첫 b·d·ɡ·dz·dʒ·dʑ·ɗ 카드 녹음을 모두 잰다)
 
 - 모음이 시작되기 140~20ms 앞 구간의 300Hz 아래 에너지를 모음의 같은 에너지로 나눈 값. 입술·혀를 막은 채 목청을 먼저
   울리면(스페인어·이탈리아어·프랑스어·러시아어 등의 [b d ɡ]) 0.1을 넘고, 울림 없이 바로 터뜨리면(영어·독일어 첫 b d g처럼)
@@ -11,7 +11,8 @@
 import json, glob, os, sys, math, struct, subprocess
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TARGETS = {'b', 'd', 'ɡ', 'dz', 'dʒ', 'dʑ'}
+# ɗ(베트남어 đ, 26.11.27): 내파음도 닫는 동안 울리므로 앞 울림이 있어야 한다. 아직 녹음이 없어(vi-doi 발음 확보 중) 잴 것이 없다
+TARGETS = {'b', 'd', 'ɡ', 'dz', 'dʒ', 'dʑ', 'ɗ'}
 
 
 def load(p, lp=None, sr=16000):

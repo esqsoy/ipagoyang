@@ -331,6 +331,69 @@
    "how": "낱말 문서의 해당 언어 절 발음 줄(26.11.26 받음)",
    "note": "(General American) 줄. cot–caught 합침 줄은 [ˈwɑ.ɾɚ]. 영국(RP) 줄은 [ˈwo̞ː.tʰə]로 [ɾ] 없음.",
    "fetched": "2026-11-26"
+  },
+  {
+   "word": "sq-mire",
+   "ours": "[ˈmiɾə]",
+   "wiktionary": [
+    "/ˈmiɾə/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "mirë",
+   "revid": 95811597,
+   "line": "Tosk",
+   "how": "문서에 손으로 적힌 전사(위키문법 API)",
+   "stripped": [],
+   "other_lines": {
+    "Gheg": [
+     "/ˈmɪɹ/",
+     "/ˈmɜjɹ/",
+     "/ˈmæjɹ/"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "sq-burre",
+   "ours": "[ˈburə]",
+   "wiktionary": [
+    "/ˈburə/"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [],
+   "page": "burrë",
+   "revid": 92176281,
+   "line": "Tosk",
+   "how": "문서에 손으로 적힌 전사(위키문법 API)",
+   "stripped": [],
+   "other_lines": {
+    "Gheg": [
+     "/ˈbuːr/"
+    ]
+   },
+   "fetched": "2026-11-27"
+  },
+  {
+   "word": "sq-rruge",
+   "ours": "[ˈruɡə]",
+   "wiktionary": [
+    "/ˈruɡə/",
+    "[ruːɡ]"
+   ],
+   "target_ok": true,
+   "via": "",
+   "other_diff": [
+    "[ruːɡ]"
+   ],
+   "page": "rrugë",
+   "revid": 92184079,
+   "line": "(방언 표시 없음)",
+   "how": "문서에 손으로 적힌 전사(위키문법 API)",
+   "stripped": [],
+   "fetched": "2026-11-27"
   }
  ]
 }
