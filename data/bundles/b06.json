@@ -251,9 +251,9 @@
     "inv": 2210,
     "seg": "s"
    },
-   "note": "녹음은 스페인 화자다. 스페인 중북부의 s는 혀끝을 세운 소리라 중남미 s와 조금 다르게 들린다고 흔히 설명한다(문헌마다 설명이 조금씩 다르다).",
+   "note": "녹음은 스페인 화자다. 스페인 s는 혀끝을 세워 내고(apical), 보고타·아르헨티나 s는 혀날로 낸다(laminal). 그래서 조금 다르게 들린다. 보고타는 음절 끝 s도 [s]로 지킨다.",
    "status": "확인",
-   "status_why": "PHOIBLE 2210 /s/",
+   "status_why": "PHOIBLE 2210 /s/. 혀끝·혀날: Martínez-Celdrán 외 2003(JIPA 33/2, 카스티야), Coloma 2018(JIPA 48/2, 아르헨티나). 보고타 음절 끝 s: Markič 2017(Linguistica 57, Montes Giraldo 인용). 보고타·중남미 화자 녹음은 아직 없다",
    "audio": "es-sol-rodelar"
   },
   {

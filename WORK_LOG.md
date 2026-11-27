@@ -663,3 +663,11 @@
 ## 2026-11-27 · 스페인어 기본 발음: 콜롬비아(보고타)
 
 - 영신: 스페인·아르헨티나·콜롬비아 스페인어로 배웠고 콜롬비아식으로 말함, 포르투갈어는 브라질. → PRINCIPLES 8-6, data/languages.json(spa variety·note). 보고타는 Claude가 정함(영신 확인 전). 지금 스페인어 카드 19장을 보고타 기준으로 다시 보고, 스페인·아르헨티나가 갈리는 곳을 찾는 검토를 외솔에게 맡김. build --check 맞음.
+
+## 2026-11-27 · 스페인어 카드를 보고타 기준으로 손봄(외솔 검토)
+
+- 영신 "보고따사람…한테 배웠으니 보고따겠네" → 기본 보고타 확정(PRINCIPLES 8-6).
+- 외솔(검토)이 스페인어 카드 19장을 보고타 기준으로 보고 Moreno·Mariño 1998(보고타), Martínez-Celdrán 외 2003(JIPA 카스티야), Coloma 2018(JIPA 아르헨티나), Markič 2017을 직접 열어 대조했다. PHOIBLE에는 콜롬비아·아르헨티나 목록이 없다.
+- 고침: jugo [x](보고타 [x]/[h] 문헌 갈림 → 확인 필요, listen: false, 세 변종 설명), foca(콜롬비아 [ɸ] 흔함, 녹음 둘 다 해안·코스타리카 화자 → listen: false), cinco(스페인 발음 카드 문구), sol(혀끝·혀날 s를 출처로), goma·dos(보고타는 자음 뒤에서도 막는 소리, 스페인은 약해짐), sí(status_why), languages.json·symbols.json θ 문구. nada·chocolate에서 카르타헤나 화자 녹음을 귀로 확인 전까지 뺌(8-10, 다른 화자 녹음이 남음). 카드 537(듣기 문항 둘 빠짐), 녹음 410.
+- 더할 후보(영신에게 먼저 묻기, AGENTS): 6강 아르헨티나 yo·calle [ʃ]/[ʒ], 6강 보고타 cinco [s], 6강 mismo [z], 2·3강 desde·algo 자음 뒤 b·d·g, 보고타 화자 녹음 찾기.
+- 검사: build --check 맞음, prototype·record-transfer 시험 통과.

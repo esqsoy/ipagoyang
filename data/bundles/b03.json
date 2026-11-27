@@ -299,9 +299,9 @@
     "seg": "ɡ",
     "allo": "ɡ"
    },
-   "note": "쉰 다음 첫머리에서는 [ɡ].",
+   "note": "쉰 다음 첫머리에서는 [ɡ]. 보고타는 자음 뒤에서도 [ɡ]로 막는다(carga [ˈkarga]). 스페인은 자음 뒤에서 약해진다(algo [ˈalɣ̞o]).",
    "status": "확인",
-   "status_why": "PHOIBLE 2210 /ɡ/(변이음 ɡ·ɣ̞·ɰ)",
+   "status_why": "PHOIBLE 2210 /ɡ/(변이음 ɡ·ɣ̞·ɰ). 보고타 자음 뒤: Moreno·Mariño 1998(ICSLP, 보고타 전사 규칙)(확인 필요, 근거 하나). 스페인: Martínez-Celdrán 외 2003(JIPA 33/2, 카스티야)",
    "audio": "es-goma-rubyn"
   },
   {

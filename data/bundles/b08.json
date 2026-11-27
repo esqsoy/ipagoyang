@@ -259,7 +259,7 @@
    },
    "note": "스페인어 홑모음은 a·e·i·o·u 다섯이다. 그 가운데 고모음이 [i]와 [u]다.",
    "status": "확인",
-   "status_why": "PHOIBLE 2210 /i/(카스티야 목록. 중남미 목록은 PHOIBLE에 없음), Wiktionary /ˈsi/. 한 음절이라 강세표를 뗌(8-11, 외솔 C-01)",
+   "status_why": "PHOIBLE 2210 /i/(카스티야 목록. 콜롬비아·아르헨티나 목록은 PHOIBLE에 없음, 외솔 26.11.27 직접 확인), Wiktionary /ˈsi/. 한 음절이라 강세표를 뗌(8-11, 외솔 C-01)",
    "audio": "es-si-adrianabdulbaha",
    "audio_more": [
     "es-si-precision27"

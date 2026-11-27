@@ -204,11 +204,13 @@
     "seg": "f"
    },
    "status": "확인",
-   "status_why": "PHOIBLE 2210 /f/",
+   "status_why": "PHOIBLE 2210 /f/. 콜롬비아 [ɸ]: Markič 2017(Linguistica 57, Montes Giraldo 인용). 5강에 [ɸ]가 있어 듣고 이름 대기에서 답이 둘이 될 수 있어 listen: false(2-4). 귀로 [f]가 확인되면 푼다(외솔 26.11.27)",
    "audio": "es-foca-adrianabdulbaha",
    "audio_more": [
     "es-foca-rubyn"
-   ]
+   ],
+   "note": "콜롬비아에서는 두 입술로 내는 [ɸ]도 흔하고, 또박또박 말할 때 [f]다. 녹음(카르타헤나·코스타리카 화자)이 [ɸ]일 수 있다.",
+   "listen": false
   },
   {
    "id": "es-jugo",
@@ -226,10 +228,11 @@
     "inv": 2210,
     "seg": "x"
    },
-   "note": "스페인어 j는 [x]다(한국어 화자는 ㅎ으로 듣기 쉽다).",
-   "status": "확인",
-   "status_why": "PHOIBLE 2210 /x/",
-   "audio": "es-jugo-rodrigo5260"
+   "note": "스페인어 j. 보고타에서는 약한 [x]로도, 목구멍 소리 [h]로도 들린다(문헌끼리 다름). 스페인은 u 앞에서 더 뒤의 [χ]까지 가고, 아르헨티나는 [x]다. 한국어 화자는 ㅎ으로 듣기 쉽다. 녹음은 리마 화자라 [h]일 수 있다.",
+   "status": "확인 필요",
+   "status_why": "PHOIBLE 2210 /x/(카스티야). 보고타: Moreno·Mariño 1998(ICSLP, 보고타 전사 규칙)은 /x/를 [h]로, Montes Giraldo·Calderón Rivera 1991(Markič 2017(Linguistica 57, Montes Giraldo 인용))은 약한 연구개 [x]로 적어 갈린다. Coloma 2018(JIPA 48/2, 아르헨티나)은 [h]가 나는 곳으로 콜롬비아를 든다. 스페인 [χ]: Martínez-Celdrán 외 2003(JIPA 33/2, 카스티야) junio [ˈχunjo]. 듣고 이름 대기에서 [h]와 답이 둘이 될 수 있어 listen: false(2-4, 외솔 26.11.27)",
+   "audio": "es-jugo-rodrigo5260",
+   "listen": false
   },
   {
    "id": "es-cinco",
@@ -247,9 +250,9 @@
     "inv": 2210,
     "seg": "θ"
    },
-   "note": "스페인(카스티야) 발음이다. 중남미 스페인어는 [ˈsiŋko]로 [s]를 쓴다.",
+   "note": "스페인 발음이다. 보고타·아르헨티나 스페인어는 [ˈsiŋko]로 [s]를 쓴다.",
    "status": "확인",
-   "status_why": "PHOIBLE 2210(카스티야) /θ/. 기본 변종(중남미)과 다름을 밝힘",
+   "status_why": "PHOIBLE 2210(카스티야) /θ/, Wiktionary /ˈθinko/ (Spain)·/ˈsinko/ (Latin America). 기본 변종(콜롬비아 보고타)과 다른 스페인 발음 카드(2-2)",
    "audio": "es-cinco-rodelar"
   },
   {
