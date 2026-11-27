@@ -701,3 +701,10 @@
 
 - 스크래치에만 있던 Wiktionary 대조 결과 92줄을 sources/wiktionary-bNN.json으로 옮김(고전어 48, 8강 35는 새 파일 wiktionary-b08.json, 스페인어 변종 7, 영어 water·한국어 흙). 본문은 옮기지 않고 전사 줄·지역·revid(있는 것)만. b04의 옛 id es-perro → es-perro-r. 넣지 않은 11칸의 이유는 sources/gaps-20261126.md. 이제 b01~b08 낱말마다 근거 줄이 있다. koi-bios·koi-logos는 Wiktionary 1세기 줄과 달라 target_ok false(카드 기준은 Kantor, 4세기 줄과 같음)로 정직하게 둠. revid가 없는 줄(8강, 스페인어 변종)은 null.
 - build.py source_checks: 낱말 id 묶음 사이 겹침과 빈 status_why는 멈춤, 근거 줄 없음은 경고. 검사 통과(카드 599·녹음 410, index.html 변화 없음).
+
+## 2026-11-27 · 카드 번호 고정·답 기록·듣기 가리기(8-13 A·B·H)
+
+- A: 항목마다 savedId(`name-ko:기호`, `name-en:기호`, `listen:낱말 id`, `blank:낱말 id`), 겹치면 조립 멈춤. 옛 자리 번호로 모아둔 카드는 한 번만 비우고(`ipagoyang-saved-reset-v1`) 비운 게 있으면 처음 화면 고양이가 한 줄 알림(영신 "비워도 됨"). 스페인어만으로 바꿔도 같은 낱말을 가리킴을 시험.
+- B: 답이 정해질 때 한 줄(t·key·kind·lesson·lang·wid·sym·audio·typed·ok·timeout·copy·first), 따라 치기를 마치면 한 줄 더. 상한 1만 줄·100만 자. 기록 옮기기는 공통 merge.js를 고치지 않고 ipa_extra.js에서 rtMerge를 감싸 합침(보카고양 본가에 이 종류가 생기면 옮길 것).
+- H: 듣기 카드는 답 전에 전사를 소리 수만큼 점과 칸으로(강세·길이·성조 부호 숨김, 소리 세기 규칙은 ipa_extra.js 주석: 위첨자·결합 부호는 앞 글자에, 합침 부호·̯ 이중모음·이 게임의 파찰음 두 글자는 한 소리), 화자 이름도 답 뒤. 전사 빈칸·이름 대기는 그대로.
+- 검사: build --check 맞음, prototype 시험 72 통과(새 24), record-transfer 16 keys. 390px 화면 확인.

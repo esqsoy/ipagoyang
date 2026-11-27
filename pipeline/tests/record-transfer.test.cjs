@@ -7,7 +7,9 @@ const cfg=JSON.parse(fs.readFileSync(path.join(dir,'config.json'),'utf8'));
 const ctx={RT_CONFIG:cfg};vm.createContext(ctx);vm.runInContext(fs.readFileSync(path.join(dir,'merge.js'),'utf8'),ctx);
 const want={'ipagoyang-seoul-v1':'progress','ipagoyang-seoul-v1-saved-cards-v1':'saved','ipagoyang-learned-words-v1':'learned',
   'ipagoyang-missed-words-v1':'missed','ipagoyang-milestone-v1':'milestone','ipagoyang-pace-ksat-v1':'pace','ipagoyang-pace-meta-ksat-v1':'paceMeta',
-  'ipagoyang-seoul-last-v1':'keep','ipagoyang-mode-v1':'keep','ipagoyang-uni-v1':'keep','ipagoyang-langs':'keep','ipagoyang-palette':'keep','ipagoyang-guide-v1':'keep','ipagoyang-map-tab':'keep'};
+  'ipagoyang-seoul-last-v1':'keep','ipagoyang-mode-v1':'keep','ipagoyang-uni-v1':'keep','ipagoyang-langs':'keep','ipagoyang-palette':'keep','ipagoyang-guide-v1':'keep','ipagoyang-map-tab':'keep',
+  // 26.11.27(PRINCIPLES 8-13 A·B): 답 기록은 공통 merge.js에 종류가 없어 keep(없는 기기로 통째로 감). 두 기기 모두 있으면 ipa_extra.js가 rtMerge를 감싸 줄을 합친다
+  'ipagoyang-trials-v1':'keep','ipagoyang-saved-reset-v1':'keep'};
 for(const [k,v] of Object.entries(want))assert.equal(ctx.rtKind(k),v,k);
 // 틀·덧붙임 코드에 위 목록에 없는 저장 키가 생기면 알린다(새 키는 종류를 정해 이 목록에 넣는다)
 const src=['frame.html','ipa_extra.js'].map(f=>fs.readFileSync(path.join(__dirname,'..',f),'utf8')).join('\n');

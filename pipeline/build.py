@@ -129,6 +129,9 @@ def build(inline=False):
     data, contexts, pron, amap = [], {}, {}, {}
     lessonclear, examples, word_audio_map, word_target, by_word, bundles_lit = {}, {}, {}, {}, {}, []
     used_audio = set()
+    # 카드 열쇠(PRINCIPLES 8-13 A, 26.11.27): 모아둔 카드·답 기록이 가리키는 이름. 자리 번호(강·연습·판 안 순서) 대신
+    # '연습 종류:낱말 id'(이름 대기는 'name-ko:기호'·'name-en:기호')라 언어 고르기·판 나눔·카드 추가로 바뀌지 않는다. 틀이 w.savedId로 받는다
+    saved_ids = {}
     bundle_lines = {k: [] for k in ['welcome', 'correct', 'correctStreak', 'wrong', 'timeout', 'exerciseDone', 'allDone']}
     lesson_lines = {}
 
@@ -163,7 +166,7 @@ def build(inline=False):
                 _, names = names_for(k)
                 term = names[0][mode]
                 # 뜻 줄은 게임 중에는 숨기고(26.11.20), 결과 목록·검색·모아둔 카드에만 보인다: 기호만
-                w = {'en': term, 'ko': f'[{k}]', 'nameq': True, 'mode': mode, 'sym': k, 'names': names, 'reps': rep_list(k)}
+                w = {'en': term, 'ko': f'[{k}]', 'nameq': True, 'mode': mode, 'sym': k, 'names': names, 'reps': rep_list(k), 'savedId': f'name-{mode}:{k}'}
                 # 26.11.20 영신: '[기호] = ?' 줄과 정답 뒤 세 이름 줄을 없앤다(기호는 위에 있고, 한자는 칸 자리에 뜬다)
                 ctx = {**ctx0, 'example': term, 'surfaceParts': [term], 'translation': ''}
                 cards.append((w, ctx, k, sy['symbols'][k].get('sound')))
@@ -185,7 +188,7 @@ def build(inline=False):
             _, names = names_for(ans, t, wd.get('accept'), wd.get('accept_names'))
             term = names[0]['ko']
             # 게임 중에는 앞부분('영어 낱말')만 보이고(ipa_extra.js), 결과 목록·검색에서는 어느 낱말이었는지 보인다
-            w = {'en': term, 'ko': f'{lg} 낱말 · {wd["text"]} [{a}{t}{z}]', 'audio': wd['audio'], 'listen': True, 'lang': wd['lang'], 'wid': wd['id'], 'names': names, 'mode': 'any'}
+            w = {'en': term, 'ko': f'{lg} 낱말 · {wd["text"]} [{a}{t}{z}]', 'audio': wd['audio'], 'listen': True, 'lang': wd['lang'], 'wid': wd['id'], 'names': names, 'mode': 'any', 'savedId': f'listen:{wd["id"]}'}
             ctx = {**ctx0, 'example': example, 'surfaceParts': [t], 'translation': wd['text'] + (f' · {wd["ko"]}' if wd['ko'] != wd['text'] else '')}
             lis.append((w, ctx, ''.join(wd['ipa']), wd['audio']))
         # 같은 '뜻' 줄이 여럿이면 틀의 발음 찾기가 섞인다: 낱말이 들어가 있어 겹치지 않는다
@@ -203,7 +206,7 @@ def build(inline=False):
             _, names = names_for(wd['target'], t, wd.get('accept'), wd.get('accept_names'))
             term = names[0]['ko']
             gloss = f' · {wd["ko"]}' if wd['ko'] != wd['text'] else ''
-            w = {'en': term, 'ko': f'{lg} {wd["text"]}{roman}{gloss}', 'audio': wd['audio'], 'lang': wd['lang'], 'wid': wd['id'], 'names': names, 'mode': 'any'}
+            w = {'en': term, 'ko': f'{lg} {wd["text"]}{roman}{gloss}', 'audio': wd['audio'], 'lang': wd['lang'], 'wid': wd['id'], 'names': names, 'mode': 'any', 'savedId': f'blank:{wd["id"]}'}
             # 정답 뒤에는 이름 줄을 따로 두지 않는다(26.11.20 영신). 낱말 풀이(note)만
             ctx = {**ctx0, 'example': example, 'surfaceParts': [t], 'translation': wd.get('note') or ''}
             bl.append((w, ctx, a + t + z, wd['audio']))
@@ -221,6 +224,10 @@ def build(inline=False):
                 add_ex('전사 빈칸' + (f' {i + 1}/{len(bp)}' if len(bp) > 1 else ''), bp[i])
 
         data.append({'lesson': L, 'name': f'{b["title"]} {b["symbols_title"]}', 'exercises': exercises})
+        for ex in exercises:
+            for w in ex['words']:
+                assert w['savedId'] not in saved_ids, ('카드 열쇠가 겹친다', w['savedId'], saved_ids[w['savedId']], L)
+                saved_ids[w['savedId']] = L
         own = b['lines']
         for k in bundle_lines:
             v = own.get(k) or []

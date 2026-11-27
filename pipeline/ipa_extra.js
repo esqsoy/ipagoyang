@@ -296,13 +296,29 @@ function ipaSpkHtml(ids) {
   // 조작 설명은 두지 않는다(26.11.20 영신). 소리를 낸 뒤에만 몇 번째 목소리·화자를 적는다
   return l.length ? '<span class="ipa-spk" aria-live="polite"></span>' : '<span class="ipa-soon">발음 확보 중</span>';
 }
+// 카드에서 마지막으로 튼 녹음(답 기록의 audio, 답한 뒤 화자 이름을 채울 때 쓴다)
+let ipaCardAud = {w: null, id: null, n: '', who: ''};
 function ipaBtnNext(b) {
   const l = b.dataset.list.split('|'); let i = +b.dataset.i || 0; const id = l[i % l.length];
   b.dataset.i = (i + 1) % l.length;
   const card = b.closest('#hoeCtx, .ipa-dex') || document;
   const sp = b.closest('.ipa-ex') ? null : card.querySelector('.ipa-cardplay .ipa-spk');
-  if (sp) sp.textContent = (l.length > 1 ? `목소리 ${(i % l.length) + 1}/${l.length}` : '') + ((IPA.audio[id] || {}).speaker ? `${l.length > 1 ? ' · ' : ''}${IPA.audio[id].speaker}` : '');
+  if (sp) { ipaCardAud = {w: ipaCurWord(), id, n: l.length > 1 ? `목소리 ${(i % l.length) + 1}/${l.length}` : '', who: (IPA.audio[id] || {}).speaker || ''}; ipaSpkFill(sp); }
   return id;
+}
+/* 듣고 이름 대기는 답하기 전에 화자 이름을 숨긴다(PRINCIPLES 8-13 H, 26.11.27: 최소대립 낱말의 화자가 다르면 화자 이름으로 답이 정해졌다).
+   '목소리 1/3'은 남긴다. 답한 뒤(맞힘·틀려서 따라 치기) 다시 불러 이름을 채운다. 전사 빈칸은 그대로 */
+function ipaListenHidden() {
+  const w = ipaCurWord(), s = (typeof state !== 'undefined') ? state.session : null;
+  return !!(w && w.listen && s && !s.answered && !s.copyMode);
+}
+function ipaSpkFill(sp) {
+  sp = sp || document.querySelector('#hoeCtx .ipa-cardplay .ipa-spk');
+  const a = ipaCardAud; if (!sp || !a.id) return;
+  const inCard = !!sp.closest('#hoeCtx');
+  if (inCard && a.w !== ipaCurWord()) return;
+  const who = inCard && ipaListenHidden() ? '' : a.who;
+  sp.textContent = a.n + (who ? `${a.n ? ' · ' : ''}${who}` : '');
 }
 function ipaTapBind(root, canvasFor) {
   root.querySelectorAll('[data-list]').forEach(b => {
@@ -925,4 +941,156 @@ document.addEventListener('ipa:aftercard', e => {
   const w = e.detail, root = document.getElementById('hoeCtx');
   if (!w || !w.wid || !root || root.querySelector('.ipa-chkline') || !ipaChk(w.wid)) return;
   root.insertAdjacentHTML('beforeend', '<p class="ipa-chkline">이 낱말 자료는 <b>확인 필요</b>: 문헌끼리 다르거나 1차 출처를 아직 못 봤다. 확인되면 고친다.</p>');
+});
+
+/* ---------- 카드 열쇠·답 기록·듣기 가리기(PRINCIPLES 8-13 A·B·H, 26.11.27 영신) ---------- */
+
+/* A. 모아둔 카드는 build.py가 카드마다 넣은 열쇠(savedId: 'listen:낱말 id'·'blank:낱말 id'·'name-ko:기호'·'name-en:기호')를 가리킨다.
+   전에는 자리 번호(JSON [강, scope, 연습 번호, 판 안 순서])라 언어 고르기·판 나눔·카드 추가로 다른 카드를 가리켰다(외솔).
+   옛 번호는 새 카드에 이어 줄 수 없어 새 판을 처음 열 때 한 번 비운다(영신 "비워도 됨"). 비웠다는 표시를 남겨 다시 하지 않는다.
+   틀(frame.html)이 열자마자 모아둔 카드를 읽으므로(savedInit) 덧붙임이 먼저 실리는 이때 바로 한다.
+   옛 번호('['로 시작)만 지우고, 그 사이 새 열쇠로 담은 카드는 남긴다. */
+const IPA_SAVED_RESET_KEY = 'ipagoyang-saved-reset-v1';
+let ipaSavedResetN = 0;
+(() => {
+  try {
+    if (localStorage.getItem(IPA_SAVED_RESET_KEY)) return;
+    const k = 'ipagoyang-seoul-v1-saved-cards-v1';
+    let rows = [];
+    try { rows = JSON.parse(localStorage.getItem(k) || '[]'); } catch (e) { rows = null; }
+    const keep = Array.isArray(rows) ? rows.filter(r => r && typeof r.id === 'string' && !r.id.startsWith('[')) : [];
+    ipaSavedResetN = Array.isArray(rows) ? rows.length - keep.length : 1;
+    if (keep.length) localStorage.setItem(k, JSON.stringify(keep)); else localStorage.removeItem(k);
+    localStorage.setItem(IPA_SAVED_RESET_KEY, '1');
+  } catch (e) {}
+})();
+// 비운 것이 있었으면 그때 한 번만 처음 화면 고양이가 한 줄로 알린다(틀이 처음 화면을 그린 뒤)
+document.addEventListener('DOMContentLoaded', () => setTimeout(() => {
+  const hb = document.getElementById('homeBubble');
+  if (ipaSavedResetN > 0 && hb) hb.innerHTML = '<span><span class="nm">고양고양이</span> 모아둔 카드 번호를 새로 매기느라 한 번 비웠다고양. 다시 담아 달라고양.</span>';
+  ipaSavedResetN = 0;
+}, 0));
+
+/* B. 답 하나하나 기록: 답할 때마다 한 줄을 'ipagoyang-trials-v1'에 남긴다(최근 1만 줄, 100만 자 안). 판정은 바꾸지 않는다(8-12 엄한 판정).
+   지금 기록(연습마다 마지막 판 하나, 틀린 단어는 이름 문자열)으로는 처음 한 번 맞힘·화자·착각을 볼 수 없어서다(이언).
+   칸: t 시각(ms) · key 카드 열쇠(A와 같음) · kind 연습 종류(열쇠 앞부분: name-ko·name-en·listen·blank) · lesson 강 · lang 낱말 언어(이름 대기는 null)
+       · wid 낱말 id · sym 대상 기호 · audio 답하기 전에 마지막으로 튼 녹음 id(듣고 이름 대기만) · typed 친 글 그대로(시간 종료면 그때까지 친 것)
+       · ok 맞음 · timeout 시간 종료 · copy 따라 치기를 마친 줄(틀린 뒤 정답을 따라 친 것, ok는 늘 true) · first 기록에 이 key가 처음인지.
+   first는 남은 기록으로 판단하므로 1만 줄을 넘겨 옛 줄이 빠지면 다시 처음으로 셀 수 있다. */
+// 한 줄이 200자쯤이라 1만 줄이면 200만 자(UTF-16으로 약 4MB)다. 같은 주소(esqsoy.github.io)의 다른 고양 게임과 저장 공간(브라우저마다 5~10MB)을
+// 함께 쓰므로 글자 수 상한(100만 자, 이언이 잡은 약 1MB 크기)도 둔다. 둘 중 먼저 닿는 쪽에서 오래된 줄부터 버린다
+const IPA_TRIALS_KEY = 'ipagoyang-trials-v1', IPA_TRIALS_MAX = 10000, IPA_TRIALS_MAX_CHARS = 1000000;
+function ipaTrialsRead() { try { const v = JSON.parse(localStorage.getItem(IPA_TRIALS_KEY) || '[]'); return Array.isArray(v) ? v : []; } catch (e) { return []; } }
+function ipaTrialsWrite(rows) {
+  let keep = rows.slice(-IPA_TRIALS_MAX), txt = JSON.stringify(keep);
+  while (txt.length > IPA_TRIALS_MAX_CHARS && keep.length > 1) { keep = keep.slice(Math.ceil(keep.length / 10)); txt = JSON.stringify(keep); }
+  // 저장 공간이 모자라면 오래된 절반씩 버린다
+  for (let n = 0; n < 6 && keep.length; n++) { try { localStorage.setItem(IPA_TRIALS_KEY, txt); return true; } catch (e) { keep = keep.slice(Math.ceil(keep.length / 2)); txt = JSON.stringify(keep); } }
+  return false;
+}
+function ipaTrialLog(w, o) {
+  if (!w) return null;
+  const rows = ipaTrialsRead(), key = String(w.savedId || w.savedCardId || '');
+  const row = {t: Date.now(), key, kind: key.split(':')[0], lesson: w.b ?? null, lang: w.lang || null, wid: w.wid || null, sym: ipaSymOf(w) || null,
+    audio: w.listen && ipaCardAud.w === w ? ipaCardAud.id : null, typed: String(o.typed || ''), ok: !!o.ok, timeout: !!o.timeout, copy: !!o.copy,
+    first: !rows.some(r => r && r.key === key)};
+  rows.push(row); ipaTrialsWrite(rows);
+  return row;
+}
+document.addEventListener('DOMContentLoaded', () => {
+  if (typeof submit === 'function') {
+    const orig = submit;
+    submit = function (opt = {}) {
+      const s = state.session, w = ipaCurWord(), fresh = !!(s && w && !s.answered && !s.copyMode);
+      const typed = String((document.getElementById('ainput') || {}).value || '');
+      const r = orig.apply(this, arguments);
+      // 판정이 났을 때만(틀이 막은 Enter·조합 중 입력은 줄을 남기지 않는다). 틀리면 틀이 곧바로 따라 치기로 들어간다
+      try { if (fresh && state.session === s && s.answered) { ipaTrialLog(w, {typed, ok: !s.copyMode, timeout: !!(opt && opt.timeout), copy: false}); ipaSpkFill(); document.querySelector('#hoeCtx .mt-source')?.classList.remove('ipa-masked'); } } catch (e) {}
+      return r;
+    };
+  }
+  if (typeof submitCopy === 'function') {
+    const orig = submitCopy;
+    submitCopy = function () {
+      const s = state.session, w = ipaCurWord(), was = !!(s && w && s.copyMode);
+      const typed = String((document.getElementById('ainput') || {}).value || '');
+      const r = orig.apply(this, arguments);
+      try { if (was && state.session === s && !s.copyMode) ipaTrialLog(w, {typed, ok: true, timeout: false, copy: true}); } catch (e) {}
+      return r;
+    };
+  }
+  // 기록 옮기기: 공통 merge.js에는 답 기록 종류가 없어 그대로면 '이 기기에 없을 때만 가져옴'(keep)이다. 공통 코드는 고치지 않고
+  // 여기서 두 기기의 줄을 합친다(같은 줄은 한 번, 시간순, 최근 1만 줄, first는 합친 기록으로 다시 셈)
+  if (typeof rtMerge === 'function') {
+    const orig = rtMerge;
+    rtMerge = function (local, incoming) {
+      const m = orig.apply(this, arguments);
+      try {
+        const a = local && local[IPA_TRIALS_KEY], b = incoming && incoming[IPA_TRIALS_KEY];
+        if (typeof a === 'string' && typeof b === 'string') {
+          const v = ipaTrialsMerge(a, b);
+          if (v !== null && v !== a) m.writes[IPA_TRIALS_KEY] = v; else delete m.writes[IPA_TRIALS_KEY];
+        }
+      } catch (e) {}
+      return m;
+    };
+  }
+});
+function ipaTrialsMerge(a, b) {
+  const list = s => { try { const v = JSON.parse(s); return Array.isArray(v) ? v.filter(x => x && Number(x.t) > 0 && typeof x.key === 'string') : []; } catch (e) { return []; } };
+  const id = x => [x.t, x.key, x.typed, x.copy ? 1 : 0].join('|');
+  const L = list(a), seen = new Set(L.map(id)), add = list(b).filter(x => !seen.has(id(x)) && seen.add(id(x)));
+  if (!add.length) return null;
+  let all = L.concat(add).sort((x, y) => x.t - y.t).slice(-IPA_TRIALS_MAX);
+  const met = new Set();
+  for (const x of all) { x.first = !met.has(x.key); met.add(x.key); }
+  let txt = JSON.stringify(all);
+  while (txt.length > IPA_TRIALS_MAX_CHARS && all.length > 1) { all = all.slice(Math.ceil(all.length / 10)); txt = JSON.stringify(all); }
+  return txt;
+}
+
+/* H. 듣고 이름 대기는 귀로만 풀리게: 답하기 전에는 전사를 소리 수만큼의 점과 빈칸 하나로만 보인다([· · _ ·]).
+   성조(˥˩)·강세(ˈ ˌ)·길이(ː)도 숨긴다. 답한 뒤(맞힘은 틀이 원문 줄을 다시 그리고, 틀리면 따라 치기 화면) 지금처럼 다 보인다.
+   왜: 듣기 197문항 중 귀로만 풀리는 것이 27(14%)이었다. 성조 부호·앞뒤 전사로 답이 정해졌다(이언). 화자 이름은 위 ipaSpkFill.
+   소리 수 세기 규칙(ipaSounds):
+   1. NFD로 풀어 á 같은 합친 글자를 a + 부호로 나눈다.
+   2. 소리가 아닌 표시는 세지 않는다: 강세 ˈ ˌ, 길이 ː ˑ, 성조 글자 ˥˦˧˨˩(과 ꜀-꜡ 성조·높낮이 글자), 음절 경계 ., 이음 ‿, 띄어쓰기, | ‖.
+   3. 결합 부호(U+0300–036F: 비음 ̃, 성조 부호 ̌ ̂, 무개방 ̚, 내림 ̞ 등)와 위첨자·수식 글자(ʰ ʲ ʷ ʱ ˠ ˤ ˞ ʼ 등 U+02B0–02FF의 나머지,
+      U+1D2C–1DBF, U+2070–209F)는 앞 글자에 붙여 한 소리로 본다.
+   4. 합침 부호 ͡ ͜ 는 앞뒤 글자를 한 소리로 잇는다.
+   5. 이중모음 부호 ̯(비음절 표시)가 붙은 모음은 앞 소리에 합친다: aɪ̯ = 한 소리, ae̯ = 한 소리.
+   6. 이 게임이 한 기호로 가르치는 파찰음(ts dz tʃ dʒ tɕ dʑ tʂ dʐ)은 합침 부호 없이 적어도 한 소리로 센다(아랍어 [adʒul]의 dʒ).
+   7. 겹쳐 적은 자음(이탈리아어 [ˈbokka]의 kk)은 적힌 대로 둘로 센다. */
+function ipaSounds(str) {
+  const out = []; let join = false;
+  const isMod = c => /[ʰ-˿ᴬ-ᶿ⁰-₟]/.test(c);
+  for (const c of String(str || '').normalize('NFD')) {
+    if (/[ˈˌːˑ˥-˩꜀-꜡.‿|‖\s]/.test(c)) continue;
+    if (c === '͡' || c === '͜') { join = true; continue; }
+    if (c === '̯') { if (out.length > 1) { const v = out.pop(); out[out.length - 1] += v + c; } else if (out.length) out[0] += c; continue; }
+    if (/[̀-ͯ]/.test(c) || isMod(c)) { if (out.length) out[out.length - 1] += c; continue; }
+    const prev = out[out.length - 1];
+    if (prev !== undefined && (join || (prev === 't' && /[sʃɕʂ]/.test(c)) || (prev === 'd' && /[zʒʑʐ]/.test(c)))) out[out.length - 1] += c;
+    else out.push(c);
+    join = false;
+  }
+  return out;
+}
+function ipaMaskListen(w) {
+  const src = document.querySelector('#hoeCtx .mt-source'), c = w && w.context;
+  if (!src || !c || !c.example) return;
+  const t = (c.surfaceParts || [])[0] || '', ex = c.example, at = ex.indexOf(t), bl = src.querySelector('.blanks');
+  if (!t || at < 1 || !bl) return;
+  const dots = x => ipaSounds(x).map(() => '·').join(' ');
+  const pre = dots(ex.slice(1, at)), post = dots(ex.slice(at + t.length, ex.length - 1));
+  [...src.childNodes].forEach(n => { if (n !== bl) n.remove(); });
+  bl.before(document.createTextNode('[' + (pre ? pre + ' ' : '')));
+  bl.after(document.createTextNode((post ? ' ' + post : '') + ']'));
+  src.classList.add('ipa-masked');
+}
+document.addEventListener('ipa:aftercard', e => {
+  const w = e.detail;
+  if (w && w.listen && ipaListenHidden()) ipaMaskListen(w);
+  else { const src = document.querySelector('#hoeCtx .mt-source'); if (src) src.classList.remove('ipa-masked'); }
+  ipaSpkFill();
 });
