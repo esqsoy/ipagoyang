@@ -1736,7 +1736,9 @@ html[data-pal="chalk"]{--panel-rgb:18,37,28;--bg1-rgb:14,28,22;--bg1:#0e1c16;--b
 .ipa-tab[aria-pressed="true"]{background:var(--cyan);border-color:var(--cyan);color:#0b0b16}
 /* 26.11.27 영신 "은은한 광원 그라데이션 효과같은게 있는데 … 없어도 되지 않아?": 틀(보카고양)의 배경 색 조명 셋을 빼고
    어두운 세로 그라데이션만 남긴다. 틀 파일은 그대로 두고 여기서 덮어쓴다(PRINCIPLES 1-1) */
-body{background:linear-gradient(180deg, var(--bg1) 0%, var(--bg2) 60%, var(--bg3) 100%);background-attachment:fixed}
+/* 같은 날 영신 "별밤 효과 … 그것도 없애자 그라데이션도 없애고": 별 점(body::before)과 세로 그라데이션도 빼고 한 가지 색 */
+body{background:var(--bg2)}
+body::before{display:none;animation:none}
 
 </style>
 <style id="record-transfer-style">
