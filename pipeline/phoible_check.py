@@ -45,13 +45,18 @@ def main():
     bad = 0
     for bid in ids:
         b = json.load(open(os.path.join(ROOT, 'data', 'bundles', bid + '.json'), encoding='utf-8'))
-        used = sorted({w['phoible']['inv'] for w in b['words'] if w.get('phoible')} | {int(k) for k in b.get('absent', {})})
+        used = sorted({w['phoible']['inv'] for w in b['words'] if w.get('phoible') and w['phoible'].get('inv') is not None} | {int(k) for k in b.get('absent', {})})
         results = []
         for w in b['words']:
             p = w.get('phoible')
             if not p:
                 results.append({'word': w['id'], 'ok': False, 'why': 'phoible 칸 없음'})
                 bad += 1
+                continue
+            if p.get('inv') is None:
+                # PHOIBLE에 그 언어·변종 목록이 없다(예: 아르헨티나 스페인어, 고전어). 대조하지 못했음을 밝히고 어긋남으로 세지 않는다(26.11.27 파시)
+                assert p.get('why'), (w['id'], 'phoible.inv가 null이면 why를 적는다')
+                results.append({'word': w['id'], 'inv': None, 'ok': True, 'why': '목록 없음: ' + p['why']})
                 continue
             rows = [r for r in inv.get(p['inv'], []) if r['Phoneme'] == p['seg']]
             ok, why = True, ''
