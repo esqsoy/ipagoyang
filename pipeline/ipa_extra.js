@@ -1094,3 +1094,318 @@ document.addEventListener('ipa:aftercard', e => {
   else { const src = document.querySelector('#hoeCtx .mt-source'); if (src) src.classList.remove('ipa-masked'); }
   ipaSpkFill();
 });
+
+/* ---------- 놀면서 검수·귀 점수·새 카드와 복습 판(PRINCIPLES 8-13 D·I·C, 26.11.27 영신) ---------- */
+
+/* D. 놀면서 검수: 답한 뒤(맞힌 뒤·틀려서 정답이 뜬 뒤) 카드 아래 오른쪽에 작은 '⚑ 검수' 하나. 누르면 '녹음 이상'(녹음이 있는 카드만)/'전사·이름 이상'을
+   고르고 한 줄 메모(안 써도 됨). 사람이 들은 녹음이 0/410이라(8-13) 노는 동안 걸린 것을 모은다. 레이아웃을 아낀다(8-3 26.11.20): 답 전에는 없고,
+   고르는 칸은 누를 때만 뜨는 창이다. 저장은 답 기록(B)과 따로 'ipagoyang-flags-v1'에 둔다: 답 기록은 1만 줄에서 오래된 줄부터 버리므로 표시가 같이
+   사라질 수 있고, 표시는 내보내 반영한 뒤 비우는 것이라 수명이 다르다(Claude 판단). 기록 옮기기에 함께 가고, 두 기기에 다 있으면 합친다(아래 rtMerge).
+   처음 화면 맨 아래(언어·배색 옆 설정 자리)의 '검수 표시 n개 · 복사'가 JSON(낱말 id·녹음 id·종류·메모·시각)을 클립보드에 넣는다(안 되면 글 상자).
+   영신이 그 글을 주 세션에 붙이면 sources/audio.json listened·카드 status에 반영한다. */
+const IPA_FLAGS_KEY = 'ipagoyang-flags-v1';
+const IPA_FLAG_KINDS = {audio: '녹음 이상', text: '전사·이름 이상'};
+function ipaFlagsRead() { try { const v = JSON.parse(localStorage.getItem(IPA_FLAGS_KEY) || '[]'); return Array.isArray(v) ? v.filter(f => f && typeof f.key === 'string') : []; } catch (e) { return []; } }
+function ipaFlagsWrite(rows) { try { if (rows.length) localStorage.setItem(IPA_FLAGS_KEY, JSON.stringify(rows)); else localStorage.removeItem(IPA_FLAGS_KEY); return true; } catch (e) { return false; } }
+function ipaFlagKey(w) { return String((w && (w.savedId || w.savedCardId)) || ''); }
+// 녹음 이상은 '지금 이 카드에서 튼 녹음'(여러 화자면 마지막으로 들은 것), 아직 안 틀었으면 첫 녹음
+function ipaFlagAudioOf(w) {
+  if (!w || w.audio === undefined) return null;
+  const l = ipaAudioList(w.wid, w.audio); if (!l.length) return null;
+  return ipaCardAud.w === w && l.includes(ipaCardAud.id) ? ipaCardAud.id : l[0];
+}
+function ipaFlagFind(w) { const k = ipaFlagKey(w); return ipaFlagsRead().filter(f => f.key === k); }
+function ipaFlagSave(w, kind, note) {
+  const key = ipaFlagKey(w); if (!key || !IPA_FLAG_KINDS[kind]) return null;
+  const audio = kind === 'audio' ? ipaFlagAudioOf(w) : null;
+  if (kind === 'audio' && !audio) return null;
+  const row = {t: Date.now(), key, kind, wid: w.wid || null, sym: ipaSymOf(w) || null, audio, lesson: w.b ?? null, lang: w.lang || null, note: String(note || '').trim().slice(0, 200)};
+  // 같은 카드·같은 종류(녹음은 같은 녹음)는 한 줄: 다시 표시하면 메모와 시각을 고친다
+  const rows = ipaFlagsRead().filter(f => !(f.key === key && f.kind === kind && (f.audio || null) === audio));
+  rows.push(row);
+  return ipaFlagsWrite(rows) ? row : null;
+}
+function ipaFlagRemove(w) { const k = ipaFlagKey(w); return ipaFlagsWrite(ipaFlagsRead().filter(f => f.key !== k)); }
+function ipaFlagsExportText(rows) {
+  rows = rows || ipaFlagsRead();
+  return JSON.stringify({game: '발음고양', what: '검수 표시', exported: new Date().toISOString(), n: rows.length,
+    flags: rows.map(f => ({at: new Date(f.t).toISOString(), kind: f.kind, wid: f.wid, audio: f.audio, sym: f.sym, key: f.key, lang: f.lang, note: f.note || ''}))}, null, 1);
+}
+function ipaFlagsMerge(a, b) {
+  const list = s => { try { const v = JSON.parse(s); return Array.isArray(v) ? v.filter(x => x && Number(x.t) > 0 && typeof x.key === 'string') : []; } catch (e) { return []; } };
+  const id = x => [x.t, x.key, x.kind, x.audio || ''].join('|');
+  const L = list(a), seen = new Set(L.map(id)), add = list(b).filter(x => !seen.has(id(x)) && seen.add(id(x)));
+  return add.length ? JSON.stringify(L.concat(add).sort((x, y) => x.t - y.t)) : null;
+}
+function ipaFlagMount() {
+  const s = state.session, w = ipaCurWord(), root = document.getElementById('hoeCtx');
+  if (!s || !w || w.learn || !root || !s.answered || !ipaFlagKey(w)) return;
+  let row = root.querySelector('.ipa-flagrow');
+  if (!row) { root.insertAdjacentHTML('beforeend', '<div class="ipa-flagrow"><button type="button" class="ipa-flagbtn"></button></div>'); row = root.querySelector('.ipa-flagrow'); }
+  const on = ipaFlagFind(w).length > 0, b = row.querySelector('button');
+  b.textContent = on ? '⚑ 표시함' : '⚑ 검수';
+  b.setAttribute('aria-pressed', String(on));
+  b.setAttribute('aria-label', on ? '검수 표시 고치기' : '이 카드에 검수 표시(녹음·전사 이상)');
+}
+function ipaFlagOpen() {
+  const w = ipaCurWord(); if (!w || document.querySelector('.ipa-flagdlg')) return;
+  const aud = ipaFlagAudioOf(w), had = ipaFlagFind(w), last = had[had.length - 1] || {};
+  const who = aud ? ((IPA.audio[aud] || {}).speaker || aud) : '';
+  const ov = document.createElement('div');
+  ov.className = 'ipa-zoom ipa-flagdlg'; ov.setAttribute('role', 'dialog'); ov.setAttribute('aria-label', '검수 표시');
+  ov.innerHTML = `<div class="ipa-zoom-in ipa-flag-in"><b>무엇이 이상한가</b>
+    <div class="ipa-flag-kinds">${aud ? `<button type="button" data-k="audio" aria-pressed="false">녹음 이상<small>${ipaEsc(who)}</small></button>` : ''}<button type="button" data-k="text" aria-pressed="false">전사·이름 이상</button></div>
+    <input type="text" class="ipa-flag-note" maxlength="200" placeholder="한 줄 메모(안 써도 된다)" aria-label="메모" value="${ipaEsc(last.note || '')}">
+    <div class="ipa-flag-act">${had.length ? '<button type="button" class="ghost small ipa-flag-del">표시 빼기</button>' : ''}<button type="button" class="ghost small ipa-flag-x">닫기</button><button type="button" class="btn small ipa-flag-ok" disabled>표시</button></div></div>`;
+  let kind = '';
+  const pick = k => { kind = k; ov.querySelectorAll('[data-k]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.k === k))); ov.querySelector('.ipa-flag-ok').disabled = !k; };
+  const close = () => { ov.remove(); document.removeEventListener('keydown', key, true); ipaFlagMount(); if (typeof focusAnswerInput === 'function') focusAnswerInput(); };
+  const save = () => { if (!kind) return; const r = ipaFlagSave(w, kind, ov.querySelector('.ipa-flag-note').value); close(); if (typeof catSay === 'function') catSay(r ? '표시해 뒀다고양. 고칠 건 고친다고양.' : '표시를 못 남겼다고양. 저장 공간을 보라고양.'); };
+  const key = e => { if (e.key === 'Escape') { e.preventDefault(); e.stopPropagation(); close(); } else if (e.key === 'Enter' && !e.isComposing && ov.contains(e.target) && e.target.matches('input')) { e.preventDefault(); e.stopPropagation(); save(); } };
+  ov.addEventListener('click', e => {
+    e.stopPropagation();
+    const k = e.target.closest('[data-k]');
+    if (k) pick(k.dataset.k);
+    else if (e.target.closest('.ipa-flag-ok')) save();
+    else if (e.target.closest('.ipa-flag-del')) { ipaFlagRemove(w); close(); }
+    else if (e.target === ov || e.target.closest('.ipa-flag-x')) close();
+  });
+  document.addEventListener('keydown', key, true);
+  document.body.appendChild(ov);
+  if (last.kind && (last.kind !== 'audio' || aud)) pick(last.kind); else if (!aud) pick('text');
+}
+// 누르면 저절로 넘어가지 않는다(카드 누르기 = 다음 카드인 틀과 겹치지 않게, 한자 뜻 보기와 같게)
+document.addEventListener('click', e => {
+  const b = e.target.closest && e.target.closest('#hoeCtx .ipa-flagbtn'); if (!b) return;
+  e.preventDefault(); e.stopPropagation();
+  if (typeof cancelPendingAdvance === 'function') cancelPendingAdvance();
+  ipaFlagOpen();
+}, true);
+{
+  const o = ipaOnCorrect;
+  ipaOnCorrect = function () { const r = o.apply(this, arguments); try { ipaFlagMount(); } catch (e) {} return r; };
+}
+document.addEventListener('ipa:aftercard', () => { const s = state.session; if (s && s.copyMode) ipaFlagMount(); });
+// 처음 화면: 설정 자리(배울 언어·배색·출처 단추 줄)에 표시가 있을 때만 '검수 표시 n개 · 복사'
+function ipaFlagsHome() {
+  const el = document.getElementById('ipaMap'), cr = el && el.querySelector('#ipaCreditsBtn'); if (!cr) return;
+  el.querySelector('.ipa-flagsbox')?.remove();
+  const n = ipaFlagsRead().length; if (!n) return;
+  cr.insertAdjacentHTML('beforebegin', `<div class="ipa-flagsbox"><button type="button" class="ipa-credits-btn ipa-flagscopy">검수 표시 ${n}개 · 복사</button></div>`);
+  el.querySelector('.ipa-flagscopy').onclick = e => ipaFlagsCopy(e.currentTarget);
+}
+async function ipaFlagsCopy(btn) {
+  const box = btn.closest('.ipa-flagsbox'), text = ipaFlagsExportText();
+  let ok = false;
+  try { if (navigator.clipboard && navigator.clipboard.writeText) { await navigator.clipboard.writeText(text); ok = true; } } catch (e) {}
+  if (!ok) {
+    // 클립보드를 못 쓰면 글 상자에 보이고 다 골라 둔다(모아둔 카드 '목록 복사'와 같은 방식)
+    let ta = box.querySelector('textarea');
+    if (!ta) { ta = document.createElement('textarea'); ta.className = 'saved-copy-box ipa-flags-text'; ta.readOnly = true; ta.setAttribute('aria-label', '검수 표시 JSON'); box.appendChild(ta); }
+    ta.value = text; ta.focus(); ta.select();
+    try { ok = !!(document.execCommand && document.execCommand('copy')); } catch (e) {}
+  }
+  btn.textContent = ok ? '복사했다 ✓ 주 세션에 붙여 넣기' : '아래 글을 골라 복사해줘';
+  if (!box.querySelector('.ipa-flags-clear')) {
+    box.insertAdjacentHTML('beforeend', '<button type="button" class="ipa-credits-btn ipa-flags-clear">반영했으면 비우기</button>');
+    box.querySelector('.ipa-flags-clear').onclick = () => { if (confirm('검수 표시를 다 지울까? 주 세션에 붙여 넣은 뒤에만 지운다.')) { ipaFlagsWrite([]); ipaFlagsHome(); } };
+  }
+}
+{
+  const o = ipaRenderMap;
+  ipaRenderMap = function () { const r = o.apply(this, arguments); try { ipaFlagsHome(); } catch (e) {} return r; };
+}
+
+/* I. 귀 점수: 답 기록(B)에서 센다. 듣고 이름 대기(kind listen)에서 그 카드를 처음 답한 줄(first)만, 따라 치기 줄(copy)은 빼고,
+   '확인' 카드만(빌드 자료 wordCheck의 '확인 필요'는 뺌), 최소대립 카드만(build.py earPairs: 같은 강·같은 언어 듣기에 대상 기호만 다르고 앞뒤 전사가
+   같은 낱말이 있는 카드, 26.11.27 이언이 센 귀로만 풀리는 27문항). 왜: lobo처럼 앞뒤 규칙으로 풀리는 것, 다시 한 판에서 외워 맞힌 것은 귀가 아니다(8-13 외솔).
+   시간 종료는 맞음·틀림에 넣지 않고 따로 센다(시간 종료는 오답이 아니다, 1-1). 처음 화면 각 강 줄에 '귀 n/m'(셀 것이 없으면 안 보임). */
+function ipaEarScore(rows) {
+  rows = rows || ipaTrialsRead();
+  const chk = new Set(IPA.wordCheck || []), pairs = IPA.earPairs || {}, by = {}, all = {ok: 0, n: 0, timeout: 0};
+  for (const r of rows) {
+    if (!r || r.kind !== 'listen' || !r.first || r.copy || !r.wid || !pairs[r.wid] || chk.has(r.wid)) continue;
+    const L = by[r.lesson] = by[r.lesson] || {ok: 0, n: 0, timeout: 0};
+    for (const o of [L, all]) { if (r.timeout) o.timeout++; else { o.n++; if (r.ok) o.ok++; } }
+  }
+  return {by, all};
+}
+function ipaEarTiles() {
+  const btns = [...document.querySelectorAll('#lessonGrid .lessonbtn:not(.saved-home)')];
+  if (btns.length !== state.lessons.length) return;
+  const {by} = ipaEarScore();
+  btns.forEach((b, i) => {
+    b.querySelector('.ipa-ear')?.remove();
+    const e = by[state.lessons[i].lesson], m = b.querySelector('.lmeta');
+    if (!e || !(e.n + e.timeout) || !m) return;
+    m.insertAdjacentHTML('beforeend', `<span class="ipa-ear" title="귀 점수: 최소대립 듣기 카드를 처음 들었을 때 맞힌 수('확인' 카드만, 시간 종료는 따로)"> · 귀 ${e.ok}/${e.n}${e.timeout ? ` · 시간 ${e.timeout}` : ''}</span>`);
+  });
+}
+/* 자질별 맞음(기록 화면용, 화면은 나중에): 친 이름을 정답 이름과 낱말 무리별로 견준다. 자음은 목청(voice)·자리(place)·방법(manner),
+   모음은 높이(height)·앞뒤(backness)·입술(rounding). 무리는 data/terms.json의 group. 친 글과 가장 많이 겹치는 정답 이름에 견주고
+   (ipaMyAnswerHtml과 같게), 그 무리의 낱말이 정답과 다 같으면 맞음. 시간 종료·따라 치기·빈 답은 뺀다. 이름으로 못 읽은 글은 skipped. */
+const IPA_FEAT_GROUPS = ['voice', 'place', 'manner', 'height', 'backness', 'rounding'];
+let ipaFeatMap = null;
+function ipaFeatTokGroups() {
+  if (ipaFeatMap) return ipaFeatMap;
+  const ko = {}, en = {};
+  ipaKoTokens('');  // 낱말 사전과 줄인 이름 동의어를 먼저 만든다
+  for (const t of Object.values(IPA.terms || {})) {
+    if (!IPA_FEAT_GROUPS.includes(t.group)) continue;
+    const full = t.ko.replace(/\s/g, '');
+    for (const k of [full, t.short, IPA_NAME_SYN[full], ...(ipaKoTokens(t.ko) || [])]) if (k && !ko[k]) ko[k] = t.group;
+    for (const x of ipaEnTok(String(t.en || '').replace(/\(.*?\)/g, ''))) if (x !== 'or' && x !== 'and' && !en[x]) en[x] = t.group;
+  }
+  return ipaFeatMap = {ko, en};
+}
+function ipaFeatureScore(rows, kinds = ['listen', 'blank']) {
+  rows = rows || ipaTrialsRead();
+  const M = ipaFeatTokGroups(), groups = {};
+  IPA_FEAT_GROUPS.forEach(g => groups[g] = {ok: 0, n: 0});
+  let used = 0, skipped = 0;
+  for (const r of rows) {
+    if (!r || r.copy || r.timeout || !kinds.includes(r.kind) || !String(r.typed || '').trim()) continue;
+    const cat = (typeof savedCatalog !== 'undefined' && savedCatalog.get) ? savedCatalog.get(r.key) : null;
+    const names = (cat && cat.word.names) || (IPA.symbols[r.sym] || {}).answers || [];
+    const raw = String(r.typed), isKo = /[가-힣]/.test(raw);
+    const typed = isKo ? ipaKoTokens(raw.replace(/[^가-힣]/g, '')) : ipaEnTok(raw);
+    if (!names.length || !typed || !typed.length) { skipped++; continue; }
+    const map = isKo ? M.ko : M.en;
+    const grp = toks => { const o = {}; for (const t of toks) { const g = map[t]; if (g) (o[g] = o[g] || []).push(t); } for (const g in o) o[g] = o[g].sort().join(' '); return o; };
+    let best = [], bestN = -1;
+    for (const pr of names) { const ref = isKo ? (ipaKoTokens(pr.ko) || []) : ipaEnTok(pr.en), n = typed.filter(t => ref.includes(t)).length; if (n > bestN) { best = ref; bestN = n; } }
+    const tg = grp(typed), ag = grp(best);
+    used++;
+    for (const g of Object.keys(ag)) { groups[g].n++; if (tg[g] === ag[g]) groups[g].ok++; }
+  }
+  return {groups, used, skipped};
+}
+
+/* C. 새 카드·복습 판(영신 "둘 다"). 처음 화면 맨 위 시작 단추 밑에 '새 카드 n장'·'복습 n장'(둘 다 0이면 줄이 없다).
+   - 새 카드: 지금 고른 언어 안에서, 그 열쇠로 답한 기록이 한 번도 없는 카드 가운데 '끝낸 판'(getRec completed)에 있는 것 = 끝낸 판·강에 새로 더해진 카드.
+     영신 말은 '한 번이라도 시작한 강'인데, 시작만 하고 아직 안 끝낸 판의 카드까지 넣으면 그 강을 하면서 만날 카드가 새 카드 판에 다 들어와
+     강과 겹친다. 그래서 판 단위로 끝낸 것만 본다(Claude 판단). 아직 안 해 본 강·판의 카드는 그 강에서 만난다.
+     답 기록은 26.11.27 f30e9ed부터라 그 전에 끝낸 판의 카드는 기록이 없다: 처음 셀 때 한 번 그때 끝나 있던 판의 카드를 '본 카드'로 적어 둔다
+     (ipagoyang-newbase-v1, 언어 고르기와 상관없이 전체). 기록 직전에 끝낸 판에 더한 카드(build.py CARDS_ADDED_BEFORE_LOG, 고전어 48장 등)는 거기서 뺀다.
+   - 복습: 열쇠마다 하루 단위로 본다. 그날 처음 낸 답이 맞으면(시간 종료 아님) 그날은 맞은 날. 끝에서부터 연속으로 맞은 날 수에 따라
+     간격 1·3·7·21·60일, 마지막 날이 틀렸으면 1일. 마지막으로 답한 날 + 간격이 오늘이거나 지났으면 오늘 볼 카드. 고른 언어 안에서 강을 섞는다.
+     (같은 날 2회독에서 다시 맞힌 것은 그날 배운 것이라 간격을 늘리지 않는다.) 간격은 기록이 몇 주 쌓인 뒤 맞춘다(8-13 이언).
+   - 한 판 최대 20장. 판은 틀의 모아둔 카드 판(state.savedLesson, kind 'saved')과 같은 길로 연다: 틀의 연습 화면·회독·따라 치기·답 기록·듣기 가리기(H)가
+     그대로고, 'saved' 판이라 완벽 연속·익힌 낱말·진행 속도에 들어가지 않는다. 강 진도(setRec)와 이어 하기(saveLast)는 이 판 이름이면 남기지 않는다. */
+const IPA_PLAY_MAX = 20, IPA_PLAY_IDS = {new: '새 카드', review: '복습'}, IPA_NEWBASE_KEY = 'ipagoyang-newbase-v1';
+const IPA_REVIEW_DAYS = [1, 3, 7, 21, 60];
+function ipaExDone(lid, title) { try { return !!(getRec(lid, title) || {}).completed; } catch (e) { return false; } }
+function ipaCardKey(w) { return (w && (w.savedCardId || w.savedId)) || ''; }
+function ipaNewBase() {
+  try { const v = JSON.parse(localStorage.getItem(IPA_NEWBASE_KEY) || 'null'); if (v && Array.isArray(v.keys)) return new Set(v.keys); } catch (e) {}
+  try { ipaMigrateTitles(); } catch (e) {}  // 옛 판 이름의 끝낸 기록을 먼저 지금 판에 옮긴다
+  const skip = new Set(IPA.cardsAdded || []), keys = [];
+  try {
+    for (const L of DATA) {
+      const lid = String(L.lesson).padStart(2, '0') + '강';
+      for (const e of L.exercises) if (ipaExDone(lid, e.title)) for (const w of e.words) if (w.savedId && !skip.has(w.savedId)) keys.push(w.savedId);
+    }
+  } catch (e) {}
+  try { localStorage.setItem(IPA_NEWBASE_KEY, JSON.stringify({t: Date.now(), keys})); } catch (e) {}
+  return new Set(keys);
+}
+function ipaNewCards() {
+  const seen = new Set(ipaTrialsRead().map(r => r && r.key)), base = ipaNewBase(), out = [];
+  for (const L of state.lessons) for (const e of visEx(L)) {
+    if (!ipaExDone(L.id, e.title)) continue;
+    for (const w of e.words) { const k = ipaCardKey(w); if (k && !seen.has(k) && !base.has(k)) out.push(w); }
+  }
+  return out;
+}
+function ipaDay(t) { const d = new Date(t); return new Date(d.getFullYear(), d.getMonth(), d.getDate()).getTime(); }
+function ipaAddDays(day, n) { const d = new Date(day); return new Date(d.getFullYear(), d.getMonth(), d.getDate() + n).getTime(); }
+function ipaReviewInfo(rows, now = Date.now()) {
+  const days = new Map();
+  for (const r of (rows || []).filter(x => x && Number(x.t) > 0).sort((a, b) => a.t - b.t)) {
+    if (r.copy || !r.key) continue;
+    const dm = days.get(r.key) || new Map(), d = ipaDay(r.t);
+    if (!dm.has(d)) dm.set(d, !!r.ok && !r.timeout);
+    days.set(r.key, dm);
+  }
+  const out = new Map(), today = ipaDay(now);
+  for (const [key, dm] of days) {
+    let streak = 0, last = 0;
+    for (const [d, ok] of [...dm].sort((a, b) => a[0] - b[0])) { streak = ok ? streak + 1 : 0; last = d; }
+    const gap = streak ? IPA_REVIEW_DAYS[Math.min(streak, IPA_REVIEW_DAYS.length) - 1] : 1, due = ipaAddDays(last, gap);
+    out.set(key, {last, streak, gap, due, isDue: due <= today});
+  }
+  return out;
+}
+function ipaDueCards(now) {
+  const info = ipaReviewInfo(ipaTrialsRead(), now), out = [];
+  for (const L of state.lessons) for (const e of visEx(L)) for (const w of e.words) { const i = info.get(ipaCardKey(w)); if (i && i.isDue) out.push({w, due: i.due}); }
+  return out.sort((a, b) => a.due - b.due).map(x => x.w);
+}
+function ipaPlayOpen(kind) {
+  let words = kind === 'new' ? ipaNewCards() : kind === 'review' ? ipaDueCards() : [];
+  if (!words.length) return false;
+  words = words.slice(0, IPA_PLAY_MAX);
+  if (kind === 'review') words = shuffle(words);  // 기한이 가장 지난 20장을 골라 강을 섞는다
+  try { stopTicker(); } catch (e) {}
+  state.session = null;
+  const id = IPA_PLAY_IDS[kind];
+  state.savedLesson = {id, kind: 'saved', ipaPlay: kind, name: '', exercises: [{title: `${id} ${words.length}장`, ex: 1, scope: '2026', words}]};
+  state.ei = 0;
+  const t = document.getElementById('lessonTitle'); if (t) t.textContent = id;
+  startExercise(0);
+  return true;
+}
+function ipaPlayRenderList(L) {
+  const list = document.getElementById('exList'); if (!list) return true;
+  list.innerHTML = ''; list.classList.remove('saved-mode');
+  document.getElementById('lessonTitle').textContent = L.id;
+  document.getElementById('lessonMeta').textContent = (L.ipaPlay === 'new' ? '끝낸 판에 새로 더해진 카드' : '오늘 다시 볼 카드') + ' · 강 진도는 그대로';
+  L.exercises.forEach((ex, i) => {
+    const b = document.createElement('button'); b.type = 'button'; b.className = 'exbtn';
+    b.innerHTML = `<span class="t">${ipaEsc(ex.title)}</span><span class="meta">${ex.words.length}개 · 다시 학습 ▶</span>`;
+    b.onclick = () => startExercise(i); list.appendChild(b);
+  });
+  return true;
+}
+function ipaPlaysHome() {
+  const home = document.getElementById('homeScreen'); if (!home) return;
+  home.querySelector('.ipa-plays')?.remove();
+  let nNew = 0, nDue = 0;
+  try { nNew = ipaNewCards().length; nDue = ipaDueCards().length; } catch (e) {}
+  if (!nNew && !nDue) return;
+  const rb = document.getElementById('resumeBtn'), at = rb && !rb.hidden ? rb : home.querySelector('.catrow'); if (!at) return;
+  at.insertAdjacentHTML('afterend', `<div class="ipa-plays"><button type="button" class="ipa-playbtn" data-play="new"${nNew ? '' : ' disabled'}>새 카드 <b>${nNew}</b>장</button><button type="button" class="ipa-playbtn" data-play="review"${nDue ? '' : ' disabled'}>복습 <b>${nDue}</b>장</button></div>`);
+  home.querySelectorAll('.ipa-playbtn').forEach(b => b.onclick = () => ipaPlayOpen(b.dataset.play));
+}
+// 틀 함수는 덧붙임보다 뒤에 실리므로 DOMContentLoaded 때 감싼다. 위 ipaHomeTop·진도 옮김보다 뒤에 등록해 그 뒤에 돈다
+document.addEventListener('DOMContentLoaded', () => {
+  const isPlay = lid => lid === IPA_PLAY_IDS.new || lid === IPA_PLAY_IDS.review;
+  if (typeof setRec === 'function') { const o = setRec; setRec = function (lid) { if (isPlay(lid)) return; return o.apply(this, arguments); }; }
+  if (typeof saveLast === 'function') { const o = saveLast; saveLast = function (lid) { if (isPlay(lid)) return; return o.apply(this, arguments); }; }
+  if (typeof savedRenderList === 'function') { const o = savedRenderList; savedRenderList = function () { const L = state.savedLesson; return L && L.ipaPlay ? ipaPlayRenderList(L) : o.apply(this, arguments); }; }
+  if (typeof finishExercise === 'function') {
+    const o = finishExercise;
+    finishExercise = function () {
+      const s = state.session, p = s && s.lesson && s.lesson.ipaPlay, r = o.apply(this, arguments);
+      const h = document.getElementById('sumTitle'); if (p && h) h.textContent = p === 'new' ? '새 카드 끝 ✦' : '복습 끝 ✦';
+      return r;
+    };
+  }
+  if (typeof renderHome === 'function') {
+    const o = renderHome;
+    renderHome = function () { const r = o.apply(this, arguments); try { ipaPlaysHome(); ipaEarTiles(); } catch (e) {} return r; };
+  }
+  // 검수 표시도 기록 옮기기에서 두 기기 것을 합친다(같은 표시는 한 번)
+  if (typeof rtMerge === 'function') {
+    const o = rtMerge;
+    rtMerge = function (local, incoming) {
+      const m = o.apply(this, arguments);
+      try {
+        const a = local && local[IPA_FLAGS_KEY], b = incoming && incoming[IPA_FLAGS_KEY];
+        if (typeof a === 'string' && typeof b === 'string') { const v = ipaFlagsMerge(a, b); if (v !== null) m.writes[IPA_FLAGS_KEY] = v; else delete m.writes[IPA_FLAGS_KEY]; }
+      } catch (e) {}
+      return m;
+    };
+  }
+  setTimeout(() => { try { ipaPlaysHome(); ipaEarTiles(); } catch (e) {} }, 0);
+});

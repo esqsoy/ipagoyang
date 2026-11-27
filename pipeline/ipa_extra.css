@@ -274,3 +274,26 @@ html[data-pal="chalk"]{--panel-rgb:18,37,28;--bg1-rgb:14,28,22;--bg1:#0e1c16;--b
 /* 같은 날 영신 "별밤 효과 … 그것도 없애자 그라데이션도 없애고": 별 점(body::before)과 세로 그라데이션도 빼고 한 가지 색 */
 body{background:var(--bg2)}
 body::before{display:none;animation:none}
+/* 놀면서 검수·귀 점수·새 카드와 복습 판(PRINCIPLES 8-13 D·I·C). 레이아웃을 아낀다(8-3 26.11.20): 답한 뒤에만 작은 표시 하나 */
+.ipa-flagrow{position:relative;z-index:3;display:flex;justify-content:flex-end;margin:4px 0 0}
+.ipa-flagbtn{font:inherit;font-size:.68rem;font-weight:800;min-height:26px;padding:2px 9px;border:1px solid var(--line);border-radius:999px;background:transparent;color:var(--muted);cursor:pointer;opacity:.8}
+.ipa-flagbtn[aria-pressed="true"]{border-color:var(--gold);color:var(--gold);opacity:1}
+.ipa-flag-in{max-width:24rem;width:100%;display:grid;gap:10px;font-size:.9rem}
+.ipa-flag-kinds{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.ipa-flag-kinds button{font:inherit;font-weight:800;font-size:.86rem;min-height:48px;padding:6px 8px;border-radius:10px;border:2px solid var(--line);background:var(--panel2);color:var(--ink,#fff);cursor:pointer;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:2px}
+.ipa-flag-kinds button small{font-size:.66rem;color:var(--muted);font-weight:700}
+.ipa-flag-kinds button[aria-pressed="true"]{border-color:var(--gold);background:rgba(var(--gold-rgb),.14)}
+.ipa-flag-kinds button:only-child{grid-column:1/-1}
+.ipa-flag-note{font:inherit;font-size:16px;min-height:42px;padding:6px 10px;border-radius:10px;border:2px solid var(--line);background:#160a24;color:#fff;width:100%;box-sizing:border-box}
+.ipa-flag-act{display:flex;gap:8px;justify-content:flex-end}
+.ipa-flag-act .btn.small{min-height:36px;padding:0 16px;font-size:.86rem}
+.ipa-flag-act .btn:disabled{opacity:.45;cursor:default}
+.ipa-flagsbox{display:flex;flex-wrap:wrap;justify-content:center;gap:6px;margin-top:10px}
+.ipa-flagsbox .ipa-credits-btn{margin:0}
+.ipa-flagscopy{border-color:var(--gold)!important;color:var(--gold)!important}
+.ipa-flags-text{flex-basis:100%;min-height:8rem;font-size:.7rem}
+.ipa-plays{display:flex;gap:8px;margin:0 13px 10px}
+.ipa-playbtn{flex:1;font:inherit;font-size:.86rem;font-weight:800;min-height:40px;padding:4px 8px;border-radius:11px;border:2px solid var(--line);background:var(--panel2);color:var(--ink,#fff);cursor:pointer}
+.ipa-playbtn b{color:var(--gold)}
+.ipa-playbtn:disabled{opacity:.4;cursor:default}
+.ipa-ear{color:var(--cyan);font-weight:800;white-space:nowrap}

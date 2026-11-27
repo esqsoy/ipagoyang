@@ -50,6 +50,22 @@ def source_checks():
     return errs
 
 
+# 끝낸 판에 나중에 더한 카드(PRINCIPLES 8-13 C '새 카드'). 답 기록(ipagoyang-trials-v1)은 26.11.27 f30e9ed부터라 그 전에 끝낸 판의 카드는
+# 기록이 없다. 그래서 '새 카드'를 처음 셀 때 그때 끝나 있던 판의 카드를 '이미 본 카드'로 한 번 적어 두는데(ipa_extra.js ipaNewBase),
+# 아래 카드는 거기서 뺀다: 기록이 생기기 직전에 끝낸 판에 더해져 진도 옮김(ipaMigrateTitles)으로 '끝낸 판'에 묻힌 카드라서다.
+# 낱말 id(듣기·전사 카드)와 기호(이름 대기 카드). git으로 두 커밋 앞뒤 묶음의 낱말 id를 견줘 뽑았다(26.11.27 Claude).
+# 기록이 생긴 뒤에 더하는 카드는 기록만으로 새 카드가 되므로 여기 적지 않아도 된다.
+CARDS_ADDED_BEFORE_LOG = [
+    ('0165bb4 스페인어 변종', ['es-algo', 'es-calle-ar', 'es-carga', 'es-cinco-s', 'es-mismo', 'es-verde', 'es-yo-ar'], []),
+    ('fe29a8e 고전어 1~3강', ['ecc-bonus', 'ecc-corpus', 'ecc-deus', 'ecc-gloria', 'ecc-pater', 'ecc-terra', 'grc-basileus', 'grc-doron', 'grc-ge',
+                         'grc-kharis', 'grc-kosmos', 'grc-pater', 'grc-philos', 'grc-teknon', 'grc-theos', 'koi-bios', 'koi-doxa', 'koi-kardia',
+                         'koi-kharis', 'koi-lambano', 'koi-logos', 'koi-pater', 'koi-phos', 'koi-spongos', 'koi-teknon', 'koi-theos', 'la-bellum',
+                         'la-caesar', 'la-chorus', 'la-deus', 'la-gallia', 'la-pater', 'la-philosophia', 'la-pulcher', 'la-terra', 'la-theatrum',
+                         'sa-bala', 'sa-bhumi', 'sa-deva', 'sa-dharma', 'sa-ghosa', 'sa-guru', 'sa-kala', 'sa-pada', 'sa-phala', 'sa-ratha',
+                         'sa-sukha', 'sa-tapas'], ['bʱ', 'dʱ', 'ɡʱ']),
+]
+
+
 def build(inline=False):
     sy = rd('data', 'symbols.json')
     terms = rd('data', 'terms.json')['terms']
@@ -132,6 +148,7 @@ def build(inline=False):
     # 카드 열쇠(PRINCIPLES 8-13 A, 26.11.27): 모아둔 카드·답 기록이 가리키는 이름. 자리 번호(강·연습·판 안 순서) 대신
     # '연습 종류:낱말 id'(이름 대기는 'name-ko:기호'·'name-en:기호')라 언어 고르기·판 나눔·카드 추가로 바뀌지 않는다. 틀이 w.savedId로 받는다
     saved_ids = {}
+    ear_pairs = {}
     bundle_lines = {k: [] for k in ['welcome', 'correct', 'correctStreak', 'wrong', 'timeout', 'exerciseDone', 'allDone']}
     lesson_lines = {}
 
@@ -193,6 +210,14 @@ def build(inline=False):
             lis.append((w, ctx, ''.join(wd['ipa']), wd['audio']))
         # 같은 '뜻' 줄이 여럿이면 틀의 발음 찾기가 섞인다: 낱말이 들어가 있어 겹치지 않는다
         assert len({item[0]['ko'] for item in lis}) == len(lis), '듣고 이름 대기 뜻 줄이 겹친다'
+        # 귀 점수(PRINCIPLES 8-13 I)의 '최소대립': 같은 강·같은 언어의 듣기 카드 가운데 대상 기호만 다르고 앞뒤 전사가 같은 낱말이 있는 카드.
+        # 26.11.27 이언이 센 '귀로만 풀리는 27문항'(듣기 197)과 같은 셈이다. 짝 낱말 id를 적는다
+        lis_words = [wd for wd in b['words'] if any(item[0]['wid'] == wd['id'] for item in lis)]
+        for wd in lis_words:
+            mates = [o['id'] for o in lis_words if o is not wd and o['lang'] == wd['lang'] and o['target'] != wd['target']
+                     and o['ipa'][0] == wd['ipa'][0] and o['ipa'][2] == wd['ipa'][2]]
+            if mates:
+                ear_pairs[wd['id']] = mates
 
         # 4. 전사 빈칸: 원문 자리에 전사, 빈칸에 대상 기호
         bl = []
@@ -249,6 +274,11 @@ def build(inline=False):
 
     for k in examples:
         examples[k].sort(key=lambda e: e['o'])
+    cards_added = []
+    for _, wids, syms in CARDS_ADDED_BEFORE_LOG:
+        keys = [f'{k}:{x}' for x in wids for k in ('listen', 'blank')] + [f'name-{m}:{x}' for x in syms for m in ('ko', 'en')]
+        assert all(x in word_target for x in wids) and all(x in sy['symbols'] for x in syms), ('CARDS_ADDED_BEFORE_LOG에 없는 낱말·기호', wids, syms)
+        cards_added += [k for k in keys if k in saved_ids]
     # 고양이 대사: 시리즈 공통 + 묶음들의 대사(묶음마다 다른 시작 대사는 넣지 않는다: 다른 강에서도 나오므로)
     lines = {k: list(series.get(k, [])) for k in ['welcome', 'start', 'correct', 'correctStreak', 'wrong', 'timeout', 'exerciseDone', 'lessonDone', 'allDone']}
     # 처음 화면 인사는 모든 강의 대사를 섞고, 카드·결과 대사는 시리즈 공통 + 그 강 것만(ipa_extra.js ipaLinesFor)
@@ -262,6 +292,8 @@ def build(inline=False):
         'wordAudio': word_audio_map, 'wordTarget': word_target, 'byWord': by_word,
         # 26.11.26 영신: 확인 필요 카드도 넣되 학습자에게 '확인 필요'라고 보인다(PRINCIPLES 2-3)
         'wordCheck': [wd['id'] for b in bundles for wd in b['words'] if wd.get('status') == '확인 필요'],
+        # 귀 점수의 최소대립 카드(낱말 id → 짝 낱말 id), 새 카드 셈에서 처음 기준에 넣지 않는 카드 열쇠(CARDS_ADDED_BEFORE_LOG)
+        'earPairs': ear_pairs, 'cardsAdded': cards_added,
         # 언어 고르기에 보일 언어: 묶음에 낱말이 있는 언어만, 한국어·영어·스페인어·그 밖 차례
         'langs': [{'id': l, 'ko': langs[l]['ko']} for l in lang_order if any(wd['lang'] == l for b in bundles for wd in b['words'])],
         'bundles': bundles_lit,

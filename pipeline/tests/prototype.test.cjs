@@ -195,6 +195,129 @@ const ok = (c, m) => { console.log((c ? 'PASS ' : 'FAIL ') + m); if (!c) fails++
     const same = rtMerge({ [K]: JSON.stringify([r(1, 'a')]) }, { [K]: JSON.stringify([r(1, 'a')]) });
     return v.map(x => x.t).join() === '1,2,3,4' && v.map(x => x.first).join() === 'true,false,true,true' && !(K in same.writes); }), '기록 옮기기: 답 기록을 합침');
 
+  // 26.11.27(PRINCIPLES 8-13 C): 복습 기한(하루 단위, 그날 첫 답, 1·3·7·21·60일, 틀리면 1일)
+  ok(await page.evaluate(() => {
+    const now = new Date(2026, 10, 27, 12).getTime(), D = (n, h = 10) => new Date(2026, 10, 27 - n, h).getTime();
+    const r = (key, t, ok, o = {}) => ({ t, key, ok, timeout: false, copy: false, ...o });
+    const info = ipaReviewInfo([r('a', D(1), true), r('b', D(0), true), r('c', D(4), true), r('c', D(3), true), r('d', D(3), true), r('d', D(2), true),
+      r('e', D(1, 9), false), r('e', D(1, 11), true), ...[10, 9, 8, 7, 6, 5].map(n => r('f', D(n), true)), r('g', D(1), false), r('g', D(1, 11), true, { copy: true }),
+      r('h', D(2), false, { timeout: true })], now);
+    const g = k => info.get(k);
+    return g('a').isDue && g('a').gap === 1 && !g('b').isDue && g('c').gap === 3 && g('c').isDue && !g('d').isDue && g('e').streak === 0 && g('e').gap === 1 && g('e').isDue
+      && g('f').gap === 60 && g('g').streak === 0 && g('h').isDue && g('h').streak === 0;
+  }), '복습 기한 계산(간격·틀리면 1일·같은 날 다시 맞힘은 안 늘림·따라 치기 줄 무시)');
+  // 8-13 I: 귀 점수는 듣기·처음 답·따라 치기 아님·확인 카드·최소대립만, 시간 종료는 따로
+  ok(await page.evaluate(() => {
+    const pw = Object.keys(IPA.earPairs), np = Object.keys(IPA.wordTarget).find(w => !IPA.earPairs[w]), ck = (IPA.wordCheck || [])[0];
+    const r = (wid, o) => ({ t: 1, key: 'listen:' + wid, kind: 'listen', lesson: 1, wid, first: true, copy: false, ok: true, timeout: false, ...o });
+    IPA.earPairs[ck] = ['x'];
+    const s = ipaEarScore([r(pw[0], {}), r(pw[1], { ok: false }), r(pw[2], { ok: false, timeout: true }), r(pw[0], { first: false }), r(pw[1], { copy: true }),
+      r(np, {}), r(ck, {}), { ...r(pw[0], {}), kind: 'blank', key: 'blank:' + pw[0] }]);
+    delete IPA.earPairs[ck];
+    return pw.length === 27 && JSON.stringify(s.by[1]) === JSON.stringify({ ok: 1, n: 2, timeout: 1 }) && s.all.n === 2;
+  }), '귀 점수 계산 사례(최소대립 27장 중 처음 답만, 시간 종료 따로, 확인 필요 뺌)');
+  // 자질별 맞음(기록 화면용 함수)
+  ok(await page.evaluate(() => {
+    const r = (key, sym, typed) => ({ t: 1, key, kind: 'blank', sym, typed, ok: false, copy: false, timeout: false });
+    const f = ipaFeatureScore([r('blank:ko-bul', 'p', '유성 양순 파열음'), r('blank:ko-bul', 'p', 'voiceless alveolar plosive'), r('blank:x', 'i', '전설 원순 고모음')]).groups;
+    const e = (g, ok, n) => f[g].ok === ok && f[g].n === n;
+    return e('voice', 1, 2) && e('place', 1, 2) && e('manner', 2, 2) && e('height', 1, 1) && e('backness', 1, 1) && e('rounding', 0, 1);
+  }), '자질별 맞음(목청·자리·방법 / 높이·앞뒤·입술)');
+
+  // 8-13 C 새 카드: 기록이 생기기 전에 끝낸 판은 처음 한 번 '본 카드'로 적되(기록 직전에 더한 카드는 빼고), 그 뒤 끝낸 판에 기록 없는 카드는 새 카드
+  ok(await page.evaluate(() => ipaNewCards().length === 0), '처음에는 새 카드 0(끝낸 판 카드는 다 답 기록이 있음)');
+  const nb = await page.evaluate(() => {
+    const L = state.lessons[0], seen = new Set(ipaTrialsRead().map(r => r.key)), add = new Set(IPA.cardsAdded);
+    const ex = L.exercises.filter(e => e.title.startsWith('전사 빈칸'));
+    state.progress[L.id] = state.progress[L.id] || {};
+    ex.forEach(e => { state.progress[L.id][e.title] = { completed: true, bestMs: 1, lastMs: 1, attempts: 1, errors: 0, first: 100 }; });
+    saveProgress(); localStorage.removeItem('ipagoyang-newbase-v1');
+    return ex.flatMap(e => e.words).filter(w => add.has(w.savedCardId) && !seen.has(w.savedCardId)).length;
+  });
+  await page.reload(); await page.waitForTimeout(900);
+  const nb2 = await page.evaluate(() => ({ n: ipaNewCards().length, base: JSON.parse(localStorage.getItem('ipagoyang-newbase-v1')).keys, add: IPA.cardsAdded, btn: (document.querySelector('.ipa-playbtn[data-play="new"]') || {}).textContent || '' }));
+  ok(nb > 0 && nb2.n === nb && nb2.base.length > 0 && !nb2.base.some(k => nb2.add.includes(k)) && nb2.btn.includes(String(nb)), `기록 전 끝낸 판: 기록 직전에 더한 카드(고전어 등)만 새 카드 ${nb2.n}/${nb}장`);
+  const nAdd = await page.evaluate(() => {
+    const L = state.lessons[0], e = L.exercises.find(x => x.title === '이름 대기 · 한국어'), rows = ipaTrialsRead();
+    state.progress[L.id][e.title] = { completed: true, bestMs: 1, lastMs: 1, attempts: 1, errors: 0, first: 100 }; saveProgress();
+    // 판을 끝낸 뒤 카드 둘이 더해졌다고 친다: 그 둘만 답 기록이 없다
+    e.words.slice(0, -2).forEach((w, i) => rows.push({ t: Date.now() - 1000 + i, key: w.savedCardId, kind: 'name-ko', lesson: 1, lang: null, wid: null, sym: w.sym, audio: null, typed: w.term, ok: true, timeout: false, copy: false, first: !rows.some(r => r.key === w.savedCardId) }));
+    ipaTrialsWrite(rows); return e.words.slice(-2).map(w => w.savedCardId);
+  });
+  await page.reload(); await page.waitForTimeout(900);
+  const nc = await page.evaluate(() => ipaNewCards().map(w => w.savedCardId));
+  ok(nc.length === nb + 2 && nAdd.every(k => nc.includes(k)), `끝낸 강에 더한 카드를 셈: ${nb} + 2 = ${nc.length}`);
+  // 새 카드 판: 틀의 연습 화면으로 열고, 한 장 풀면 답 기록이 남고, 강 진도·이어 하기는 그대로
+  const prog0 = await page.evaluate(() => JSON.stringify(state.progress) + '|' + localStorage.getItem('ipagoyang-seoul-last-v1'));
+  await page.locator('.ipa-playbtn[data-play="new"]').click(); await page.waitForTimeout(1200);
+  const nsess = await page.evaluate(() => ({ play: state.session.lesson.ipaPlay, n: state.session.words.length, game: document.getElementById('gameScreen').classList.contains('active'), w: state.session.words[state.session.currentId] }));
+  ok(nsess.play === 'new' && nsess.game && nsess.n === Math.min(20, nb + 2), `새 카드 판이 틀의 연습 화면으로 열림(${nsess.n}장)`);
+  await page.locator('#ainput').fill(nsess.w.names[0].ko); await page.waitForTimeout(800);
+  const nrow = await page.evaluate(() => ({ row: ipaTrialsRead().pop(), answered: state.session.answered }));
+  ok(nrow.answered && nrow.row.key === nsess.w.savedCardId && nrow.row.ok && nrow.row.first, '새 카드 판에서 한 장 풀면 답 기록 한 줄 ' + nrow.row.key);
+  await page.evaluate(() => { cancelPendingAdvance(); setRec('새 카드', state.session.exercise.title, { timeMs: 1, attempts: 1, errors: 0, first: 100 }); saveLast('새 카드', 'x'); });
+  await page.locator('#exitBtn').click(); await page.waitForTimeout(300);
+  const lst = await page.evaluate(() => ({ title: document.getElementById('lessonTitle').textContent, n: document.querySelectorAll('#exList .exbtn').length, p: JSON.stringify(state.progress) + '|' + localStorage.getItem('ipagoyang-seoul-last-v1') }));
+  ok(lst.title === '새 카드' && lst.n === 1 && lst.p === prog0, '새 카드 판은 강 진도(getRec)·이어 하기를 바꾸지 않음');
+  await page.goto(base); await page.waitForTimeout(900);
+  ok(await page.evaluate(n => ipaNewCards().length === n - 1, nb + 2), '푼 카드는 새 카드에서 빠짐');
+
+  // 8-13 C 복습 판: 기한이 된 듣기 카드 하나 → 열면 듣기 가리기(H) 그대로, 맞히면 기록, 오늘은 더 안 나옴
+  const due = await page.evaluate(() => {
+    const seen = new Set(ipaTrialsRead().map(r => r.key));
+    const w = state.lessons[1].exercises.flatMap(e => e.words).find(x => x.listen && !seen.has(x.savedCardId));
+    const rows = ipaTrialsRead(); rows.push({ t: Date.now() - 2 * 86400000, key: w.savedCardId, kind: 'listen', lesson: w.b, lang: w.lang, wid: w.wid, sym: ipaSymOf(w), audio: null, typed: w.term, ok: true, timeout: false, copy: false, first: true });
+    ipaTrialsWrite(rows); return w.savedCardId;
+  });
+  await page.reload(); await page.waitForTimeout(900);
+  ok(await page.evaluate(() => ipaDueCards().length === 1 && document.querySelector('.ipa-playbtn[data-play="review"]').textContent.includes('1')), '복습 1장(이틀 전에 맞힌 카드, 간격 1일)');
+  await shot('t08-home-plays');
+  await page.locator('.ipa-playbtn[data-play="review"]').click(); await page.waitForTimeout(1500);
+  const rv = await page.evaluate(() => ({ play: state.session.lesson.ipaPlay, w: state.session.words[state.session.currentId], masked: !!document.querySelector('#hoeCtx .mt-source.ipa-masked'), src: document.querySelector('#hoeCtx .mt-source').textContent }));
+  ok(rv.play === 'review' && rv.w.savedCardId === due && rv.masked && /^\[[\s·]*\]$/.test(rv.src), '복습 판의 듣기 카드도 답 전에 전사를 가림 ' + rv.src);
+  await page.locator('#ainput').fill(rv.w.names[0].ko); await page.waitForTimeout(800);
+  const rrow = await page.evaluate(() => ipaTrialsRead().pop());
+  ok(rrow.key === due && rrow.ok && !rrow.first, '복습 판에서 맞힌 답 기록');
+
+  // 8-13 D 놀면서 검수: 답한 뒤에만 작은 표시, 누르면 넘어가지 않고 고르는 창, 저장
+  ok(await page.locator('#hoeCtx .ipa-flagbtn').count() === 1, '맞힌 뒤 검수 표시 단추');
+  await page.locator('#hoeCtx .ipa-flagbtn').click(); await page.waitForTimeout(200);
+  ok(await page.locator('.ipa-flagdlg [data-k="audio"]').count() === 1 && await page.locator('.ipa-flagdlg [data-k="text"]').count() === 1, '듣기 카드: 녹음 이상·전사·이름 이상');
+  await page.locator('.ipa-flagdlg [data-k="audio"]').click(); await page.locator('.ipa-flag-note').fill('끝이 잘림');
+  await shot('t09-flag-dialog');
+  await page.waitForTimeout(2600);
+  ok(await page.evaluate(() => document.getElementById('gameScreen').classList.contains('active') && state.session.answered), '표시 창을 여는 동안 저절로 넘어가지 않음');
+  await page.locator('.ipa-flag-ok').click(); await page.waitForTimeout(200);
+  const fl = await page.evaluate(() => ({ f: JSON.parse(localStorage.getItem('ipagoyang-flags-v1') || '[]'), aud: ipaCardAud.id, btn: document.querySelector('#hoeCtx .ipa-flagbtn').textContent }));
+  ok(fl.f.length === 1 && fl.f[0].kind === 'audio' && fl.f[0].key === due && fl.f[0].wid === rv.w.wid && fl.f[0].audio === fl.aud && fl.f[0].note === '끝이 잘림' && fl.btn.includes('표시함'), '검수 표시 저장 ' + JSON.stringify(fl.f[0]));
+  await shot('t09-flag-saved');
+  await page.goto(base); await page.waitForTimeout(900);
+  ok(await page.evaluate(() => ipaDueCards().length === 0), '오늘 복습한 카드는 오늘 다시 안 나옴');
+  const fb = page.locator('#ipaMap .ipa-flagscopy');
+  ok((await fb.textContent()).includes('검수 표시 1개'), '처음 화면에 검수 표시 1개 · 복사');
+  await page.evaluate(() => { navigator.clipboard.writeText = () => Promise.reject(new Error('no')); document.execCommand = () => false; });
+  await fb.click(); await page.waitForTimeout(300);
+  const ex = await page.evaluate(() => JSON.parse(document.querySelector('#ipaMap .ipa-flags-text').value));
+  ok(ex.game === '발음고양' && ex.n === 1 && ex.flags[0].wid === rv.w.wid && ex.flags[0].audio === fl.aud && ex.flags[0].kind === 'audio' && ex.flags[0].note === '끝이 잘림' && /^\d{4}-\d\d-\d\dT/.test(ex.flags[0].at), '복사 실패하면 글 상자에 JSON(낱말 id·녹음 id·종류·메모·시각)');
+  await shot('t10-flags-copy');
+  ok(await page.evaluate(() => { const K = 'ipagoyang-flags-v1', f = (t, key) => ({ t, key, kind: 'text', audio: null });
+    const m = rtMerge({ [K]: JSON.stringify([f(1, 'a')]) }, { [K]: JSON.stringify([f(1, 'a'), f(2, 'b')]) }), v = JSON.parse(m.writes[K] || '[]');
+    const same = rtMerge({ [K]: JSON.stringify([f(1, 'a')]) }, { [K]: JSON.stringify([f(1, 'a')]) });
+    return v.map(x => x.key).join() === 'a,b' && !(K in same.writes); }), '기록 옮기기: 검수 표시를 합침');
+  // 귀 점수: 처음 화면 강 줄에 '귀 n/m'(셀 것이 있을 때만)
+  await page.evaluate(() => {
+    const seen = new Set(ipaTrialsRead().map(r => r.key)), rows = ipaTrialsRead();
+    const wid = Object.keys(IPA.earPairs).find(w => !seen.has('listen:' + w) && state.lessons.some(L => L.exercises.some(e => e.words.some(x => x.savedCardId === 'listen:' + w))));
+    const w = state.lessons.flatMap(L => L.exercises.flatMap(e => e.words)).find(x => x.savedCardId === 'listen:' + wid);
+    rows.push({ t: Date.now(), key: w.savedCardId, kind: 'listen', lesson: w.b, lang: w.lang, wid, sym: ipaSymOf(w), audio: null, typed: w.term, ok: true, timeout: false, copy: false, first: true });
+    ipaTrialsWrite(rows);
+  });
+  await page.reload(); await page.waitForTimeout(900);
+  const ear = await page.evaluate(() => { const { by } = ipaEarScore(); const tiles = [...document.querySelectorAll('#lessonGrid .lessonbtn:not(.saved-home)')];
+    return { good: tiles.every((b, i) => { const e = by[state.lessons[i].lesson], t = (b.querySelector('.ipa-ear') || {}).textContent || ''; return e && e.n + e.timeout ? t.includes(`귀 ${e.ok}/${e.n}`) : !t; }), shown: tiles.filter(b => b.querySelector('.ipa-ear')).length }; });
+  ok(ear.good && ear.shown >= 1, `강 줄에 귀 점수(${ear.shown}강)`);
+  await noH('처음(새 카드·복습·귀 점수)'); await shot('t11-home-ear');
+
   // 언어 고르기(26.11.08): 한국어만 고르면 한국어 낱말 카드만 남고, 한국어에 없는 기호(β·ð)는 이름 대기에서 빠진다
   const before = await page.evaluate(() => state.lessons.reduce((a, L) => a + L.exercises.reduce((b, e) => b + e.words.length, 0), 0));
   await page.locator('.ipa-langs button[data-lang="kor"]').click(); await page.waitForTimeout(1200);
